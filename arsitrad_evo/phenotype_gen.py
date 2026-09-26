@@ -28,6 +28,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle, FancyArrowPatch, Circle, Polygon
+from matplotlib.lines import Line2D
 
 from .genotype import Phenotype, Instance
 from .modules import (MODULES, relation, MUST, NEAR, SCREENED, AVOID, PROHIBITED,
@@ -399,6 +400,23 @@ def build_prototype(ph: Phenotype, candidate_label: str = "",
     proto.groupings = _groupings(proto)
     proto.provenance_log.append(f"building groupings from MUST/NEAR connectivity {HYP}")
 
+    # --- spatial-coherence flags (recorded, not silently drawn) ---
+    for m in proto.modules:
+        if (m.x - m.w / 2 < -0.05 or m.x + m.w / 2 > proto.site_w + 0.05 or
+                m.y - m.d / 2 < -0.05 or m.y + m.d / 2 > proto.site_h + 0.05):
+            proto.to_verify.append(
+                f"BOUNDARY {m.code}: rectangle overhangs the site edge "
+                f"(centroid placement from genotype; clipping is a design decision).")
+    conn_ids = set()
+    for c in proto.connections:
+        conn_ids.add(c.a_id); conn_ids.add(c.b_id)
+    for m in proto.modules:
+        if m.inst_id not in conn_ids:
+            proto.to_verify.append(
+                f"ISOLATED {m.code}: no corpus MUST/NEAR/SCREENED connection — "
+                f"architecturally unmoored; adjacency to the rest of the scheme "
+                f"must be designed.")
+
     # de-duplicate verify/hypothesis lists
     proto.to_verify = sorted(set(proto.to_verify))
     proto.design_hypotheses = sorted(set(proto.design_hypotheses))
@@ -549,11 +567,12 @@ def _classify_open_spaces(insts: list[Instance], res: int = 24) -> list[OpenSpac
             zones.append(OpenSpace(cx=round(cx, 1), cy=round(cy, 1),
                                    area_cells=len(cells), enclosure=e,
                                    space_type=t, provenance=HYP))
-    # keep meaningful zones: courtyards/pockets of >=2 cells; cap list
-    zones = [z for z in zones if z.area_cells >= 2 or z.space_type == "COURTYARD"]
+    # keep meaningful zones (>=2 cells); retain the FULL enclosure spectrum so the
+    # diagram shows courtyard + pocket + open-landscape variety (no cap).
+    zones = [z for z in zones if z.area_cells >= 2]
     zones.sort(key=lambda z: (z.space_type != "COURTYARD",
                               not z.space_type.startswith("POCKET"), -z.area_cells))
-    return zones[:8]
+    return zones
 
 
 def _threshold_sequence(proto: Prototype) -> list:
@@ -716,7 +735,7 @@ def render_circulation(proto: Prototype, path):
             col = circ_color.get(ckind, "#888")
             ax.plot([a.x, b.x], [a.y, b.y], color=col, lw=2.0, alpha=0.6, zorder=1)
             seen.add(ckind)
-    handles = [plt.Line2D([0], [0], color=circ_color[k], lw=2.5) for k in seen]  # type: ignore[attr-defined]
+    handles = [Line2D([0], [0], color=circ_color[k], lw=2.5) for k in seen]  # type: ignore[attr-defined]
     ax.legend(handles, list(seen), loc="upper right", fontsize=8, title="circulation")
     ax.set_title(f"Circulation skeleton — {proto.candidate or 'phenotype'} "
                  f"(resident/care/service/public)")
@@ -763,6 +782,120 @@ def render_objectives(proto: Prototype, path):
     fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
 
 
+def render_sightlines(proto: Prototype, path):
+    """Safeguarded sightline diagram: private->public exposure, screened vs exposed."""
+    fig, ax = plt.subplots(figsize=(10, 7))
+    _site_frame(ax, proto)
+    for m in proto.modules:
+        priv_col = "#fb7185" if m.code in PRIVATE else _MOD_COLOR.get(m.code, "#eee")
+        _module_box(ax, m, priv_col, show_parts=False)
+    n_exp = 0
+    for sl in proto.sightlines:
+        a = proto.modules[sl.from_id]; b = proto.modules[sl.to_id]
+        if sl.exposed:
+            n_exp += 1
+            ax.plot([a.x, b.x], [a.y, b.y], color="#dc2626", lw=2.0, ls="-",
+                    alpha=0.85, zorder=5)
+            mx, my = (a.x + b.x) / 2, (a.y + b.y) / 2
+            ax.plot([mx], [my], marker="x", color="#dc2626", ms=8, mew=2.5, zorder=6)
+        else:
+            ax.plot([a.x, b.x], [a.y, b.y], color="#16a34a", lw=1.2, ls="--",
+                    alpha=0.5, zorder=1)
+    handles = [Line2D([0], [0], color="#dc2626", lw=2),
+               Line2D([0], [0], color="#16a34a", lw=1.2, ls="--")]
+    ax.legend(handles, [f"EXPOSED (screening req.) {VERIFY}",
+                        f"screened by built mass"], loc="upper right", fontsize=8)
+    ax.set_title(f"Safeguarded sightlines — {proto.candidate or 'phenotype'} "
+                 f"({n_exp}/{len(proto.sightlines)} private-public EXPOSED; "
+                 f"diagrammatic, not a regulatory study)")
+    fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
+
+
+def render_open_space(proto: Prototype, path):
+    """Open-space structure: COURTYARD / POCKET COURT / OPEN LANDSCAPE by enclosure."""
+    fig, ax = plt.subplots(figsize=(10, 7))
+    _site_frame(ax, proto)
+    for m in proto.modules:
+        _module_box(ax, m, _MOD_COLOR.get(m.code, "#eee"), show_parts=False)
+    _OSP_COL = {"COURTYARD": "#16a34a", "POCKET COURT / THRESHOLD EDGE": "#f59e0b",
+                "OPEN LANDSCAPE": "#38bdf8"}
+    _OSP_MARK = {"COURTYARD": "o", "POCKET COURT / THRESHOLD EDGE": "s",
+                 "OPEN LANDSCAPE": "^"}
+    seen = set()
+    for s in proto.open_spaces:
+        col = _OSP_COL.get(s.space_type, "#888")
+        mk_ = _OSP_MARK.get(s.space_type, "o")
+        size = 60 + 6 * s.area_cells
+        ax.scatter([s.cx], [s.cy], s=size, marker=mk_, facecolor="none",
+                   edgecolor=col, lw=2.0, zorder=4)
+        ax.text(s.cx, s.cy, f"{s.space_type.split(' / ')[0].title()}\nenc={s.enclosure}",
+                ha="center", va="center", fontsize=5, color=col, zorder=5)
+        seen.add(s.space_type)
+    handles = [Line2D([0], [0], marker=_OSP_MARK[t], color="w", markerfacecolor="none",
+                          markeredgecolor=_OSP_COL[t], ms=10, lw=0) for t in seen]
+    ax.legend(handles, [t.title() for t in seen], loc="upper right", fontsize=7,
+              title="open space (schematic)")
+    ax.set_title(f"Open-space structure — {proto.candidate or 'phenotype'} "
+                 f"(by enclosure degree; schematic)")
+    fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
+
+
+def render_module_detail(proto: Prototype, path, n_panels: int = 6):
+    """Internal module plan diagrams: enlarged kit-of-parts for key modules."""
+    # prefer architecturally significant modules (domestic/care/public first)
+    prio = {PUB: 0, DOM: 1, CTRL: 2, SHR: 3, PER: 4}
+    mods = sorted(proto.modules, key=lambda m: (prio.get(m.privacy, 3),
+                                                -MODULES[m.code].area))
+    # unique codes, keep first occurrence
+    seen, panels = set(), []
+    for m in mods:
+        if m.code not in seen:
+            seen.add(m.code); panels.append(m)
+        if len(panels) >= n_panels:
+            break
+    ncol = 3; nrow = int(np.ceil(len(panels) / ncol))
+    fig, axes = plt.subplots(nrow, ncol, figsize=(13, 4.2 * nrow))
+    axes = np.atleast_1d(axes).ravel()
+    for ax in axes:
+        ax.set_xticks([]); ax.set_yticks([]); ax.set_aspect("equal")
+    for k, m in enumerate(panels):
+        ax = axes[k]
+        x0, y0 = m.x - m.w / 2, m.y - m.d / 2
+        ax.add_patch(Rectangle((0, 0), m.w, m.d, facecolor=_MOD_COLOR.get(m.code, "#eee"),
+                               edgecolor="k", lw=1.5, alpha=0.4))
+        for p in m.parts:
+            ax.add_patch(Rectangle((p.x - x0, p.y - y0), p.w, p.d,
+                                   facecolor=_PRIV_COLOR[p.privacy], edgecolor="white",
+                                   lw=0.6, alpha=0.7))
+            ax.text(p.x - x0 + p.w / 2, p.y - y0 + p.d / 2,
+                    f"{p.name}\n{p.provenance.split(']')[0]}]", ha="center", va="center",
+                    fontsize=4.5)
+        ex, ey = m.entrance_anchor
+        ax.plot([ex - x0], [ey - y0], marker="v", color="k", ms=7)
+        ax.set_title(f"{m.code} {m.name} (x{m.floors}) · {_PRIV_NAME[m.privacy]}",
+                     fontsize=9)
+        ax.set_xlim(-1, m.w + 1); ax.set_ylim(-1, m.d + 1)
+    fig.suptitle(f"Internal module plans — {proto.candidate or 'phenotype'} "
+                 f"(kit-of-parts zones, tagged; ▼=entrance)", fontsize=11)
+    fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
+
+
+def render_parallel(proto: Prototype, path):
+    """Performance profile as parallel coordinates across the 9 objectives."""
+    vals = [proto.objectives[n] for n in OBJ_NAMES]
+    fig, ax = plt.subplots(figsize=(11, 4.5))
+    xs = range(9)
+    ax.plot(xs, vals, marker="o", color="#0284c7", lw=2, ms=7)
+    for x, v in zip(xs, vals):
+        ax.text(x, v + 0.02, f"{v:.2f}", ha="center", fontsize=7)
+    ax.set_xticks(list(xs)); ax.set_xticklabels([n.split("_")[0] for n in OBJ_NAMES], fontsize=8)
+    ax.set_ylim(0, max(vals) * 1.15 + 0.05); ax.invert_yaxis()  # lower=better at top
+    ax.grid(alpha=0.25, axis="y")
+    ax.set_ylabel("objective value (lower = better)")
+    ax.set_title(f"Performance profile (parallel) — {proto.candidate or 'phenotype'}")
+    fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
+
+
 def _legend_provenance(fig):
     fig.text(0.01, 0.005,
              f"green=MUST {CORPUS}  blue=NEAR {CORPUS}  purple=SCREENED {HYP}  "
@@ -772,12 +905,14 @@ def _legend_provenance(fig):
 
 RENDERERS = [("plan", render_plan), ("axonometric", render_axonometric),
              ("stacking", render_stacking), ("privacy", render_privacy),
-             ("circulation", render_circulation), ("composition", render_composition),
-             ("objective_profile", render_objectives)]
+             ("circulation", render_circulation), ("sightlines", render_sightlines),
+             ("open_space", render_open_space), ("module_detail", render_module_detail),
+             ("composition", render_composition),
+             ("objective_profile", render_objectives), ("parallel", render_parallel)]
 
 
 def render_suite(proto: Prototype, outdir: str, stem: str) -> dict:
-    """Render all 7 schematic figures + JSON traceability. Returns {name: path}."""
+    """Render all schematic figures + JSON traceability. Returns {name: path}."""
     os.makedirs(outdir, exist_ok=True)
     import json
     outs = {}

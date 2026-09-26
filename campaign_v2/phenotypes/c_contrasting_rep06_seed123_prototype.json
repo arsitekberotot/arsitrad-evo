@@ -1299,6 +1299,70 @@
       "enclosure": 2,
       "space_type": "POCKET COURT / THRESHOLD EDGE",
       "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 34.6,
+      "cy": 31.8,
+      "area_cells": 19,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 76.9,
+      "cy": 34.6,
+      "area_cells": 16,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 80.6,
+      "cy": 57.7,
+      "area_cells": 15,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 54.4,
+      "cy": 33.3,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 75.0,
+      "cy": 21.8,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 52.5,
+      "cy": 16.7,
+      "area_cells": 2,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 52.5,
+      "cy": 21.8,
+      "area_cells": 2,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 20.7,
+      "cy": 22.5,
+      "area_cells": 136,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]"
     }
   ],
   "courtyards": [
@@ -1512,6 +1576,7 @@
   ],
   "to_verify": [
     "A0:threshold marker \u2014 sequence node",
+    "BOUNDARY R4: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
     "C0:commons threshold \u2014 link to R4 / landscape",
     "E0:service lock \u2014 staff-only access",
     "EXPOSED sightline A0->R4 (safeguarding-sensitive): direct segment unobstructed at 19.5 m; screening required [TO VERIFY].",

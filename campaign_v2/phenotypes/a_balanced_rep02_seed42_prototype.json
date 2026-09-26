@@ -1415,6 +1415,166 @@
       "enclosure": 4,
       "space_type": "COURTYARD",
       "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 45.0,
+      "cy": 48.7,
+      "area_cells": 4,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 73.1,
+      "cy": 47.4,
+      "area_cells": 3,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 84.4,
+      "cy": 11.5,
+      "area_cells": 3,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 23.6,
+      "cy": 47.7,
+      "area_cells": 77,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 73.1,
+      "cy": 37.2,
+      "area_cells": 21,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 26.2,
+      "cy": 14.1,
+      "area_cells": 8,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 52.5,
+      "cy": 11.5,
+      "area_cells": 6,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 9.4,
+      "cy": 6.4,
+      "area_cells": 5,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 65.6,
+      "cy": 21.8,
+      "area_cells": 5,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 9.4,
+      "cy": 20.5,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 45.0,
+      "cy": 17.9,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 56.2,
+      "cy": 50.0,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 65.6,
+      "cy": 5.1,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 65.6,
+      "cy": 55.1,
+      "area_cells": 3,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 73.1,
+      "cy": 11.5,
+      "area_cells": 3,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 73.1,
+      "cy": 50.0,
+      "area_cells": 3,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 84.4,
+      "cy": 14.1,
+      "area_cells": 3,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 17.8,
+      "cy": 39.6,
+      "area_cells": 71,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 60.5,
+      "cy": 13.9,
+      "area_cells": 11,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 65.6,
+      "cy": 37.2,
+      "area_cells": 7,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]"
     }
   ],
   "courtyards": [
@@ -1470,6 +1630,27 @@
     {
       "cx": 30.0,
       "cy": 34.6,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 45.0,
+      "cy": 48.7,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 73.1,
+      "cy": 47.4,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 84.4,
+      "cy": 11.5,
       "sides_enclosed": 4,
       "space_type": "COURTYARD",
       "provenance": "[DESIGN HYPOTHESIS]"
@@ -1691,6 +1872,11 @@
   ],
   "to_verify": [
     "A0:threshold marker \u2014 sequence node",
+    "BOUNDARY C0: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
+    "BOUNDARY F0: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
+    "BOUNDARY J0: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
+    "BOUNDARY M0: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
+    "BOUNDARY R4: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
     "C0:commons threshold \u2014 link to R4 / landscape",
     "E0:service lock \u2014 staff-only access",
     "EXPOSED sightline A0->R4 (safeguarding-sensitive): direct segment unobstructed at 13.7 m; screening required [TO VERIFY].",
@@ -1702,6 +1888,7 @@
     "EXPOSED sightline R4->K0 (PROHIBITED): direct segment unobstructed at 16.8 m; screening required [TO VERIFY].",
     "F0:service yard \u2014 independent service access",
     "H0:teaching threshold \u2014 controlled public link",
+    "ISOLATED I0: no corpus MUST/NEAR/SCREENED connection \u2014 architecturally unmoored; adjacency to the rest of the scheme must be designed.",
     "J0:sales threshold \u2014 public exchange point",
     "K0:safeguarded link \u2014 controlled link into community",
     "M0:technical yard \u2014 linked to F0 (MUST)",

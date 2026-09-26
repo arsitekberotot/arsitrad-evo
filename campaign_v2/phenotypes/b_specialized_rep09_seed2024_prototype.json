@@ -1300,6 +1300,174 @@
       "enclosure": 4,
       "space_type": "COURTYARD",
       "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 52.5,
+      "area_cells": 2,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 63.8,
+      "cy": 56.4,
+      "area_cells": 40,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 39.4,
+      "cy": 3.8,
+      "area_cells": 33,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 73.1,
+      "cy": 25.6,
+      "area_cells": 20,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 73.1,
+      "cy": 38.4,
+      "area_cells": 20,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 28.1,
+      "cy": 47.4,
+      "area_cells": 15,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 7.7,
+      "area_cells": 12,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 13.1,
+      "cy": 20.5,
+      "area_cells": 12,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 13.1,
+      "cy": 57.7,
+      "area_cells": 9,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 78.8,
+      "cy": 5.1,
+      "area_cells": 8,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 47.4,
+      "area_cells": 6,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 28.1,
+      "cy": 32.0,
+      "area_cells": 5,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 39.4,
+      "cy": 25.6,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 46.9,
+      "cy": 25.6,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 56.2,
+      "cy": 32.0,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 43.1,
+      "cy": 47.4,
+      "area_cells": 3,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 32.0,
+      "area_cells": 2,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 77.3,
+      "cy": 36.8,
+      "area_cells": 83,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 13.1,
+      "cy": 39.7,
+      "area_cells": 33,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 13.1,
+      "cy": 7.7,
+      "area_cells": 18,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 39.4,
+      "cy": 47.4,
+      "area_cells": 3,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]"
     }
   ],
   "courtyards": [
@@ -1355,6 +1523,13 @@
     {
       "cx": 43.1,
       "cy": 25.6,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 52.5,
       "sides_enclosed": 4,
       "space_type": "COURTYARD",
       "provenance": "[DESIGN HYPOTHESIS]"
@@ -1554,6 +1729,10 @@
   ],
   "to_verify": [
     "A0:threshold marker \u2014 sequence node",
+    "BOUNDARY E0: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
+    "BOUNDARY H0: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
+    "BOUNDARY L0: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
+    "BOUNDARY M0: rectangle overhangs the site edge (centroid placement from genotype; clipping is a design decision).",
     "C0:commons threshold \u2014 link to R4 / landscape",
     "E0:service lock \u2014 staff-only access",
     "EXPOSED sightline A0->R4 (safeguarding-sensitive): direct segment unobstructed at 16.4 m; screening required [TO VERIFY].",
@@ -1562,6 +1741,7 @@
     "EXPOSED sightline F0->R4 (PROHIBITED): direct segment unobstructed at 8.4 m; screening required [TO VERIFY].",
     "F0:service yard \u2014 independent service access",
     "H0:teaching threshold \u2014 controlled public link",
+    "ISOLATED I0: no corpus MUST/NEAR/SCREENED connection \u2014 architecturally unmoored; adjacency to the rest of the scheme must be designed.",
     "L0:care link \u2014 support reach (MUST to B0)",
     "M0:technical yard \u2014 linked to F0 (MUST)",
     "R4:connection point \u2014 controlled link to C0/care"
