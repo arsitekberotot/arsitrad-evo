@@ -1,0 +1,4 @@
+label,rep,program,residents,day_users,gfa,footprint,landscape_frac,worst,worst_val,F1,F2,F3,F4,F5,F6,F7,F8,F9
+BALANCED,12,R4x3 H1J1K0I0L0 C2fl H2fl,12,24,1417,1158.1,0.366,F9_landscape_buffer,0.543,0.263,0.0,0.211,0.006,0.391,0.409,0.336,0.333,0.543
+SPECIALIZED,1,R4x2 H1J1K1I0L0 C2fl H2fl,8,32,1449,1190.2,0.391,F9_landscape_buffer,0.581,0.32,0.167,0.381,0.001,0.402,0.402,0.516,0.0,0.581
+CONTRASTING,11,R4x2 H0J0K0I0L0 C2fl H2fl,8,8,991,840.6,0.487,F8_community_connection,1.0,0.106,0.0,0.279,0.049,0.284,0.256,0.544,1.0,0.352
