@@ -234,7 +234,13 @@ FEAS_TOL = 1e-6
 
 
 def evaluate_constraints(ph: Phenotype) -> tuple[float, bool, dict]:
-    """Return (total_violation, feasible, per_constraint_dict)."""
+    """Return (total_violation, feasible, per_constraint_dict).
+
+    hard_v drives feasibility (constrained domination). soft_v (MUST adjacency)
+    is kept SEPARATE in ph.soft_cv so it can act as a selection tie-break among
+    otherwise hard-feasible solutions (Campaign v2 fix) instead of being folded
+    into a CV that feasibility ignores.
+    """
     detail = {}
     hard_v = 0.0
     soft_v = 0.0
@@ -246,7 +252,7 @@ def evaluate_constraints(ph: Phenotype) -> tuple[float, bool, dict]:
         else:
             soft_v += val
     feasible = hard_v <= FEAS_TOL
-    total = hard_v + 0.1 * soft_v   # soft contributes weakly to CV ranking
-    ph.cv = total
+    ph.cv = hard_v                    # constrained-domination violation = hard only
+    ph.soft_cv = soft_v               # MUST-adjacency shortfall, separate
     ph.feasible = feasible
-    return total, feasible, detail
+    return hard_v, feasible, detail

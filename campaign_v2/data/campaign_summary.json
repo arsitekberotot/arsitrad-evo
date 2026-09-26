@@ -1,0 +1,21 @@
+{
+  "out": "campaign_v2",
+  "seeds": [
+    42,
+    7,
+    123,
+    2024,
+    555
+  ],
+  "base": {
+    "pop_size": 100,
+    "generations": 80
+  },
+  "archive_size": 429,
+  "cluster": {
+    "k": 2,
+    "k_elbow": 3,
+    "silhouette": 0.33820586536934977
+  },
+  "n_representatives": 11
+}

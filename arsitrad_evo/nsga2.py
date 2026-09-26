@@ -94,10 +94,14 @@ def assign_crowding(pop: list[Phenotype], front: list[int]) -> None:
 
 
 def crowded_better(a: Phenotype, b: Phenotype) -> bool:
-    """Crowded comparison operator: lower rank; tie -> larger crowding distance."""
+    """Crowded comparison operator: lower rank; tie -> larger crowding distance;
+    final tie -> smaller soft_cv (MUST-adjacency) so satisfied MUST relations
+    break ties among otherwise-equivalent feasible solutions (Campaign v2)."""
     if a.rank != b.rank:
         return a.rank < b.rank
-    return a.crowding > b.crowding
+    if a.crowding != b.crowding:
+        return a.crowding > b.crowding
+    return a.soft_cv < b.soft_cv
 
 
 # ---------------------------------------------------------------------------
@@ -110,6 +114,13 @@ def binary_tournament(pop, rng) -> Phenotype:
         return a if a.feasible else b
     if not a.feasible:
         return a if a.cv < b.cv else b
+    # both feasible: neither dominates in 9-objective space (dilution makes this
+    # the common case). Use soft MUST-adjacency as the feasibility-preserving
+    # discriminator so satisfied MUST relations genuinely influence selection
+    # (Campaign v2 fix). Only when soft_cv is ~equal do we fall back to crowded
+    # comparison (rank/crowding) to preserve diversity.
+    if abs(a.soft_cv - b.soft_cv) > 1e-6:
+        return a if a.soft_cv < b.soft_cv else b
     return a if crowded_better(a, b) else b
 
 
@@ -238,13 +249,19 @@ def run(cfg: GAConfig | None = None, verbose: bool = True):
             fi += 1
         if len(newpop) < cfg.pop_size and fi < len(fronts):
             assign_crowding(combined, fronts[fi])
-            rest = sorted(fronts[fi], key=lambda i: combined[i].crowding, reverse=True)
+            # crowding primary, soft MUST-adjacency secondary (Campaign v2) so
+            # satisfied MUST relations survive truncation of the last front.
+            rest = sorted(fronts[fi],
+                          key=lambda i: (combined[i].crowding, -combined[i].soft_cv),
+                          reverse=True)
             newpop += [combined[i] for i in rest[: cfg.pop_size - len(newpop)]]
         pop = newpop
 
         feas = sum(1 for p in pop if p.feasible)
         rank1 = sum(1 for p in pop if p.rank == 0)
-        history.append({"gen": gen, "feasible": feas, "rank1": rank1})
+        soft = float(np.mean([p.soft_cv for p in pop])) if pop else 0.0
+        history.append({"gen": gen, "feasible": feas, "rank1": rank1,
+                        "soft_cv_mean": round(soft, 4)})
         if verbose and (gen % 10 == 0 or gen == cfg.generations - 1):
             print(f"gen {gen:3d} | feasible {feas:3d}/{len(pop)} | rank1 {rank1:3d}")
 

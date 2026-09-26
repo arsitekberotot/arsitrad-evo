@@ -18,7 +18,16 @@ OBJ_NAMES = [n for n, _ in OBJECTIVES]
 
 
 def embed(phenos: list[Phenotype], use_genes: bool = False) -> np.ndarray:
+    """Objective embedding in NORMALIZED objective space (Campaign v2 fix).
+
+    Previously clustered on raw objectives, letting wide-range objectives (F8,
+    F7) dominate Euclidean distance over narrow ones (F2, F4). Min-max
+    normalizing each objective to [0,1] makes K-means distances comparable
+    across objectives and consistent with the interpretation layer."""
     X = np.array([np.asarray(p.objectives) for p in phenos], dtype=float)
+    lo = X.min(0); hi = X.max(0)
+    rng = np.where((hi - lo) < 1e-12, 1.0, hi - lo)
+    X = (X - lo) / rng
     if use_genes:
         G = np.array([p.genes for p in phenos], dtype=float)
         G = (G - G.mean(0)) / (G.std(0) + 1e-9)

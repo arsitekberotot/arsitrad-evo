@@ -44,7 +44,9 @@ def phenotype_row(p, extra=None):
     row.update({f"g_{n}": p.genes[i] for i, n in enumerate(GENE_NAMES)})
     row.update({"n_R4": p.n_R4, "residents": p.residents, "day_users": p.day_users,
                 "gfa": round(p.gfa, 1), "footprint": round(p.footprint, 1),
-                "landscape_frac": round(p.landscape_frac, 3), "rank": int(p.rank)})
+                "landscape_frac": round(p.landscape_frac, 3), "rank": int(p.rank),
+                "cv": round(float(p.cv), 4), "soft_cv": round(float(p.soft_cv), 3),
+                "feasible": bool(p.feasible)})
     if extra:
         row.update(extra)
     return row
@@ -106,6 +108,26 @@ def run_campaign(out: str, quick: bool = False):
     ax.legend(fontsize=7); ax.grid(alpha=0.3)
     fig.tight_layout(); fig.savefig(fig_path, dpi=140); plt.close(fig)
 
+    # MANY-OBJECTIVE DILUTION, correctly measured (Campaign v2): rank-1 fraction
+    # GROWTH per generation within each evolving population. A healthy 2-3
+    # objective run keeps rank-1 small; under 9 objectives rank-1 saturates to
+    # ~the whole population -> Pareto membership carries little discriminating
+    # information. This is shown per-generation, NOT via non-dominance inside an
+    # already-filtered archive.
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    for s, h in histories.items():
+        popn = base["pop_size"]
+        ax.plot([x["gen"] for x in h], [x["rank1"]/popn for x in h],
+                label=f"seed {s}", alpha=0.8)
+    ax.axhline(1.0, ls="--", color="k", lw=0.8, alpha=0.5)
+    ax.set_xlabel("generation"); ax.set_ylabel("rank-1 fraction of population")
+    ax.set_ylim(0, 1.05)
+    ax.set_title("Many-objective dilution: rank-1 fraction per generation")
+    ax.legend(fontsize=7); ax.grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(os.path.join(figdir, "rank1_growth_dilution.png"), dpi=140)
+    plt.close(fig)
+
     # ---- STAGE 2: sensitivity sweeps --------------------------------------
     print("[campaign] sensitivity sweeps")
     sens_rows = []
@@ -143,20 +165,29 @@ def run_campaign(out: str, quick: bool = False):
     fig.tight_layout(); fig.savefig(os.path.join(figdir, "sensitivity.png"), dpi=140, bbox_inches="tight"); plt.close(fig)
 
     # ---- STAGE 3: combined nondominated archive ---------------------------
-    # merge all seeds' rank-1 phenotypes, re-run nondominated sort on union
+    # merge all seeds' rank-1 phenotypes, re-run nondominated sort on union.
+    # SEED PROVENANCE is preserved (Campaign v2): each archive row carries its
+    # originating evolutionary seed.
     from arsitrad_evo.nsga2 import fast_nondominated_sort, assign_crowding
     union = [p for _, p in all_rank1]
+    seed_of = [s for s, _ in all_rank1]
     if union:
         fronts = fast_nondominated_sort(union)
         for fr in fronts:
             assign_crowding(union, fr)
         archive = [p for p in union if p.rank == 0 and p.feasible]
+        archive_seed = [s for s, p in zip(seed_of, union) if p.rank == 0 and p.feasible]
     else:
-        archive = []
+        archive, archive_seed = [], []
     print(f"[campaign] combined archive (nondominated across seeds): {len(archive)}")
 
-    df_arch = pd.DataFrame([phenotype_row(p) for p in archive])
+    df_arch = pd.DataFrame([phenotype_row(p, {"seed": s})
+                            for p, s in zip(archive, archive_seed)])
     df_arch.to_csv(os.path.join(datadir, "pareto_archive.csv"), index=False)
+
+    # per-seed generation histories -> dilution measured via rank-1 GROWTH (v2)
+    with open(os.path.join(datadir, "histories.json"), "w") as f:
+        json.dump({str(s): h for s, h in histories.items()}, f)
 
     # objective distributions across archive
     fig, axes = plt.subplots(3, 3, figsize=(12, 9))
@@ -194,10 +225,16 @@ def run_campaign(out: str, quick: bool = False):
         for ri, p in zip(cl.get("rep_indices", []), reps):
             rep_cluster[id(p)] = cl["labels"][ri]
 
+    # SEED PROVENANCE for representatives (Campaign v2): map each rep phenotype
+    # back to its originating evolutionary seed via the union ordering.
+    seed_by_id = {id(p): s for p, s in zip(union, seed_of)}
+
     trace_records = []
     for i, p in enumerate(reps):
         role = rep_roles[i] if i < len(rep_roles) else "representative"
         rec = analyze.traceability_record(p, cluster=rep_cluster.get(id(p)), role=role)
+        rec["seed"] = seed_by_id.get(id(p))          # v2: evolutionary seed
+        rec["soft_cv"] = round(float(p.soft_cv), 3)  # v2: MUST-adjacency shortfall
         trace_records.append(rec)
         with open(os.path.join(datadir, f"phenotype_{i:02d}.json"), "w") as f:
             json.dump(rec, f, indent=2)

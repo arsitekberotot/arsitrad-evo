@@ -1,0 +1,4 @@
+label,rep,seed,program,residents,gfa,footprint,landscape_frac,must_soft_cv,worst,worst_val,F1,F2,F3,F4,F5,F6,F7,F8,F9
+BALANCED,2,42,R4x2 H1J1K1I1L0 C2fl,8,1485,1226.2,0.463,0.0,F6_adaptability,0.581,0.328,0.0,0.298,0.113,0.414,0.581,0.276,0.0,0.408
+SPECIALIZED,9,2024,R4x2 H1J0K0I1L1 C1fl,8,1055,1054.9,0.538,17.504,F8_community_connection,0.667,0.19,0.0,0.132,0.047,0.356,0.289,0.254,0.667,0.23
+CONTRASTING,6,123,R4x4 H0J0K0I0L0 C1fl,16,1017,1016.6,0.548,20.537,F8_community_connection,1.0,0.23,0.0,0.4,0.012,0.343,0.241,0.301,1.0,0.005

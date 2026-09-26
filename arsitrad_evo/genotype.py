@@ -93,7 +93,8 @@ class Phenotype:
     public_intensity: int = 0
     # filled during evaluation
     objectives: np.ndarray | None = None
-    cv: float = 0.0            # total constraint violation
+    cv: float = 0.0            # hard constraint violation (drives feasibility)
+    soft_cv: float = 0.0       # MUST-adjacency shortfall (selection tie-break)
     feasible: bool = True
     rank: int = 0
     crowding: float = 0.0

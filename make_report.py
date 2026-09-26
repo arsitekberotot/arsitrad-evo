@@ -84,6 +84,10 @@ def make_report(campaign):
     A("")
     A("![multi-seed convergence](figures/convergence_multiseed.png)")
     A("")
+    A("![many-objective dilution — rank-1 growth](figures/rank1_growth_dilution.png)")
+    A("")
+    A("*Rank-1 fraction climbs to ~100% by mid-run in every seed — the dynamical signature of many-objective dilution (Campaign v2 measures this per-generation, not via non-dominance inside a filtered archive).*")
+    A("")
 
     # 6. Sensitivity
     A("## 6. Sensitivity tests")
@@ -141,32 +145,43 @@ def make_report(campaign):
 
     A("### 9.2 Per-phenotype summaries")
     for i, t in enumerate(D["traces"]):
-        A(f"#### phenotype_{i:02d} — {t.get('role')} (cluster {t.get('cluster')})")
-        cap = t["capacity"]; ar = t["areas"]
+        seed_tag = f" · seed {t.get('seed')}" if t.get("seed") is not None else ""
+        A(f"#### phenotype_{i:02d} — {t.get('role')} (cluster {t.get('cluster')}{seed_tag})")
+        cap = t["capacity"]; ar = t["areas"]; g = t["genes"]
         A(f"- **Capacity:** {cap['residents']} residents ({cap['n_R4']} clusters) · {cap['day_users']} day users")
         A(f"- **Areas:** GFA {ar['gfa']} m² · footprint {ar['footprint']} m² · landscape {ar['landscape_area']} m² ({ar['landscape_frac']*100:.0f}%) · reserve {ar['reserve_area']} m²")
-        A(f"- **Genes:** n_R4={t['genes']['n_R4']}, H0={t['genes']['has_H0']}, J0={t['genes']['has_J0']}, K0={t['genes']['has_K0']}, I0={t['genes']['has_I0']}, L0={t['genes']['has_L0']}, public_intensity={t['genes']['public_intensity']}, floors_C0={t['genes']['floors_C0']}, floors_H0={t['genes']['floors_H0']}")
+        if t.get("soft_cv") is not None:
+            A(f"- **MUST-adjacency shortfall:** {t['soft_cv']} m (0 = all satisfied)")
+        # dormant-gene-clean description (floors_H0 omitted when H0 absent)
+        gene_bits = [f"n_R4={g['n_R4']}", f"H0={g['has_H0']}", f"J0={g['has_J0']}",
+                     f"K0={g['has_K0']}", f"I0={g['has_I0']}", f"L0={g['has_L0']}",
+                     f"public_intensity={g['public_intensity']}", f"floors_C0={g['floors_C0']}"]
+        if "floors_H0" in g:
+            gene_bits.append(f"floors_H0={g['floors_H0']}")
+        A(f"- **Genes:** " + ", ".join(gene_bits))
         A(f"- **Strongest objective:** {t['strongest_objective']} · **weakest:** {t['weakest_objective']}")
         A(f"- figures: `phenotype_{i:02d}_siteplan.png`, `_privacy.png`, `_stacking.png`, `_circulation.png`, `_landscape.png`, `_radar.png`")
         A("")
 
     # 10. Interpretation
     A("## 10. Architectural interpretation")
-    A("Representatives span the program's real trade-space rather than one fixed answer. Recurring families observed across seeds:")
-    A("- **Domestic / privacy-priority** (few clusters, no public modules, high landscape): strongest F2/F9, weaker F8 — closest to the corpus's non-negotiable safeguarding core.")
-    A("- **Balanced** (medium clusters, some learning/reflection): mid performance across most objectives — echoes the earlier hand-built 'balanced care' base case.")
-    A("- **Community-interface** (K0/J0 present, higher public_intensity): strongest F8, requires the strictest non-exposure control (echoes the earlier 'distributed village' open question).")
+    A("Representatives span the program's real trade-space rather than one fixed answer. The dominant, repeatable structure is a **compact-vs-landscape** axis (the clean k=2 split), overlaid on the genuine **F5–F8 (site-efficiency vs community-connection) conflict**:")
+    A("- **Compact / low-landscape** (n_R4=2, landscape ~0.35): tighter sites, slightly better F5/F3.")
+    A("- **Higher-landscape** (n_R4=2/3/4, landscape ~0.46): more buffer, stronger F9.")
+    A("- **Open (public modules present)** vs **closed (none)** positions the F8 axis; the closed strategy is the most recurrent program in the archive under safeguarding-as-hard-constraint.")
     A("")
-    A("**No universal winner is declared.** Selection among families remains a safeguarding/operator decision, not an optimization output.")
+    A("> **No universal winner is declared, and no discrete typology is named** — the trade-space is largely continuous (modest silhouette). The actionable output is the 3-candidate shortlist in `DESIGN_HANDOFF_v2.md`. Selection among candidates remains a safeguarding/operator/policy decision, not an optimization output.")
     A("")
 
     # 11. Limitations
     A("## 11. Limitations & unresolved assumptions")
-    A("- **Many-objective dilution:** with 9 objectives the population tends to become all-rank-1 mid-run, weakening Pareto pressure. Remedies: aggregate objectives, NSGA-III, ε-dominance.")
-    A("- **Objective proxies are `[DESIGN HYPOTHESIS]`:** F1/F2/F4 use distance/area heuristics, not measured safeguarding outcomes. Reference ranges in `config.py` need calibration.")
+    A("- **Many-objective dilution:** with 9 objectives the population becomes all-rank-1 by mid-run (see rank-1 growth figure), so Pareto membership is necessary-but-not-sufficient evidence of quality. Remedies: aggregate objectives, NSGA-III, ε-dominance.")
+    A("- **Objective proxies are `[DESIGN HYPOTHESIS]`:** F9 ≈ landscape-area (r≈−0.94), F8 ≈ public-module count (r≈−0.73), F7 ≈ f(n_R4), F2/F4 near-binary. Reference ranges in `config.py` need calibration with safeguarding/clinical criteria.")
+    A("- **Soft MUST-adjacency** is a selection discriminator among feasible solutions, not a hard constraint — representative shortfalls (e.g. B/C candidates) are reported honestly and resolved at schematic stage, not by the optimizer.")
+    A("- **Low cross-seed program recurrence** (Jaccard ≈ 0.01): independent runs find different specific programs; only trade-space-level and shortlist-level claims are robust.")
     A("- **Accessibility/egress** is a placeholder; real dimensions require regulatory review `[TO VERIFY]`.")
     A("- **Rectangular site envelope;** real parcel shape/orientation `[TO VERIFY]` before any scaled drawing.")
-    A("- **Clustering silhouette is modest** — the front is continuous; families are indicative, not discrete types.")
+    A("- **Clustering silhouette is modest (k=2, ~0.34)** — the front is largely continuous; the k=2 compact-vs-landscape split is a coarse structure, not discrete types.")
     A("- K-means and the architectural-scale adaptation are methodological choices, not validated by the source papers.")
     A("")
     A("## 12. Reproducibility")

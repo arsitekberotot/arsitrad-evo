@@ -1,0 +1,193 @@
+{
+  "role": "extreme",
+  "cluster": 1,
+  "feasible": true,
+  "rank": 0,
+  "crowding_distance": null,
+  "genes": {
+    "n_R4": 2,
+    "has_H0": 1,
+    "has_J0": 1,
+    "has_K0": 1,
+    "has_I0": 1,
+    "has_L0": 0,
+    "public_intensity": 3,
+    "floors_C0": 2,
+    "floors_H0": 2,
+    "landscape_frac": 0.4634,
+    "service_depth": 9.8134,
+    "buffer_depth": 21.601,
+    "reserve_area": 114.0225
+  },
+  "capacity": {
+    "residents": 8,
+    "n_R4": 2,
+    "day_users": 32
+  },
+  "areas": {
+    "gfa": 1485,
+    "footprint": 1226.2,
+    "landscape_area": 2564.3,
+    "landscape_frac": 0.463,
+    "reserve_area": 114.0
+  },
+  "modules": [
+    {
+      "code": "A0",
+      "name": "Civic Threshold",
+      "x": 54.01,
+      "y": 42.47,
+      "w": 11.5,
+      "d": 8.0,
+      "floors": 1,
+      "area": 92,
+      "privacy": 1
+    },
+    {
+      "code": "B0",
+      "name": "Care & Safeguarding",
+      "x": 45.37,
+      "y": 32.59,
+      "w": 11.5,
+      "d": 8.0,
+      "floors": 1,
+      "area": 92,
+      "privacy": 1
+    },
+    {
+      "code": "C0",
+      "name": "Everyday Commons",
+      "x": 20.27,
+      "y": 4.94,
+      "w": 14.0,
+      "d": 10.7,
+      "floors": 2,
+      "area": 150,
+      "privacy": 2
+    },
+    {
+      "code": "E0",
+      "name": "Staff Base",
+      "x": 43.08,
+      "y": 41.14,
+      "w": 9.5,
+      "d": 8.0,
+      "floors": 1,
+      "area": 76,
+      "privacy": 1
+    },
+    {
+      "code": "F0",
+      "name": "Service Edge",
+      "x": 78.68,
+      "y": 10.26,
+      "w": 18.0,
+      "d": 9.6,
+      "floors": 1,
+      "area": 173,
+      "privacy": 1
+    },
+    {
+      "code": "M0",
+      "name": "Technical Commons",
+      "x": 76.63,
+      "y": 25.05,
+      "w": 10.0,
+      "d": 8.2,
+      "floors": 1,
+      "area": 82,
+      "privacy": 1
+    },
+    {
+      "code": "R4",
+      "name": "Domestic Cluster",
+      "x": 57.14,
+      "y": 17.54,
+      "w": 11.0,
+      "d": 8.0,
+      "floors": 1,
+      "area": 88,
+      "privacy": 3
+    },
+    {
+      "code": "R4",
+      "name": "Domestic Cluster",
+      "x": 32.98,
+      "y": 1.57,
+      "w": 11.0,
+      "d": 8.0,
+      "floors": 1,
+      "area": 88,
+      "privacy": 3
+    },
+    {
+      "code": "H0",
+      "name": "Learning House",
+      "x": 2.78,
+      "y": 27.76,
+      "w": 12.0,
+      "d": 9.0,
+      "floors": 2,
+      "area": 108,
+      "privacy": 2
+    },
+    {
+      "code": "J0",
+      "name": "Livelihood House",
+      "x": 78.48,
+      "y": 49.69,
+      "w": 13.5,
+      "d": 9.0,
+      "floors": 1,
+      "area": 122,
+      "privacy": 2
+    },
+    {
+      "code": "K0",
+      "name": "Community House",
+      "x": 30.35,
+      "y": 44.04,
+      "w": 13.5,
+      "d": 8.9,
+      "floors": 1,
+      "area": 120,
+      "privacy": 0
+    },
+    {
+      "code": "I0",
+      "name": "Reflection Pavilion",
+      "x": 40.46,
+      "y": 13.37,
+      "w": 6.0,
+      "d": 6.0,
+      "floors": 1,
+      "area": 36,
+      "privacy": 2
+    }
+  ],
+  "objectives": {
+    "F1_safeguarding": 0.3281,
+    "F2_privacy_agency": 0.0,
+    "F3_everyday_life": 0.2978,
+    "F4_service_separation": 0.1134,
+    "F5_site_efficiency": 0.4143,
+    "F6_adaptability": 0.5805,
+    "F7_domestic_scale": 0.276,
+    "F8_community_connection": 0.0,
+    "F9_landscape_buffer": 0.4079
+  },
+  "strongest_objective": "F2_privacy_agency",
+  "weakest_objective": "F6_adaptability",
+  "constraint_violations": {},
+  "open_assumptions": [
+    "F1/F2/F4 use distance/area proxies, not measured safeguarding outcomes [DH]",
+    "Accessibility/egress constraint is a placeholder; real dims TO VERIFY",
+    "Care-response distance threshold CARE_RESPONSE_MAX is a DH proxy [TO VERIFY]",
+    "Buffer/setback depths are not universal setbacks [TO VERIFY]",
+    "Rectangular site envelope; real parcel shape/orientation TO VERIFY",
+    "Objective normalization reference ranges uncalibrated [DH]",
+    "Day-user/staff concurrency are test values, not demand forecasts [TO VERIFY]"
+  ],
+  "seed": 42,
+  "soft_cv": 0.0
+}

@@ -34,9 +34,19 @@ def normalize_objectives(phenos: list[Phenotype]) -> np.ndarray:
 
 
 def genes_dict(ph: Phenotype) -> dict:
+    """Human-readable genotype with DORMANT/MASKED genes removed (Campaign v2).
+
+    Optional-module genes are masked when the module is absent (e.g. floors_H0
+    when has_H0=0); the public_intensity slot is overridden by the derived
+    value, so the raw slot is replaced. Only architecturally meaningful genes
+    are reported."""
     d = {name: (int(round(ph.genes[i])) if t == "int" else round(float(ph.genes[i]), 4))
          for i, (name, t, _, _) in enumerate(STRUCT_GENES)}
-    # reflect the DERIVED public_intensity actually used (gene slot is overridden)
+    # drop dormant floor genes for absent optional modules
+    if d.get("has_H0", 0) == 0:
+        d.pop("floors_H0", None)
+    # floors_C0 always meaningful (C0 is always present); keep.
+    # public_intensity slot is overridden by the derived value -> report derived.
     d["public_intensity"] = int(ph.public_intensity)
     return d
 
