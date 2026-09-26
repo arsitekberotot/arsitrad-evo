@@ -23,6 +23,9 @@ python3 -m venv .venv
 
 ## Quick start
 ```bash
+# validate the pipeline (16 invariant tests)
+.venv/bin/python -m pytest tests/ -q
+
 # single run
 .venv/bin/python run_experiment.py --pop 100 --gen 80 --seed 42 --out results
 
@@ -44,6 +47,8 @@ arsitrad_evo/
   visualize.py    site plans, zoning, stacking, circulation, radar, parallel coords...
 run_experiment.py single-run CLI
 run_campaign.py   multi-seed + sensitivity + full report campaign
+make_report.py    generates REPORT.md from campaign outputs
+tests/            pytest invariant tests (NSGA-II correctness, constraints, codec)
 SPEC.md           design spec: every architectural rule -> DV / OBJ / HC
 REPORT.md         generated research report (full traceable chain)
 ```
