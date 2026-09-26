@@ -200,7 +200,8 @@ def evaluate(genes: np.ndarray) -> Phenotype:
 # ---------------------------------------------------------------------------
 # Main NSGA-II loop  [PAPER METHOD]
 # ---------------------------------------------------------------------------
-def run(cfg: GAConfig | None = None, verbose: bool = True):
+def run(cfg: GAConfig | None = None, verbose: bool = True,
+        snapshot_at: set[int] | None = None, on_snapshot=None):
     cfg = cfg or GAConfig()
     rng = np.random.default_rng(cfg.seed)
     lo, hi, is_int = gene_bounds()
@@ -211,6 +212,8 @@ def run(cfg: GAConfig | None = None, verbose: bool = True):
     # 1. randomized initial population
     pop = [evaluate(random_genotype(rng)) for _ in range(cfg.pop_size)]
     history = []
+    if on_snapshot is not None and snapshot_at is not None and 0 in snapshot_at:
+        on_snapshot(0, pop)
 
     for gen in range(cfg.generations):
         fronts = fast_nondominated_sort(pop)
@@ -264,6 +267,8 @@ def run(cfg: GAConfig | None = None, verbose: bool = True):
                         "soft_cv_mean": round(soft, 4)})
         if verbose and (gen % 10 == 0 or gen == cfg.generations - 1):
             print(f"gen {gen:3d} | feasible {feas:3d}/{len(pop)} | rank1 {rank1:3d}")
+        if on_snapshot is not None and snapshot_at is not None and (gen + 1) in snapshot_at:
+            on_snapshot(gen + 1, pop)
 
     # final sort for output
     fronts = fast_nondominated_sort(pop)
