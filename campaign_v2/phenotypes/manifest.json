@@ -1,0 +1,110 @@
+[
+  {
+    "candidate": "A_BALANCED",
+    "rep_index": 2,
+    "seed": 42,
+    "program": "R4x2 res=8 day=32",
+    "residents": 8,
+    "day_users": 32,
+    "gfa": 1377,
+    "landscape_frac": 0.533,
+    "n_modules": 12,
+    "n_connections": 32,
+    "n_courtyards": 8,
+    "n_to_verify": 16,
+    "n_design_hypotheses": 11,
+    "objectives": {
+      "F1_safeguarding": 0.301,
+      "F2_privacy_agency": 0.0,
+      "F3_everyday_life": 0.307,
+      "F4_service_separation": 0.058,
+      "F5_site_efficiency": 0.414,
+      "F6_adaptability": 0.306,
+      "F7_domestic_scale": 0.238,
+      "F8_community_connection": 0.0,
+      "F9_landscape_buffer": 0.241
+    },
+    "figures": {
+      "plan": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/a_balanced_rep02_seed42_plan.png",
+      "axonometric": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/a_balanced_rep02_seed42_axonometric.png",
+      "stacking": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/a_balanced_rep02_seed42_stacking.png",
+      "privacy": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/a_balanced_rep02_seed42_privacy.png",
+      "circulation": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/a_balanced_rep02_seed42_circulation.png",
+      "composition": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/a_balanced_rep02_seed42_composition.png",
+      "objective_profile": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/a_balanced_rep02_seed42_objective_profile.png",
+      "json": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/a_balanced_rep02_seed42_prototype.json"
+    }
+  },
+  {
+    "candidate": "B_SPECIALIZED",
+    "rep_index": 9,
+    "seed": 2024,
+    "program": "R4x2 res=8 day=16",
+    "residents": 8,
+    "day_users": 16,
+    "gfa": 1055,
+    "landscape_frac": 0.538,
+    "n_modules": 11,
+    "n_connections": 30,
+    "n_courtyards": 8,
+    "n_to_verify": 12,
+    "n_design_hypotheses": 10,
+    "objectives": {
+      "F1_safeguarding": 0.19,
+      "F2_privacy_agency": 0.0,
+      "F3_everyday_life": 0.132,
+      "F4_service_separation": 0.047,
+      "F5_site_efficiency": 0.356,
+      "F6_adaptability": 0.29,
+      "F7_domestic_scale": 0.254,
+      "F8_community_connection": 0.667,
+      "F9_landscape_buffer": 0.23
+    },
+    "figures": {
+      "plan": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/b_specialized_rep09_seed2024_plan.png",
+      "axonometric": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/b_specialized_rep09_seed2024_axonometric.png",
+      "stacking": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/b_specialized_rep09_seed2024_stacking.png",
+      "privacy": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/b_specialized_rep09_seed2024_privacy.png",
+      "circulation": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/b_specialized_rep09_seed2024_circulation.png",
+      "composition": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/b_specialized_rep09_seed2024_composition.png",
+      "objective_profile": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/b_specialized_rep09_seed2024_objective_profile.png",
+      "json": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/b_specialized_rep09_seed2024_prototype.json"
+    }
+  },
+  {
+    "candidate": "C_CONTRASTING",
+    "rep_index": 6,
+    "seed": 123,
+    "program": "R4x4 res=16 day=8",
+    "residents": 16,
+    "day_users": 8,
+    "gfa": 1017,
+    "landscape_frac": 0.447,
+    "n_modules": 10,
+    "n_connections": 26,
+    "n_courtyards": 5,
+    "n_to_verify": 12,
+    "n_design_hypotheses": 7,
+    "objectives": {
+      "F1_safeguarding": 0.247,
+      "F2_privacy_agency": 0.0,
+      "F3_everyday_life": 0.4,
+      "F4_service_separation": 0.039,
+      "F5_site_efficiency": 0.343,
+      "F6_adaptability": 0.208,
+      "F7_domestic_scale": 0.166,
+      "F8_community_connection": 1.0,
+      "F9_landscape_buffer": 0.248
+    },
+    "figures": {
+      "plan": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/c_contrasting_rep06_seed123_plan.png",
+      "axonometric": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/c_contrasting_rep06_seed123_axonometric.png",
+      "stacking": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/c_contrasting_rep06_seed123_stacking.png",
+      "privacy": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/c_contrasting_rep06_seed123_privacy.png",
+      "circulation": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/c_contrasting_rep06_seed123_circulation.png",
+      "composition": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/c_contrasting_rep06_seed123_composition.png",
+      "objective_profile": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/c_contrasting_rep06_seed123_objective_profile.png",
+      "json": "/home/hanif/Documents/Projects/PA 5 x TA/arsitrad-evo/campaign_v2/phenotypes/c_contrasting_rep06_seed123_prototype.json"
+    }
+  }
+]

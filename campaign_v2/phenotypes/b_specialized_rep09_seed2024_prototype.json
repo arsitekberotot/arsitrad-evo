@@ -1,0 +1,1581 @@
+{
+  "candidate": "B_SPECIALIZED",
+  "rep_index": 9,
+  "seed": 2024,
+  "program": "R4x2 res=8 day=16",
+  "site_w": 90.0,
+  "site_h": 61.5,
+  "residents": 8,
+  "day_users": 16,
+  "gfa": 1055,
+  "footprint": 1054.9,
+  "landscape_frac": 0.538,
+  "landscape_area": 2974.7,
+  "modules": [
+    {
+      "inst_id": 0,
+      "code": "A0",
+      "name": "Civic Threshold",
+      "x": 56.58935339817817,
+      "y": 37.67177620520722,
+      "w": 11.5,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        56.58935339817817,
+        33.67177620520722
+      ],
+      "connection_anchors": [
+        [
+          56.58935339817817,
+          41.67177620520722
+        ],
+        [
+          62.33935339817817,
+          37.67177620520722
+        ],
+        [
+          50.83935339817817,
+          37.67177620520722
+        ]
+      ],
+      "interface": "public",
+      "parts": [
+        {
+          "name": "public forecourt",
+          "x": 51.41435339817817,
+          "y": 38.07177620520722,
+          "w": 5.75,
+          "d": 3.2,
+          "privacy": 0,
+          "provenance": "[PA5 CORPUS]",
+          "note": "arrival from street"
+        },
+        {
+          "name": "controlled gate",
+          "x": 57.73935339817817,
+          "y": 38.07177620520722,
+          "w": 4.0249999999999995,
+          "d": 3.2,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "legitimate public->private"
+        },
+        {
+          "name": "waiting / lobby",
+          "x": 51.41435339817817,
+          "y": 34.47177620520722,
+          "w": 5.175,
+          "d": 3.04,
+          "privacy": 1,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "visitor holding"
+        },
+        {
+          "name": "threshold marker",
+          "x": 57.16435339817817,
+          "y": 34.47177620520722,
+          "w": 4.6000000000000005,
+          "d": 3.04,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "sequence node"
+        }
+      ]
+    },
+    {
+      "inst_id": 1,
+      "code": "B0",
+      "name": "Care & Safeguarding",
+      "x": 25.281739024078,
+      "y": 38.61828914060743,
+      "w": 11.5,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        25.281739024078,
+        34.61828914060743
+      ],
+      "connection_anchors": [
+        [
+          25.281739024078,
+          42.61828914060743
+        ],
+        [
+          31.031739024078,
+          38.61828914060743
+        ],
+        [
+          19.531739024078,
+          38.61828914060743
+        ]
+      ],
+      "interface": "protected",
+      "parts": [
+        {
+          "name": "intake",
+          "x": 20.106739024078,
+          "y": 39.01828914060743,
+          "w": 3.22,
+          "d": 3.04,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "arrival / admission"
+        },
+        {
+          "name": "counselling",
+          "x": 23.901739024078,
+          "y": 39.01828914060743,
+          "w": 3.22,
+          "d": 3.04,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "therapeutic rooms"
+        },
+        {
+          "name": "safeguarding",
+          "x": 27.581739024077997,
+          "y": 39.01828914060743,
+          "w": 2.99,
+          "d": 3.04,
+          "privacy": 4,
+          "provenance": "[PA5 CORPUS]",
+          "note": "protected records / response"
+        },
+        {
+          "name": "care response",
+          "x": 20.106739024078,
+          "y": 35.41828914060743,
+          "w": 5.175,
+          "d": 2.88,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "rapid reach to R4"
+        },
+        {
+          "name": "staff control",
+          "x": 25.856739024078,
+          "y": 35.41828914060743,
+          "w": 4.6000000000000005,
+          "d": 2.88,
+          "privacy": 1,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "observation point"
+        }
+      ]
+    },
+    {
+      "inst_id": 2,
+      "code": "C0",
+      "name": "Everyday Commons",
+      "x": 28.185957810673738,
+      "y": 14.806347585939585,
+      "w": 14.0,
+      "d": 10.7,
+      "floors": 1,
+      "privacy": 2,
+      "orientation": "EW",
+      "entrance_anchor": [
+        28.185957810673738,
+        20.156347585939585
+      ],
+      "connection_anchors": [
+        [
+          28.185957810673738,
+          9.456347585939586
+        ],
+        [
+          35.18595781067374,
+          14.806347585939585
+        ],
+        [
+          21.185957810673738,
+          14.806347585939585
+        ]
+      ],
+      "interface": "shared",
+      "parts": [
+        {
+          "name": "shared kitchen",
+          "x": 21.885957810673737,
+          "y": 14.806347585939585,
+          "w": 4.2,
+          "d": 4.494,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "communal cooking"
+        },
+        {
+          "name": "dining / gathering",
+          "x": 26.50595781067374,
+          "y": 14.806347585939585,
+          "w": 4.760000000000001,
+          "d": 4.494,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "shared meals"
+        },
+        {
+          "name": "everyday activity",
+          "x": 31.545957810673737,
+          "y": 14.806347585939585,
+          "w": 3.08,
+          "d": 4.494,
+          "privacy": 2,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "laundry / workshop"
+        },
+        {
+          "name": "covered terrace",
+          "x": 21.885957810673737,
+          "y": 10.312347585939586,
+          "w": 7.700000000000001,
+          "d": 3.638,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "outdoor everyday life"
+        },
+        {
+          "name": "commons threshold",
+          "x": 29.865957810673738,
+          "y": 10.312347585939586,
+          "w": 4.62,
+          "d": 3.638,
+          "privacy": 2,
+          "provenance": "[TO VERIFY]",
+          "note": "link to R4 / landscape"
+        }
+      ]
+    },
+    {
+      "inst_id": 3,
+      "code": "E0",
+      "name": "Staff Base",
+      "x": 2.5319013644283856,
+      "y": 19.779193517049162,
+      "w": 9.5,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        7.281901364428386,
+        19.779193517049162
+      ],
+      "connection_anchors": [
+        [
+          2.5319013644283856,
+          23.779193517049162
+        ],
+        [
+          2.5319013644283856,
+          15.779193517049162
+        ],
+        [
+          -2.2180986355716144,
+          19.779193517049162
+        ]
+      ],
+      "interface": "protected",
+      "parts": [
+        {
+          "name": "staff room",
+          "x": -1.7430986355716143,
+          "y": 19.779193517049162,
+          "w": 4.275,
+          "d": 3.36,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "care team base"
+        },
+        {
+          "name": "handover / admin",
+          "x": 3.006901364428386,
+          "y": 19.779193517049162,
+          "w": 3.8000000000000003,
+          "d": 3.36,
+          "privacy": 1,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "shift handover"
+        },
+        {
+          "name": "rapid response",
+          "x": -1.7430986355716143,
+          "y": 16.419193517049163,
+          "w": 5.2250000000000005,
+          "d": 2.72,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "direct reach to R4"
+        },
+        {
+          "name": "service lock",
+          "x": 3.9569013644283855,
+          "y": 16.419193517049163,
+          "w": 2.85,
+          "d": 2.72,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "staff-only access"
+        }
+      ]
+    },
+    {
+      "inst_id": 4,
+      "code": "F0",
+      "name": "Service Edge",
+      "x": 52.14419829154872,
+      "y": 15.550520881883038,
+      "w": 18.0,
+      "d": 9.6,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        61.14419829154872,
+        15.550520881883038
+      ],
+      "connection_anchors": [
+        [
+          52.14419829154872,
+          20.35052088188304
+        ],
+        [
+          52.14419829154872,
+          10.750520881883038
+        ],
+        [
+          43.14419829154872,
+          15.550520881883038
+        ]
+      ],
+      "interface": "service",
+      "parts": [
+        {
+          "name": "delivery / loading",
+          "x": 44.04419829154872,
+          "y": 16.03052088188304,
+          "w": 8.1,
+          "d": 3.84,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "goods arrival"
+        },
+        {
+          "name": "storage",
+          "x": 53.04419829154872,
+          "y": 16.03052088188304,
+          "w": 7.2,
+          "d": 3.84,
+          "privacy": 1,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "supplies"
+        },
+        {
+          "name": "waste / utility",
+          "x": 44.04419829154872,
+          "y": 11.710520881883038,
+          "w": 8.1,
+          "d": 3.6479999999999997,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "back-of-house"
+        },
+        {
+          "name": "service yard",
+          "x": 53.04419829154872,
+          "y": 11.710520881883038,
+          "w": 7.2,
+          "d": 3.6479999999999997,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "independent service access"
+        }
+      ]
+    },
+    {
+      "inst_id": 5,
+      "code": "M0",
+      "name": "Technical Commons",
+      "x": 67.76695882332591,
+      "y": 3.8597464058383624,
+      "w": 10.0,
+      "d": 8.2,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        72.76695882332591,
+        3.8597464058383624
+      ],
+      "connection_anchors": [
+        [
+          67.76695882332591,
+          7.959746405838362
+        ],
+        [
+          67.76695882332591,
+          -0.24025359416163727
+        ],
+        [
+          62.76695882332591,
+          3.8597464058383624
+        ]
+      ],
+      "interface": "service",
+      "parts": [
+        {
+          "name": "plant / technical",
+          "x": 63.26695882332591,
+          "y": 3.8597464058383624,
+          "w": 5.5,
+          "d": 3.4439999999999995,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "building services"
+        },
+        {
+          "name": "workshop",
+          "x": 69.26695882332591,
+          "y": 3.8597464058383624,
+          "w": 3.0,
+          "d": 3.4439999999999995,
+          "privacy": 2,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "maintenance / making"
+        },
+        {
+          "name": "technical yard",
+          "x": 63.26695882332591,
+          "y": 0.41574640583836264,
+          "w": 5.5,
+          "d": 2.788,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "linked to F0 (MUST)"
+        }
+      ]
+    },
+    {
+      "inst_id": 6,
+      "code": "R4",
+      "name": "Domestic Cluster",
+      "x": 29.382576277145958,
+      "y": 25.882962197199454,
+      "w": 11.0,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 3,
+      "orientation": "EW",
+      "entrance_anchor": [
+        29.382576277145958,
+        21.882962197199454
+      ],
+      "connection_anchors": [
+        [
+          29.382576277145958,
+          29.882962197199454
+        ],
+        [
+          34.88257627714596,
+          25.882962197199454
+        ],
+        [
+          23.882576277145958,
+          25.882962197199454
+        ]
+      ],
+      "interface": "domestic",
+      "parts": [
+        {
+          "name": "personal territory",
+          "x": 24.43257627714596,
+          "y": 25.482962197199456,
+          "w": 4.62,
+          "d": 4.0,
+          "privacy": 4,
+          "provenance": "[PA5 CORPUS]",
+          "note": "resident private rooms"
+        },
+        {
+          "name": "shared domestic",
+          "x": 29.712576277145956,
+          "y": 25.482962197199456,
+          "w": 4.62,
+          "d": 4.0,
+          "privacy": 3,
+          "provenance": "[PA5 CORPUS]",
+          "note": "living / dining"
+        },
+        {
+          "name": "WASH",
+          "x": 24.43257627714596,
+          "y": 22.522962197199455,
+          "w": 3.3,
+          "d": 2.4,
+          "privacy": 4,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "hygiene cluster"
+        },
+        {
+          "name": "retreat / porch",
+          "x": 28.50257627714596,
+          "y": 22.042962197199454,
+          "w": 5.83,
+          "d": 2.08,
+          "privacy": 3,
+          "provenance": "[PA5 CORPUS]",
+          "note": "controlled threshold to landscape"
+        },
+        {
+          "name": "connection point",
+          "x": 29.05257627714596,
+          "y": 24.282962197199453,
+          "w": 0.6599999999999999,
+          "d": 0.96,
+          "privacy": 3,
+          "provenance": "[TO VERIFY]",
+          "note": "controlled link to C0/care"
+        }
+      ]
+    },
+    {
+      "inst_id": 7,
+      "code": "R4",
+      "name": "Domestic Cluster",
+      "x": 26.521791409106996,
+      "y": 55.59842921603853,
+      "w": 11.0,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 3,
+      "orientation": "EW",
+      "entrance_anchor": [
+        32.021791409106996,
+        55.59842921603853
+      ],
+      "connection_anchors": [
+        [
+          26.521791409106996,
+          59.59842921603853
+        ],
+        [
+          26.521791409106996,
+          51.59842921603853
+        ],
+        [
+          21.021791409106996,
+          55.59842921603853
+        ]
+      ],
+      "interface": "domestic",
+      "parts": [
+        {
+          "name": "personal territory",
+          "x": 21.571791409106996,
+          "y": 55.198429216038534,
+          "w": 4.62,
+          "d": 4.0,
+          "privacy": 4,
+          "provenance": "[PA5 CORPUS]",
+          "note": "resident private rooms"
+        },
+        {
+          "name": "shared domestic",
+          "x": 26.851791409106994,
+          "y": 55.198429216038534,
+          "w": 4.62,
+          "d": 4.0,
+          "privacy": 3,
+          "provenance": "[PA5 CORPUS]",
+          "note": "living / dining"
+        },
+        {
+          "name": "WASH",
+          "x": 21.571791409106996,
+          "y": 52.23842921603853,
+          "w": 3.3,
+          "d": 2.4,
+          "privacy": 4,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "hygiene cluster"
+        },
+        {
+          "name": "retreat / porch",
+          "x": 25.641791409106997,
+          "y": 51.75842921603853,
+          "w": 5.83,
+          "d": 2.08,
+          "privacy": 3,
+          "provenance": "[PA5 CORPUS]",
+          "note": "controlled threshold to landscape"
+        },
+        {
+          "name": "connection point",
+          "x": 26.191791409106997,
+          "y": 53.99842921603853,
+          "w": 0.6599999999999999,
+          "d": 0.96,
+          "privacy": 3,
+          "provenance": "[TO VERIFY]",
+          "note": "controlled link to C0/care"
+        }
+      ]
+    },
+    {
+      "inst_id": 8,
+      "code": "H0",
+      "name": "Learning House",
+      "x": 38.252192654583254,
+      "y": 57.728144141861186,
+      "w": 12.0,
+      "d": 9.0,
+      "floors": 1,
+      "privacy": 2,
+      "orientation": "EW",
+      "entrance_anchor": [
+        32.252192654583254,
+        57.728144141861186
+      ],
+      "connection_anchors": [
+        [
+          38.252192654583254,
+          62.228144141861186
+        ],
+        [
+          38.252192654583254,
+          53.228144141861186
+        ],
+        [
+          44.252192654583254,
+          57.728144141861186
+        ]
+      ],
+      "interface": "shared",
+      "parts": [
+        {
+          "name": "learning studio",
+          "x": 32.852192654583256,
+          "y": 57.728144141861186,
+          "w": 6.0,
+          "d": 3.78,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "education / skills"
+        },
+        {
+          "name": "quiet study",
+          "x": 39.45219265458326,
+          "y": 57.728144141861186,
+          "w": 4.199999999999999,
+          "d": 3.78,
+          "privacy": 2,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "focused learning"
+        },
+        {
+          "name": "learning court",
+          "x": 32.852192654583256,
+          "y": 53.948144141861185,
+          "w": 6.6000000000000005,
+          "d": 3.06,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "outdoor learning"
+        },
+        {
+          "name": "teaching threshold",
+          "x": 40.05219265458325,
+          "y": 53.948144141861185,
+          "w": 3.5999999999999996,
+          "d": 3.06,
+          "privacy": 2,
+          "provenance": "[TO VERIFY]",
+          "note": "controlled public link"
+        }
+      ]
+    },
+    {
+      "inst_id": 9,
+      "code": "I0",
+      "name": "Reflection Pavilion",
+      "x": 79.3751476879703,
+      "y": 15.638673624426916,
+      "w": 6.0,
+      "d": 6.0,
+      "floors": 1,
+      "privacy": 2,
+      "orientation": "EW",
+      "entrance_anchor": [
+        79.3751476879703,
+        12.638673624426916
+      ],
+      "connection_anchors": [
+        [
+          79.3751476879703,
+          18.638673624426914
+        ],
+        [
+          82.3751476879703,
+          15.638673624426916
+        ],
+        [
+          76.3751476879703,
+          15.638673624426916
+        ]
+      ],
+      "interface": "shared",
+      "parts": [
+        {
+          "name": "reflection space",
+          "x": 76.97514768797029,
+          "y": 15.038673624426917,
+          "w": 4.800000000000001,
+          "d": 3.0,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "contemplation / quiet"
+        },
+        {
+          "name": "garden niche",
+          "x": 76.97514768797029,
+          "y": 12.938673624426917,
+          "w": 4.800000000000001,
+          "d": 1.6800000000000002,
+          "privacy": 2,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "landscape immersion"
+        }
+      ]
+    },
+    {
+      "inst_id": 10,
+      "code": "L0",
+      "name": "Transition House",
+      "x": 0.6852300822246313,
+      "y": 58.527464359522035,
+      "w": 9.5,
+      "d": 7.4,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        5.435230082224631,
+        58.527464359522035
+      ],
+      "connection_anchors": [
+        [
+          0.6852300822246313,
+          62.22746435952204
+        ],
+        [
+          0.6852300822246313,
+          54.82746435952203
+        ],
+        [
+          -4.064769917775369,
+          58.527464359522035
+        ]
+      ],
+      "interface": "shared",
+      "parts": [
+        {
+          "name": "transition unit",
+          "x": -3.5897699177753686,
+          "y": 58.527464359522035,
+          "w": 4.275,
+          "d": 3.108,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "move-on / step-down"
+        },
+        {
+          "name": "independence studio",
+          "x": 1.1602300822246319,
+          "y": 58.527464359522035,
+          "w": 3.8000000000000003,
+          "d": 3.108,
+          "privacy": 3,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "semi-autonomous living"
+        },
+        {
+          "name": "reintegration court",
+          "x": -3.5897699177753686,
+          "y": 55.41946435952203,
+          "w": 5.2250000000000005,
+          "d": 2.5160000000000005,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "gradual public contact"
+        },
+        {
+          "name": "care link",
+          "x": 2.110230082224631,
+          "y": 55.41946435952203,
+          "w": 2.85,
+          "d": 2.5160000000000005,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "support reach (MUST to B0)"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "a_id": 0,
+      "b_id": 1,
+      "a_code": "A0",
+      "b_code": "B0",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 2,
+      "a_code": "A0",
+      "b_code": "C0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 3,
+      "a_code": "A0",
+      "b_code": "E0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 6,
+      "a_code": "A0",
+      "b_code": "R4",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "controlled",
+        "resident"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 7,
+      "a_code": "A0",
+      "b_code": "R4",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "controlled",
+        "resident"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 8,
+      "a_code": "A0",
+      "b_code": "H0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 10,
+      "a_code": "A0",
+      "b_code": "L0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 2,
+      "a_code": "B0",
+      "b_code": "C0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 3,
+      "a_code": "B0",
+      "b_code": "E0",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 6,
+      "a_code": "B0",
+      "b_code": "R4",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 7,
+      "a_code": "B0",
+      "b_code": "R4",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 8,
+      "a_code": "B0",
+      "b_code": "H0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 10,
+      "a_code": "B0",
+      "b_code": "L0",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 3,
+      "a_code": "C0",
+      "b_code": "E0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 4,
+      "a_code": "C0",
+      "b_code": "F0",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "service"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 6,
+      "a_code": "C0",
+      "b_code": "R4",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 7,
+      "a_code": "C0",
+      "b_code": "R4",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 8,
+      "a_code": "C0",
+      "b_code": "H0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 10,
+      "a_code": "C0",
+      "b_code": "L0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 4,
+      "a_code": "E0",
+      "b_code": "F0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care",
+        "service"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 5,
+      "a_code": "E0",
+      "b_code": "M0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care",
+        "service"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 6,
+      "a_code": "E0",
+      "b_code": "R4",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 7,
+      "a_code": "E0",
+      "b_code": "R4",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 10,
+      "a_code": "E0",
+      "b_code": "L0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 4,
+      "b_id": 5,
+      "a_code": "F0",
+      "b_code": "M0",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "service"
+      ]
+    },
+    {
+      "a_id": 6,
+      "b_id": 8,
+      "a_code": "R4",
+      "b_code": "H0",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "controlled",
+        "resident"
+      ]
+    },
+    {
+      "a_id": 6,
+      "b_id": 10,
+      "a_code": "R4",
+      "b_code": "L0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 7,
+      "b_id": 8,
+      "a_code": "R4",
+      "b_code": "H0",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "controlled",
+        "resident"
+      ]
+    },
+    {
+      "a_id": 7,
+      "b_id": 10,
+      "a_code": "R4",
+      "b_code": "L0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 8,
+      "b_id": 10,
+      "a_code": "H0",
+      "b_code": "L0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    }
+  ],
+  "sightlines": [
+    {
+      "from_id": 0,
+      "from_code": "A0",
+      "to_id": 6,
+      "to_code": "R4",
+      "relation": "safeguarding-sensitive",
+      "distance": 16.4,
+      "exposed": true,
+      "screened_by": [],
+      "provenance": "[TO VERIFY]"
+    },
+    {
+      "from_id": 0,
+      "from_code": "A0",
+      "to_id": 7,
+      "to_code": "R4",
+      "relation": "safeguarding-sensitive",
+      "distance": 21.28,
+      "exposed": true,
+      "screened_by": [],
+      "provenance": "[TO VERIFY]"
+    },
+    {
+      "from_id": 4,
+      "from_code": "F0",
+      "to_id": 6,
+      "to_code": "R4",
+      "relation": "PROHIBITED",
+      "distance": 8.4,
+      "exposed": true,
+      "screened_by": [],
+      "provenance": "[TO VERIFY]"
+    },
+    {
+      "from_id": 4,
+      "from_code": "F0",
+      "to_id": 7,
+      "to_code": "R4",
+      "relation": "PROHIBITED",
+      "distance": 33.17,
+      "exposed": true,
+      "screened_by": [],
+      "provenance": "[TO VERIFY]"
+    },
+    {
+      "from_id": 5,
+      "from_code": "M0",
+      "to_id": 6,
+      "to_code": "R4",
+      "relation": "PROHIBITED",
+      "distance": 31.17,
+      "exposed": false,
+      "screened_by": [
+        "F0"
+      ],
+      "provenance": "[TO VERIFY]"
+    },
+    {
+      "from_id": 5,
+      "from_code": "M0",
+      "to_id": 7,
+      "to_code": "R4",
+      "relation": "PROHIBITED",
+      "distance": 53.38,
+      "exposed": false,
+      "screened_by": [
+        "F0"
+      ],
+      "provenance": "[TO VERIFY]"
+    }
+  ],
+  "open_spaces": [
+    {
+      "cx": 41.2,
+      "cy": 38.4,
+      "area_cells": 16,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 56.2,
+      "cy": 25.6,
+      "area_cells": 16,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 69.4,
+      "cy": 15.4,
+      "area_cells": 12,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 45.0,
+      "cy": 11.5,
+      "area_cells": 10,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 38.4,
+      "area_cells": 8,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 28.2,
+      "area_cells": 4,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 20.6,
+      "cy": 25.6,
+      "area_cells": 4,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 43.1,
+      "cy": 25.6,
+      "area_cells": 4,
+      "enclosure": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "courtyards": [
+    {
+      "cx": 41.2,
+      "cy": 38.4,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 56.2,
+      "cy": 25.6,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 69.4,
+      "cy": 15.4,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 45.0,
+      "cy": 11.5,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 38.4,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 3.8,
+      "cy": 28.2,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 20.6,
+      "cy": 25.6,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 43.1,
+      "cy": 25.6,
+      "sides_enclosed": 4,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "privacy_gradient": [
+    {
+      "code": "A0",
+      "id": 0,
+      "privacy": "CONTROLLED",
+      "interface": "public"
+    },
+    {
+      "code": "B0",
+      "id": 1,
+      "privacy": "CONTROLLED",
+      "interface": "protected"
+    },
+    {
+      "code": "E0",
+      "id": 3,
+      "privacy": "CONTROLLED",
+      "interface": "protected"
+    },
+    {
+      "code": "F0",
+      "id": 4,
+      "privacy": "CONTROLLED",
+      "interface": "service"
+    },
+    {
+      "code": "M0",
+      "id": 5,
+      "privacy": "CONTROLLED",
+      "interface": "service"
+    },
+    {
+      "code": "L0",
+      "id": 10,
+      "privacy": "CONTROLLED",
+      "interface": "shared"
+    },
+    {
+      "code": "C0",
+      "id": 2,
+      "privacy": "SHARED",
+      "interface": "shared"
+    },
+    {
+      "code": "H0",
+      "id": 8,
+      "privacy": "SHARED",
+      "interface": "shared"
+    },
+    {
+      "code": "I0",
+      "id": 9,
+      "privacy": "SHARED",
+      "interface": "shared"
+    },
+    {
+      "code": "R4",
+      "id": 6,
+      "privacy": "DOMESTIC",
+      "interface": "domestic"
+    },
+    {
+      "code": "R4",
+      "id": 7,
+      "privacy": "DOMESTIC",
+      "interface": "domestic"
+    }
+  ],
+  "threshold_sequence": [
+    {
+      "step": 0,
+      "code": "A0",
+      "interface": "public",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 1,
+      "code": "C0",
+      "interface": "shared",
+      "privacy": "SHARED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 2,
+      "code": "H0",
+      "interface": "shared",
+      "privacy": "SHARED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 3,
+      "code": "I0",
+      "interface": "shared",
+      "privacy": "SHARED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 4,
+      "code": "L0",
+      "interface": "shared",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 5,
+      "code": "B0",
+      "interface": "protected",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 6,
+      "code": "E0",
+      "interface": "protected",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 7,
+      "code": "F0",
+      "interface": "service",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 8,
+      "code": "M0",
+      "interface": "service",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 9,
+      "code": "R4",
+      "interface": "domestic",
+      "privacy": "DOMESTIC",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 10,
+      "code": "R4",
+      "interface": "domestic",
+      "privacy": "DOMESTIC",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "stacking": [],
+  "groupings": [
+    {
+      "group": 0,
+      "modules": [
+        "A0",
+        "B0",
+        "C0",
+        "E0",
+        "F0",
+        "H0",
+        "L0",
+        "M0",
+        "R4",
+        "R4"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "group": 1,
+      "modules": [
+        "I0"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "objectives": {
+    "F1_safeguarding": 0.19,
+    "F2_privacy_agency": 0.0,
+    "F3_everyday_life": 0.132,
+    "F4_service_separation": 0.047,
+    "F5_site_efficiency": 0.356,
+    "F6_adaptability": 0.29,
+    "F7_domestic_scale": 0.254,
+    "F8_community_connection": 0.667,
+    "F9_landscape_buffer": 0.23
+  },
+  "provenance_log": [
+    "connections drawn from corpus adjacency: MUST/NEAR [PA5 CORPUS], SCREENED [DESIGN HYPOTHESIS]",
+    "sightline exposure checked geometrically (segment-vs-rect) [DESIGN HYPOTHESIS]; diagrammatic, not a regulatory sightline study",
+    "open spaces classified by enclosure degree: 3-4 sides=COURTYARD, 2=POCKET COURT/THRESHOLD EDGE, 0-1=OPEN LANDSCAPE [DESIGN HYPOTHESIS]",
+    "threshold sequence derived from interface classes [DESIGN HYPOTHESIS]",
+    "stacking from genotype floors genes [PA5 CORPUS]; R4 single-storey per corpus [PA5 CORPUS]",
+    "building groupings from MUST/NEAR connectivity [DESIGN HYPOTHESIS]"
+  ],
+  "to_verify": [
+    "A0:threshold marker \u2014 sequence node",
+    "C0:commons threshold \u2014 link to R4 / landscape",
+    "E0:service lock \u2014 staff-only access",
+    "EXPOSED sightline A0->R4 (safeguarding-sensitive): direct segment unobstructed at 16.4 m; screening required [TO VERIFY].",
+    "EXPOSED sightline A0->R4 (safeguarding-sensitive): direct segment unobstructed at 21.3 m; screening required [TO VERIFY].",
+    "EXPOSED sightline F0->R4 (PROHIBITED): direct segment unobstructed at 33.2 m; screening required [TO VERIFY].",
+    "EXPOSED sightline F0->R4 (PROHIBITED): direct segment unobstructed at 8.4 m; screening required [TO VERIFY].",
+    "F0:service yard \u2014 independent service access",
+    "H0:teaching threshold \u2014 controlled public link",
+    "L0:care link \u2014 support reach (MUST to B0)",
+    "M0:technical yard \u2014 linked to F0 (MUST)",
+    "R4:connection point \u2014 controlled link to C0/care"
+  ],
+  "design_hypotheses": [
+    "A0:waiting / lobby \u2014 visitor holding",
+    "B0:staff control \u2014 observation point",
+    "C0:everyday activity \u2014 laundry / workshop",
+    "E0:handover / admin \u2014 shift handover",
+    "F0:storage \u2014 supplies",
+    "H0:quiet study \u2014 focused learning",
+    "I0:garden niche \u2014 landscape immersion",
+    "L0:independence studio \u2014 semi-autonomous living",
+    "M0:workshop \u2014 maintenance / making",
+    "R4:WASH \u2014 hygiene cluster"
+  ]
+}

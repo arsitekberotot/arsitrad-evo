@@ -62,6 +62,7 @@ def traceability_record(ph: Phenotype, cluster: int | None = None,
         "feasible": bool(ph.feasible),
         "rank": int(ph.rank),
         "crowding_distance": (None if np.isinf(ph.crowding) else round(float(ph.crowding), 4)),
+        "genotype_vector": [round(float(v), 5) for v in ph.genes],   # full genes incl. placement tail
         "genes": genes_dict(ph),
         "capacity": {"residents": ph.residents, "n_R4": ph.n_R4,
                      "day_users": ph.day_users},
