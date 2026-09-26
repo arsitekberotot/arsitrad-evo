@@ -18,7 +18,9 @@ Pure-Python reproduction of the modularity-based spatial-programming method of *
 ## Install
 ```bash
 python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
+.venv/bin/pip install -r requirements.txt          # flexible (>= ranges)
+# or, for bit-for-bit reproducibility of the recorded campaign:
+.venv/bin/pip install -r requirements-lock.txt     # exact pinned versions
 ```
 
 ## Quick start

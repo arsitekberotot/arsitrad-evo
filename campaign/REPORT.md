@@ -234,7 +234,8 @@ Representatives span the program's real trade-space rather than one fixed answer
 
 ## 12. Reproducibility
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+python3 -m venv .venv && .venv/bin/pip install -r requirements-lock.txt
+.venv/bin/python -m pytest tests/ -q                          # validate (16 tests)
 .venv/bin/python run_campaign.py --out campaign        # full
 .venv/bin/python run_campaign.py --out campaign --quick # fast smoke
 .venv/bin/python make_report.py --campaign campaign
