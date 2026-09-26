@@ -1,0 +1,160 @@
+{
+  "role": "medoid",
+  "cluster": 4,
+  "feasible": true,
+  "rank": 0,
+  "crowding_distance": 0.0085,
+  "genes": {
+    "n_R4": 2,
+    "has_H0": 1,
+    "has_J0": 0,
+    "has_K0": 0,
+    "has_I0": 0,
+    "has_L0": 0,
+    "public_intensity": 1,
+    "floors_C0": 2,
+    "floors_H0": 1,
+    "landscape_frac": 0.5015,
+    "service_depth": 15.8022,
+    "buffer_depth": 28.1848,
+    "reserve_area": 227.4211
+  },
+  "capacity": {
+    "residents": 8,
+    "n_R4": 2,
+    "day_users": 16
+  },
+  "areas": {
+    "gfa": 1099,
+    "footprint": 948.6,
+    "landscape_area": 2775.4,
+    "landscape_frac": 0.502,
+    "reserve_area": 227.4
+  },
+  "modules": [
+    {
+      "code": "A0",
+      "name": "Civic Threshold",
+      "x": 55.04,
+      "y": 41.63,
+      "w": 11.5,
+      "d": 8.0,
+      "floors": 1,
+      "area": 92,
+      "privacy": 1
+    },
+    {
+      "code": "B0",
+      "name": "Care & Safeguarding",
+      "x": 33.68,
+      "y": 18.48,
+      "w": 11.5,
+      "d": 8.0,
+      "floors": 1,
+      "area": 92,
+      "privacy": 1
+    },
+    {
+      "code": "C0",
+      "name": "Everyday Commons",
+      "x": 1.25,
+      "y": 1.15,
+      "w": 14.0,
+      "d": 10.7,
+      "floors": 2,
+      "area": 150,
+      "privacy": 2
+    },
+    {
+      "code": "E0",
+      "name": "Staff Base",
+      "x": 12.22,
+      "y": 27.96,
+      "w": 9.5,
+      "d": 8.0,
+      "floors": 1,
+      "area": 76,
+      "privacy": 1
+    },
+    {
+      "code": "F0",
+      "name": "Service Edge",
+      "x": 78.0,
+      "y": 25.78,
+      "w": 18.0,
+      "d": 9.6,
+      "floors": 1,
+      "area": 173,
+      "privacy": 1
+    },
+    {
+      "code": "M0",
+      "name": "Technical Commons",
+      "x": 70.72,
+      "y": 4.36,
+      "w": 10.0,
+      "d": 8.2,
+      "floors": 1,
+      "area": 82,
+      "privacy": 1
+    },
+    {
+      "code": "R4",
+      "name": "Domestic Cluster",
+      "x": 32.5,
+      "y": 44.6,
+      "w": 11.0,
+      "d": 8.0,
+      "floors": 1,
+      "area": 88,
+      "privacy": 3
+    },
+    {
+      "code": "R4",
+      "name": "Domestic Cluster",
+      "x": 34.18,
+      "y": 8.31,
+      "w": 11.0,
+      "d": 8.0,
+      "floors": 1,
+      "area": 88,
+      "privacy": 3
+    },
+    {
+      "code": "H0",
+      "name": "Learning House",
+      "x": 53.35,
+      "y": 60.1,
+      "w": 12.0,
+      "d": 9.0,
+      "floors": 1,
+      "area": 108,
+      "privacy": 2
+    }
+  ],
+  "objectives": {
+    "F1_safeguarding": 0.2271,
+    "F2_privacy_agency": 0.0,
+    "F3_everyday_life": 0.3411,
+    "F4_service_separation": 0.0171,
+    "F5_site_efficiency": 0.3205,
+    "F6_adaptability": 0.3011,
+    "F7_domestic_scale": 0.0916,
+    "F8_community_connection": 0.6667,
+    "F9_landscape_buffer": 0.3163
+  },
+  "strongest_objective": "F2_privacy_agency",
+  "weakest_objective": "F8_community_connection",
+  "constraint_violations": {
+    "must_adjacency": 15.2048
+  },
+  "open_assumptions": [
+    "F1/F2/F4 use distance/area proxies, not measured safeguarding outcomes [DH]",
+    "Accessibility/egress constraint is a placeholder; real dims TO VERIFY",
+    "Care-response distance threshold CARE_RESPONSE_MAX is a DH proxy [TO VERIFY]",
+    "Buffer/setback depths are not universal setbacks [TO VERIFY]",
+    "Rectangular site envelope; real parcel shape/orientation TO VERIFY",
+    "Objective normalization reference ranges uncalibrated [DH]",
+    "Day-user/staff concurrency are test values, not demand forecasts [TO VERIFY]"
+  ]
+}
