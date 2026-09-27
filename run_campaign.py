@@ -42,17 +42,22 @@ def phenotype_row(p, extra=None):
     objs = np.asarray(p.objectives)
     row = {f"obj_{n}": round(float(objs[m]), 4) for m, n in enumerate(OBJ_NAMES)}
     row.update({f"g_{n}": p.genes[i] for i, n in enumerate(GENE_NAMES)})
-    row.update({"n_R4": p.n_R4, "residents": p.residents, "day_users": p.day_users,
+    row.update({"genotype_id": analyze.genotype_id(p),
+                "birth_generation": p.birth_generation,
+                "n_R4": p.n_R4, "residents": p.residents, "day_users": p.day_users,
                 "gfa": round(p.gfa, 1), "footprint": round(p.footprint, 1),
                 "landscape_frac": round(p.landscape_frac, 3), "rank": int(p.rank),
-                "cv": round(float(p.cv), 4), "soft_cv": round(float(p.soft_cv), 3),
+                "cv": round(float(p.cv), 4),
+                "must_shortfall": round(float(p.must_shortfall), 3),
+                "soft_cv": round(float(p.soft_cv), 3),
                 "feasible": bool(p.feasible)})
     if extra:
         row.update(extra)
     return row
 
 
-def run_campaign(out: str, quick: bool = False):
+def run_campaign(out: str, quick: bool = False,
+                 capacity_strata: bool = False):
     os.makedirs(out, exist_ok=True)
     figdir = os.path.join(out, "figures"); os.makedirs(figdir, exist_ok=True)
     datadir = os.path.join(out, "data"); os.makedirs(datadir, exist_ok=True)
@@ -90,10 +95,31 @@ def run_campaign(out: str, quick: bool = False):
         multiseed_rows.append({
             "seed": s, "runtime_s": round(runtime, 2),
             "pop": cfg.pop_size, "gen": cfg.generations,
+            "capacity_stratum": "free",
             "feasible_final": len(feas), "feasible_rate": round(len(feas)/len(pop), 3),
             "pareto_size": len(rank1),
         })
         print(f"  seed {s}: feasible {len(feas)}/{len(pop)}  pareto {len(rank1)}  {runtime:.1f}s")
+    if capacity_strata:
+        # Separate searches preserve the 12- and 16-resident design space after
+        # per-R4 MUST links become hard. The unconstrained runs are still kept.
+        stratum_seeds = seeds[:3]
+        for n_r4 in (3, 4):
+            for s in stratum_seeds:
+                cfg = GAConfig(seed=s, n_R4_fixed=n_r4, **base)
+                pop, rank1, history, runtime, feas = single_run(cfg)
+                histories[f"{s}_R4x{n_r4}"] = history
+                all_rank1 += [(s, p) for p in rank1]
+                multiseed_rows.append({
+                    "seed": s, "runtime_s": round(runtime, 2),
+                    "pop": cfg.pop_size, "gen": cfg.generations,
+                    "capacity_stratum": f"R4x{n_r4}",
+                    "feasible_final": len(feas),
+                    "feasible_rate": round(len(feas)/len(pop), 3),
+                    "pareto_size": len(rank1),
+                })
+                print(f"  seed {s} R4x{n_r4}: feasible {len(feas)}/{len(pop)} "
+                      f"pareto {len(rank1)} {runtime:.1f}s")
     df_ms = pd.DataFrame(multiseed_rows)
     df_ms.to_csv(os.path.join(datadir, "multiseed_summary.csv"), index=False)
 
@@ -181,9 +207,21 @@ def run_campaign(out: str, quick: bool = False):
         archive, archive_seed = [], []
     print(f"[campaign] combined archive (nondominated across seeds): {len(archive)}")
 
-    df_arch = pd.DataFrame([phenotype_row(p, {"seed": s})
+    df_arch = pd.DataFrame([phenotype_row(p, {"seed": s,
+                                              "selected_generation": base["generations"]})
                             for p, s in zip(archive, archive_seed)])
     df_arch.to_csv(os.path.join(datadir, "pareto_archive.csv"), index=False)
+    with open(os.path.join(datadir, "pareto_genotypes.jsonl"), "w") as fh:
+        for p, s in zip(archive, archive_seed):
+            fh.write(json.dumps({
+                "genotype_id": analyze.genotype_id(p),
+                "genotype_vector": analyze.genotype_vector(p),
+                "seed": s, "birth_generation": p.birth_generation,
+                "selected_generation": base["generations"],
+                "feasible": bool(p.feasible),
+                "cv": round(float(p.cv), 6),
+                "must_shortfall": round(float(p.must_shortfall), 6),
+            }, separators=(",", ":")) + "\n")
 
     # per-seed generation histories -> dilution measured via rank-1 GROWTH (v2)
     with open(os.path.join(datadir, "histories.json"), "w") as f:
@@ -217,8 +255,10 @@ def run_campaign(out: str, quick: bool = False):
 
     # ---- STAGE 5: representatives + traceability + graphics ---------------
     reps = cl.get("representatives", archive[:6])
-    rep_roles = (["medoid"] * len(cl.get("medoids", []))) + \
-                (["extreme"] * (len(reps) - len(cl.get("medoids", []))))
+    rep_roles = [("medoid+extreme" if ri in cl.get("medoids", []) and
+                  ri in cl.get("extremes", []) else
+                  "medoid" if ri in cl.get("medoids", []) else "extreme")
+                 for ri in cl.get("rep_indices", [])]
     # assign cluster label to each rep where possible
     rep_cluster = {}
     if cl.get("k", 0) > 0:
@@ -232,9 +272,11 @@ def run_campaign(out: str, quick: bool = False):
     trace_records = []
     for i, p in enumerate(reps):
         role = rep_roles[i] if i < len(rep_roles) else "representative"
-        rec = analyze.traceability_record(p, cluster=rep_cluster.get(id(p)), role=role)
-        rec["seed"] = seed_by_id.get(id(p))          # v2: evolutionary seed
-        rec["soft_cv"] = round(float(p.soft_cv), 3)  # v2: MUST-adjacency shortfall
+        rec = analyze.traceability_record(p, cluster=rep_cluster.get(id(p)),
+                                          role=role,
+                                          selected_generation=base["generations"])
+        assert rec["seed"] == seed_by_id.get(id(p))
+        rec["soft_cv"] = round(float(p.soft_cv), 3)  # legacy alias
         trace_records.append(rec)
         with open(os.path.join(datadir, f"phenotype_{i:02d}.json"), "w") as f:
             json.dump(rec, f, indent=2)
@@ -260,6 +302,7 @@ def run_campaign(out: str, quick: bool = False):
     return {
         "out": out, "seeds": seeds, "base": base, "multiseed": df_ms,
         "sensitivity": df_sens, "archive_size": len(archive),
+        "capacity_strata": capacity_strata,
         "cluster": {kk: cl.get(kk) for kk in ("k", "k_elbow", "silhouette")},
         "n_representatives": len(reps), "traces": trace_records, "comp": comp,
     }
@@ -269,8 +312,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="campaign")
     ap.add_argument("--quick", action="store_true")
+    ap.add_argument("--capacity-strata", action="store_true")
     args = ap.parse_args()
-    summary = run_campaign(args.out, quick=args.quick)
+    summary = run_campaign(args.out, quick=args.quick,
+                           capacity_strata=args.capacity_strata)
     with open(os.path.join(args.out, "data", "campaign_summary.json"), "w") as f:
         json.dump({k: v for k, v in summary.items() if k not in ("multiseed", "sensitivity", "traces", "comp")},
                   f, indent=2, default=str)

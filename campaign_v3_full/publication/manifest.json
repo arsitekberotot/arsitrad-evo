@@ -1,0 +1,25 @@
+{
+  "freeze_sha256": "3ebaa58b09e7367ad15be6d249491bd49fb48609fb98e67db4767fe51e086869",
+  "diagnostics": [
+    "figures/",
+    "phenotypes/"
+  ],
+  "phenotype_sheets": [
+    "publication/phenotype_sheets/balanced_d025145502ad4434.png",
+    "publication/phenotype_sheets/specialized_2bae568f51f78efc.png",
+    "publication/phenotype_sheets/contrasting_76761399c98699cd.png"
+  ],
+  "boards": [
+    "publication/boards/final_shortlist.png",
+    "publication/boards/pareto_spatial_tradeoff.png",
+    "publication/boards/physical_rotation_study.png",
+    "publication/boards/objective_extremes.png",
+    "publication/boards/relative_difference.png",
+    "publication/boards/population_gen_00.png",
+    "publication/boards/population_gen_10.png",
+    "publication/boards/population_gen_20.png",
+    "publication/boards/population_gen_40.png",
+    "publication/boards/population_gen_60.png",
+    "publication/boards/population_gen_80.png"
+  ]
+}

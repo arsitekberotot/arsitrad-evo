@@ -94,14 +94,12 @@ def assign_crowding(pop: list[Phenotype], front: list[int]) -> None:
 
 
 def crowded_better(a: Phenotype, b: Phenotype) -> bool:
-    """Crowded comparison operator: lower rank; tie -> larger crowding distance;
-    final tie -> smaller soft_cv (MUST-adjacency) so satisfied MUST relations
-    break ties among otherwise-equivalent feasible solutions (Campaign v2)."""
+    """Conventional NSGA-II crowded comparison: rank, then crowding."""
     if a.rank != b.rank:
         return a.rank < b.rank
     if a.crowding != b.crowding:
         return a.crowding > b.crowding
-    return a.soft_cv < b.soft_cv
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -114,13 +112,7 @@ def binary_tournament(pop, rng) -> Phenotype:
         return a if a.feasible else b
     if not a.feasible:
         return a if a.cv < b.cv else b
-    # both feasible: neither dominates in 9-objective space (dilution makes this
-    # the common case). Use soft MUST-adjacency as the feasibility-preserving
-    # discriminator so satisfied MUST relations genuinely influence selection
-    # (Campaign v2 fix). Only when soft_cv is ~equal do we fall back to crowded
-    # comparison (rank/crowding) to preserve diversity.
-    if abs(a.soft_cv - b.soft_cv) > 1e-6:
-        return a if a.soft_cv < b.soft_cv else b
+    # MUST-link failures are hard violations, handled above through feasibility.
     return a if crowded_better(a, b) else b
 
 
@@ -190,8 +182,11 @@ def int_reset_mutation(x, lo, hi, pm, rng, mask_int):
 # ---------------------------------------------------------------------------
 # Evaluation
 # ---------------------------------------------------------------------------
-def evaluate(genes: np.ndarray) -> Phenotype:
+def evaluate(genes: np.ndarray, origin_seed: int | None = None,
+             birth_generation: int | None = None) -> Phenotype:
     ph = decode(genes)
+    ph.origin_seed = origin_seed
+    ph.birth_generation = birth_generation
     evaluate_constraints(ph)
     evaluate_objectives(ph)
     return ph
@@ -205,12 +200,23 @@ def run(cfg: GAConfig | None = None, verbose: bool = True,
     cfg = cfg or GAConfig()
     rng = np.random.default_rng(cfg.seed)
     lo, hi, is_int = gene_bounds()
+    if cfg.n_R4_fixed is not None:
+        if not 2 <= cfg.n_R4_fixed <= 4:
+            raise ValueError("n_R4_fixed must be 2, 3, or 4")
+        lo[0] = hi[0] = cfg.n_R4_fixed
     mask_int = is_int
     mask_real = ~is_int
     pm = cfg.mutation_prob if cfg.mutation_prob is not None else 1.0 / N_GENES
 
     # 1. randomized initial population
-    pop = [evaluate(random_genotype(rng)) for _ in range(cfg.pop_size)]
+    def initial_genes():
+        g = random_genotype(rng)
+        if cfg.n_R4_fixed is not None:
+            g[0] = cfg.n_R4_fixed
+        return g
+
+    pop = [evaluate(initial_genes(), cfg.seed, 0)
+           for _ in range(cfg.pop_size)]
     history = []
     if on_snapshot is not None and snapshot_at is not None and 0 in snapshot_at:
         on_snapshot(0, pop)
@@ -238,9 +244,9 @@ def run(cfg: GAConfig | None = None, verbose: bool = True,
             c2 = int_reset_mutation(polynomial_mutation(c2, lo, hi, cfg.poly_eta, pm, rng, mask_real),
                                     lo, hi, pm, rng, mask_int)
             c1 = np.clip(c1, lo, hi); c2 = np.clip(c2, lo, hi)
-            offspring.append(evaluate(c1))
+            offspring.append(evaluate(c1, cfg.seed, gen + 1))
             if len(offspring) < cfg.pop_size:
-                offspring.append(evaluate(c2))
+                offspring.append(evaluate(c2, cfg.seed, gen + 1))
 
         # (mu + lambda) elitist survival
         combined = pop + offspring
@@ -252,19 +258,17 @@ def run(cfg: GAConfig | None = None, verbose: bool = True,
             fi += 1
         if len(newpop) < cfg.pop_size and fi < len(fronts):
             assign_crowding(combined, fronts[fi])
-            # crowding primary, soft MUST-adjacency secondary (Campaign v2) so
-            # satisfied MUST relations survive truncation of the last front.
-            rest = sorted(fronts[fi],
-                          key=lambda i: (combined[i].crowding, -combined[i].soft_cv),
+            rest = sorted(fronts[fi], key=lambda i: combined[i].crowding,
                           reverse=True)
             newpop += [combined[i] for i in rest[: cfg.pop_size - len(newpop)]]
         pop = newpop
 
         feas = sum(1 for p in pop if p.feasible)
         rank1 = sum(1 for p in pop if p.rank == 0)
-        soft = float(np.mean([p.soft_cv for p in pop])) if pop else 0.0
+        must = float(np.mean([p.must_shortfall for p in pop])) if pop else 0.0
         history.append({"gen": gen, "feasible": feas, "rank1": rank1,
-                        "soft_cv_mean": round(soft, 4)})
+                        "must_shortfall_mean": round(must, 4),
+                        "soft_cv_mean": round(must, 4)})
         if verbose and (gen % 10 == 0 or gen == cfg.generations - 1):
             print(f"gen {gen:3d} | feasible {feas:3d}/{len(pop)} | rank1 {rank1:3d}")
         if on_snapshot is not None and snapshot_at is not None and (gen + 1) in snapshot_at:

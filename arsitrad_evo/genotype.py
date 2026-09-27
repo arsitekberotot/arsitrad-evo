@@ -94,10 +94,13 @@ class Phenotype:
     # filled during evaluation
     objectives: np.ndarray | None = None
     cv: float = 0.0            # hard constraint violation (drives feasibility)
-    soft_cv: float = 0.0       # MUST-adjacency shortfall (selection tie-break)
+    soft_cv: float = 0.0       # legacy alias for MUST shortfall; hard in v3
+    must_shortfall: float = 0.0
     feasible: bool = True
     rank: int = 0
     crowding: float = 0.0
+    origin_seed: int | None = None
+    birth_generation: int | None = None
 
     def by_code(self, code: str) -> list[Instance]:
         return [i for i in self.instances if i.code == code]
@@ -131,12 +134,15 @@ def decode(genes: np.ndarray) -> Phenotype:
     # actually present (H0+J0+K0), capped at 3. Overrides the raw gene so a
     # phenotype can never claim high intensity with no public modules. [DH]
     ph.public_intensity = min(3, flags["has_H0"] + flags["has_J0"] + flags["has_K0"])
+    g[6] = ph.public_intensity
 
     # decode placements for active slots
     for k, code in enumerate(slots):
-        x = float(np.clip(g[N_STRUCT + 2 * k],     0, C.SITE_W))
-        y = float(np.clip(g[N_STRUCT + 2 * k + 1], 0, C.SITE_H))
         mt = MODULES[code]
+        x_idx, y_idx = N_STRUCT + 2 * k, N_STRUCT + 2 * k + 1
+        x = float(np.clip(g[x_idx], mt.w / 2, C.SITE_W - mt.w / 2))
+        y = float(np.clip(g[y_idx], mt.d / 2, C.SITE_H - mt.d / 2))
+        g[x_idx], g[y_idx] = x, y
         floors = 1
         if code == "C0":
             floors = int(s["floors_C0"])

@@ -1,0 +1,61 @@
+{
+  "baseline_v2": [
+    {
+      "candidate": "BALANCED",
+      "site_overhang_modules": 3,
+      "saved_gfa_m2": 1485,
+      "rendered_gfa_m2": 1377,
+      "must_shortfall_m": 0.0
+    },
+    {
+      "candidate": "SPECIALIZED",
+      "site_overhang_modules": 4,
+      "saved_gfa_m2": 1055,
+      "rendered_gfa_m2": 1055,
+      "must_shortfall_m": 17.504
+    },
+    {
+      "candidate": "CONTRASTING",
+      "site_overhang_modules": 1,
+      "saved_gfa_m2": 1017,
+      "rendered_gfa_m2": 1017,
+      "must_shortfall_m": 20.537
+    }
+  ],
+  "v3_archive_size": 750,
+  "v3_capacity_distribution": {
+    "2": 381,
+    "3": 173,
+    "4": 196
+  },
+  "v3_model_feasible": 750,
+  "v3_all_must_satisfied": 750,
+  "v3_all_site_contained": 750,
+  "shortlist_screen": {
+    "max_single_normalized_objective": 0.75,
+    "minimum_sampled_exposure_by_R4": {
+      "2": {
+        "pairs": 0,
+        "visible_rays": 0
+      },
+      "3": {
+        "pairs": 5,
+        "visible_rays": 38
+      },
+      "4": {
+        "pairs": 4,
+        "visible_rays": 49
+      }
+    },
+    "provenance": "[DESIGN HYPOTHESIS]"
+  },
+  "tests_at_freeze": "run pytest separately; see VALIDATION_GATE_v3.md",
+  "cluster_silhouette": 0.19753169934501275,
+  "cluster_for_typology": "NOT DEFENSIBLE",
+  "shortlist_ids": [
+    "d025145502ad4434",
+    "2bae568f51f78efc",
+    "76761399c98699cd"
+  ],
+  "review_status": "sightlines sampled; exposed pairs are explicit TO VERIFY items"
+}

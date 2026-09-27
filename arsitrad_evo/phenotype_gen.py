@@ -18,10 +18,14 @@ recorded in the prototype's `to_verify` list.
 Public API:
     build_prototype(ph, candidate_label=None, rep_index=None, seed=None)
         -> Prototype (dataclass; fully serialisable via .to_dict())
-    render_suite(proto, outdir)  -> writes the 7 schematic figures + JSON
+    render_suite(proto, outdir)  -> writes 12 schematic diagnostics + JSON
 """
 from __future__ import annotations
+from copy import deepcopy
+import hashlib
+import json
 from dataclasses import dataclass, field, asdict
+import heapq
 import os
 import numpy as np
 import matplotlib
@@ -33,7 +37,9 @@ from matplotlib.lines import Line2D
 from .genotype import Phenotype, Instance
 from .modules import (MODULES, relation, MUST, NEAR, SCREENED, AVOID, PROHIBITED,
                       PRIVACY, PUB, CTRL, SHR, DOM, PER)
-from .objectives import OBJECTIVES
+from .objectives import OBJECTIVES, evaluate_objectives
+from .analyze import genotype_id
+from .constraints import evaluate_constraints
 from . import config as C
 
 OBJ_NAMES = [n for n, _ in OBJECTIVES]
@@ -140,6 +146,7 @@ _INTERFACE_COLOR = {"public": "#38bdf8", "protected": "#fb7185", "service": "#94
 class Part:
     name: str; x: float; y: float; w: float; d: float
     privacy: int; provenance: str; note: str
+    floor: int = 1
 
 
 @dataclass
@@ -150,6 +157,14 @@ class ModuleNode:
     entrance_anchor: tuple; connection_anchors: list
     interface: str                      # public | protected | service | domestic
     parts: list = field(default_factory=list)   # list[Part]
+    spatial_role: str = ""
+    faces: dict = field(default_factory=dict)
+    access_points: dict = field(default_factory=dict)
+    access_edges: dict = field(default_factory=dict)
+    grammar_rotation_degrees: int = 0
+    internal_paths: list = field(default_factory=list)
+    physical_rotation_degrees: int = 0
+    quarter_turn_feasible: bool = False
 
 
 @dataclass
@@ -170,6 +185,9 @@ class Sightline:
     exposed: bool                 # True = direct unobstructed segment
     screened_by: list             # module codes lying on the segment
     provenance: str
+    tested_rays: int = 0
+    visible_rays: int = 0
+    exposure_ratio: float = 0.0
 
 
 @dataclass
@@ -180,7 +198,7 @@ class OpenSpace:
       0-1 enclosing sides  -> OPEN LANDSCAPE
     Explicitly diagrammatic, not a surveyed open space."""
     cx: float; cy: float; area_cells: int; enclosure: int
-    space_type: str; provenance: str
+    space_type: str; provenance: str; area_m2: float = 0.0
 
 
 @dataclass
@@ -198,10 +216,28 @@ class Prototype:
     threshold_sequence: list = field(default_factory=list)
     stacking: list = field(default_factory=list)
     groupings: list = field(default_factory=list)
+    shared_thresholds: list = field(default_factory=list)
+    spines: list = field(default_factory=list)
     objectives: dict = field(default_factory=dict)
     provenance_log: list = field(default_factory=list)
     to_verify: list = field(default_factory=list)
     design_hypotheses: list = field(default_factory=list)
+    genotype_id: str = ""
+    birth_generation: int | None = None
+    selected_generation: int | None = None
+    constraint_status: str = "UNASSESSED"
+    constraint_violation: float = 0.0
+    must_shortfall: float = 0.0
+    site_budget: dict = field(default_factory=dict)
+    route_networks: list = field(default_factory=list)
+    floor_plans: list = field(default_factory=list)
+    spatial_relationships: list = field(default_factory=list)
+    threshold_paths: list = field(default_factory=list)
+    exposure_status: str = "UNASSESSED"
+    safeguarding_actions: list = field(default_factory=list)
+    architectural_status: str = "UNASSESSED"
+    architectural_variant_id: str | None = None
+    physical_rotations: dict = field(default_factory=dict)
 
     def to_dict(self):
         d = asdict(self)
@@ -227,6 +263,102 @@ def _interface(code: str) -> str:
     if code in ("R4",):
         return "domestic"
     return "shared"
+
+
+SPATIAL_ROLES = {
+    "A0": "civic edge", "B0": "care hinge", "C0": "shared commons",
+    "R4": "domestic cluster", "E0": "care / staff edge",
+    "F0": "service / environmental edge", "M0": "service / environmental edge",
+    "H0": "learning threshold", "I0": "retreat landscape",
+    "J0": "livelihood threshold", "K0": "community edge",
+    "L0": "transition territory",
+}
+
+
+def _boundary_face(inst: Instance) -> str:
+    distances = {"W": inst.x - inst.w / 2,
+                 "E": C.SITE_W - inst.x - inst.w / 2,
+                 "S": inst.y - inst.d / 2,
+                 "N": C.SITE_H - inst.y - inst.d / 2}
+    return min(distances, key=distances.get)
+
+
+def _face_toward(inst: Instance, target: Instance | None) -> str:
+    if target is None:
+        return _boundary_face(inst)
+    edges = _edges(inst)
+    return min(edges, key=lambda e: np.hypot(edges[e][0] - target.x,
+                                             edges[e][1] - target.y))
+
+
+def _nearest(insts: list[Instance], idx: int, codes: set[str]) -> Instance | None:
+    opts = [other for k, other in enumerate(insts)
+            if k != idx and other.code in codes]
+    return min(opts, key=lambda o: np.hypot(insts[idx].x-o.x,
+                                            insts[idx].y-o.y)) if opts else None
+
+
+def _opposite(edge: str) -> str:
+    return {"N": "S", "S": "N", "E": "W", "W": "E"}[edge]
+
+
+def _configure_node(node: ModuleNode, inst: Instance,
+                    insts: list[Instance], idx: int) -> None:
+    """Assign access faces by actual user relationship [DESIGN HYPOTHESIS]."""
+    civic = _nearest(insts, idx, {"A0", "K0"})
+    domestic = _nearest(insts, idx, {"R4"})
+    commons = _nearest(insts, idx, {"C0"})
+    care = _nearest(insts, idx, {"B0", "E0"})
+    service = _nearest(insts, idx, {"F0", "M0"})
+    public_edge = _boundary_face(inst) if inst.code in {"A0", "K0", "F0"} \
+        else _face_toward(inst, civic)
+    private_edge = _face_toward(inst, commons if inst.code == "R4" else domestic)
+    care_edge = _face_toward(inst, care if inst.code == "R4" else domestic)
+    service_edge = _boundary_face(inst) if inst.code == "F0" \
+        else _face_toward(inst, service)
+    node.spatial_role = SPATIAL_ROLES[inst.code]
+    node.faces = {"public": public_edge if inst.code in {"A0", "H0", "J0", "K0"} else None,
+                  "private": private_edge if inst.code not in {"F0", "M0", "K0"} else None,
+                  "service": service_edge if inst.code in {"F0", "M0", "C0", "J0"} else None,
+                  "retreat": _opposite(private_edge) if inst.code in {"R4", "I0", "L0"} else None}
+    roles = {}
+    if inst.code in {"A0", "C0", "R4", "H0", "I0", "J0", "K0", "L0"}:
+        roles["resident"] = private_edge
+    if inst.code in {"A0", "B0", "C0", "R4", "E0", "L0"}:
+        roles["care_staff"] = care_edge
+    if inst.code in {"A0", "H0", "J0", "K0"}:
+        roles["visitor_community"] = public_edge
+    if inst.code in {"F0", "M0", "C0", "J0"}:
+        roles["service"] = service_edge
+    if inst.code in {"A0", "B0", "E0", "R4"}:
+        roles["emergency"] = care_edge if inst.code == "R4" else public_edge
+    node.access_edges = roles
+    node.access_points = {role: _edges(inst)[edge] for role, edge in roles.items()}
+    primary = next(iter(roles.values()), private_edge)
+    node.entrance_anchor = _edges(inst)[primary]
+    node.connection_anchors = [_edges(inst)[e] for e in ("N", "S", "E", "W")
+                               if e != primary]
+    node.grammar_rotation_degrees = {"S": 0, "E": 90, "N": 180,
+                                      "W": 270}[primary]
+
+
+def _rotate_zone(rx: float, ry: float, rw: float, rh: float,
+                 degrees: int) -> tuple[float, float, float, float]:
+    """Rotate relative kit zones inside the fixed campaign footprint."""
+    if degrees == 90:
+        return 1 - ry - rh, rx, rh, rw
+    if degrees == 180:
+        return 1 - rx - rw, 1 - ry - rh, rw, rh
+    if degrees == 270:
+        return ry, 1 - rx - rw, rh, rw
+    return rx, ry, rw, rh
+
+
+def _part_floor(code: str, name: str, floors: int) -> int:
+    if floors > 1 and ((code == "C0" and name == "everyday activity") or
+                       (code == "H0" and name == "quiet study")):
+        return 2
+    return 1
 
 
 def _edges(inst: Instance):
@@ -302,19 +434,69 @@ def _circulation_for(code_a: str, code_b: str, kind: str = "") -> list:
 # Builder
 # ---------------------------------------------------------------------------
 def build_prototype(ph: Phenotype, candidate_label: str = "",
-                    rep_index: int = -1, seed=None) -> Prototype:
-    insts = ph.instances
-    objs = ph.objectives if ph.objectives is not None else np.zeros(len(OBJ_NAMES))
+                    rep_index: int = -1, seed=None,
+                    selected_generation: int | None = None,
+                    rotations: dict[int, int] | None = None) -> Prototype:
+    if seed is not None and ph.origin_seed is not None and seed != ph.origin_seed:
+        raise ValueError("candidate seed disagrees with phenotype provenance")
+    parent_id = genotype_id(ph)
+    rotations = {int(k): int(v) for k, v in (rotations or {}).items()
+                 if int(v) % 360}
+    if any(k < 0 or k >= len(ph.instances) for k in rotations):
+        raise ValueError("rotation references an absent module instance")
+    if any(v not in (90, 180, 270) for v in rotations.values()):
+        raise ValueError("physical rotation must be 90, 180, or 270 degrees")
+    working = deepcopy(ph) if rotations else ph
+    for idx, degrees in rotations.items():
+        if degrees in (90, 270):
+            inst = working.instances[idx]
+            inst.w, inst.d = inst.d, inst.w
+    _, feasible, _ = evaluate_constraints(working)
+    if rotations:
+        working.objectives = evaluate_objectives(working)
+    insts = working.instances
+    objs = working.objectives if working.objectives is not None else np.zeros(len(OBJ_NAMES))
+    variant_id = (hashlib.sha256(json.dumps(
+        {"parent": parent_id, "rotations": sorted(rotations.items())},
+        sort_keys=True).encode()).hexdigest()[:16] if rotations else None)
     proto = Prototype(
-        candidate=candidate_label, rep_index=rep_index, seed=seed,
+        candidate=candidate_label, rep_index=rep_index,
+        seed=ph.origin_seed if seed is None else seed,
         program=f"R4x{ph.n_R4} res={ph.residents} day={ph.day_users}",
         site_w=C.SITE_W, site_h=C.SITE_H,
-        residents=ph.residents, day_users=ph.day_users, gfa=round(ph.gfa, 1),
-        footprint=round(ph.footprint, 1), landscape_frac=round(ph.landscape_frac, 3),
-        landscape_area=round(ph.landscape_area, 1),
+        residents=working.residents, day_users=working.day_users, gfa=round(working.gfa, 1),
+        footprint=round(working.footprint, 1), landscape_frac=round(working.landscape_frac, 3),
+        landscape_area=round(working.landscape_area, 1),
         objectives={OBJ_NAMES[i]: round(float(objs[i]), 3)
                     for i in range(len(OBJ_NAMES))},
+        genotype_id=parent_id, birth_generation=working.birth_generation,
+        selected_generation=selected_generation,
+        constraint_status="MODEL_FEASIBLE" if feasible else "MODEL_INFEASIBLE",
+        constraint_violation=round(float(working.cv), 4),
+        must_shortfall=round(float(working.must_shortfall), 4),
+        architectural_variant_id=variant_id,
+        physical_rotations=rotations,
     )
+    proto.site_budget = {
+        "site_area_m2": C.SITE_AREA,
+        "building_footprint_m2": round(working.footprint, 1),
+        "landscape_target_m2": round(working.landscape_area, 1),
+        "expansion_reserve_m2": round(working.reserve_area, 1),
+        "other_open_and_access_m2": round(C.SITE_AREA - working.footprint -
+                                          working.landscape_area - working.reserve_area, 1),
+        "provenance": HYP,
+    }
+    if proto.site_budget["other_open_and_access_m2"] < 0:
+        proto.to_verify.append("SITE BUDGET exceeds parcel area [TO VERIFY]")
+    if rotations:
+        proto.provenance_log.append(
+            f"physical quarter-turns {rotations} derived from parent genotype "
+            f"{parent_id} as an architectural variant {HYP}; constraints, "
+            f"objectives, routes and sightlines recomputed")
+    proto.to_verify.extend([
+        "Real parcel shape, street approach and north orientation [TO VERIFY]",
+        "Accessibility, egress and emergency operations [TO VERIFY]",
+    ])
 
     # --- module nodes with internal kit-of-parts ---
     for idx, inst in enumerate(insts):
@@ -330,16 +512,45 @@ def build_prototype(ph: Phenotype, candidate_label: str = "",
             entrance_anchor=edges[ent_edge], connection_anchors=[edges[a] for a in anchors],
             interface=_interface(inst.code),
         )
+        _configure_node(node, inst, insts, idx)
+        node.physical_rotation_degrees = rotations.get(idx, 0)
+        node.grammar_rotation_degrees = (
+            node.grammar_rotation_degrees + node.physical_rotation_degrees) % 360
+        if not rotations:
+            rotated = deepcopy(ph)
+            trial = rotated.instances[idx]
+            trial.w, trial.d = trial.d, trial.w
+            _, node.quarter_turn_feasible, _ = evaluate_constraints(rotated)
         # expand internal kit-of-parts into site coordinates (relative zones)
         x0, y0 = inst.x - inst.w / 2, inst.y - inst.d / 2
         for (pname, rx, ry, rw, rh, priv, prov, note) in KIT.get(inst.code, []):
+            rx, ry, rw, rh = _rotate_zone(rx, ry, rw, rh,
+                                           node.grammar_rotation_degrees)
             node.parts.append(Part(pname, x0 + rx * inst.w, y0 + ry * inst.d,
-                                   rw * inst.w, rh * inst.d, priv, prov, note))
+                                   rw * inst.w, rh * inst.d, priv, prov, note,
+                                   _part_floor(inst.code, pname, inst.floors)))
             if prov == VERIFY:
                 proto.to_verify.append(f"{inst.code}:{pname} — {note}")
             elif prov == HYP:
                 proto.design_hypotheses.append(f"{inst.code}:{pname} — {note}")
+        if node.floors > 1:
+            core = Part("vertical core", inst.x - inst.w * 0.07,
+                        inst.y - inst.d * 0.10, inst.w * 0.14,
+                        inst.d * 0.20, CTRL, VERIFY,
+                        "diagrammatic lift/stair position; dimension and egress", 1)
+            node.parts.append(core)
+            proto.to_verify.append(f"{inst.code}:vertical core — dimension and egress")
+        for part in node.parts:
+            if part.floor == 1:
+                node.internal_paths.append({
+                    "from": node.entrance_anchor,
+                    "to": (round(part.x + part.w / 2, 2),
+                           round(part.y + part.d / 2, 2)),
+                    "destination": part.name, "floor": 1, "provenance": HYP})
         proto.modules.append(node)
+    proto.provenance_log.append(
+        f"access faces, grammar rotation and internal route skeletons {HYP}; "
+        f"street frontage and door dimensions {VERIFY}")
 
     # --- connections from the corpus adjacency (MUST/NEAR/SCREENED drawn) ---
     drawn_prov = {MUST: CORPUS, NEAR: CORPUS, SCREENED: HYP}
@@ -357,14 +568,34 @@ def build_prototype(ph: Phenotype, candidate_label: str = "",
 
     # --- direct visual-exposure checks for PROHIBITED / safeguarding-sensitive ---
     proto.sightlines = _check_sightlines(insts)
+    exposed = [s for s in proto.sightlines if s.exposed]
+    proto.exposure_status = ("EXPOSED_TO_VERIFY" if exposed else
+                             "NO_EXPOSURE_IN_SAMPLED_RAYS")
     for sl in proto.sightlines:
         if sl.exposed:
+            action = (
+                "offset service openings and test an opaque service-yard edge"
+                if sl.relation == "PROHIBITED" else
+                "place a controlled visual screen at the civic-to-domestic threshold")
+            proto.safeguarding_actions.append({
+                "from_id": sl.from_id, "to_id": sl.to_id,
+                "from_code": sl.from_code, "to_code": sl.to_code,
+                "visible_rays": sl.visible_rays,
+                "tested_rays": sl.tested_rays,
+                "design_move": action, "provenance": HYP,
+                "verification": "eye-level and sectional view study with operator review "
+                                "[TO VERIFY]"})
             proto.to_verify.append(
                 f"EXPOSED sightline {sl.from_code}->{sl.to_code} ({sl.relation}): "
-                f"direct segment unobstructed at {sl.distance:.1f} m; screening required "
+                f"{sl.visible_rays}/{sl.tested_rays} sampled rays unobstructed; "
+                f"screening required "
                 f"[TO VERIFY].")
+    if not exposed:
+        proto.to_verify.append(
+            "No exposure in sampled plan rays; eye-level, section, openings and "
+            "landscape transparency still require review [TO VERIFY].")
     proto.provenance_log.append(
-        f"sightline exposure checked geometrically (segment-vs-rect) {HYP}; "
+        f"sightline exposure checked with sampled face-to-face rays {HYP}; "
         f"diagrammatic, not a regulatory sightline study")
 
     # --- open spaces classified by DEGREE OF ENCLOSURE (schematic) ---
@@ -373,7 +604,7 @@ def build_prototype(ph: Phenotype, candidate_label: str = "",
                          "space_type": s.space_type, "provenance": s.provenance}
                         for s in proto.open_spaces if s.space_type == "COURTYARD"]
     proto.provenance_log.append(
-        f"open spaces classified by enclosure degree: 3-4 sides=COURTYARD, "
+        f"open spaces classified by local 12 m enclosure: 3-4 sides=COURTYARD, "
         f"2=POCKET COURT/THRESHOLD EDGE, 0-1=OPEN LANDSCAPE {HYP}")
 
     # --- privacy gradient (site-level, PUBLIC -> PERSONAL ordering of modules) ---
@@ -396,9 +627,23 @@ def build_prototype(ph: Phenotype, candidate_label: str = "",
     proto.provenance_log.append(
         f"stacking from genotype floors genes {CORPUS}; R4 single-storey per corpus {CORPUS}")
 
-    # --- building grouping (connectivity clusters of MUST/NEAR) ---
+    # --- physical clusters and shared-threshold opportunities ---
     proto.groupings = _groupings(proto)
-    proto.provenance_log.append(f"building groupings from MUST/NEAR connectivity {HYP}")
+    proto.shared_thresholds = _shared_thresholds(proto)
+    proto.provenance_log.append(
+        f"physical building groups and threshold opportunities require a "
+        f"MUST/NEAR relation and a local edge gap {HYP}")
+
+    proto.route_networks = _derive_route_networks(proto)
+    proto.spines = _spines(proto)
+    proto.floor_plans = _floor_plans(proto)
+    proto.spatial_relationships = _spatial_relationships(proto)
+    proto.threshold_paths = _threshold_paths(proto)
+    proto.architectural_status = (
+        "ROUTE_UNRESOLVED" if any(n["unresolved"] for n in proto.route_networks)
+        or any(p["status"] == "UNRESOLVED" for p in proto.threshold_paths)
+        else "ROUTES_CONNECTED; SIGHTLINES_TO_VERIFY" if exposed
+        else "ROUTES_CONNECTED; SAMPLED_SIGHTLINES_SCREENED")
 
     # --- spatial-coherence flags (recorded, not silently drawn) ---
     for m in proto.modules:
@@ -457,11 +702,10 @@ def _check_sightlines(insts: list[Instance]) -> list[Sightline]:
     public-facing or safeguarding-sensitive modules, for all PROHIBITED or
     safeguarding-sensitive relationships.
 
-    For each sensitive (private <-> public-facing) pair, cast the straight
-    segment between the two module rectangles' nearest points and test whether
-    any OTHER built module's rectangle intersects it (i.e. screens it). Exposed
-    = no intervening built mass. Diagrammatic only [TO VERIFY] — not a
-    regulatory sightline/angle study."""
+    For each sensitive pair, sample boundary points on the faces toward the
+    other module. A single central ray can claim a pair is screened while an
+    oblique view remains open. Any clear sampled ray counts as exposure.
+    Diagrammatic only [TO VERIFY], not a regulatory view-cone study."""
     sensitive_pairs = []
     for i, a in enumerate(insts):
         for j, b in enumerate(insts):
@@ -481,18 +725,41 @@ def _check_sightlines(insts: list[Instance]) -> list[Sightline]:
         pa = _clamp_point_to_rect((b.x, b.y), _rect_of(a))
         pb = _clamp_point_to_rect((a.x, a.y), _rect_of(b))
         dist = float(np.hypot(pb[0] - pa[0], pb[1] - pa[1]))
-        screened_by = []
-        for k, other in enumerate(insts):
-            if k in (i, j):
-                continue
-            if _seg_intersects_rect(pa, pb, _rect_of(other)):
-                screened_by.append(other.code)
+        screened_by = set()
+        visible = 0
+        source_pts = _facing_points(a, b)
+        target_pts = _facing_points(b, a)
+        for source in source_pts:
+            for target in target_pts:
+                blockers = [other.code for k, other in enumerate(insts)
+                            if k not in (i, j) and
+                            _seg_intersects_rect(source, target, _rect_of(other))]
+                if blockers:
+                    screened_by.update(blockers)
+                else:
+                    visible += 1
+        tested = len(source_pts) * len(target_pts)
         out.append(Sightline(
             from_id=i, from_code=a.code, to_id=j, to_code=b.code,
             relation=rel_label, distance=round(dist, 2),
-            exposed=(len(screened_by) == 0), screened_by=sorted(set(screened_by)),
-            provenance=VERIFY))
+            exposed=visible > 0, screened_by=sorted(screened_by),
+            provenance=VERIFY, tested_rays=tested, visible_rays=visible,
+            exposure_ratio=round(visible / tested, 3)))
     return out
+
+
+def _facing_points(source: Instance, target: Instance) -> list[tuple[float, float]]:
+    """Three points on each face with a substantial view toward the target."""
+    x0, y0, x1, y1 = _rect_of(source)
+    dx, dy = target.x - source.x, target.y - source.y
+    pts = []
+    if abs(dx) >= abs(dy) / 2:
+        x = x1 if dx >= 0 else x0
+        pts.extend((x, y0 + f * (y1 - y0)) for f in (0.15, 0.5, 0.85))
+    if abs(dy) >= abs(dx) / 2:
+        y = y1 if dy >= 0 else y0
+        pts.extend((x0 + f * (x1 - x0), y) for f in (0.15, 0.5, 0.85))
+    return pts
 
 
 def _clamp_point_to_rect(p, rect):
@@ -500,20 +767,21 @@ def _clamp_point_to_rect(p, rect):
     return (min(max(p[0], x0), x1), min(max(p[1], y0), y1))
 
 
-def _classify_open_spaces(insts: list[Instance], res: int = 24) -> list[OpenSpace]:
+def _classify_open_spaces(insts: list[Instance], res: int = 48,
+                          view_depth: float = 12.0) -> list[OpenSpace]:
     """Classify open-space cells by DEGREE OF ENCLOSURE (schematic, [DESIGN
     HYPOTHESIS]):
       3-4 enclosing sides -> COURTYARD
       2  enclosing sides  -> POCKET COURT / THRESHOLD EDGE
       0-1 enclosing sides -> OPEN LANDSCAPE
 
-    Enclosure is measured by casting a ray from the cell in each of the 4
-    cardinal directions and counting how many rays strike built mass before
-    leaving the site (a "wall" on that side). This captures courtyards enclosed
-    by buildings a short distance away, not merely cells touching a building.
+    Enclosure is measured by casting four cardinal rays up to view_depth metres.
+    Unlimited rays falsely turn gaps between distant blocks into courtyards.
     Contiguous cells of the same type are merged into one zone (centroid +
     area_cells)."""
     cw, ch = C.SITE_W / res, C.SITE_H / res
+    nx = max(1, int(np.ceil(view_depth / cw)))
+    ny = max(1, int(np.ceil(view_depth / ch)))
     built = np.zeros((res, res), dtype=bool)
     for inst in insts:
         i0 = max(0, int((inst.x - inst.w / 2) / cw)); i1 = min(res, int((inst.x + inst.w / 2) / cw) + 1)
@@ -523,13 +791,13 @@ def _classify_open_spaces(insts: list[Instance], res: int = 24) -> list[OpenSpac
     def enc(i, j):
         """Count of 4 cardinal rays (W,E,S,N) that hit built mass before site edge."""
         s = 0
-        if built[:i, j].any():            # West ray
+        if built[max(0, i-nx):i, j].any():            # West ray
             s += 1
-        if built[i+1:, j].any():          # East ray
+        if built[i+1:min(res, i+nx+1), j].any():      # East ray
             s += 1
-        if built[i, :j].any():            # South ray
+        if built[i, max(0, j-ny):j].any():            # South ray
             s += 1
-        if built[i, j+1:].any():          # North ray
+        if built[i, j+1:min(res, j+ny+1)].any():      # North ray
             s += 1
         return s
 
@@ -539,10 +807,12 @@ def _classify_open_spaces(insts: list[Instance], res: int = 24) -> list[OpenSpac
         return "OPEN LANDSCAPE"
 
     typ = np.full((res, res), "", dtype=object)
+    enclosure = np.zeros((res, res), dtype=np.uint8)
     for i in range(res):
         for j in range(res):
             if not built[i, j]:
-                typ[i, j] = stype(enc(i, j))
+                enclosure[i, j] = enc(i, j)
+                typ[i, j] = stype(enclosure[i, j])
 
     # merge contiguous cells of the same type (4-connected flood fill)
     seen = np.zeros((res, res), dtype=bool)
@@ -561,12 +831,15 @@ def _classify_open_spaces(insts: list[Instance], res: int = 24) -> list[OpenSpac
                     if 0 <= ni < res and 0 <= nj < res and not seen[ni, nj] \
                        and not built[ni, nj] and typ[ni, nj] == t:
                         seen[ni, nj] = True; stack.append((ni, nj))
-            cx = float(np.mean([(c + 0.5) * cw for c, _ in cells]))
-            cy = float(np.mean([(r + 0.5) * ch for _, r in cells]))
-            e = 4 if t == "COURTYARD" else (2 if t.startswith("POCKET") else 1)
+            centre = np.mean(np.asarray(cells, dtype=float), axis=0)
+            ci, cj = min(cells, key=lambda q: (q[0]-centre[0])**2 +
+                         (q[1]-centre[1])**2)
+            cx, cy = (ci + 0.5) * cw, (cj + 0.5) * ch
+            e = min(int(enclosure[ii, jj]) for ii, jj in cells)
             zones.append(OpenSpace(cx=round(cx, 1), cy=round(cy, 1),
                                    area_cells=len(cells), enclosure=e,
-                                   space_type=t, provenance=HYP))
+                                   space_type=t, provenance=HYP,
+                                   area_m2=round(len(cells) * cw * ch, 1)))
     # keep meaningful zones (>=2 cells); retain the FULL enclosure spectrum so the
     # diagram shows courtyard + pocket + open-landscape variety (no cap).
     zones = [z for z in zones if z.area_cells >= 2]
@@ -584,8 +857,15 @@ def _threshold_sequence(proto: Prototype) -> list:
             for k, m in enumerate(seq)]
 
 
-def _groupings(proto: Prototype) -> list:
-    """Connected components over MUST/NEAR edges = building groups."""
+def _edge_gap(a: ModuleNode, b: ModuleNode) -> float:
+    """Shortest distance between two nonoverlapping axis-aligned footprints."""
+    dx = max(0.0, abs(a.x-b.x) - (a.w+b.w)/2)
+    dy = max(0.0, abs(a.y-b.y) - (a.d+b.d)/2)
+    return float(np.hypot(dx, dy))
+
+
+def _groupings(proto: Prototype, max_gap: float = 6.0) -> list:
+    """Local physical clusters, not code-level graph components [DH]."""
     n = len(proto.modules)
     parent = list(range(n))
 
@@ -600,23 +880,305 @@ def _groupings(proto: Prototype) -> list:
             parent[ra] = rb
 
     for cn in proto.connections:
-        if cn.kind in (MUST, NEAR):
+        if cn.kind in (MUST, NEAR) and _edge_gap(
+                proto.modules[cn.a_id], proto.modules[cn.b_id]) <= max_gap:
             union(cn.a_id, cn.b_id)
     groups = {}
     for m in proto.modules:
-        groups.setdefault(find(m.inst_id), []).append(m.code)
-    return [{"group": k, "modules": sorted(v), "provenance": HYP}
+        groups.setdefault(find(m.inst_id), []).append(m)
+    return [{"group": k,
+             "module_ids": [m.inst_id for m in sorted(v, key=lambda m: m.inst_id)],
+             "modules": [m.code for m in sorted(v, key=lambda m: m.inst_id)],
+             "max_link_gap_m": max_gap, "provenance": HYP}
             for k, v in enumerate(groups.values())]
+
+
+def _shared_thresholds(proto: Prototype, max_gap: float = 6.0) -> list:
+    """Nearby related modules that could share a controlled threshold [DH]."""
+    return [{"a_id": c.a_id, "b_id": c.b_id,
+             "a_code": c.a_code, "b_code": c.b_code,
+             "edge_gap_m": round(_edge_gap(proto.modules[c.a_id],
+                                           proto.modules[c.b_id]), 1),
+             "relation": c.kind, "provenance": HYP}
+            for c in proto.connections
+            if c.kind in (MUST, NEAR) and
+            _edge_gap(proto.modules[c.a_id], proto.modules[c.b_id]) <= max_gap]
+
+
+def _point_to_polyline(point: tuple, points: list) -> float:
+    if len(points) < 2:
+        return float("inf")
+    p = np.asarray(point, dtype=float)
+    best = float("inf")
+    for a, b in zip(points, points[1:]):
+        a, b = np.asarray(a, dtype=float), np.asarray(b, dtype=float)
+        ab = b-a
+        t = float(np.clip(np.dot(p-a, ab)/max(np.dot(ab, ab), 1e-12), 0, 1))
+        best = min(best, float(np.linalg.norm(p-(a+t*ab))))
+    return best
+
+
+def _spines(proto: Prototype, alignment_max: float = 6.0) -> list:
+    """Routed trunks and modules near them, for site organization [DH]."""
+    specifications = (("resident", "A0", "C0", "R4"),
+                      ("service", "F0", "M0", "C0"))
+    spines = []
+    for kind, source, destination, branch in specifications:
+        network = next((n for n in proto.route_networks
+                        if n["kind"] == kind), None)
+        if network is None:
+            continue
+        trunk = next((r for r in network["routes"]
+                      if r["from_code"] == source and
+                      r["to_code"] == destination and r["points"]), None)
+        if trunk is None:
+            continue
+        aligned = []
+        for module in proto.modules:
+            if module.code != branch or kind not in module.access_points:
+                continue
+            distance = _point_to_polyline(module.access_points[kind],
+                                          trunk["points"])
+            if distance <= alignment_max:
+                aligned.append({"id": module.inst_id, "code": module.code,
+                                "distance_m": round(distance, 1)})
+        spines.append({"kind": kind, "from": source, "to": destination,
+                       "points": trunk["points"], "length_m": trunk["length_m"],
+                       "aligned_modules": aligned,
+                       "alignment_distance_m": alignment_max,
+                       "provenance": HYP})
+    return spines
+
+
+def _route_grid(proto: Prototype, access_kind: str, step: float = 1.5):
+    """A* walkable site grid, with protected clearance for public/service paths."""
+    nx = int(np.ceil(proto.site_w / step))
+    ny = int(np.ceil(proto.site_h / step))
+    blocked = np.zeros((ny, nx), dtype=bool)
+    clearance = 3.0 if access_kind == "visitor_community" else (
+        2.0 if access_kind == "service" else 0.0)
+    for m in proto.modules:
+        margin = clearance if m.code == "R4" else 0.0
+        x0, x1 = m.x-m.w/2-margin, m.x+m.w/2+margin
+        y0, y1 = m.y-m.d/2-margin, m.y+m.d/2+margin
+        for iy in range(ny):
+            cy = (iy + 0.5) * step
+            if not y0 <= cy <= y1:
+                continue
+            for ix in range(nx):
+                cx = (ix + 0.5) * step
+                if x0 <= cx <= x1:
+                    blocked[iy, ix] = True
+    return blocked, step
+
+
+def _grid_path(blocked: np.ndarray, step: float, start: tuple,
+               end: tuple) -> list[tuple[float, float]]:
+    ny, nx = blocked.shape
+    free = np.argwhere(~blocked)
+    if len(free) == 0:
+        return []
+
+    def snap(point):
+        delta = (free[:, ::-1] + 0.5) * step - np.asarray(point)
+        row = free[int(np.argmin(np.sum(delta * delta, axis=1)))]
+        return int(row[0]), int(row[1])
+
+    src, dst = snap(start), snap(end)
+    best = {src: 0.0}
+    prev = {}
+    queue = [(0.0, 0.0, src)]
+    while queue:
+        _, cost, node = heapq.heappop(queue)
+        if cost > best.get(node, float("inf")):
+            continue
+        if node == dst:
+            break
+        iy, ix = node
+        for dy, dx in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+            nxt = (iy + dy, ix + dx)
+            if not (0 <= nxt[0] < ny and 0 <= nxt[1] < nx):
+                continue
+            if blocked[nxt]:
+                continue
+            new_cost = cost + step
+            if new_cost < best.get(nxt, float("inf")):
+                best[nxt] = new_cost
+                prev[nxt] = node
+                heuristic = (abs(nxt[0]-dst[0]) + abs(nxt[1]-dst[1])) * step
+                heapq.heappush(queue, (new_cost + heuristic, new_cost, nxt))
+    if dst not in best:
+        return []
+    cells = [dst]
+    while cells[-1] != src:
+        cells.append(prev[cells[-1]])
+    cells.reverse()
+    pts = [tuple(round(float(v), 2) for v in start)]
+    pts.extend(((ix + 0.5) * step, (iy + 0.5) * step)
+               for iy, ix in cells)
+    pts.append(tuple(round(float(v), 2) for v in end))
+    return [(round(float(x), 2), round(float(y), 2)) for x, y in pts]
+
+
+def _derive_route_networks(proto: Prototype) -> list:
+    bycode = {}
+    for m in proto.modules:
+        bycode.setdefault(m.code, []).append(m.inst_id)
+
+    def pairs(origin, dest):
+        if origin not in bycode:
+            return []
+        return [(bycode[origin][0], target) for target in bycode.get(dest, [])]
+
+    specs = {
+        "resident": ([("A0", "C0"), ("C0", "R4"),
+                      ("C0", "H0"), ("C0", "I0"),
+                      ("C0", "J0"), ("C0", "L0")]),
+        "care_staff": ([("A0", "B0"), ("B0", "E0"),
+                        ("B0", "R4"), ("B0", "L0")]),
+        "visitor_community": ([("A0", "H0"), ("A0", "J0"),
+                                ("A0", "K0")]),
+        "service": ([("F0", "M0"), ("F0", "C0"), ("F0", "J0")]),
+        "emergency": ([("A0", "B0"), ("B0", "R4")]),
+    }
+    networks = []
+    for kind, code_pairs in specs.items():
+        blocked, step = _route_grid(proto, kind)
+        routes, unresolved = [], []
+        gate_code = "F0" if kind == "service" else "A0"
+        if gate_code in bycode:
+            gate = proto.modules[bycode[gate_code][0]]
+            edge = gate.faces["service" if gate_code == "F0" else "public"]
+            ax, ay = gate.access_points[kind]
+            ex, ey = _edges(gate)[edge]
+            site_point = {"W": (0.0, ey), "E": (proto.site_w, ey),
+                          "S": (ex, 0.0), "N": (ex, proto.site_h)}[edge]
+            pts = _grid_path(blocked, step, site_point, (ex, ey))
+            length = sum(float(np.hypot(x1-x0, y1-y0))
+                         for (x0, y0), (x1, y1) in zip(pts, pts[1:]))
+            routes.append({"from_id": -1, "to_id": gate.inst_id,
+                           "from_code": "SITE", "to_code": gate.code,
+                           "points": pts, "length_m": round(length, 1),
+                           "status": "CONNECTED" if pts else "UNRESOLVED",
+                           "provenance": VERIFY})
+            if not pts:
+                unresolved.append(f"SITE->{gate.code}{gate.inst_id}")
+            if (ax, ay) != (ex, ey):
+                routes.append({"from_id": gate.inst_id, "to_id": gate.inst_id,
+                               "from_code": gate.code, "to_code": gate.code,
+                               "points": [(ex, ey), (ax, ay)],
+                               "length_m": round(float(np.hypot(ax-ex, ay-ey)), 1),
+                               "status": "CONTROLLED_INTERNAL",
+                               "provenance": HYP})
+        for source_code, target_code in code_pairs:
+            if source_code not in bycode or target_code not in bycode:
+                continue
+            for a_id, b_id in pairs(source_code, target_code):
+                a, b = proto.modules[a_id], proto.modules[b_id]
+                start, end = a.access_points[kind], b.access_points[kind]
+                pts = _grid_path(blocked, step, start, end)
+                length = sum(float(np.hypot(x1-x0, y1-y0))
+                             for (x0, y0), (x1, y1) in zip(pts, pts[1:]))
+                route = {"from_id": a_id, "to_id": b_id,
+                         "from_code": a.code, "to_code": b.code,
+                         "points": pts, "length_m": round(length, 1),
+                         "status": "CONNECTED" if pts else "UNRESOLVED",
+                         "provenance": HYP}
+                routes.append(route)
+                if not pts:
+                    unresolved.append(f"{a.code}{a_id}->{b.code}{b_id}")
+        if unresolved:
+            proto.to_verify.append(
+                f"{kind} path network unresolved: {', '.join(unresolved)} {VERIFY}")
+        networks.append({"kind": kind, "routes": routes,
+                         "unresolved": unresolved, "provenance": HYP,
+                         "site_entry": "nearest schematic site edge [TO VERIFY]"})
+    return networks
+
+
+def _floor_plans(proto: Prototype) -> list:
+    plans = []
+    for floor in range(1, max((m.floors for m in proto.modules), default=1) + 1):
+        entries = []
+        for m in proto.modules:
+            if m.floors >= floor:
+                entries.append({"id": m.inst_id, "code": m.code,
+                                "x": m.x, "y": m.y, "w": m.w, "d": m.d,
+                                "parts": [p.name for p in m.parts if p.floor == floor],
+                                "provenance": HYP})
+        plans.append({"floor": floor, "modules": entries,
+                      "provenance": HYP})
+    return plans
+
+
+def _spatial_relationships(proto: Prototype) -> list:
+    named = {frozenset(("A0", "B0")): "civic edge / care hinge",
+             frozenset(("B0", "C0")): "care hinge / shared commons",
+             frozenset(("C0", "R4")): "commons / domestic cluster",
+             frozenset(("B0", "R4")): "care hinge / domestic cluster",
+             frozenset(("F0", "M0")): "service / environmental edge"}
+    out = []
+    for c in proto.connections:
+        name = named.get(frozenset((c.a_code, c.b_code)))
+        if name is None:
+            continue
+        a, b = proto.modules[c.a_id], proto.modules[c.b_id]
+        distance = float(np.hypot(a.x-b.x, a.y-b.y))
+        out.append({"a_id": c.a_id, "b_id": c.b_id,
+                    "relationship": name, "relation": c.kind,
+                    "centroid_distance_m": round(distance, 1),
+                    "within_must_range": distance <= C.MUST_LINK_MAX
+                    if c.kind == MUST else None,
+                    "provenance": CORPUS if c.kind == MUST else HYP})
+    open_land = [s for s in proto.open_spaces if s.space_type == "OPEN LANDSCAPE"]
+    if open_land:
+        largest = max(open_land, key=lambda s: s.area_m2)
+        out.append({"relationship": "landscape buffer / expansion zone",
+                    "anchor": (largest.cx, largest.cy),
+                    "reserve_area_m2": proto.site_budget["expansion_reserve_m2"],
+                    "provenance": HYP})
+    return out
+
+
+def _threshold_paths(proto: Prototype) -> list:
+    resident = next((n for n in proto.route_networks
+                     if n["kind"] == "resident"), None)
+    if resident is None:
+        return []
+    route_map = {(r["from_code"], r["to_id"]): r for r in resident["routes"]}
+    commons = next((m for m in proto.modules if m.code == "C0"), None)
+    if commons is None:
+        return []
+    entry = route_map.get(("A0", commons.inst_id))
+    paths = []
+    for m in proto.modules:
+        if m.code != "R4":
+            continue
+        branch = route_map.get(("C0", m.inst_id))
+        connected = bool(entry and branch and entry["points"] and branch["points"])
+        points = (entry["points"] + branch["points"] if connected else [])
+        paths.append({"to_id": m.inst_id,
+                      "sequence": ["A0", "C0", f"R4:{m.inst_id}"],
+                      "privacy": ["CONTROLLED", "SHARED", "DOMESTIC"],
+                      "points": points,
+                      "length_m": round(entry["length_m"] + branch["length_m"], 1)
+                      if connected else None,
+                      "status": "CONNECTED" if connected else "UNRESOLVED",
+                      "provenance": HYP})
+    return paths
 
 
 # ---------------------------------------------------------------------------
 # Rendering suite (7 schematic figures per phenotype)
 # ---------------------------------------------------------------------------
-def _module_box(ax, m: ModuleNode, facecolor, show_parts=False, label=True):
+def _module_box(ax, m: ModuleNode, facecolor, show_parts=False, label=True,
+                floor: int = 1):
     ax.add_patch(Rectangle((m.x - m.w / 2, m.y - m.d / 2), m.w, m.d,
                            facecolor=facecolor, edgecolor="k", alpha=0.85, lw=1.0))
     if show_parts:
         for p in m.parts:
+            if p.floor != floor:
+                continue
             ax.add_patch(Rectangle((p.x, p.y), p.w, p.d,
                                    facecolor=_PRIV_COLOR[p.privacy], edgecolor="white",
                                    alpha=0.55, lw=0.4))
@@ -651,27 +1213,46 @@ def render_plan(proto: Prototype, path):
                             edgecolor="#16a34a", alpha=0.6, ls="--"))
         ax.text(c["cx"], c["cy"], "courtyard", ha="center", va="center", fontsize=5, color="#166534")
     ax.set_title(f"Schematic plan — {proto.candidate or 'phenotype'} (rep {proto.rep_index}, seed {proto.seed})\n"
-                 f"{proto.program} · GFA {proto.gfa} m² · landscape {proto.landscape_frac*100:.0f}%")
+                 f"{proto.program} · area proxy {proto.gfa} m² · landscape {proto.landscape_frac*100:.0f}%")
     _legend_provenance(fig)
     fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
 
 
 def render_axonometric(proto: Prototype, path):
-    """2. Exploded axonometric/isometric: modules lifted by privacy level,
-    internal parts hinted. Diagrammatic massing only (no structural system)."""
+    """Exploded floor massing in diagram units, preserving each module's stack."""
     fig = plt.figure(figsize=(11, 8))
     ax = fig.add_subplot(111, projection="3d")
     for m in proto.modules:
-        z0 = m.privacy * 3.0                      # explode vertically by privacy level
-        hgt = m.floors * 3.0
         x0, y0 = m.x - m.w / 2, m.y - m.d / 2
-        _bar3(ax, x0, y0, z0, m.w, m.d, hgt, _MOD_COLOR.get(m.code, "#eee"))
-        ax.text(m.x, m.y, z0 + hgt + 0.6, m.code, ha="center", fontsize=7, weight="bold")
-    ax.set_box_aspect((proto.site_w, proto.site_h, 30))
+        for floor in range(m.floors):
+            z0 = floor * 3.8
+            _bar3(ax, x0, y0, z0, m.w, m.d, 3.0,
+                  _MOD_COLOR.get(m.code, "#eee"))
+        ax.text(m.x, m.y, (m.floors - 1) * 3.8 + 3.5,
+                m.code, ha="center", fontsize=7, weight="bold")
+    ax.set_box_aspect((proto.site_w, proto.site_h, 12))
     ax.view_init(elev=28, azim=-58)
     ax.set_axis_off()
     ax.set_title(f"Exploded axonometric — {proto.candidate or 'phenotype'} "
-                 f"(lifted by privacy level; diagrammatic massing, no structural system)")
+                 f"(floors separated in diagram units; height/structure {VERIFY})")
+    fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
+
+
+def render_floor_plans(proto: Prototype, path):
+    """Ground and upper schematic layouts at one site scale."""
+    n = len(proto.floor_plans)
+    fig, axes = plt.subplots(1, n, figsize=(10 * n, 7))
+    axes = np.atleast_1d(axes)
+    for ax, plan in zip(axes, proto.floor_plans):
+        _site_frame(ax, proto)
+        floor = plan["floor"]
+        for m in proto.modules:
+            if m.floors >= floor:
+                _module_box(ax, m, _MOD_COLOR.get(m.code, "#eee"),
+                            show_parts=True, floor=floor)
+        ax.set_title(f"Floor {floor} · {len(plan['modules'])} modules")
+    fig.suptitle(f"Floor-by-floor spatial grammar — {proto.candidate or 'phenotype'} "
+                 f"(internal zones {HYP}; dimensions {VERIFY})")
     fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
 
 
@@ -721,24 +1302,27 @@ def render_privacy(proto: Prototype, path):
 
 
 def render_circulation(proto: Prototype, path):
-    """5. Circulation skeleton: resident / care / service / public networks."""
+    """Path networks through the open site between typed access anchors."""
     fig, ax = plt.subplots(figsize=(10, 7))
     _site_frame(ax, proto)
     for m in proto.modules:
         _module_box(ax, m, _MOD_COLOR.get(m.code, "#eee"), show_parts=False)
-    circ_color = {"resident": "#f59e0b", "care": "#fb7185",
-                  "service": "#64748b", "public": "#38bdf8", "controlled": "#a78bfa"}
-    seen = set()
-    for cn in proto.connections:
-        a = proto.modules[cn.a_id]; b = proto.modules[cn.b_id]
-        for ckind in cn.circulations:
-            col = circ_color.get(ckind, "#888")
-            ax.plot([a.x, b.x], [a.y, b.y], color=col, lw=2.0, alpha=0.6, zorder=1)
-            seen.add(ckind)
-    handles = [Line2D([0], [0], color=circ_color[k], lw=2.5) for k in seen]  # type: ignore[attr-defined]
-    ax.legend(handles, list(seen), loc="upper right", fontsize=8, title="circulation")
-    ax.set_title(f"Circulation skeleton — {proto.candidate or 'phenotype'} "
-                 f"(resident/care/service/public)")
+    circ_color = {"resident": "#bd7a13", "care_staff": "#7c58a5",
+                  "service": "#596878", "visitor_community": "#168a9a",
+                  "emergency": "#c64d45"}
+    for net in proto.route_networks:
+        for route in net["routes"]:
+            if not route["points"]:
+                continue
+            pts = np.asarray(route["points"])
+            ax.plot(pts[:, 0], pts[:, 1], color=circ_color[net["kind"]],
+                    lw=1.35 if route["status"] != "CONTROLLED_INTERNAL" else 2,
+                    alpha=0.7, zorder=1)
+    handles = [Line2D([0], [0], color=color, lw=2) for color in circ_color.values()]
+    ax.legend(handles, list(circ_color), loc="upper right", fontsize=7,
+              title="user / access")
+    ax.set_title(f"Circulation paths — {proto.candidate or 'phenotype'} "
+                 f"(grid routes around built mass; widths and access {VERIFY})")
     fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
 
 
@@ -761,7 +1345,7 @@ def render_composition(proto: Prototype, path):
         ax2.text(iface[v] + 0.05, i, str(iface[v]), va="center", fontsize=8)
     ax2.set_title("interface classes"); ax2.grid(alpha=0.2, axis="x")
     fig.suptitle(f"Composition — {proto.candidate or 'phenotype'} · {proto.program} "
-                 f"· GFA {proto.gfa} m²")
+                 f"· area proxy {proto.gfa} m²")
     fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
 
 
@@ -783,7 +1367,7 @@ def render_objectives(proto: Prototype, path):
 
 
 def render_sightlines(proto: Prototype, path):
-    """Safeguarded sightline diagram: private->public exposure, screened vs exposed."""
+    """Sensitive sightline diagnostic: sampled exposure versus screening."""
     fig, ax = plt.subplots(figsize=(10, 7))
     _site_frame(ax, proto)
     for m in proto.modules:
@@ -805,9 +1389,9 @@ def render_sightlines(proto: Prototype, path):
                Line2D([0], [0], color="#16a34a", lw=1.2, ls="--")]
     ax.legend(handles, [f"EXPOSED (screening req.) {VERIFY}",
                         f"screened by built mass"], loc="upper right", fontsize=8)
-    ax.set_title(f"Safeguarded sightlines — {proto.candidate or 'phenotype'} "
-                 f"({n_exp}/{len(proto.sightlines)} private-public EXPOSED; "
-                 f"diagrammatic, not a regulatory study)")
+    ax.set_title(f"Sensitive sightlines — {proto.candidate or 'phenotype'} "
+                 f"({n_exp}/{len(proto.sightlines)} pairs EXPOSED in sampled rays; "
+                 f"diagrammatic {VERIFY})")
     fig.tight_layout(); fig.savefig(path, dpi=140); plt.close(fig)
 
 
@@ -904,6 +1488,7 @@ def _legend_provenance(fig):
 
 
 RENDERERS = [("plan", render_plan), ("axonometric", render_axonometric),
+             ("floor_plans", render_floor_plans),
              ("stacking", render_stacking), ("privacy", render_privacy),
              ("circulation", render_circulation), ("sightlines", render_sightlines),
              ("open_space", render_open_space), ("module_detail", render_module_detail),

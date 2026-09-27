@@ -47,6 +47,15 @@ def c_site_limit(ph: Phenotype) -> float:
     return max(0.0, ph.footprint + ph.reserve_area - C.BUILDABLE_MAX)
 
 
+def c_site_boundary(ph: Phenotype) -> float:
+    """Every module footprint must remain inside the schematic site frame [DH]."""
+    return float(sum(
+        max(0.0, i.w / 2 - i.x) + max(0.0, i.x + i.w / 2 - C.SITE_W)
+        + max(0.0, i.d / 2 - i.y) + max(0.0, i.y + i.d / 2 - C.SITE_H)
+        for i in ph.instances
+    ))
+
+
 def c_required_modules(ph: Phenotype) -> float:
     """Developmental DNA modules must be present."""
     missing = sum(0 if ph.has(code) else 1 for code in ALWAYS_PRESENT)
@@ -188,25 +197,22 @@ def c_accessibility_egress(ph: Phenotype) -> float:
 
 
 def c_must_adjacency(ph: Phenotype) -> float:
-    """MUST-linked pairs should be close. Violation = distance beyond MUST range.
+    """Sum MUST-link shortfalls, checking every instance of a repeatable module.
 
-    Treated as a *soft-feasibility* pressure: included in violation so strongly
-    disconnected care/commons relationships are penalised, but small excess is
-    tolerated (does not by itself make a solution infeasible unless large).
+    R4 clusters each need their own B0 and C0 relationship. A code-level minimum
+    would let one nearby R4 hide disconnected residential clusters. A MUST
+    shortfall makes the schematic configuration model-infeasible.
     """
     v = 0.0
-    codes = {i.code for i in ph.instances}
-    seen = set()
-    for a in codes:
-        for b in codes:
-            if a >= b or (a, b) in seen:
-                continue
-            seen.add((a, b))
+    codes = sorted({i.code for i in ph.instances})
+    for ai, a in enumerate(codes):
+        for b in codes[ai + 1:]:
             if relation(a, b) == MUST:
-                best = min(dist(ia, ib) for ia, ib in _pairs(ph, a, b))
-                over = best - C.MUST_LINK_MAX
-                if over > 0:
-                    v += over
+                aa, bb = ph.by_code(a), ph.by_code(b)
+                many, few = (aa, bb) if len(aa) >= len(bb) else (bb, aa)
+                for inst in many:
+                    v += max(0.0, min(dist(inst, other) for other in few)
+                             - C.MUST_LINK_MAX)
     return v
 
 
@@ -214,6 +220,7 @@ def c_must_adjacency(ph: Phenotype) -> float:
 CONSTRAINTS = [
     ("overlap",              c_overlap,              True),
     ("site_limit",           c_site_limit,           True),
+    ("site_boundary",        c_site_boundary,        True),
     ("required_modules",     c_required_modules,     True),
     ("population_range",     c_population_range,     True),
     ("prohibited_adjacency", c_prohibited_adjacency, True),
@@ -225,34 +232,29 @@ CONSTRAINTS = [
     ("stacking",             c_stacking,             True),
     ("landscape_band",       c_landscape_band,       True),
     ("accessibility_egress", c_accessibility_egress, True),  # placeholder
-    ("must_adjacency",       c_must_adjacency,       False), # soft feasibility
+    ("must_adjacency",       c_must_adjacency,       True),
 ]
 
-# Hard constraints must be exactly 0 for feasibility; soft ones contribute to
-# violation pressure but tolerate tiny excess (handled via FEAS_TOL).
+# Hard constraints must be zero within numerical tolerance for feasibility.
 FEAS_TOL = 1e-6
 
 
 def evaluate_constraints(ph: Phenotype) -> tuple[float, bool, dict]:
     """Return (total_violation, feasible, per_constraint_dict).
 
-    hard_v drives feasibility (constrained domination). soft_v (MUST adjacency)
-    is kept SEPARATE in ph.soft_cv so it can act as a selection tie-break among
-    otherwise hard-feasible solutions (Campaign v2 fix) instead of being folded
-    into a CV that feasibility ignores.
+    Hard violation drives constrained domination. The legacy soft_cv field is
+    populated with MUST shortfall for old consumers, but MUST is hard in v3.
     """
     detail = {}
     hard_v = 0.0
-    soft_v = 0.0
     for name, fn, is_hard in CONSTRAINTS:
         val = fn(ph)
         detail[name] = val
         if is_hard:
             hard_v += val
-        else:
-            soft_v += val
     feasible = hard_v <= FEAS_TOL
     ph.cv = hard_v                    # constrained-domination violation = hard only
-    ph.soft_cv = soft_v               # MUST-adjacency shortfall, separate
+    ph.must_shortfall = detail["must_adjacency"]
+    ph.soft_cv = ph.must_shortfall  # legacy field
     ph.feasible = feasible
     return hard_v, feasible, detail

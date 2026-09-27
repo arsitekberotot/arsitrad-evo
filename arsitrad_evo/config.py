@@ -55,6 +55,7 @@ class GAConfig:
     sbx_eta: float = 20.0            # SBX distribution index (real)
     poly_eta: float = 20.0           # polynomial mutation index (real)
     seed: int = 42
+    n_R4_fixed: int | None = None  # optional capacity stratum for research sampling
 
 # ----------------------------------------------------------------------------
 # K-MEANS POST-PROCESSING  [DH]

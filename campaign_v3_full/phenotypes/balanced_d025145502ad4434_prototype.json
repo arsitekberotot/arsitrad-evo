@@ -1,0 +1,5741 @@
+{
+  "candidate": "BALANCED",
+  "rep_index": 234,
+  "seed": 2024,
+  "program": "R4x2 res=8 day=24",
+  "site_w": 90.0,
+  "site_h": 61.5,
+  "residents": 8,
+  "day_users": 24,
+  "gfa": 1071,
+  "footprint": 1070.1,
+  "landscape_frac": 0.474,
+  "landscape_area": 2625.0,
+  "modules": [
+    {
+      "inst_id": 0,
+      "code": "A0",
+      "name": "Civic Threshold",
+      "x": 5.763486634257,
+      "y": 41.38036674358,
+      "w": 11.5,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        5.763486634257,
+        37.38036674358
+      ],
+      "connection_anchors": [
+        [
+          5.763486634257,
+          45.38036674358
+        ],
+        [
+          11.513486634257,
+          41.38036674358
+        ],
+        [
+          0.01348663425700014,
+          41.38036674358
+        ]
+      ],
+      "interface": "public",
+      "parts": [
+        {
+          "name": "public forecourt",
+          "x": 0.5884866342570002,
+          "y": 41.78036674358,
+          "w": 5.75,
+          "d": 3.2,
+          "privacy": 0,
+          "provenance": "[PA5 CORPUS]",
+          "note": "arrival from street",
+          "floor": 1
+        },
+        {
+          "name": "controlled gate",
+          "x": 6.913486634257,
+          "y": 41.78036674358,
+          "w": 4.0249999999999995,
+          "d": 3.2,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "legitimate public->private",
+          "floor": 1
+        },
+        {
+          "name": "waiting / lobby",
+          "x": 0.5884866342570002,
+          "y": 38.180366743579995,
+          "w": 5.175,
+          "d": 3.04,
+          "privacy": 1,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "visitor holding",
+          "floor": 1
+        },
+        {
+          "name": "threshold marker",
+          "x": 6.338486634257,
+          "y": 38.180366743579995,
+          "w": 4.6000000000000005,
+          "d": 3.04,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "sequence node",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "civic edge",
+      "faces": {
+        "public": "W",
+        "private": "S",
+        "service": null,
+        "retreat": null
+      },
+      "access_points": {
+        "resident": [
+          5.763486634257,
+          37.38036674358
+        ],
+        "care_staff": [
+          5.763486634257,
+          37.38036674358
+        ],
+        "visitor_community": [
+          0.01348663425700014,
+          41.38036674358
+        ],
+        "emergency": [
+          0.01348663425700014,
+          41.38036674358
+        ]
+      },
+      "access_edges": {
+        "resident": "S",
+        "care_staff": "S",
+        "visitor_community": "W",
+        "emergency": "W"
+      },
+      "grammar_rotation_degrees": 0,
+      "internal_paths": [
+        {
+          "from": [
+            5.763486634257,
+            37.38036674358
+          ],
+          "to": [
+            3.46,
+            43.38
+          ],
+          "destination": "public forecourt",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            5.763486634257,
+            37.38036674358
+          ],
+          "to": [
+            8.93,
+            43.38
+          ],
+          "destination": "controlled gate",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            5.763486634257,
+            37.38036674358
+          ],
+          "to": [
+            3.18,
+            39.7
+          ],
+          "destination": "waiting / lobby",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            5.763486634257,
+            37.38036674358
+          ],
+          "to": [
+            8.64,
+            39.7
+          ],
+          "destination": "threshold marker",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": true
+    },
+    {
+      "inst_id": 1,
+      "code": "B0",
+      "name": "Care & Safeguarding",
+      "x": 13.643884783758,
+      "y": 24.917228429029,
+      "w": 11.5,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        13.643884783758,
+        20.917228429029
+      ],
+      "connection_anchors": [
+        [
+          13.643884783758,
+          28.917228429029
+        ],
+        [
+          19.393884783758,
+          24.917228429029
+        ],
+        [
+          7.893884783758001,
+          24.917228429029
+        ]
+      ],
+      "interface": "protected",
+      "parts": [
+        {
+          "name": "intake",
+          "x": 8.468884783758,
+          "y": 25.317228429029,
+          "w": 3.22,
+          "d": 3.04,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "arrival / admission",
+          "floor": 1
+        },
+        {
+          "name": "counselling",
+          "x": 12.263884783758002,
+          "y": 25.317228429029,
+          "w": 3.22,
+          "d": 3.04,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "therapeutic rooms",
+          "floor": 1
+        },
+        {
+          "name": "safeguarding",
+          "x": 15.943884783758,
+          "y": 25.317228429029,
+          "w": 2.99,
+          "d": 3.04,
+          "privacy": 4,
+          "provenance": "[PA5 CORPUS]",
+          "note": "protected records / response",
+          "floor": 1
+        },
+        {
+          "name": "care response",
+          "x": 8.468884783758,
+          "y": 21.717228429029,
+          "w": 5.175,
+          "d": 2.88,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "rapid reach to R4",
+          "floor": 1
+        },
+        {
+          "name": "staff control",
+          "x": 14.218884783758,
+          "y": 21.717228429029,
+          "w": 4.6000000000000005,
+          "d": 2.88,
+          "privacy": 1,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "observation point",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "care hinge",
+      "faces": {
+        "public": null,
+        "private": "S",
+        "service": null,
+        "retreat": null
+      },
+      "access_points": {
+        "care_staff": [
+          13.643884783758,
+          20.917228429029
+        ],
+        "emergency": [
+          13.643884783758,
+          28.917228429029
+        ]
+      },
+      "access_edges": {
+        "care_staff": "S",
+        "emergency": "N"
+      },
+      "grammar_rotation_degrees": 0,
+      "internal_paths": [
+        {
+          "from": [
+            13.643884783758,
+            20.917228429029
+          ],
+          "to": [
+            10.08,
+            26.84
+          ],
+          "destination": "intake",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            13.643884783758,
+            20.917228429029
+          ],
+          "to": [
+            13.87,
+            26.84
+          ],
+          "destination": "counselling",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            13.643884783758,
+            20.917228429029
+          ],
+          "to": [
+            17.44,
+            26.84
+          ],
+          "destination": "safeguarding",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            13.643884783758,
+            20.917228429029
+          ],
+          "to": [
+            11.06,
+            23.16
+          ],
+          "destination": "care response",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            13.643884783758,
+            20.917228429029
+          ],
+          "to": [
+            16.52,
+            23.16
+          ],
+          "destination": "staff control",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": true
+    },
+    {
+      "inst_id": 2,
+      "code": "C0",
+      "name": "Everyday Commons",
+      "x": 28.514376900954,
+      "y": 28.17427757843,
+      "w": 14.0,
+      "d": 10.7,
+      "floors": 1,
+      "privacy": 2,
+      "orientation": "EW",
+      "entrance_anchor": [
+        28.514376900954,
+        22.82427757843
+      ],
+      "connection_anchors": [
+        [
+          28.514376900954,
+          33.52427757843
+        ],
+        [
+          35.514376900954005,
+          28.17427757843
+        ],
+        [
+          21.514376900954,
+          28.17427757843
+        ]
+      ],
+      "interface": "shared",
+      "parts": [
+        {
+          "name": "shared kitchen",
+          "x": 22.214376900954,
+          "y": 28.17427757843,
+          "w": 4.2,
+          "d": 4.494,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "communal cooking",
+          "floor": 1
+        },
+        {
+          "name": "dining / gathering",
+          "x": 26.834376900954002,
+          "y": 28.17427757843,
+          "w": 4.760000000000001,
+          "d": 4.494,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "shared meals",
+          "floor": 1
+        },
+        {
+          "name": "everyday activity",
+          "x": 31.874376900954,
+          "y": 28.17427757843,
+          "w": 3.08,
+          "d": 4.494,
+          "privacy": 2,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "laundry / workshop",
+          "floor": 1
+        },
+        {
+          "name": "covered terrace",
+          "x": 22.214376900954,
+          "y": 23.68027757843,
+          "w": 7.700000000000001,
+          "d": 3.638,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "outdoor everyday life",
+          "floor": 1
+        },
+        {
+          "name": "commons threshold",
+          "x": 30.194376900954,
+          "y": 23.68027757843,
+          "w": 4.62,
+          "d": 3.638,
+          "privacy": 2,
+          "provenance": "[TO VERIFY]",
+          "note": "link to R4 / landscape",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "shared commons",
+      "faces": {
+        "public": null,
+        "private": "S",
+        "service": "E",
+        "retreat": null
+      },
+      "access_points": {
+        "resident": [
+          28.514376900954,
+          22.82427757843
+        ],
+        "care_staff": [
+          28.514376900954,
+          22.82427757843
+        ],
+        "service": [
+          35.514376900954005,
+          28.17427757843
+        ]
+      },
+      "access_edges": {
+        "resident": "S",
+        "care_staff": "S",
+        "service": "E"
+      },
+      "grammar_rotation_degrees": 0,
+      "internal_paths": [
+        {
+          "from": [
+            28.514376900954,
+            22.82427757843
+          ],
+          "to": [
+            24.31,
+            30.42
+          ],
+          "destination": "shared kitchen",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            28.514376900954,
+            22.82427757843
+          ],
+          "to": [
+            29.21,
+            30.42
+          ],
+          "destination": "dining / gathering",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            28.514376900954,
+            22.82427757843
+          ],
+          "to": [
+            33.41,
+            30.42
+          ],
+          "destination": "everyday activity",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            28.514376900954,
+            22.82427757843
+          ],
+          "to": [
+            26.06,
+            25.5
+          ],
+          "destination": "covered terrace",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            28.514376900954,
+            22.82427757843
+          ],
+          "to": [
+            32.5,
+            25.5
+          ],
+          "destination": "commons threshold",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": false
+    },
+    {
+      "inst_id": 3,
+      "code": "E0",
+      "name": "Staff Base",
+      "x": 32.400427599333,
+      "y": 38.41499588561,
+      "w": 9.5,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        32.400427599333,
+        34.41499588561
+      ],
+      "connection_anchors": [
+        [
+          32.400427599333,
+          42.41499588561
+        ],
+        [
+          37.150427599333,
+          38.41499588561
+        ],
+        [
+          27.650427599333,
+          38.41499588561
+        ]
+      ],
+      "interface": "protected",
+      "parts": [
+        {
+          "name": "staff room",
+          "x": 28.125427599333,
+          "y": 38.41499588561,
+          "w": 4.275,
+          "d": 3.36,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "care team base",
+          "floor": 1
+        },
+        {
+          "name": "handover / admin",
+          "x": 32.875427599333,
+          "y": 38.41499588561,
+          "w": 3.8000000000000003,
+          "d": 3.36,
+          "privacy": 1,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "shift handover",
+          "floor": 1
+        },
+        {
+          "name": "rapid response",
+          "x": 28.125427599333,
+          "y": 35.05499588561,
+          "w": 5.2250000000000005,
+          "d": 2.72,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "direct reach to R4",
+          "floor": 1
+        },
+        {
+          "name": "service lock",
+          "x": 33.825427599333,
+          "y": 35.05499588561,
+          "w": 2.85,
+          "d": 2.72,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "staff-only access",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "care / staff edge",
+      "faces": {
+        "public": null,
+        "private": "S",
+        "service": null,
+        "retreat": null
+      },
+      "access_points": {
+        "care_staff": [
+          32.400427599333,
+          34.41499588561
+        ],
+        "emergency": [
+          27.650427599333,
+          38.41499588561
+        ]
+      },
+      "access_edges": {
+        "care_staff": "S",
+        "emergency": "W"
+      },
+      "grammar_rotation_degrees": 0,
+      "internal_paths": [
+        {
+          "from": [
+            32.400427599333,
+            34.41499588561
+          ],
+          "to": [
+            30.26,
+            40.09
+          ],
+          "destination": "staff room",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            32.400427599333,
+            34.41499588561
+          ],
+          "to": [
+            34.78,
+            40.09
+          ],
+          "destination": "handover / admin",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            32.400427599333,
+            34.41499588561
+          ],
+          "to": [
+            30.74,
+            36.41
+          ],
+          "destination": "rapid response",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            32.400427599333,
+            34.41499588561
+          ],
+          "to": [
+            35.25,
+            36.41
+          ],
+          "destination": "service lock",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": true
+    },
+    {
+      "inst_id": 4,
+      "code": "F0",
+      "name": "Service Edge",
+      "x": 75.102780002648,
+      "y": 56.662589695221,
+      "w": 18.0,
+      "d": 9.6,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        75.102780002648,
+        61.462589695221
+      ],
+      "connection_anchors": [
+        [
+          75.102780002648,
+          51.862589695221004
+        ],
+        [
+          84.102780002648,
+          56.662589695221
+        ],
+        [
+          66.102780002648,
+          56.662589695221
+        ]
+      ],
+      "interface": "service",
+      "parts": [
+        {
+          "name": "delivery / loading",
+          "x": 75.102780002648,
+          "y": 52.342589695221,
+          "w": 8.1,
+          "d": 3.84,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "goods arrival",
+          "floor": 1
+        },
+        {
+          "name": "storage",
+          "x": 67.00278000264801,
+          "y": 52.342589695221,
+          "w": 7.2,
+          "d": 3.84,
+          "privacy": 1,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "supplies",
+          "floor": 1
+        },
+        {
+          "name": "waste / utility",
+          "x": 75.102780002648,
+          "y": 56.854589695221,
+          "w": 8.1,
+          "d": 3.6479999999999997,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "back-of-house",
+          "floor": 1
+        },
+        {
+          "name": "service yard",
+          "x": 67.00278000264801,
+          "y": 56.854589695221,
+          "w": 7.2,
+          "d": 3.6479999999999997,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "independent service access",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "service / environmental edge",
+      "faces": {
+        "public": null,
+        "private": null,
+        "service": "N",
+        "retreat": null
+      },
+      "access_points": {
+        "service": [
+          75.102780002648,
+          61.462589695221
+        ]
+      },
+      "access_edges": {
+        "service": "N"
+      },
+      "grammar_rotation_degrees": 180,
+      "internal_paths": [
+        {
+          "from": [
+            75.102780002648,
+            61.462589695221
+          ],
+          "to": [
+            79.15,
+            54.26
+          ],
+          "destination": "delivery / loading",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            75.102780002648,
+            61.462589695221
+          ],
+          "to": [
+            70.6,
+            54.26
+          ],
+          "destination": "storage",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            75.102780002648,
+            61.462589695221
+          ],
+          "to": [
+            79.15,
+            58.68
+          ],
+          "destination": "waste / utility",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            75.102780002648,
+            61.462589695221
+          ],
+          "to": [
+            70.6,
+            58.68
+          ],
+          "destination": "service yard",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": false
+    },
+    {
+      "inst_id": 5,
+      "code": "M0",
+      "name": "Technical Commons",
+      "x": 81.172157238587,
+      "y": 40.827720929186,
+      "w": 10.0,
+      "d": 8.2,
+      "floors": 1,
+      "privacy": 1,
+      "orientation": "EW",
+      "entrance_anchor": [
+        81.172157238587,
+        44.927720929186
+      ],
+      "connection_anchors": [
+        [
+          81.172157238587,
+          36.727720929186
+        ],
+        [
+          86.172157238587,
+          40.827720929186
+        ],
+        [
+          76.172157238587,
+          40.827720929186
+        ]
+      ],
+      "interface": "service",
+      "parts": [
+        {
+          "name": "plant / technical",
+          "x": 80.172157238587,
+          "y": 37.383720929186,
+          "w": 5.5,
+          "d": 3.4439999999999995,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "building services",
+          "floor": 1
+        },
+        {
+          "name": "workshop",
+          "x": 76.672157238587,
+          "y": 37.383720929186,
+          "w": 3.0,
+          "d": 3.4439999999999995,
+          "privacy": 2,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "maintenance / making",
+          "floor": 1
+        },
+        {
+          "name": "technical yard",
+          "x": 80.172157238587,
+          "y": 41.483720929186,
+          "w": 5.5,
+          "d": 2.788,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "linked to F0 (MUST)",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "service / environmental edge",
+      "faces": {
+        "public": null,
+        "private": null,
+        "service": "N",
+        "retreat": null
+      },
+      "access_points": {
+        "service": [
+          81.172157238587,
+          44.927720929186
+        ]
+      },
+      "access_edges": {
+        "service": "N"
+      },
+      "grammar_rotation_degrees": 180,
+      "internal_paths": [
+        {
+          "from": [
+            81.172157238587,
+            44.927720929186
+          ],
+          "to": [
+            82.92,
+            39.11
+          ],
+          "destination": "plant / technical",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            81.172157238587,
+            44.927720929186
+          ],
+          "to": [
+            78.17,
+            39.11
+          ],
+          "destination": "workshop",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            81.172157238587,
+            44.927720929186
+          ],
+          "to": [
+            82.92,
+            42.88
+          ],
+          "destination": "technical yard",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": true
+    },
+    {
+      "inst_id": 6,
+      "code": "R4",
+      "name": "Domestic Cluster",
+      "x": 36.985417824786,
+      "y": 18.555754781888,
+      "w": 11.0,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 3,
+      "orientation": "EW",
+      "entrance_anchor": [
+        31.485417824785998,
+        18.555754781888
+      ],
+      "connection_anchors": [
+        [
+          36.985417824786,
+          22.555754781888
+        ],
+        [
+          36.985417824786,
+          14.555754781888002
+        ],
+        [
+          42.485417824786,
+          18.555754781888
+        ]
+      ],
+      "interface": "domestic",
+      "parts": [
+        {
+          "name": "personal territory",
+          "x": 36.435417824786,
+          "y": 18.795754781888,
+          "w": 5.5,
+          "d": 3.36,
+          "privacy": 4,
+          "provenance": "[PA5 CORPUS]",
+          "note": "resident private rooms",
+          "floor": 1
+        },
+        {
+          "name": "shared domestic",
+          "x": 36.435417824786,
+          "y": 14.955754781888002,
+          "w": 5.5,
+          "d": 3.36,
+          "privacy": 3,
+          "provenance": "[PA5 CORPUS]",
+          "note": "living / dining",
+          "floor": 1
+        },
+        {
+          "name": "WASH",
+          "x": 32.365417824786,
+          "y": 19.755754781888,
+          "w": 3.3,
+          "d": 2.4,
+          "privacy": 4,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "hygiene cluster",
+          "floor": 1
+        },
+        {
+          "name": "retreat / porch",
+          "x": 31.705417824785997,
+          "y": 14.955754781888002,
+          "w": 2.8600000000000003,
+          "d": 4.24,
+          "privacy": 3,
+          "provenance": "[PA5 CORPUS]",
+          "note": "controlled threshold to landscape",
+          "floor": 1
+        },
+        {
+          "name": "connection point",
+          "x": 34.785417824785995,
+          "y": 18.315754781888003,
+          "w": 1.3199999999999998,
+          "d": 0.48,
+          "privacy": 3,
+          "provenance": "[TO VERIFY]",
+          "note": "controlled link to C0/care",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "domestic cluster",
+      "faces": {
+        "public": null,
+        "private": "W",
+        "service": null,
+        "retreat": "E"
+      },
+      "access_points": {
+        "resident": [
+          31.485417824785998,
+          18.555754781888
+        ],
+        "care_staff": [
+          36.985417824786,
+          22.555754781888
+        ],
+        "emergency": [
+          36.985417824786,
+          22.555754781888
+        ]
+      },
+      "access_edges": {
+        "resident": "W",
+        "care_staff": "N",
+        "emergency": "N"
+      },
+      "grammar_rotation_degrees": 270,
+      "internal_paths": [
+        {
+          "from": [
+            31.485417824785998,
+            18.555754781888
+          ],
+          "to": [
+            39.19,
+            20.48
+          ],
+          "destination": "personal territory",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            31.485417824785998,
+            18.555754781888
+          ],
+          "to": [
+            39.19,
+            16.64
+          ],
+          "destination": "shared domestic",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            31.485417824785998,
+            18.555754781888
+          ],
+          "to": [
+            34.02,
+            20.96
+          ],
+          "destination": "WASH",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            31.485417824785998,
+            18.555754781888
+          ],
+          "to": [
+            33.14,
+            17.08
+          ],
+          "destination": "retreat / porch",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            31.485417824785998,
+            18.555754781888
+          ],
+          "to": [
+            35.45,
+            18.56
+          ],
+          "destination": "connection point",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": false
+    },
+    {
+      "inst_id": 7,
+      "code": "R4",
+      "name": "Domestic Cluster",
+      "x": 17.915655454505,
+      "y": 6.698819482454,
+      "w": 11.0,
+      "d": 8.0,
+      "floors": 1,
+      "privacy": 3,
+      "orientation": "EW",
+      "entrance_anchor": [
+        17.915655454505,
+        10.698819482453999
+      ],
+      "connection_anchors": [
+        [
+          17.915655454505,
+          2.6988194824539997
+        ],
+        [
+          23.415655454505,
+          6.698819482454
+        ],
+        [
+          12.415655454505,
+          6.698819482454
+        ]
+      ],
+      "interface": "domestic",
+      "parts": [
+        {
+          "name": "personal territory",
+          "x": 18.245655454505,
+          "y": 3.098819482454,
+          "w": 4.62,
+          "d": 4.0,
+          "privacy": 4,
+          "provenance": "[PA5 CORPUS]",
+          "note": "resident private rooms",
+          "floor": 1
+        },
+        {
+          "name": "shared domestic",
+          "x": 12.965655454505,
+          "y": 3.098819482454,
+          "w": 4.62,
+          "d": 4.0,
+          "privacy": 3,
+          "provenance": "[PA5 CORPUS]",
+          "note": "living / dining",
+          "floor": 1
+        },
+        {
+          "name": "WASH",
+          "x": 19.565655454505,
+          "y": 7.658819482454001,
+          "w": 3.3,
+          "d": 2.4,
+          "privacy": 4,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "hygiene cluster",
+          "floor": 1
+        },
+        {
+          "name": "retreat / porch",
+          "x": 12.965655454505,
+          "y": 8.458819482454,
+          "w": 5.83,
+          "d": 2.08,
+          "privacy": 3,
+          "provenance": "[PA5 CORPUS]",
+          "note": "controlled threshold to landscape",
+          "floor": 1
+        },
+        {
+          "name": "connection point",
+          "x": 17.585655454505,
+          "y": 7.338819482453999,
+          "w": 0.6599999999999999,
+          "d": 0.96,
+          "privacy": 3,
+          "provenance": "[TO VERIFY]",
+          "note": "controlled link to C0/care",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "domestic cluster",
+      "faces": {
+        "public": null,
+        "private": "N",
+        "service": null,
+        "retreat": "S"
+      },
+      "access_points": {
+        "resident": [
+          17.915655454505,
+          10.698819482453999
+        ],
+        "care_staff": [
+          17.915655454505,
+          10.698819482453999
+        ],
+        "emergency": [
+          17.915655454505,
+          10.698819482453999
+        ]
+      },
+      "access_edges": {
+        "resident": "N",
+        "care_staff": "N",
+        "emergency": "N"
+      },
+      "grammar_rotation_degrees": 180,
+      "internal_paths": [
+        {
+          "from": [
+            17.915655454505,
+            10.698819482453999
+          ],
+          "to": [
+            20.56,
+            5.1
+          ],
+          "destination": "personal territory",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            17.915655454505,
+            10.698819482453999
+          ],
+          "to": [
+            15.28,
+            5.1
+          ],
+          "destination": "shared domestic",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            17.915655454505,
+            10.698819482453999
+          ],
+          "to": [
+            21.22,
+            8.86
+          ],
+          "destination": "WASH",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            17.915655454505,
+            10.698819482453999
+          ],
+          "to": [
+            15.88,
+            9.5
+          ],
+          "destination": "retreat / porch",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            17.915655454505,
+            10.698819482453999
+          ],
+          "to": [
+            17.92,
+            7.82
+          ],
+          "destination": "connection point",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": true
+    },
+    {
+      "inst_id": 8,
+      "code": "H0",
+      "name": "Learning House",
+      "x": 57.790847543502,
+      "y": 25.637512453608,
+      "w": 12.0,
+      "d": 9.0,
+      "floors": 1,
+      "privacy": 2,
+      "orientation": "EW",
+      "entrance_anchor": [
+        51.790847543502,
+        25.637512453608
+      ],
+      "connection_anchors": [
+        [
+          57.790847543502,
+          30.137512453608
+        ],
+        [
+          57.790847543502,
+          21.137512453608
+        ],
+        [
+          63.790847543502,
+          25.637512453608
+        ]
+      ],
+      "interface": "shared",
+      "parts": [
+        {
+          "name": "learning studio",
+          "x": 57.790847543502,
+          "y": 25.187512453608,
+          "w": 5.04,
+          "d": 4.5,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "education / skills",
+          "floor": 1
+        },
+        {
+          "name": "quiet study",
+          "x": 57.790847543502,
+          "y": 21.587512453608,
+          "w": 5.04,
+          "d": 3.15,
+          "privacy": 2,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "focused learning",
+          "floor": 1
+        },
+        {
+          "name": "learning court",
+          "x": 52.750847543502,
+          "y": 24.737512453607998,
+          "w": 4.08,
+          "d": 4.95,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "outdoor learning",
+          "floor": 1
+        },
+        {
+          "name": "teaching threshold",
+          "x": 52.750847543502,
+          "y": 21.587512453608,
+          "w": 4.08,
+          "d": 2.6999999999999997,
+          "privacy": 2,
+          "provenance": "[TO VERIFY]",
+          "note": "controlled public link",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "learning threshold",
+      "faces": {
+        "public": "W",
+        "private": "W",
+        "service": null,
+        "retreat": null
+      },
+      "access_points": {
+        "resident": [
+          51.790847543502,
+          25.637512453608
+        ],
+        "visitor_community": [
+          51.790847543502,
+          25.637512453608
+        ]
+      },
+      "access_edges": {
+        "resident": "W",
+        "visitor_community": "W"
+      },
+      "grammar_rotation_degrees": 270,
+      "internal_paths": [
+        {
+          "from": [
+            51.790847543502,
+            25.637512453608
+          ],
+          "to": [
+            60.31,
+            27.44
+          ],
+          "destination": "learning studio",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            51.790847543502,
+            25.637512453608
+          ],
+          "to": [
+            60.31,
+            23.16
+          ],
+          "destination": "quiet study",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            51.790847543502,
+            25.637512453608
+          ],
+          "to": [
+            54.79,
+            27.21
+          ],
+          "destination": "learning court",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            51.790847543502,
+            25.637512453608
+          ],
+          "to": [
+            54.79,
+            22.94
+          ],
+          "destination": "teaching threshold",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": true
+    },
+    {
+      "inst_id": 9,
+      "code": "J0",
+      "name": "Livelihood House",
+      "x": 42.742545316461,
+      "y": 28.909692289879,
+      "w": 13.5,
+      "d": 9.0,
+      "floors": 1,
+      "privacy": 2,
+      "orientation": "EW",
+      "entrance_anchor": [
+        42.742545316461,
+        24.409692289879
+      ],
+      "connection_anchors": [
+        [
+          42.742545316461,
+          33.409692289879004
+        ],
+        [
+          49.492545316461,
+          28.909692289879
+        ],
+        [
+          35.992545316461,
+          28.909692289879
+        ]
+      ],
+      "interface": "shared",
+      "parts": [
+        {
+          "name": "workshop / making",
+          "x": 36.667545316460995,
+          "y": 28.909692289879,
+          "w": 6.75,
+          "d": 3.78,
+          "privacy": 2,
+          "provenance": "[PA5 CORPUS]",
+          "note": "vocational production",
+          "floor": 1
+        },
+        {
+          "name": "enterprise front",
+          "x": 44.092545316461,
+          "y": 28.909692289879,
+          "w": 4.725,
+          "d": 3.78,
+          "privacy": 1,
+          "provenance": "[PA5 CORPUS]",
+          "note": "controlled public-facing work",
+          "floor": 1
+        },
+        {
+          "name": "livelihood yard",
+          "x": 36.667545316460995,
+          "y": 25.129692289879,
+          "w": 7.425000000000001,
+          "d": 3.06,
+          "privacy": 2,
+          "provenance": "[DESIGN HYPOTHESIS]",
+          "note": "outdoor work / display",
+          "floor": 1
+        },
+        {
+          "name": "sales threshold",
+          "x": 44.767545316460996,
+          "y": 25.129692289879,
+          "w": 4.05,
+          "d": 3.06,
+          "privacy": 1,
+          "provenance": "[TO VERIFY]",
+          "note": "public exchange point",
+          "floor": 1
+        }
+      ],
+      "spatial_role": "livelihood threshold",
+      "faces": {
+        "public": "W",
+        "private": "S",
+        "service": "E",
+        "retreat": null
+      },
+      "access_points": {
+        "resident": [
+          42.742545316461,
+          24.409692289879
+        ],
+        "visitor_community": [
+          35.992545316461,
+          28.909692289879
+        ],
+        "service": [
+          49.492545316461,
+          28.909692289879
+        ]
+      },
+      "access_edges": {
+        "resident": "S",
+        "visitor_community": "W",
+        "service": "E"
+      },
+      "grammar_rotation_degrees": 0,
+      "internal_paths": [
+        {
+          "from": [
+            42.742545316461,
+            24.409692289879
+          ],
+          "to": [
+            40.04,
+            30.8
+          ],
+          "destination": "workshop / making",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            42.742545316461,
+            24.409692289879
+          ],
+          "to": [
+            46.46,
+            30.8
+          ],
+          "destination": "enterprise front",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            42.742545316461,
+            24.409692289879
+          ],
+          "to": [
+            40.38,
+            26.66
+          ],
+          "destination": "livelihood yard",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from": [
+            42.742545316461,
+            24.409692289879
+          ],
+          "to": [
+            46.79,
+            26.66
+          ],
+          "destination": "sales threshold",
+          "floor": 1,
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "physical_rotation_degrees": 0,
+      "quarter_turn_feasible": false
+    }
+  ],
+  "connections": [
+    {
+      "a_id": 0,
+      "b_id": 1,
+      "a_code": "A0",
+      "b_code": "B0",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 2,
+      "a_code": "A0",
+      "b_code": "C0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 3,
+      "a_code": "A0",
+      "b_code": "E0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 6,
+      "a_code": "A0",
+      "b_code": "R4",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "controlled",
+        "resident"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 7,
+      "a_code": "A0",
+      "b_code": "R4",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "controlled",
+        "resident"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 8,
+      "a_code": "A0",
+      "b_code": "H0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 0,
+      "b_id": 9,
+      "a_code": "A0",
+      "b_code": "J0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 2,
+      "a_code": "B0",
+      "b_code": "C0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 3,
+      "a_code": "B0",
+      "b_code": "E0",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 6,
+      "a_code": "B0",
+      "b_code": "R4",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 7,
+      "a_code": "B0",
+      "b_code": "R4",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 1,
+      "b_id": 8,
+      "a_code": "B0",
+      "b_code": "H0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 3,
+      "a_code": "C0",
+      "b_code": "E0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 4,
+      "a_code": "C0",
+      "b_code": "F0",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "service"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 6,
+      "a_code": "C0",
+      "b_code": "R4",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 7,
+      "a_code": "C0",
+      "b_code": "R4",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 8,
+      "a_code": "C0",
+      "b_code": "H0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 2,
+      "b_id": 9,
+      "a_code": "C0",
+      "b_code": "J0",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "resident"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 4,
+      "a_code": "E0",
+      "b_code": "F0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care",
+        "service"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 5,
+      "a_code": "E0",
+      "b_code": "M0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care",
+        "service"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 6,
+      "a_code": "E0",
+      "b_code": "R4",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 3,
+      "b_id": 7,
+      "a_code": "E0",
+      "b_code": "R4",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "care"
+      ]
+    },
+    {
+      "a_id": 4,
+      "b_id": 5,
+      "a_code": "F0",
+      "b_code": "M0",
+      "kind": "MUST",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "service"
+      ]
+    },
+    {
+      "a_id": 4,
+      "b_id": 9,
+      "a_code": "F0",
+      "b_code": "J0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "service"
+      ]
+    },
+    {
+      "a_id": 5,
+      "b_id": 9,
+      "a_code": "M0",
+      "b_code": "J0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "service"
+      ]
+    },
+    {
+      "a_id": 6,
+      "b_id": 8,
+      "a_code": "R4",
+      "b_code": "H0",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "controlled",
+        "resident"
+      ]
+    },
+    {
+      "a_id": 7,
+      "b_id": 8,
+      "a_code": "R4",
+      "b_code": "H0",
+      "kind": "SCREENED",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "circulations": [
+        "controlled",
+        "resident"
+      ]
+    },
+    {
+      "a_id": 8,
+      "b_id": 9,
+      "a_code": "H0",
+      "b_code": "J0",
+      "kind": "NEAR",
+      "provenance": "[PA5 CORPUS]",
+      "circulations": [
+        "resident"
+      ]
+    }
+  ],
+  "sightlines": [
+    {
+      "from_id": 0,
+      "from_code": "A0",
+      "to_id": 6,
+      "to_code": "R4",
+      "relation": "safeguarding-sensitive",
+      "distance": 24.87,
+      "exposed": false,
+      "screened_by": [
+        "B0",
+        "C0",
+        "J0"
+      ],
+      "provenance": "[TO VERIFY]",
+      "tested_rays": 36,
+      "visible_rays": 0,
+      "exposure_ratio": 0.0
+    },
+    {
+      "from_id": 0,
+      "from_code": "A0",
+      "to_id": 7,
+      "to_code": "R4",
+      "relation": "safeguarding-sensitive",
+      "distance": 26.7,
+      "exposed": false,
+      "screened_by": [
+        "B0"
+      ],
+      "provenance": "[TO VERIFY]",
+      "tested_rays": 9,
+      "visible_rays": 0,
+      "exposure_ratio": 0.0
+    },
+    {
+      "from_id": 4,
+      "from_code": "F0",
+      "to_id": 6,
+      "to_code": "R4",
+      "relation": "PROHIBITED",
+      "distance": 37.64,
+      "exposed": false,
+      "screened_by": [
+        "C0",
+        "H0",
+        "J0"
+      ],
+      "provenance": "[TO VERIFY]",
+      "tested_rays": 36,
+      "visible_rays": 0,
+      "exposure_ratio": 0.0
+    },
+    {
+      "from_id": 4,
+      "from_code": "F0",
+      "to_id": 7,
+      "to_code": "R4",
+      "relation": "PROHIBITED",
+      "distance": 59.3,
+      "exposed": false,
+      "screened_by": [
+        "C0",
+        "H0",
+        "J0",
+        "R4"
+      ],
+      "provenance": "[TO VERIFY]",
+      "tested_rays": 36,
+      "visible_rays": 0,
+      "exposure_ratio": 0.0
+    },
+    {
+      "from_id": 5,
+      "from_code": "M0",
+      "to_id": 6,
+      "to_code": "R4",
+      "relation": "PROHIBITED",
+      "distance": 36.55,
+      "exposed": false,
+      "screened_by": [
+        "C0",
+        "H0",
+        "J0"
+      ],
+      "provenance": "[TO VERIFY]",
+      "tested_rays": 36,
+      "visible_rays": 0,
+      "exposure_ratio": 0.0
+    },
+    {
+      "from_id": 5,
+      "from_code": "M0",
+      "to_id": 7,
+      "to_code": "R4",
+      "relation": "PROHIBITED",
+      "distance": 58.83,
+      "exposed": false,
+      "screened_by": [
+        "H0",
+        "J0",
+        "R4"
+      ],
+      "provenance": "[TO VERIFY]",
+      "tested_rays": 36,
+      "visible_rays": 0,
+      "exposure_ratio": 0.0
+    }
+  ],
+  "open_spaces": [
+    {
+      "cx": 19.7,
+      "cy": 40.4,
+      "area_cells": 31,
+      "enclosure": 3,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 74.5
+    },
+    {
+      "cx": 21.6,
+      "cy": 18.6,
+      "area_cells": 25,
+      "enclosure": 3,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 60.1
+    },
+    {
+      "cx": 44.1,
+      "cy": 22.4,
+      "area_cells": 15,
+      "enclosure": 3,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 36.0
+    },
+    {
+      "cx": 10.3,
+      "cy": 32.7,
+      "area_cells": 12,
+      "enclosure": 3,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 28.8
+    },
+    {
+      "cx": 44.1,
+      "cy": 39.1,
+      "area_cells": 49,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 117.7
+    },
+    {
+      "cx": 68.4,
+      "cy": 41.6,
+      "area_cells": 42,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 100.9
+    },
+    {
+      "cx": 17.8,
+      "cy": 34.0,
+      "area_cells": 36,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 86.5
+    },
+    {
+      "cx": 49.7,
+      "cy": 17.3,
+      "area_cells": 35,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 84.1
+    },
+    {
+      "cx": 32.8,
+      "cy": 7.0,
+      "area_cells": 34,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 81.7
+    },
+    {
+      "cx": 15.9,
+      "cy": 14.7,
+      "area_cells": 29,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 69.7
+    },
+    {
+      "cx": 57.2,
+      "cy": 32.7,
+      "area_cells": 21,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 50.4
+    },
+    {
+      "cx": 79.7,
+      "cy": 49.3,
+      "area_cells": 20,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 48.0
+    },
+    {
+      "cx": 4.7,
+      "cy": 27.5,
+      "area_cells": 16,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 38.4
+    },
+    {
+      "cx": 27.2,
+      "cy": 17.3,
+      "area_cells": 15,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 36.0
+    },
+    {
+      "cx": 75.9,
+      "cy": 26.3,
+      "area_cells": 12,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 28.8
+    },
+    {
+      "cx": 8.4,
+      "cy": 9.6,
+      "area_cells": 6,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 14.4
+    },
+    {
+      "cx": 23.4,
+      "cy": 45.5,
+      "area_cells": 6,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 14.4
+    },
+    {
+      "cx": 85.3,
+      "cy": 54.5,
+      "area_cells": 6,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 14.4
+    },
+    {
+      "cx": 15.9,
+      "cy": 42.9,
+      "area_cells": 4,
+      "enclosure": 2,
+      "space_type": "POCKET COURT / THRESHOLD EDGE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 9.6
+    },
+    {
+      "cx": 51.6,
+      "cy": 35.2,
+      "area_cells": 1294,
+      "enclosure": 0,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 3108.6
+    },
+    {
+      "cx": 4.7,
+      "cy": 34.0,
+      "area_cells": 24,
+      "enclosure": 1,
+      "space_type": "OPEN LANDSCAPE",
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "area_m2": 57.7
+    }
+  ],
+  "courtyards": [
+    {
+      "cx": 19.7,
+      "cy": 40.4,
+      "sides_enclosed": 3,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 21.6,
+      "cy": 18.6,
+      "sides_enclosed": 3,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 44.1,
+      "cy": 22.4,
+      "sides_enclosed": 3,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "cx": 10.3,
+      "cy": 32.7,
+      "sides_enclosed": 3,
+      "space_type": "COURTYARD",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "privacy_gradient": [
+    {
+      "code": "A0",
+      "id": 0,
+      "privacy": "CONTROLLED",
+      "interface": "public"
+    },
+    {
+      "code": "B0",
+      "id": 1,
+      "privacy": "CONTROLLED",
+      "interface": "protected"
+    },
+    {
+      "code": "E0",
+      "id": 3,
+      "privacy": "CONTROLLED",
+      "interface": "protected"
+    },
+    {
+      "code": "F0",
+      "id": 4,
+      "privacy": "CONTROLLED",
+      "interface": "service"
+    },
+    {
+      "code": "M0",
+      "id": 5,
+      "privacy": "CONTROLLED",
+      "interface": "service"
+    },
+    {
+      "code": "C0",
+      "id": 2,
+      "privacy": "SHARED",
+      "interface": "shared"
+    },
+    {
+      "code": "H0",
+      "id": 8,
+      "privacy": "SHARED",
+      "interface": "shared"
+    },
+    {
+      "code": "J0",
+      "id": 9,
+      "privacy": "SHARED",
+      "interface": "shared"
+    },
+    {
+      "code": "R4",
+      "id": 6,
+      "privacy": "DOMESTIC",
+      "interface": "domestic"
+    },
+    {
+      "code": "R4",
+      "id": 7,
+      "privacy": "DOMESTIC",
+      "interface": "domestic"
+    }
+  ],
+  "threshold_sequence": [
+    {
+      "step": 0,
+      "code": "A0",
+      "interface": "public",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 1,
+      "code": "C0",
+      "interface": "shared",
+      "privacy": "SHARED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 2,
+      "code": "H0",
+      "interface": "shared",
+      "privacy": "SHARED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 3,
+      "code": "J0",
+      "interface": "shared",
+      "privacy": "SHARED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 4,
+      "code": "B0",
+      "interface": "protected",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 5,
+      "code": "E0",
+      "interface": "protected",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 6,
+      "code": "F0",
+      "interface": "service",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 7,
+      "code": "M0",
+      "interface": "service",
+      "privacy": "CONTROLLED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 8,
+      "code": "R4",
+      "interface": "domestic",
+      "privacy": "DOMESTIC",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "step": 9,
+      "code": "R4",
+      "interface": "domestic",
+      "privacy": "DOMESTIC",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "stacking": [],
+  "groupings": [
+    {
+      "group": 0,
+      "module_ids": [
+        0
+      ],
+      "modules": [
+        "A0"
+      ],
+      "max_link_gap_m": 6.0,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "group": 1,
+      "module_ids": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "modules": [
+        "B0",
+        "C0",
+        "E0",
+        "R4"
+      ],
+      "max_link_gap_m": 6.0,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "group": 2,
+      "module_ids": [
+        4
+      ],
+      "modules": [
+        "F0"
+      ],
+      "max_link_gap_m": 6.0,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "group": 3,
+      "module_ids": [
+        5
+      ],
+      "modules": [
+        "M0"
+      ],
+      "max_link_gap_m": 6.0,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "group": 4,
+      "module_ids": [
+        7
+      ],
+      "modules": [
+        "R4"
+      ],
+      "max_link_gap_m": 6.0,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "group": 5,
+      "module_ids": [
+        8,
+        9
+      ],
+      "modules": [
+        "H0",
+        "J0"
+      ],
+      "max_link_gap_m": 6.0,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "shared_thresholds": [
+    {
+      "a_id": 1,
+      "b_id": 2,
+      "a_code": "B0",
+      "b_code": "C0",
+      "edge_gap_m": 2.1,
+      "relation": "NEAR",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "a_id": 2,
+      "b_id": 3,
+      "a_code": "C0",
+      "b_code": "E0",
+      "edge_gap_m": 0.9,
+      "relation": "NEAR",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "a_id": 2,
+      "b_id": 6,
+      "a_code": "C0",
+      "b_code": "R4",
+      "edge_gap_m": 0.3,
+      "relation": "MUST",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "a_id": 8,
+      "b_id": 9,
+      "a_code": "H0",
+      "b_code": "J0",
+      "edge_gap_m": 2.3,
+      "relation": "NEAR",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "spines": [
+    {
+      "kind": "resident",
+      "from": "A0",
+      "to": "C0",
+      "points": [
+        [
+          5.76,
+          37.38
+        ],
+        [
+          5.25,
+          36.75
+        ],
+        [
+          5.25,
+          35.25
+        ],
+        [
+          5.25,
+          33.75
+        ],
+        [
+          5.25,
+          32.25
+        ],
+        [
+          5.25,
+          30.75
+        ],
+        [
+          5.25,
+          29.25
+        ],
+        [
+          6.75,
+          29.25
+        ],
+        [
+          8.25,
+          29.25
+        ],
+        [
+          9.75,
+          29.25
+        ],
+        [
+          11.25,
+          29.25
+        ],
+        [
+          12.75,
+          29.25
+        ],
+        [
+          14.25,
+          29.25
+        ],
+        [
+          15.75,
+          29.25
+        ],
+        [
+          17.25,
+          29.25
+        ],
+        [
+          18.75,
+          29.25
+        ],
+        [
+          20.25,
+          29.25
+        ],
+        [
+          20.25,
+          27.75
+        ],
+        [
+          20.25,
+          26.25
+        ],
+        [
+          20.25,
+          24.75
+        ],
+        [
+          20.25,
+          23.25
+        ],
+        [
+          20.25,
+          21.75
+        ],
+        [
+          21.75,
+          21.75
+        ],
+        [
+          23.25,
+          21.75
+        ],
+        [
+          24.75,
+          21.75
+        ],
+        [
+          26.25,
+          21.75
+        ],
+        [
+          27.75,
+          21.75
+        ],
+        [
+          29.25,
+          21.75
+        ],
+        [
+          28.51,
+          22.82
+        ]
+      ],
+      "length_m": 41.1,
+      "aligned_modules": [
+        {
+          "id": 6,
+          "code": "R4",
+          "distance_m": 3.9
+        }
+      ],
+      "alignment_distance_m": 6.0,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "kind": "service",
+      "from": "F0",
+      "to": "M0",
+      "points": [
+        [
+          75.1,
+          61.46
+        ],
+        [
+          84.75,
+          60.75
+        ],
+        [
+          84.75,
+          59.25
+        ],
+        [
+          84.75,
+          57.75
+        ],
+        [
+          84.75,
+          56.25
+        ],
+        [
+          84.75,
+          54.75
+        ],
+        [
+          84.75,
+          53.25
+        ],
+        [
+          84.75,
+          51.75
+        ],
+        [
+          84.75,
+          50.25
+        ],
+        [
+          84.75,
+          48.75
+        ],
+        [
+          84.75,
+          47.25
+        ],
+        [
+          84.75,
+          45.75
+        ],
+        [
+          83.25,
+          45.75
+        ],
+        [
+          81.75,
+          45.75
+        ],
+        [
+          81.17,
+          44.93
+        ]
+      ],
+      "length_m": 28.7,
+      "aligned_modules": [],
+      "alignment_distance_m": 6.0,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "objectives": {
+    "F1_safeguarding": 0.244,
+    "F2_privacy_agency": 0.0,
+    "F3_everyday_life": 0.21,
+    "F4_service_separation": 0.006,
+    "F5_site_efficiency": 0.362,
+    "F6_adaptability": 0.262,
+    "F7_domestic_scale": 0.439,
+    "F8_community_connection": 0.333,
+    "F9_landscape_buffer": 0.382
+  },
+  "provenance_log": [
+    "access faces, grammar rotation and internal route skeletons [DESIGN HYPOTHESIS]; street frontage and door dimensions [TO VERIFY]",
+    "connections drawn from corpus adjacency: MUST/NEAR [PA5 CORPUS], SCREENED [DESIGN HYPOTHESIS]",
+    "sightline exposure checked with sampled face-to-face rays [DESIGN HYPOTHESIS]; diagrammatic, not a regulatory sightline study",
+    "open spaces classified by local 12 m enclosure: 3-4 sides=COURTYARD, 2=POCKET COURT/THRESHOLD EDGE, 0-1=OPEN LANDSCAPE [DESIGN HYPOTHESIS]",
+    "threshold sequence derived from interface classes [DESIGN HYPOTHESIS]",
+    "stacking from genotype floors genes [PA5 CORPUS]; R4 single-storey per corpus [PA5 CORPUS]",
+    "physical building groups and threshold opportunities require a MUST/NEAR relation and a local edge gap [DESIGN HYPOTHESIS]"
+  ],
+  "to_verify": [
+    "A0:threshold marker \u2014 sequence node",
+    "Accessibility, egress and emergency operations [TO VERIFY]",
+    "C0:commons threshold \u2014 link to R4 / landscape",
+    "E0:service lock \u2014 staff-only access",
+    "F0:service yard \u2014 independent service access",
+    "H0:teaching threshold \u2014 controlled public link",
+    "J0:sales threshold \u2014 public exchange point",
+    "M0:technical yard \u2014 linked to F0 (MUST)",
+    "No exposure in sampled plan rays; eye-level, section, openings and landscape transparency still require review [TO VERIFY].",
+    "R4:connection point \u2014 controlled link to C0/care",
+    "Real parcel shape, street approach and north orientation [TO VERIFY]"
+  ],
+  "design_hypotheses": [
+    "A0:waiting / lobby \u2014 visitor holding",
+    "B0:staff control \u2014 observation point",
+    "C0:everyday activity \u2014 laundry / workshop",
+    "E0:handover / admin \u2014 shift handover",
+    "F0:storage \u2014 supplies",
+    "H0:quiet study \u2014 focused learning",
+    "J0:livelihood yard \u2014 outdoor work / display",
+    "M0:workshop \u2014 maintenance / making",
+    "R4:WASH \u2014 hygiene cluster"
+  ],
+  "genotype_id": "d025145502ad4434",
+  "birth_generation": 75,
+  "selected_generation": 80,
+  "constraint_status": "MODEL_FEASIBLE",
+  "constraint_violation": 0.0,
+  "must_shortfall": 0.0,
+  "site_budget": {
+    "site_area_m2": 5533.85,
+    "building_footprint_m2": 1070.1,
+    "landscape_target_m2": 2625.0,
+    "expansion_reserve_m2": 263.3,
+    "other_open_and_access_m2": 1575.4,
+    "provenance": "[DESIGN HYPOTHESIS]"
+  },
+  "route_networks": [
+    {
+      "kind": "resident",
+      "routes": [
+        {
+          "from_id": -1,
+          "to_id": 0,
+          "from_code": "SITE",
+          "to_code": "A0",
+          "points": [
+            [
+              0.0,
+              41.38
+            ],
+            [
+              0.75,
+              45.75
+            ],
+            [
+              0.01,
+              41.38
+            ]
+          ],
+          "length_m": 8.9,
+          "status": "CONNECTED",
+          "provenance": "[TO VERIFY]"
+        },
+        {
+          "from_id": 0,
+          "to_id": 0,
+          "from_code": "A0",
+          "to_code": "A0",
+          "points": [
+            [
+              0.01348663425700014,
+              41.38036674358
+            ],
+            [
+              5.763486634257,
+              37.38036674358
+            ]
+          ],
+          "length_m": 7.0,
+          "status": "CONTROLLED_INTERNAL",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 0,
+          "to_id": 2,
+          "from_code": "A0",
+          "to_code": "C0",
+          "points": [
+            [
+              5.76,
+              37.38
+            ],
+            [
+              5.25,
+              36.75
+            ],
+            [
+              5.25,
+              35.25
+            ],
+            [
+              5.25,
+              33.75
+            ],
+            [
+              5.25,
+              32.25
+            ],
+            [
+              5.25,
+              30.75
+            ],
+            [
+              5.25,
+              29.25
+            ],
+            [
+              6.75,
+              29.25
+            ],
+            [
+              8.25,
+              29.25
+            ],
+            [
+              9.75,
+              29.25
+            ],
+            [
+              11.25,
+              29.25
+            ],
+            [
+              12.75,
+              29.25
+            ],
+            [
+              14.25,
+              29.25
+            ],
+            [
+              15.75,
+              29.25
+            ],
+            [
+              17.25,
+              29.25
+            ],
+            [
+              18.75,
+              29.25
+            ],
+            [
+              20.25,
+              29.25
+            ],
+            [
+              20.25,
+              27.75
+            ],
+            [
+              20.25,
+              26.25
+            ],
+            [
+              20.25,
+              24.75
+            ],
+            [
+              20.25,
+              23.25
+            ],
+            [
+              20.25,
+              21.75
+            ],
+            [
+              21.75,
+              21.75
+            ],
+            [
+              23.25,
+              21.75
+            ],
+            [
+              24.75,
+              21.75
+            ],
+            [
+              26.25,
+              21.75
+            ],
+            [
+              27.75,
+              21.75
+            ],
+            [
+              29.25,
+              21.75
+            ],
+            [
+              28.51,
+              22.82
+            ]
+          ],
+          "length_m": 41.1,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 2,
+          "to_id": 6,
+          "from_code": "C0",
+          "to_code": "R4",
+          "points": [
+            [
+              28.51,
+              22.82
+            ],
+            [
+              29.25,
+              21.75
+            ],
+            [
+              29.25,
+              20.25
+            ],
+            [
+              29.25,
+              18.75
+            ],
+            [
+              30.75,
+              18.75
+            ],
+            [
+              31.49,
+              18.56
+            ]
+          ],
+          "length_m": 6.6,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 2,
+          "to_id": 7,
+          "from_code": "C0",
+          "to_code": "R4",
+          "points": [
+            [
+              28.51,
+              22.82
+            ],
+            [
+              29.25,
+              21.75
+            ],
+            [
+              29.25,
+              20.25
+            ],
+            [
+              29.25,
+              18.75
+            ],
+            [
+              29.25,
+              17.25
+            ],
+            [
+              29.25,
+              15.75
+            ],
+            [
+              29.25,
+              14.25
+            ],
+            [
+              29.25,
+              12.75
+            ],
+            [
+              29.25,
+              11.25
+            ],
+            [
+              27.75,
+              11.25
+            ],
+            [
+              26.25,
+              11.25
+            ],
+            [
+              24.75,
+              11.25
+            ],
+            [
+              23.25,
+              11.25
+            ],
+            [
+              21.75,
+              11.25
+            ],
+            [
+              20.25,
+              11.25
+            ],
+            [
+              18.75,
+              11.25
+            ],
+            [
+              17.25,
+              11.25
+            ],
+            [
+              17.92,
+              10.7
+            ]
+          ],
+          "length_m": 24.7,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 2,
+          "to_id": 8,
+          "from_code": "C0",
+          "to_code": "H0",
+          "points": [
+            [
+              28.51,
+              22.82
+            ],
+            [
+              29.25,
+              21.75
+            ],
+            [
+              30.75,
+              21.75
+            ],
+            [
+              30.75,
+              20.25
+            ],
+            [
+              30.75,
+              18.75
+            ],
+            [
+              30.75,
+              17.25
+            ],
+            [
+              30.75,
+              15.75
+            ],
+            [
+              30.75,
+              14.25
+            ],
+            [
+              32.25,
+              14.25
+            ],
+            [
+              33.75,
+              14.25
+            ],
+            [
+              35.25,
+              14.25
+            ],
+            [
+              36.75,
+              14.25
+            ],
+            [
+              38.25,
+              14.25
+            ],
+            [
+              39.75,
+              14.25
+            ],
+            [
+              41.25,
+              14.25
+            ],
+            [
+              42.75,
+              14.25
+            ],
+            [
+              44.25,
+              14.25
+            ],
+            [
+              45.75,
+              14.25
+            ],
+            [
+              47.25,
+              14.25
+            ],
+            [
+              48.75,
+              14.25
+            ],
+            [
+              50.25,
+              14.25
+            ],
+            [
+              51.75,
+              14.25
+            ],
+            [
+              51.75,
+              15.75
+            ],
+            [
+              51.75,
+              17.25
+            ],
+            [
+              51.75,
+              18.75
+            ],
+            [
+              51.75,
+              20.25
+            ],
+            [
+              51.75,
+              21.75
+            ],
+            [
+              51.75,
+              23.25
+            ],
+            [
+              51.75,
+              24.75
+            ],
+            [
+              51.75,
+              26.25
+            ],
+            [
+              51.79,
+              25.64
+            ]
+          ],
+          "length_m": 43.9,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 2,
+          "to_id": 9,
+          "from_code": "C0",
+          "to_code": "J0",
+          "points": [
+            [
+              28.51,
+              22.82
+            ],
+            [
+              29.25,
+              21.75
+            ],
+            [
+              30.75,
+              21.75
+            ],
+            [
+              30.75,
+              20.25
+            ],
+            [
+              30.75,
+              18.75
+            ],
+            [
+              30.75,
+              17.25
+            ],
+            [
+              30.75,
+              15.75
+            ],
+            [
+              30.75,
+              14.25
+            ],
+            [
+              32.25,
+              14.25
+            ],
+            [
+              33.75,
+              14.25
+            ],
+            [
+              35.25,
+              14.25
+            ],
+            [
+              36.75,
+              14.25
+            ],
+            [
+              38.25,
+              14.25
+            ],
+            [
+              39.75,
+              14.25
+            ],
+            [
+              41.25,
+              14.25
+            ],
+            [
+              42.75,
+              14.25
+            ],
+            [
+              42.75,
+              15.75
+            ],
+            [
+              42.75,
+              17.25
+            ],
+            [
+              42.75,
+              18.75
+            ],
+            [
+              42.75,
+              20.25
+            ],
+            [
+              42.75,
+              21.75
+            ],
+            [
+              42.75,
+              23.25
+            ],
+            [
+              42.74,
+              24.41
+            ]
+          ],
+          "length_m": 32.5,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "unresolved": [],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "site_entry": "nearest schematic site edge [TO VERIFY]"
+    },
+    {
+      "kind": "care_staff",
+      "routes": [
+        {
+          "from_id": -1,
+          "to_id": 0,
+          "from_code": "SITE",
+          "to_code": "A0",
+          "points": [
+            [
+              0.0,
+              41.38
+            ],
+            [
+              0.75,
+              45.75
+            ],
+            [
+              0.01,
+              41.38
+            ]
+          ],
+          "length_m": 8.9,
+          "status": "CONNECTED",
+          "provenance": "[TO VERIFY]"
+        },
+        {
+          "from_id": 0,
+          "to_id": 0,
+          "from_code": "A0",
+          "to_code": "A0",
+          "points": [
+            [
+              0.01348663425700014,
+              41.38036674358
+            ],
+            [
+              5.763486634257,
+              37.38036674358
+            ]
+          ],
+          "length_m": 7.0,
+          "status": "CONTROLLED_INTERNAL",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 0,
+          "to_id": 1,
+          "from_code": "A0",
+          "to_code": "B0",
+          "points": [
+            [
+              5.76,
+              37.38
+            ],
+            [
+              5.25,
+              36.75
+            ],
+            [
+              5.25,
+              35.25
+            ],
+            [
+              5.25,
+              33.75
+            ],
+            [
+              5.25,
+              32.25
+            ],
+            [
+              5.25,
+              30.75
+            ],
+            [
+              5.25,
+              29.25
+            ],
+            [
+              5.25,
+              27.75
+            ],
+            [
+              5.25,
+              26.25
+            ],
+            [
+              5.25,
+              24.75
+            ],
+            [
+              5.25,
+              23.25
+            ],
+            [
+              5.25,
+              21.75
+            ],
+            [
+              5.25,
+              20.25
+            ],
+            [
+              6.75,
+              20.25
+            ],
+            [
+              8.25,
+              20.25
+            ],
+            [
+              9.75,
+              20.25
+            ],
+            [
+              11.25,
+              20.25
+            ],
+            [
+              12.75,
+              20.25
+            ],
+            [
+              14.25,
+              20.25
+            ],
+            [
+              13.64,
+              20.92
+            ]
+          ],
+          "length_m": 27.2,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 1,
+          "to_id": 3,
+          "from_code": "B0",
+          "to_code": "E0",
+          "points": [
+            [
+              13.64,
+              20.92
+            ],
+            [
+              14.25,
+              20.25
+            ],
+            [
+              15.75,
+              20.25
+            ],
+            [
+              17.25,
+              20.25
+            ],
+            [
+              18.75,
+              20.25
+            ],
+            [
+              20.25,
+              20.25
+            ],
+            [
+              20.25,
+              21.75
+            ],
+            [
+              20.25,
+              23.25
+            ],
+            [
+              20.25,
+              24.75
+            ],
+            [
+              20.25,
+              26.25
+            ],
+            [
+              20.25,
+              27.75
+            ],
+            [
+              20.25,
+              29.25
+            ],
+            [
+              20.25,
+              30.75
+            ],
+            [
+              20.25,
+              32.25
+            ],
+            [
+              20.25,
+              33.75
+            ],
+            [
+              21.75,
+              33.75
+            ],
+            [
+              23.25,
+              33.75
+            ],
+            [
+              24.75,
+              33.75
+            ],
+            [
+              26.25,
+              33.75
+            ],
+            [
+              27.75,
+              33.75
+            ],
+            [
+              29.25,
+              33.75
+            ],
+            [
+              30.75,
+              33.75
+            ],
+            [
+              32.25,
+              33.75
+            ],
+            [
+              32.4,
+              34.41
+            ]
+          ],
+          "length_m": 33.1,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 1,
+          "to_id": 6,
+          "from_code": "B0",
+          "to_code": "R4",
+          "points": [
+            [
+              13.64,
+              20.92
+            ],
+            [
+              14.25,
+              20.25
+            ],
+            [
+              15.75,
+              20.25
+            ],
+            [
+              17.25,
+              20.25
+            ],
+            [
+              18.75,
+              20.25
+            ],
+            [
+              20.25,
+              20.25
+            ],
+            [
+              21.75,
+              20.25
+            ],
+            [
+              23.25,
+              20.25
+            ],
+            [
+              24.75,
+              20.25
+            ],
+            [
+              26.25,
+              20.25
+            ],
+            [
+              27.75,
+              20.25
+            ],
+            [
+              29.25,
+              20.25
+            ],
+            [
+              30.75,
+              20.25
+            ],
+            [
+              30.75,
+              18.75
+            ],
+            [
+              30.75,
+              17.25
+            ],
+            [
+              30.75,
+              15.75
+            ],
+            [
+              30.75,
+              14.25
+            ],
+            [
+              32.25,
+              14.25
+            ],
+            [
+              33.75,
+              14.25
+            ],
+            [
+              35.25,
+              14.25
+            ],
+            [
+              36.75,
+              14.25
+            ],
+            [
+              38.25,
+              14.25
+            ],
+            [
+              39.75,
+              14.25
+            ],
+            [
+              41.25,
+              14.25
+            ],
+            [
+              42.75,
+              14.25
+            ],
+            [
+              42.75,
+              15.75
+            ],
+            [
+              42.75,
+              17.25
+            ],
+            [
+              42.75,
+              18.75
+            ],
+            [
+              42.75,
+              20.25
+            ],
+            [
+              42.75,
+              21.75
+            ],
+            [
+              42.75,
+              23.25
+            ],
+            [
+              41.25,
+              23.25
+            ],
+            [
+              39.75,
+              23.25
+            ],
+            [
+              38.25,
+              23.25
+            ],
+            [
+              36.75,
+              23.25
+            ],
+            [
+              36.99,
+              22.56
+            ]
+          ],
+          "length_m": 51.1,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 1,
+          "to_id": 7,
+          "from_code": "B0",
+          "to_code": "R4",
+          "points": [
+            [
+              13.64,
+              20.92
+            ],
+            [
+              14.25,
+              20.25
+            ],
+            [
+              14.25,
+              18.75
+            ],
+            [
+              14.25,
+              17.25
+            ],
+            [
+              14.25,
+              15.75
+            ],
+            [
+              14.25,
+              14.25
+            ],
+            [
+              14.25,
+              12.75
+            ],
+            [
+              14.25,
+              11.25
+            ],
+            [
+              15.75,
+              11.25
+            ],
+            [
+              17.25,
+              11.25
+            ],
+            [
+              17.92,
+              10.7
+            ]
+          ],
+          "length_m": 13.8,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "unresolved": [],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "site_entry": "nearest schematic site edge [TO VERIFY]"
+    },
+    {
+      "kind": "visitor_community",
+      "routes": [
+        {
+          "from_id": -1,
+          "to_id": 0,
+          "from_code": "SITE",
+          "to_code": "A0",
+          "points": [
+            [
+              0.0,
+              41.38
+            ],
+            [
+              0.75,
+              45.75
+            ],
+            [
+              0.01,
+              41.38
+            ]
+          ],
+          "length_m": 8.9,
+          "status": "CONNECTED",
+          "provenance": "[TO VERIFY]"
+        },
+        {
+          "from_id": 0,
+          "to_id": 8,
+          "from_code": "A0",
+          "to_code": "H0",
+          "points": [
+            [
+              0.01,
+              41.38
+            ],
+            [
+              0.75,
+              45.75
+            ],
+            [
+              2.25,
+              45.75
+            ],
+            [
+              3.75,
+              45.75
+            ],
+            [
+              5.25,
+              45.75
+            ],
+            [
+              6.75,
+              45.75
+            ],
+            [
+              8.25,
+              45.75
+            ],
+            [
+              9.75,
+              45.75
+            ],
+            [
+              11.25,
+              45.75
+            ],
+            [
+              12.75,
+              45.75
+            ],
+            [
+              12.75,
+              44.25
+            ],
+            [
+              12.75,
+              42.75
+            ],
+            [
+              12.75,
+              41.25
+            ],
+            [
+              12.75,
+              39.75
+            ],
+            [
+              12.75,
+              38.25
+            ],
+            [
+              12.75,
+              36.75
+            ],
+            [
+              12.75,
+              35.25
+            ],
+            [
+              12.75,
+              33.75
+            ],
+            [
+              14.25,
+              33.75
+            ],
+            [
+              15.75,
+              33.75
+            ],
+            [
+              17.25,
+              33.75
+            ],
+            [
+              18.75,
+              33.75
+            ],
+            [
+              20.25,
+              33.75
+            ],
+            [
+              21.75,
+              33.75
+            ],
+            [
+              23.25,
+              33.75
+            ],
+            [
+              24.75,
+              33.75
+            ],
+            [
+              26.25,
+              33.75
+            ],
+            [
+              27.75,
+              33.75
+            ],
+            [
+              29.25,
+              33.75
+            ],
+            [
+              30.75,
+              33.75
+            ],
+            [
+              32.25,
+              33.75
+            ],
+            [
+              33.75,
+              33.75
+            ],
+            [
+              35.25,
+              33.75
+            ],
+            [
+              36.75,
+              33.75
+            ],
+            [
+              38.25,
+              33.75
+            ],
+            [
+              39.75,
+              33.75
+            ],
+            [
+              41.25,
+              33.75
+            ],
+            [
+              42.75,
+              33.75
+            ],
+            [
+              44.25,
+              33.75
+            ],
+            [
+              45.75,
+              33.75
+            ],
+            [
+              47.25,
+              33.75
+            ],
+            [
+              48.75,
+              33.75
+            ],
+            [
+              50.25,
+              33.75
+            ],
+            [
+              50.25,
+              32.25
+            ],
+            [
+              50.25,
+              30.75
+            ],
+            [
+              50.25,
+              29.25
+            ],
+            [
+              50.25,
+              27.75
+            ],
+            [
+              50.25,
+              26.25
+            ],
+            [
+              51.75,
+              26.25
+            ],
+            [
+              51.79,
+              25.64
+            ]
+          ],
+          "length_m": 75.5,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 0,
+          "to_id": 9,
+          "from_code": "A0",
+          "to_code": "J0",
+          "points": [
+            [
+              0.01,
+              41.38
+            ],
+            [
+              0.75,
+              45.75
+            ],
+            [
+              2.25,
+              45.75
+            ],
+            [
+              3.75,
+              45.75
+            ],
+            [
+              5.25,
+              45.75
+            ],
+            [
+              6.75,
+              45.75
+            ],
+            [
+              8.25,
+              45.75
+            ],
+            [
+              9.75,
+              45.75
+            ],
+            [
+              11.25,
+              45.75
+            ],
+            [
+              12.75,
+              45.75
+            ],
+            [
+              12.75,
+              44.25
+            ],
+            [
+              12.75,
+              42.75
+            ],
+            [
+              12.75,
+              41.25
+            ],
+            [
+              12.75,
+              39.75
+            ],
+            [
+              12.75,
+              38.25
+            ],
+            [
+              12.75,
+              36.75
+            ],
+            [
+              12.75,
+              35.25
+            ],
+            [
+              12.75,
+              33.75
+            ],
+            [
+              14.25,
+              33.75
+            ],
+            [
+              15.75,
+              33.75
+            ],
+            [
+              17.25,
+              33.75
+            ],
+            [
+              18.75,
+              33.75
+            ],
+            [
+              20.25,
+              33.75
+            ],
+            [
+              21.75,
+              33.75
+            ],
+            [
+              23.25,
+              33.75
+            ],
+            [
+              24.75,
+              33.75
+            ],
+            [
+              26.25,
+              33.75
+            ],
+            [
+              27.75,
+              33.75
+            ],
+            [
+              29.25,
+              33.75
+            ],
+            [
+              30.75,
+              33.75
+            ],
+            [
+              32.25,
+              33.75
+            ],
+            [
+              33.75,
+              33.75
+            ],
+            [
+              35.25,
+              33.75
+            ],
+            [
+              35.99,
+              28.91
+            ]
+          ],
+          "length_m": 55.8,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "unresolved": [],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "site_entry": "nearest schematic site edge [TO VERIFY]"
+    },
+    {
+      "kind": "service",
+      "routes": [
+        {
+          "from_id": -1,
+          "to_id": 4,
+          "from_code": "SITE",
+          "to_code": "F0",
+          "points": [
+            [
+              75.1,
+              61.5
+            ],
+            [
+              84.75,
+              60.75
+            ],
+            [
+              75.1,
+              61.46
+            ]
+          ],
+          "length_m": 19.4,
+          "status": "CONNECTED",
+          "provenance": "[TO VERIFY]"
+        },
+        {
+          "from_id": 4,
+          "to_id": 5,
+          "from_code": "F0",
+          "to_code": "M0",
+          "points": [
+            [
+              75.1,
+              61.46
+            ],
+            [
+              84.75,
+              60.75
+            ],
+            [
+              84.75,
+              59.25
+            ],
+            [
+              84.75,
+              57.75
+            ],
+            [
+              84.75,
+              56.25
+            ],
+            [
+              84.75,
+              54.75
+            ],
+            [
+              84.75,
+              53.25
+            ],
+            [
+              84.75,
+              51.75
+            ],
+            [
+              84.75,
+              50.25
+            ],
+            [
+              84.75,
+              48.75
+            ],
+            [
+              84.75,
+              47.25
+            ],
+            [
+              84.75,
+              45.75
+            ],
+            [
+              83.25,
+              45.75
+            ],
+            [
+              81.75,
+              45.75
+            ],
+            [
+              81.17,
+              44.93
+            ]
+          ],
+          "length_m": 28.7,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 4,
+          "to_id": 2,
+          "from_code": "F0",
+          "to_code": "C0",
+          "points": [
+            [
+              75.1,
+              61.46
+            ],
+            [
+              84.75,
+              60.75
+            ],
+            [
+              84.75,
+              59.25
+            ],
+            [
+              84.75,
+              57.75
+            ],
+            [
+              84.75,
+              56.25
+            ],
+            [
+              84.75,
+              54.75
+            ],
+            [
+              84.75,
+              53.25
+            ],
+            [
+              84.75,
+              51.75
+            ],
+            [
+              84.75,
+              50.25
+            ],
+            [
+              84.75,
+              48.75
+            ],
+            [
+              84.75,
+              47.25
+            ],
+            [
+              84.75,
+              45.75
+            ],
+            [
+              83.25,
+              45.75
+            ],
+            [
+              81.75,
+              45.75
+            ],
+            [
+              80.25,
+              45.75
+            ],
+            [
+              78.75,
+              45.75
+            ],
+            [
+              77.25,
+              45.75
+            ],
+            [
+              75.75,
+              45.75
+            ],
+            [
+              75.75,
+              44.25
+            ],
+            [
+              75.75,
+              42.75
+            ],
+            [
+              75.75,
+              41.25
+            ],
+            [
+              75.75,
+              39.75
+            ],
+            [
+              75.75,
+              38.25
+            ],
+            [
+              75.75,
+              36.75
+            ],
+            [
+              75.75,
+              35.25
+            ],
+            [
+              75.75,
+              33.75
+            ],
+            [
+              74.25,
+              33.75
+            ],
+            [
+              72.75,
+              33.75
+            ],
+            [
+              71.25,
+              33.75
+            ],
+            [
+              69.75,
+              33.75
+            ],
+            [
+              68.25,
+              33.75
+            ],
+            [
+              66.75,
+              33.75
+            ],
+            [
+              65.25,
+              33.75
+            ],
+            [
+              63.75,
+              33.75
+            ],
+            [
+              62.25,
+              33.75
+            ],
+            [
+              60.75,
+              33.75
+            ],
+            [
+              59.25,
+              33.75
+            ],
+            [
+              57.75,
+              33.75
+            ],
+            [
+              56.25,
+              33.75
+            ],
+            [
+              54.75,
+              33.75
+            ],
+            [
+              53.25,
+              33.75
+            ],
+            [
+              51.75,
+              33.75
+            ],
+            [
+              50.25,
+              33.75
+            ],
+            [
+              48.75,
+              33.75
+            ],
+            [
+              47.25,
+              33.75
+            ],
+            [
+              45.75,
+              33.75
+            ],
+            [
+              44.25,
+              33.75
+            ],
+            [
+              42.75,
+              33.75
+            ],
+            [
+              41.25,
+              33.75
+            ],
+            [
+              39.75,
+              33.75
+            ],
+            [
+              38.25,
+              33.75
+            ],
+            [
+              36.75,
+              33.75
+            ],
+            [
+              35.25,
+              33.75
+            ],
+            [
+              35.51,
+              28.17
+            ]
+          ],
+          "length_m": 91.8,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 4,
+          "to_id": 9,
+          "from_code": "F0",
+          "to_code": "J0",
+          "points": [
+            [
+              75.1,
+              61.46
+            ],
+            [
+              84.75,
+              60.75
+            ],
+            [
+              84.75,
+              59.25
+            ],
+            [
+              84.75,
+              57.75
+            ],
+            [
+              84.75,
+              56.25
+            ],
+            [
+              84.75,
+              54.75
+            ],
+            [
+              84.75,
+              53.25
+            ],
+            [
+              84.75,
+              51.75
+            ],
+            [
+              84.75,
+              50.25
+            ],
+            [
+              84.75,
+              48.75
+            ],
+            [
+              84.75,
+              47.25
+            ],
+            [
+              84.75,
+              45.75
+            ],
+            [
+              83.25,
+              45.75
+            ],
+            [
+              81.75,
+              45.75
+            ],
+            [
+              80.25,
+              45.75
+            ],
+            [
+              78.75,
+              45.75
+            ],
+            [
+              77.25,
+              45.75
+            ],
+            [
+              75.75,
+              45.75
+            ],
+            [
+              75.75,
+              44.25
+            ],
+            [
+              75.75,
+              42.75
+            ],
+            [
+              75.75,
+              41.25
+            ],
+            [
+              75.75,
+              39.75
+            ],
+            [
+              75.75,
+              38.25
+            ],
+            [
+              75.75,
+              36.75
+            ],
+            [
+              75.75,
+              35.25
+            ],
+            [
+              75.75,
+              33.75
+            ],
+            [
+              75.75,
+              32.25
+            ],
+            [
+              75.75,
+              30.75
+            ],
+            [
+              74.25,
+              30.75
+            ],
+            [
+              72.75,
+              30.75
+            ],
+            [
+              71.25,
+              30.75
+            ],
+            [
+              69.75,
+              30.75
+            ],
+            [
+              68.25,
+              30.75
+            ],
+            [
+              66.75,
+              30.75
+            ],
+            [
+              65.25,
+              30.75
+            ],
+            [
+              63.75,
+              30.75
+            ],
+            [
+              62.25,
+              30.75
+            ],
+            [
+              60.75,
+              30.75
+            ],
+            [
+              59.25,
+              30.75
+            ],
+            [
+              57.75,
+              30.75
+            ],
+            [
+              56.25,
+              30.75
+            ],
+            [
+              54.75,
+              30.75
+            ],
+            [
+              53.25,
+              30.75
+            ],
+            [
+              51.75,
+              30.75
+            ],
+            [
+              51.75,
+              29.25
+            ],
+            [
+              50.25,
+              29.25
+            ],
+            [
+              49.49,
+              28.91
+            ]
+          ],
+          "length_m": 76.5,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "unresolved": [],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "site_entry": "nearest schematic site edge [TO VERIFY]"
+    },
+    {
+      "kind": "emergency",
+      "routes": [
+        {
+          "from_id": -1,
+          "to_id": 0,
+          "from_code": "SITE",
+          "to_code": "A0",
+          "points": [
+            [
+              0.0,
+              41.38
+            ],
+            [
+              0.75,
+              45.75
+            ],
+            [
+              0.01,
+              41.38
+            ]
+          ],
+          "length_m": 8.9,
+          "status": "CONNECTED",
+          "provenance": "[TO VERIFY]"
+        },
+        {
+          "from_id": 0,
+          "to_id": 1,
+          "from_code": "A0",
+          "to_code": "B0",
+          "points": [
+            [
+              0.01,
+              41.38
+            ],
+            [
+              0.75,
+              45.75
+            ],
+            [
+              2.25,
+              45.75
+            ],
+            [
+              3.75,
+              45.75
+            ],
+            [
+              5.25,
+              45.75
+            ],
+            [
+              6.75,
+              45.75
+            ],
+            [
+              8.25,
+              45.75
+            ],
+            [
+              9.75,
+              45.75
+            ],
+            [
+              11.25,
+              45.75
+            ],
+            [
+              12.75,
+              45.75
+            ],
+            [
+              12.75,
+              44.25
+            ],
+            [
+              12.75,
+              42.75
+            ],
+            [
+              12.75,
+              41.25
+            ],
+            [
+              12.75,
+              39.75
+            ],
+            [
+              12.75,
+              38.25
+            ],
+            [
+              12.75,
+              36.75
+            ],
+            [
+              12.75,
+              35.25
+            ],
+            [
+              12.75,
+              33.75
+            ],
+            [
+              12.75,
+              32.25
+            ],
+            [
+              12.75,
+              30.75
+            ],
+            [
+              12.75,
+              29.25
+            ],
+            [
+              14.25,
+              29.25
+            ],
+            [
+              13.64,
+              28.92
+            ]
+          ],
+          "length_m": 35.1,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 1,
+          "to_id": 6,
+          "from_code": "B0",
+          "to_code": "R4",
+          "points": [
+            [
+              13.64,
+              28.92
+            ],
+            [
+              14.25,
+              29.25
+            ],
+            [
+              15.75,
+              29.25
+            ],
+            [
+              17.25,
+              29.25
+            ],
+            [
+              18.75,
+              29.25
+            ],
+            [
+              20.25,
+              29.25
+            ],
+            [
+              20.25,
+              27.75
+            ],
+            [
+              20.25,
+              26.25
+            ],
+            [
+              20.25,
+              24.75
+            ],
+            [
+              20.25,
+              23.25
+            ],
+            [
+              20.25,
+              21.75
+            ],
+            [
+              21.75,
+              21.75
+            ],
+            [
+              23.25,
+              21.75
+            ],
+            [
+              24.75,
+              21.75
+            ],
+            [
+              26.25,
+              21.75
+            ],
+            [
+              27.75,
+              21.75
+            ],
+            [
+              29.25,
+              21.75
+            ],
+            [
+              30.75,
+              21.75
+            ],
+            [
+              30.75,
+              20.25
+            ],
+            [
+              30.75,
+              18.75
+            ],
+            [
+              30.75,
+              17.25
+            ],
+            [
+              30.75,
+              15.75
+            ],
+            [
+              30.75,
+              14.25
+            ],
+            [
+              32.25,
+              14.25
+            ],
+            [
+              33.75,
+              14.25
+            ],
+            [
+              35.25,
+              14.25
+            ],
+            [
+              36.75,
+              14.25
+            ],
+            [
+              38.25,
+              14.25
+            ],
+            [
+              39.75,
+              14.25
+            ],
+            [
+              41.25,
+              14.25
+            ],
+            [
+              42.75,
+              14.25
+            ],
+            [
+              42.75,
+              15.75
+            ],
+            [
+              42.75,
+              17.25
+            ],
+            [
+              42.75,
+              18.75
+            ],
+            [
+              42.75,
+              20.25
+            ],
+            [
+              42.75,
+              21.75
+            ],
+            [
+              42.75,
+              23.25
+            ],
+            [
+              41.25,
+              23.25
+            ],
+            [
+              39.75,
+              23.25
+            ],
+            [
+              38.25,
+              23.25
+            ],
+            [
+              36.75,
+              23.25
+            ],
+            [
+              36.99,
+              22.56
+            ]
+          ],
+          "length_m": 59.9,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "from_id": 1,
+          "to_id": 7,
+          "from_code": "B0",
+          "to_code": "R4",
+          "points": [
+            [
+              13.64,
+              28.92
+            ],
+            [
+              14.25,
+              29.25
+            ],
+            [
+              15.75,
+              29.25
+            ],
+            [
+              17.25,
+              29.25
+            ],
+            [
+              18.75,
+              29.25
+            ],
+            [
+              20.25,
+              29.25
+            ],
+            [
+              20.25,
+              27.75
+            ],
+            [
+              20.25,
+              26.25
+            ],
+            [
+              20.25,
+              24.75
+            ],
+            [
+              20.25,
+              23.25
+            ],
+            [
+              20.25,
+              21.75
+            ],
+            [
+              20.25,
+              20.25
+            ],
+            [
+              20.25,
+              18.75
+            ],
+            [
+              20.25,
+              17.25
+            ],
+            [
+              20.25,
+              15.75
+            ],
+            [
+              20.25,
+              14.25
+            ],
+            [
+              20.25,
+              12.75
+            ],
+            [
+              20.25,
+              11.25
+            ],
+            [
+              18.75,
+              11.25
+            ],
+            [
+              17.25,
+              11.25
+            ],
+            [
+              17.92,
+              10.7
+            ]
+          ],
+          "length_m": 28.6,
+          "status": "CONNECTED",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "unresolved": [],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "site_entry": "nearest schematic site edge [TO VERIFY]"
+    }
+  ],
+  "floor_plans": [
+    {
+      "floor": 1,
+      "modules": [
+        {
+          "id": 0,
+          "code": "A0",
+          "x": 5.763486634257,
+          "y": 41.38036674358,
+          "w": 11.5,
+          "d": 8.0,
+          "parts": [
+            "public forecourt",
+            "controlled gate",
+            "waiting / lobby",
+            "threshold marker"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 1,
+          "code": "B0",
+          "x": 13.643884783758,
+          "y": 24.917228429029,
+          "w": 11.5,
+          "d": 8.0,
+          "parts": [
+            "intake",
+            "counselling",
+            "safeguarding",
+            "care response",
+            "staff control"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 2,
+          "code": "C0",
+          "x": 28.514376900954,
+          "y": 28.17427757843,
+          "w": 14.0,
+          "d": 10.7,
+          "parts": [
+            "shared kitchen",
+            "dining / gathering",
+            "everyday activity",
+            "covered terrace",
+            "commons threshold"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 3,
+          "code": "E0",
+          "x": 32.400427599333,
+          "y": 38.41499588561,
+          "w": 9.5,
+          "d": 8.0,
+          "parts": [
+            "staff room",
+            "handover / admin",
+            "rapid response",
+            "service lock"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 4,
+          "code": "F0",
+          "x": 75.102780002648,
+          "y": 56.662589695221,
+          "w": 18.0,
+          "d": 9.6,
+          "parts": [
+            "delivery / loading",
+            "storage",
+            "waste / utility",
+            "service yard"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 5,
+          "code": "M0",
+          "x": 81.172157238587,
+          "y": 40.827720929186,
+          "w": 10.0,
+          "d": 8.2,
+          "parts": [
+            "plant / technical",
+            "workshop",
+            "technical yard"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 6,
+          "code": "R4",
+          "x": 36.985417824786,
+          "y": 18.555754781888,
+          "w": 11.0,
+          "d": 8.0,
+          "parts": [
+            "personal territory",
+            "shared domestic",
+            "WASH",
+            "retreat / porch",
+            "connection point"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 7,
+          "code": "R4",
+          "x": 17.915655454505,
+          "y": 6.698819482454,
+          "w": 11.0,
+          "d": 8.0,
+          "parts": [
+            "personal territory",
+            "shared domestic",
+            "WASH",
+            "retreat / porch",
+            "connection point"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 8,
+          "code": "H0",
+          "x": 57.790847543502,
+          "y": 25.637512453608,
+          "w": 12.0,
+          "d": 9.0,
+          "parts": [
+            "learning studio",
+            "quiet study",
+            "learning court",
+            "teaching threshold"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "id": 9,
+          "code": "J0",
+          "x": 42.742545316461,
+          "y": 28.909692289879,
+          "w": 13.5,
+          "d": 9.0,
+          "parts": [
+            "workshop / making",
+            "enterprise front",
+            "livelihood yard",
+            "sales threshold"
+          ],
+          "provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "a_id": 0,
+      "b_id": 1,
+      "relationship": "civic edge / care hinge",
+      "relation": "MUST",
+      "centroid_distance_m": 18.3,
+      "within_must_range": true,
+      "provenance": "[PA5 CORPUS]"
+    },
+    {
+      "a_id": 1,
+      "b_id": 2,
+      "relationship": "care hinge / shared commons",
+      "relation": "NEAR",
+      "centroid_distance_m": 15.2,
+      "within_must_range": null,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "a_id": 1,
+      "b_id": 6,
+      "relationship": "care hinge / domestic cluster",
+      "relation": "MUST",
+      "centroid_distance_m": 24.2,
+      "within_must_range": true,
+      "provenance": "[PA5 CORPUS]"
+    },
+    {
+      "a_id": 1,
+      "b_id": 7,
+      "relationship": "care hinge / domestic cluster",
+      "relation": "MUST",
+      "centroid_distance_m": 18.7,
+      "within_must_range": true,
+      "provenance": "[PA5 CORPUS]"
+    },
+    {
+      "a_id": 2,
+      "b_id": 6,
+      "relationship": "commons / domestic cluster",
+      "relation": "MUST",
+      "centroid_distance_m": 12.8,
+      "within_must_range": true,
+      "provenance": "[PA5 CORPUS]"
+    },
+    {
+      "a_id": 2,
+      "b_id": 7,
+      "relationship": "commons / domestic cluster",
+      "relation": "MUST",
+      "centroid_distance_m": 23.9,
+      "within_must_range": true,
+      "provenance": "[PA5 CORPUS]"
+    },
+    {
+      "a_id": 4,
+      "b_id": 5,
+      "relationship": "service / environmental edge",
+      "relation": "MUST",
+      "centroid_distance_m": 17.0,
+      "within_must_range": true,
+      "provenance": "[PA5 CORPUS]"
+    },
+    {
+      "relationship": "landscape buffer / expansion zone",
+      "anchor": [
+        51.6,
+        35.2
+      ],
+      "reserve_area_m2": 263.3,
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "threshold_paths": [
+    {
+      "to_id": 6,
+      "sequence": [
+        "A0",
+        "C0",
+        "R4:6"
+      ],
+      "privacy": [
+        "CONTROLLED",
+        "SHARED",
+        "DOMESTIC"
+      ],
+      "points": [
+        [
+          5.76,
+          37.38
+        ],
+        [
+          5.25,
+          36.75
+        ],
+        [
+          5.25,
+          35.25
+        ],
+        [
+          5.25,
+          33.75
+        ],
+        [
+          5.25,
+          32.25
+        ],
+        [
+          5.25,
+          30.75
+        ],
+        [
+          5.25,
+          29.25
+        ],
+        [
+          6.75,
+          29.25
+        ],
+        [
+          8.25,
+          29.25
+        ],
+        [
+          9.75,
+          29.25
+        ],
+        [
+          11.25,
+          29.25
+        ],
+        [
+          12.75,
+          29.25
+        ],
+        [
+          14.25,
+          29.25
+        ],
+        [
+          15.75,
+          29.25
+        ],
+        [
+          17.25,
+          29.25
+        ],
+        [
+          18.75,
+          29.25
+        ],
+        [
+          20.25,
+          29.25
+        ],
+        [
+          20.25,
+          27.75
+        ],
+        [
+          20.25,
+          26.25
+        ],
+        [
+          20.25,
+          24.75
+        ],
+        [
+          20.25,
+          23.25
+        ],
+        [
+          20.25,
+          21.75
+        ],
+        [
+          21.75,
+          21.75
+        ],
+        [
+          23.25,
+          21.75
+        ],
+        [
+          24.75,
+          21.75
+        ],
+        [
+          26.25,
+          21.75
+        ],
+        [
+          27.75,
+          21.75
+        ],
+        [
+          29.25,
+          21.75
+        ],
+        [
+          28.51,
+          22.82
+        ],
+        [
+          28.51,
+          22.82
+        ],
+        [
+          29.25,
+          21.75
+        ],
+        [
+          29.25,
+          20.25
+        ],
+        [
+          29.25,
+          18.75
+        ],
+        [
+          30.75,
+          18.75
+        ],
+        [
+          31.49,
+          18.56
+        ]
+      ],
+      "length_m": 47.7,
+      "status": "CONNECTED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "to_id": 7,
+      "sequence": [
+        "A0",
+        "C0",
+        "R4:7"
+      ],
+      "privacy": [
+        "CONTROLLED",
+        "SHARED",
+        "DOMESTIC"
+      ],
+      "points": [
+        [
+          5.76,
+          37.38
+        ],
+        [
+          5.25,
+          36.75
+        ],
+        [
+          5.25,
+          35.25
+        ],
+        [
+          5.25,
+          33.75
+        ],
+        [
+          5.25,
+          32.25
+        ],
+        [
+          5.25,
+          30.75
+        ],
+        [
+          5.25,
+          29.25
+        ],
+        [
+          6.75,
+          29.25
+        ],
+        [
+          8.25,
+          29.25
+        ],
+        [
+          9.75,
+          29.25
+        ],
+        [
+          11.25,
+          29.25
+        ],
+        [
+          12.75,
+          29.25
+        ],
+        [
+          14.25,
+          29.25
+        ],
+        [
+          15.75,
+          29.25
+        ],
+        [
+          17.25,
+          29.25
+        ],
+        [
+          18.75,
+          29.25
+        ],
+        [
+          20.25,
+          29.25
+        ],
+        [
+          20.25,
+          27.75
+        ],
+        [
+          20.25,
+          26.25
+        ],
+        [
+          20.25,
+          24.75
+        ],
+        [
+          20.25,
+          23.25
+        ],
+        [
+          20.25,
+          21.75
+        ],
+        [
+          21.75,
+          21.75
+        ],
+        [
+          23.25,
+          21.75
+        ],
+        [
+          24.75,
+          21.75
+        ],
+        [
+          26.25,
+          21.75
+        ],
+        [
+          27.75,
+          21.75
+        ],
+        [
+          29.25,
+          21.75
+        ],
+        [
+          28.51,
+          22.82
+        ],
+        [
+          28.51,
+          22.82
+        ],
+        [
+          29.25,
+          21.75
+        ],
+        [
+          29.25,
+          20.25
+        ],
+        [
+          29.25,
+          18.75
+        ],
+        [
+          29.25,
+          17.25
+        ],
+        [
+          29.25,
+          15.75
+        ],
+        [
+          29.25,
+          14.25
+        ],
+        [
+          29.25,
+          12.75
+        ],
+        [
+          29.25,
+          11.25
+        ],
+        [
+          27.75,
+          11.25
+        ],
+        [
+          26.25,
+          11.25
+        ],
+        [
+          24.75,
+          11.25
+        ],
+        [
+          23.25,
+          11.25
+        ],
+        [
+          21.75,
+          11.25
+        ],
+        [
+          20.25,
+          11.25
+        ],
+        [
+          18.75,
+          11.25
+        ],
+        [
+          17.25,
+          11.25
+        ],
+        [
+          17.92,
+          10.7
+        ]
+      ],
+      "length_m": 65.8,
+      "status": "CONNECTED",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "exposure_status": "NO_EXPOSURE_IN_SAMPLED_RAYS",
+  "safeguarding_actions": [],
+  "architectural_status": "ROUTES_CONNECTED; SAMPLED_SIGHTLINES_SCREENED",
+  "architectural_variant_id": null,
+  "physical_rotations": {}
+}

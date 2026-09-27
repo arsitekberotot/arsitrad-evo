@@ -3,6 +3,8 @@ full per-phenotype traceability records (genes -> modules -> constraints ->
 objectives -> assumptions).
 """
 from __future__ import annotations
+import hashlib
+import json
 import numpy as np
 
 from .genotype import Phenotype, STRUCT_GENES, N_STRUCT
@@ -12,6 +14,17 @@ from .modules import MODULES
 
 OBJ_NAMES = [n for n, _ in OBJECTIVES]
 GENE_NAMES = [n for n, _, _, _ in STRUCT_GENES]
+
+
+def genotype_vector(ph: Phenotype) -> list[float]:
+    """Canonical full vector for exact replay, including masked machine slots."""
+    return [round(float(v), 12) for v in ph.genes]
+
+
+def genotype_id(ph: Phenotype) -> str:
+    raw = json.dumps(genotype_vector(ph), separators=(",", ":"),
+                     allow_nan=False).encode("ascii")
+    return hashlib.sha256(raw).hexdigest()[:16]
 
 # Open assumptions attached to every result (research honesty).
 OPEN_ASSUMPTIONS = [
@@ -52,17 +65,24 @@ def genes_dict(ph: Phenotype) -> dict:
 
 
 def traceability_record(ph: Phenotype, cluster: int | None = None,
-                        role: str = "representative") -> dict:
+                        role: str = "representative",
+                        selected_generation: int | None = None) -> dict:
     """Full machine-readable explanation of one phenotype."""
     _, feas, cv_detail = evaluate_constraints(ph)
+    hard_names = {name for name, _, is_hard in CONSTRAINTS if is_hard}
     objs = np.asarray(ph.objectives)
     return {
         "role": role,
         "cluster": cluster,
-        "feasible": bool(ph.feasible),
+        "seed": ph.origin_seed,
+        "birth_generation": ph.birth_generation,
+        "selected_generation": selected_generation,
+        "genotype_id": genotype_id(ph),
+        "feasible": bool(feas),
+        "constraint_status": ("MODEL_FEASIBLE" if feas else "MODEL_INFEASIBLE"),
         "rank": int(ph.rank),
         "crowding_distance": (None if np.isinf(ph.crowding) else round(float(ph.crowding), 4)),
-        "genotype_vector": [round(float(v), 5) for v in ph.genes],   # full genes incl. placement tail
+        "genotype_vector": genotype_vector(ph),
         "genes": genes_dict(ph),
         "capacity": {"residents": ph.residents, "n_R4": ph.n_R4,
                      "day_users": ph.day_users},
@@ -78,7 +98,9 @@ def traceability_record(ph: Phenotype, cluster: int | None = None,
         "objectives": {OBJ_NAMES[m]: round(float(objs[m]), 4) for m in range(len(objs))},
         "strongest_objective": OBJ_NAMES[int(np.argmin(objs))],
         "weakest_objective": OBJ_NAMES[int(np.argmax(objs))],
-        "constraint_violations": {k: round(v, 4) for k, v in cv_detail.items() if v > 1e-6},
+        "constraint_violations": {k: round(v, 4) for k, v in cv_detail.items()
+                                  if k in hard_names and v > 1e-6},
+        "must_adjacency_shortfall": round(float(ph.must_shortfall), 4),
         "open_assumptions": OPEN_ASSUMPTIONS,
     }
 

@@ -1,0 +1,87 @@
+{
+  "verified_at_utc": "2026-09-27T09:40:19.983287+00:00",
+  "freeze_sha256": "3ebaa58b09e7367ad15be6d249491bd49fb48609fb98e67db4767fe51e086869",
+  "archive_rows": 756,
+  "unique_replayed_genotypes": 750,
+  "capacity_distribution": {
+    "2": 381,
+    "3": 173,
+    "4": 196
+  },
+  "shortlist": [
+    {
+      "label": "BALANCED",
+      "genotype_id": "d025145502ad4434",
+      "seed": 2024,
+      "birth_generation": 75,
+      "selected_generation": 80,
+      "residents": 8,
+      "model_floor_area_proxy_m2": 1071,
+      "must_shortfall_m": 0.0,
+      "unresolved_routes": 0,
+      "exposed_sensitive_pairs": 0,
+      "visible_sampled_rays": 0,
+      "tested_sensitive_pairs": 6,
+      "exposure_status": "NO_EXPOSURE_IN_SAMPLED_RAYS"
+    },
+    {
+      "label": "SPECIALIZED",
+      "genotype_id": "2bae568f51f78efc",
+      "seed": 123,
+      "birth_generation": 78,
+      "selected_generation": 80,
+      "residents": 12,
+      "model_floor_area_proxy_m2": 1201,
+      "must_shortfall_m": 0.0,
+      "unresolved_routes": 0,
+      "exposed_sensitive_pairs": 5,
+      "visible_sampled_rays": 38,
+      "tested_sensitive_pairs": 9,
+      "exposure_status": "EXPOSED_TO_VERIFY"
+    },
+    {
+      "label": "CONTRASTING",
+      "genotype_id": "76761399c98699cd",
+      "seed": 123,
+      "birth_generation": 78,
+      "selected_generation": 80,
+      "residents": 16,
+      "model_floor_area_proxy_m2": 1541,
+      "must_shortfall_m": 0.0,
+      "unresolved_routes": 0,
+      "exposed_sensitive_pairs": 4,
+      "visible_sampled_rays": 49,
+      "tested_sensitive_pairs": 12,
+      "exposure_status": "EXPOSED_TO_VERIFY"
+    }
+  ],
+  "candidate_diagnostic_pngs": 36,
+  "phenotype_sheets": 3,
+  "comparative_boards": 11,
+  "tests": "....................................................                     [100%]\n52 passed in 11.63s",
+  "renderer_source_sha256": {
+    "arsitrad_evo/phenotype_gen.py": "a9606bddeeb12d33544f7c8b201cbe1fc39d02a3104b966ecf1ff2b4925d1be3",
+    "arsitrad_evo/publication_v3.py": "ca621543a1d797dab22f456022bd92638d6319e3672dc7347f71e8b5ba0fb395",
+    "select_v3.py": "1b1136dd15af10e3bf0d8ed7d2379ea3b59cb7757a3ebf074fff2298d37bac0c",
+    "run_phenotype_gen.py": "2bf4080cf49d65b0a792aeb4766ee7e33b8ee2dfbef1bbbd9cf083a976a420ef",
+    "run_publication_v3.py": "11ad7d2659ad238680c64da297bfa6ebdb3fcdf6d7f9b8ed5592c3a8a01b731c",
+    "validate_v3.py": "3d926f6220f58f917bc422da1cf538b602f8c29cb5eef5d9064c99b6b47ef00d"
+  },
+  "publication_png_sha256": {
+    "publication/phenotype_sheets/balanced_d025145502ad4434.png": "4d758ecbb3430fe9f5ff97d2ca6b87e02dcf09b92560eb8509247a8357d0d63f",
+    "publication/phenotype_sheets/specialized_2bae568f51f78efc.png": "5938ccb2a7d4fbcc03432948220c6f1af044d45fbaa839e97c9d3597fd122fa6",
+    "publication/phenotype_sheets/contrasting_76761399c98699cd.png": "68dc0f27cdab72916669e768beec23ac16fdb83f7a786a9b89b0be4fc299985e",
+    "publication/boards/final_shortlist.png": "36dac16242041110f52d7b6a6b18b731b90e7a62afff55b1e1ac4b884e2738d7",
+    "publication/boards/pareto_spatial_tradeoff.png": "9e0e7a51ed5b70453735ffd94f8e13ea4de462663215c7456126029e6bf1ed5b",
+    "publication/boards/physical_rotation_study.png": "46af0e0dee7e06e17e54e8650e65918cd5e15b6ef881191a8783b7f170f47a1e",
+    "publication/boards/objective_extremes.png": "db48d21a9b3b5f247f7f9d7ea7cdc6a18454db936364f6b3c91f6e2d892a94e3",
+    "publication/boards/relative_difference.png": "123347af7e4c6c7963de9d93927b815d79f810916e7591f2341dd740dd63ab80",
+    "publication/boards/population_gen_00.png": "fe2fe033296de6c6704756e95bf5cb241a3037146058368237453fce84473853",
+    "publication/boards/population_gen_10.png": "2c55d27662f13792fde47cf1dc5f1a2176da188bd204d1b78800db4fec1e4666",
+    "publication/boards/population_gen_20.png": "a8f333dc3c5ee7179d34882be287b0ea8915ada35e12ea451fe478eb8162b34e",
+    "publication/boards/population_gen_40.png": "c166a9d504a2c4cfc06340fe80ba026a80113625fc67592f56c4a5d08cdf9073",
+    "publication/boards/population_gen_60.png": "a5300fd2e660504348d8440cb1d869ec16373f0f2dfc579c9e9803cf746d2e51",
+    "publication/boards/population_gen_80.png": "9faf0a1e6bafdaf8a929c374dc0f3de7ce800a73d66384cb0bc6cc6e7ec03fdc"
+  },
+  "status": "PASS"
+}

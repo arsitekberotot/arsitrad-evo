@@ -151,10 +151,11 @@ def test_variation_respects_bounds(rng):
 
 # --- evolution-level -----------------------------------------------------------------
 def test_evolution_reaches_feasibility():
-    """A short run should reach a fully feasible final population."""
+    """A short run should find feasible layouts under the full MUST gate."""
     cfg = GAConfig(pop_size=40, generations=25, seed=1)
     pop, fronts, history = run(cfg, verbose=False)
-    assert all(p.feasible for p in pop)
+    assert sum(p.feasible for p in pop) >= cfg.pop_size // 2
+    assert history[-1]["must_shortfall_mean"] < history[0]["must_shortfall_mean"]
     # history recorded every generation
     assert len(history) == cfg.generations
 
