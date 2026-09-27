@@ -1,0 +1,20 @@
+THE THRESHOLD - V4 ARCHITECTURAL INTERPRETATION
+=======================================================
+
+Why module populations and capacities create different
+architectural trade-offs (interpretive thresholds are
+[DESIGN HYPOTHESIS]; capacities are [PA5 CORPUS]).
+
+Day-user stratum 8: UNREACHABLE
+   - Reaching this demand would require DELETING essential program — an unacceptable safeguarding / care-access compromise — or introducing smaller evidence-supported module variants that the current PA5 corpus does not yet justify.
+Day-user stratum 16: UNREACHABLE
+   - Reaching this demand would require DELETING essential program — an unacceptable safeguarding / care-access compromise — or introducing smaller evidence-supported module variants that the current PA5 corpus does not yet justify.
+Day-user stratum 24: UNREACHABLE
+   - Reaching this demand would require DELETING essential program — an unacceptable safeguarding / care-access compromise — or introducing smaller evidence-supported module variants that the current PA5 corpus does not yet justify.
+Day-user stratum 32: UNREACHABLE
+   - Reaching this demand would require DELETING essential program — an unacceptable safeguarding / care-access compromise — or introducing smaller evidence-supported module variants that the current PA5 corpus does not yet justify.
+Day-user stratum 40: UNREACHABLE
+   - Reaching this demand would require DELETING essential program — an unacceptable safeguarding / care-access compromise — or introducing smaller evidence-supported module variants that the current PA5 corpus does not yet justify.
+Day-user stratum 48: reachable up to 20 residents (reachability 7%)
+   + 20 residents sits at the upper edge of a single domestic cluster; further growth pushes toward multiple household clusters.
+   + Landscape fraction 0.72 retains a viable open-space armature.

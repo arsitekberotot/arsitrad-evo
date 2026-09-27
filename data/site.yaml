@@ -1,0 +1,108 @@
+# =============================================================================
+# The Threshold — canonical REAL-SITE metadata (non-geometric)
+# Companion to site.geojson (geometry / parcel boundary).
+# =============================================================================
+# PROVENANCE DISCIPLINE (SPEC.md §Provenance): every attribute carries one tag.
+#   [VERIFIED]           measured / provided by survey or authoritative source
+#   [OBSERVED]           seen on site visit / aerial, not instrument-measured
+#   [SECONDARY]          from a secondary document (report, plan, GIS layer)
+#   [DESIGN HYPOTHESIS]  inferred by the design/research team, not yet measured
+#   [TO VERIFY]          unknown; placeholder only — MUST be confirmed, never
+#                        treated as fact. Missing info is NEVER fabricated.
+# -----------------------------------------------------------------------------
+site:
+  id: bantargebang_threshold_site
+  name: "The Threshold — Bantargebang experimental site"
+  location: "Bantargebang, Bekasi, West Java, Indonesia"   # [SECONDARY]
+  provenance: "[SECONDARY]"
+  reference_area_m2: 5533.85     # design-brief reference area  [PA5 CORPUS / DESIGN HYPOTHESIS]
+  measured_area_m2: 5634.09      # derived from site.geojson polygon [DESIGN HYPOTHESIS]
+  notes: >
+    Geometry (parcel boundary) is taken from site.geojson and is treated as the
+    single source of truth for shape. All attributes below are NON-geometric
+    metadata. Where a value is not yet evidenced it is tagged [TO VERIFY] and
+    left null rather than invented.
+
+# --- Orientation -----------------------------------------------------------
+orientation:
+  # Long north-facing edge of the parcel (edge index 0, ~84 m) runs ENE–WSW.
+  # Building orientation + daylight/open-space logic reference this.
+  north_reference: "edge0_long_frontage"
+  provenance: "[DESIGN HYPOTHESIS]"
+  notes: "Approximate true-north derived from GeoJSON coordinates; confirm on survey."
+
+# --- Frontage / access anchors ---------------------------------------------
+# Geometry for anchors lives in site.geojson-derived local coords (metres).
+# Here we record EXISTENCE + provenance. Coordinates are filled only when known.
+frontage:
+  primary_street:
+    present: true
+    edge_indices: [0]            # long ~84 m edge, assumed public street frontage
+    provenance: "[DESIGN HYPOTHESIS]"
+    notes: "Long NE edge is the most plausible public frontage; confirm street side."
+  secondary_street:
+    present: null
+    edge_indices: []
+    provenance: "[TO VERIFY]"
+
+access:
+  public_entry:
+    present: null
+    edge_indices: [0]
+    provenance: "[TO VERIFY]"
+    notes: "Preferred public/arrival anchor; coordinate pending survey."
+  service_entry:
+    present: null
+    edge_indices: []
+    provenance: "[TO VERIFY]"
+    notes: "Service / TPST-facing access anchor; not yet located."
+  emergency_access:
+    present: null
+    edge_indices: []
+    provenance: "[TO VERIFY]"
+
+# --- Operational / contextual edges ----------------------------------------
+context:
+  tpst_facing_edge:
+    present: null
+    edge_indices: []
+    provenance: "[TO VERIFY]"
+    notes: "Edge toward TPST Bantargebang (waste facility) — nuisance/exposure source."
+  settlement_edge:
+    present: null
+    edge_indices: []
+    provenance: "[TO VERIFY]"
+    notes: "Edge abutting existing settlement / kampung fabric."
+  preferred_expansion_direction:
+    direction: "S"               # toward staggered/chamfered south boundary
+    provenance: "[DESIGN HYPOTHESIS]"
+    notes: "Growth reserve biased to quieter southern edges; confirm with operator."
+
+# --- Existing site features -------------------------------------------------
+existing_features:
+  obstacles:    { present: null, provenance: "[TO VERIFY]", notes: "Structures to retain/demolish." }
+  vegetation:   { present: null, provenance: "[TO VERIFY]", notes: "Existing trees / planting to keep." }
+  drainage:     { present: null, provenance: "[TO VERIFY]", notes: "Drainage lines / low points / flood risk." }
+
+# --- Environmental exposure --------------------------------------------------
+environmental_exposure:
+  noise_source:   { edge_indices: [], provenance: "[TO VERIFY]", notes: "e.g. TPST haul road." }
+  odour_source:   { edge_indices: [], provenance: "[TO VERIFY]", notes: "Prevailing-wind odour from TPST." }
+  dust_source:    { edge_indices: [], provenance: "[TO VERIFY]" }
+  prevailing_wind_direction: { direction: null, provenance: "[TO VERIFY]" }
+  solar_notes:    { provenance: "[DESIGN HYPOTHESIS]", notes: "Tropical ~6°S: high sun, shade critical; east/west heat gain to control." }
+
+# --- Setbacks / buffers -------------------------------------------------------
+# Depths are SCHEMATIC search defaults, not statutory values.
+setbacks:
+  front_m:     { value: 4.0, provenance: "[DESIGN HYPOTHESIS]", notes: "Arrival/threshold band on frontage." }
+  side_m:      { value: 3.0, provenance: "[DESIGN HYPOTHESIS]" }
+  rear_m:      { value: 3.0, provenance: "[DESIGN HYPOTHESIS]" }
+  tpst_buffer_m: { value: 10.0, provenance: "[DESIGN HYPOTHESIS]", notes: "Extra green buffer to nuisance edge." }
+  notes: "Confirm against local building regulation (RDTR / KDB) — [TO VERIFY]."
+
+# --- Future contextual layers -------------------------------------------------
+future_layers:
+  planned_roads:    { present: null, provenance: "[TO VERIFY]" }
+  easements:        { present: null, provenance: "[TO VERIFY]" }
+  flood_overlay:    { present: null, provenance: "[TO VERIFY]" }

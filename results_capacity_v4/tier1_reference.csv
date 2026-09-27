@@ -1,0 +1,3 @@
+tier,seed,target_day_users,feasible,pop,pareto_size,nominal_day_users,residents,runtime_s,site_response,access_clarity,landscape_quality,stacking_efficiency,exposure_gradient,phaseability,service_efficiency,climate_daylight,day_users,staff,gfa,footprint,landscape_frac,floors,n_instances,stacked_pairs
+1,42,,8,40,8,150,28,37.31,0.2777777777777778,0.7306086708416528,0.6467153212496883,0.560671204919557,0.9821428571428572,0.8,0.5108751471248267,1.0,150,19,1304.0,1204.0,0.517,2,18,10
+1,7,,21,40,21,138,32,31.73,0.5555555555555556,0.8250423835976843,0.7006683690777262,0.5500218956197787,1.0,0.8,0.41093389367195193,0.9885769833192832,138,22,1384.0,1304.0,0.486,2,18,9

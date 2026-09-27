@@ -1,0 +1,13 @@
+THE THRESHOLD — V4 TWO-TIER CAPACITY EXPERIMENT
+=======================================================
+
+TIER 1 — reference (full corpus program)
+  feasible runs: 2/2
+  nominal day users: 138–150
+  residents: 28–32
+
+TIER 2 — controlled day-user scenarios
+  day-user reachability: {8: 0.0, 16: 0.0, 24: 0.0, 32: 0.0, 40: 0.0, 48: 0.071}
+  INFEASIBLE strata (functional coverage preserved): [8, 16, 24, 32, 40]
+
+Strata are experimental search scenarios, not recommended shelter capacities.

@@ -1,0 +1,48 @@
+{
+  "experiment": "V4 two-tier capacity experiment",
+  "tier1": "reference (full program, nominal day capacity)",
+  "tier2": "controlled day-user demand scenarios (8..48)",
+  "max_residents": 32,
+  "max_day_users": 48,
+  "min_functional_coverage": {
+    "A0": 1,
+    "B0": 1,
+    "C0": 1,
+    "F0": 1,
+    "M0": 1
+  },
+  "day_user_strata": [
+    8,
+    16,
+    24,
+    32,
+    40,
+    48
+  ],
+  "resident_strata_r4": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "caveat": "Strata are experimental search scenarios, not recommended shelter capacities.",
+  "day_user_reachability": {
+    "8": 0.0,
+    "16": 0.0,
+    "24": 0.0,
+    "32": 0.0,
+    "40": 0.0,
+    "48": 0.071
+  },
+  "infeasible_day_user_strata": [
+    8,
+    16,
+    24,
+    32,
+    40
+  ],
+  "interpretation": "Day-user strata [8, 16, 24, 32, 40] are NOT reachable while preserving essential functional coverage (arrival+care+commons+service) and the mandatory threshold (L0 x2) under the current module corpus. This marks the lower bound of the demand envelope."
+}

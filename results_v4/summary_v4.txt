@@ -1,0 +1,12 @@
+THE THRESHOLD — v4 REAL-SITE EVOLUTIONARY RUN
+==================================================
+Site: site
+Area: 5634.2 m2 | edges: 8 | mode: geojson
+Setbacks (m): {'front': 4.0, 'side': 3.0, 'rear': 3.0, 'tpst_buffer': 10.0}
+Frontage edges: [0] | expansion: S
+
+NSGA-II: pop=50 gen=40 seed=42
+feasible: 50/50  Pareto(rank1): 50
+runtime: 16.85s
+
+Best-balanced: residents=20 day_users=86 gfa=844 floors=1
