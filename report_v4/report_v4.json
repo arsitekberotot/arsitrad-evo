@@ -1,0 +1,320 @@
+{
+  "title": "The Threshold \u2014 V4 Site-Aware Modular Evolutionary Programming",
+  "schema": "v4-consolidated-report/1",
+  "site": {
+    "name": "site",
+    "mode": "geojson",
+    "area_m2": 5634.2,
+    "setbacks_m": {
+      "front": 4.0,
+      "side": 3.0,
+      "rear": 3.0,
+      "tpst_buffer": 10.0
+    },
+    "preferred_expansion_direction": "S",
+    "provenance": {
+      "site": "[SECONDARY]",
+      "orientation": "[DESIGN HYPOTHESIS]",
+      "frontage.primary_street": "[DESIGN HYPOTHESIS]",
+      "frontage.secondary_street": "[TO VERIFY]",
+      "access.public_entry": "[TO VERIFY]",
+      "access.service_entry": "[TO VERIFY]",
+      "access.emergency_access": "[TO VERIFY]",
+      "context.tpst_facing_edge": "[TO VERIFY]",
+      "context.settlement_edge": "[TO VERIFY]",
+      "context.preferred_expansion_direction": "[DESIGN HYPOTHESIS]",
+      "existing_features.obstacles": "[TO VERIFY]",
+      "existing_features.vegetation": "[TO VERIFY]",
+      "existing_features.drainage": "[TO VERIFY]",
+      "environmental_exposure.noise_source": "[TO VERIFY]",
+      "environmental_exposure.odour_source": "[TO VERIFY]",
+      "environmental_exposure.dust_source": "[TO VERIFY]",
+      "environmental_exposure.prevailing_wind_direction": "[TO VERIFY]",
+      "environmental_exposure.solar_notes": "[DESIGN HYPOTHESIS]",
+      "setbacks.front_m": "[DESIGN HYPOTHESIS]",
+      "setbacks.side_m": "[DESIGN HYPOTHESIS]",
+      "setbacks.rear_m": "[DESIGN HYPOTHESIS]",
+      "setbacks.tpst_buffer_m": "[DESIGN HYPOTHESIS]",
+      "future_layers.planned_roads": "[TO VERIFY]",
+      "future_layers.easements": "[TO VERIFY]",
+      "future_layers.flood_overlay": "[TO VERIFY]"
+    }
+  },
+  "module_library": {
+    "n_modules": 29,
+    "n_families": 11,
+    "axes": {
+      "function_families": [
+        "R4",
+        "A0",
+        "B0",
+        "C0",
+        "H0",
+        "J0",
+        "K0",
+        "I0",
+        "L0",
+        "F0",
+        "M0"
+      ],
+      "size_classes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "modularity_categories": [
+        "developmental",
+        "variational",
+        "repeatable"
+      ]
+    },
+    "schema": "module-library-catalogue/v4"
+  },
+  "capacity_experiment": {
+    "tier1": "reference (full program, nominal day capacity)",
+    "tier2": "controlled day-user demand scenarios (8..48)",
+    "day_user_strata": [
+      8,
+      16,
+      24,
+      32,
+      40,
+      48
+    ],
+    "resident_strata_r4": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "max_residents": 32,
+    "max_day_users": 48,
+    "day_user_reachability": {
+      "8": 0.0,
+      "16": 0.0,
+      "24": 0.0,
+      "32": 0.0,
+      "40": 0.0,
+      "48": 0.071
+    },
+    "infeasible_day_user_strata": [
+      8,
+      16,
+      24,
+      32,
+      40
+    ],
+    "interpretation": "Day-user strata [8, 16, 24, 32, 40] are NOT reachable while preserving essential functional coverage (arrival+care+commons+service) and the mandatory threshold (L0 x2) under the current module corpus. This marks the lower bound of the demand envelope.",
+    "caveat": "Strata are experimental search scenarios, not recommended shelter capacities."
+  },
+  "reachable_selection": {
+    "day_user_stratum": 48,
+    "objective_names": [
+      "site_response",
+      "access_clarity",
+      "landscape_quality",
+      "stacking_efficiency",
+      "exposure_gradient",
+      "phaseability",
+      "service_efficiency",
+      "climate_daylight"
+    ],
+    "runs": [
+      {
+        "seed": 42,
+        "feasible": 1,
+        "pop": 52,
+        "pareto_size": 1,
+        "selections": {
+          "fittest": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "relative_difference": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "specialized_site_response": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "specialized_access_clarity": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "specialized_landscape_quality": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "specialized_stacking_efficiency": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "specialized_exposure_gradient": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "specialized_phaseability": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "specialized_service_efficiency": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          },
+          "specialized_climate_daylight": {
+            "residents": 20,
+            "day_users": 44,
+            "gfa": 726.0,
+            "floors": 1,
+            "landscape_frac": 0.72,
+            "weighted_sum": 0.611
+          }
+        }
+      },
+      {
+        "seed": 7,
+        "feasible": 1,
+        "pop": 80,
+        "pareto_size": 1,
+        "selections": {
+          "fittest": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "relative_difference": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "specialized_site_response": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "specialized_access_clarity": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "specialized_landscape_quality": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "specialized_stacking_efficiency": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "specialized_exposure_gradient": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "specialized_phaseability": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "specialized_service_efficiency": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          },
+          "specialized_climate_daylight": {
+            "residents": 0,
+            "day_users": 48,
+            "gfa": 366.0,
+            "floors": 1,
+            "landscape_frac": 0.909,
+            "weighted_sum": 0.3772
+          }
+        }
+      },
+      {
+        "seed": 123,
+        "feasible": 0,
+        "pop": 54,
+        "pareto_size": 0,
+        "selections": {}
+      }
+    ],
+    "total_feasible": 2,
+    "total_candidates": 0,
+    "candidacy_note": "candidates = feasible AND residents >= MIN_RESIDENTS; degenerate zero-resident layouts are reported but never selected as representative."
+  },
+  "key_findings": [
+    "Day-user strata [8, 16, 24, 32, 40] are NOT reachable while essential functional coverage (arrival+care+commons+service) and the mandatory threshold (L0 x2) are preserved. The reachable floor under the current PA5 module corpus is ~44 day users (A0-S 12 + B0-S 4 + C0-S 16 + L0x2 12).",
+    "Only day-user stratum ['48'] is reachable, and even there the feasible region is razor-thin (reachability [0.071]).",
+    "Across all seeds at the reachable stratum, NO feasible solution retained a residential core (residents >= 8): the only layouts meeting the day-user cap did so by deleting the domestic program \u2014 an unacceptable trade for a residential care facility. This is the capacity threshold at which the brief breaks.",
+    "Interpretive thresholds and strata are [DESIGN HYPOTHESIS]; module capacities are [PA5 CORPUS] where corpus-derived. These are experimental search strata, not recommended shelter capacities."
+  ]
+}
