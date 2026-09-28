@@ -4,7 +4,7 @@ from pathlib import Path
 
 from arsitrad_evo.site import (
     SiteMode, load_canonical_site, load_site_metadata, buildable_polygon,
-    anchor_point, point_in_polygon, ProvenanceTag,
+    anchor_point, arrival_segments, distance_to_arrival, point_in_polygon, ProvenanceTag,
 )
 
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -41,8 +41,8 @@ class TestCanonicalSite(unittest.TestCase):
         s = self.site
         self.assertEqual(s.setbacks_m["front"], 4.0)
         self.assertEqual(s.setbacks_m["tpst_buffer"], 10.0)
-        self.assertIn(0, s.frontage_edges)
-        self.assertEqual(s.preferred_expansion_direction, "S")
+        self.assertEqual(s.frontage_edges, [7])
+        self.assertEqual(s.preferred_expansion_direction, "")
 
     def test_buildable_polygon(self):
         bp = buildable_polygon(self.site)
@@ -53,11 +53,11 @@ class TestCanonicalSite(unittest.TestCase):
         self.assertTrue(point_in_polygon((cx, cy), self.site.boundary_polygon))
 
     def test_anchor_point(self):
-        # public entry resolves to frontage edge midpoint
+        # The entire southern edge is arrival; no exact gate is supplied.
         pe = anchor_point(self.site, "public_entry")
-        self.assertIsNotNone(pe)
-        assert pe is not None
-        self.assertTrue(point_in_polygon(pe, self.site.boundary_polygon))
+        self.assertIsNone(pe)
+        self.assertEqual(len(arrival_segments(self.site)), 1)
+        self.assertAlmostEqual(distance_to_arrival(self.site, self.site.edges[7].midpoint), 0.0)
         # service entry not evidenced -> None (never fabricated)
         se = anchor_point(self.site, "service_entry")
         self.assertIsNone(se)

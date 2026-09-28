@@ -104,7 +104,7 @@ def _fast_nondominated_sort(pop: list[PhenotypeV4]) -> list[list[int]]:
             if _constrained_dominates(pop[p], pop[q]):
                 S[p].append(q)
             elif _constrained_dominates(pop[q], pop[p]):
-                dom_count[q] += 1
+                dom_count[p] += 1
         if dom_count[p] == 0:
             pop[p].rank = 0
             fronts[0].append(p)

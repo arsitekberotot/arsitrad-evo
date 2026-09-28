@@ -1,0 +1,866 @@
+{
+  "identity": {
+    "code_sha": "7f4e58df45552ed13206f17d29fb7325fc0229a031af76a25cff62ed9eb1baae",
+    "config_hash": "a0f171f84ed0fc1d95becbaba68b34c4b5254a79c25e818a3a56d1c25ab8abd1",
+    "site_data_hash": "c0176a8e7d07b6edd9ca666c81afedf635494e6a8a5c5a045a7ee9fb44eb82d9",
+    "module_library_hash": "61b9c8d3f724f630b2359ef156950c9013ad0008e3fa3b427ebb4cfae2f89748",
+    "campaign_id": "v41-463e8d1eca6867a9"
+  },
+  "run": {
+    "run_id": "capacity_d24_r8_s123",
+    "kind": "capacity",
+    "seed": 123,
+    "concurrent_day_users": 24,
+    "target_residents": 8,
+    "pop_size": 12,
+    "generations": 6,
+    "feasible_final": 12,
+    "final_candidates": 12,
+    "archive_count": 84,
+    "all_pareto_size": 48,
+    "final_pareto_size": 12,
+    "distinct_signatures": 70,
+    "search_space_collapse": false,
+    "runtime_s": 1.85
+  },
+  "config": {
+    "pop_size": 12,
+    "generations": 6,
+    "seed": 123,
+    "concurrent_day_users": 24,
+    "target_residents": 8,
+    "crossover_prob": 0.9,
+    "mutation_prob": 0.025,
+    "eta_c": 20.0,
+    "eta_m": 20.0
+  },
+  "history": {
+    "seed": 123,
+    "pop_size": 12,
+    "generations_requested": 6,
+    "concurrent_day_users": 24,
+    "target_residents": 8,
+    "generation_rows": [
+      {
+        "generation": 0,
+        "feasible": 8,
+        "feasible_ratio": 0.6666666666666666,
+        "final_front_size": 7,
+        "distinct_architectural_signatures": 8,
+        "mean_residents": 8.0
+      },
+      {
+        "generation": 1,
+        "feasible": 12,
+        "feasible_ratio": 1.0,
+        "final_front_size": 12,
+        "distinct_architectural_signatures": 12,
+        "mean_residents": 8.0
+      },
+      {
+        "generation": 2,
+        "feasible": 12,
+        "feasible_ratio": 1.0,
+        "final_front_size": 12,
+        "distinct_architectural_signatures": 12,
+        "mean_residents": 8.0
+      },
+      {
+        "generation": 3,
+        "feasible": 12,
+        "feasible_ratio": 1.0,
+        "final_front_size": 12,
+        "distinct_architectural_signatures": 12,
+        "mean_residents": 8.0
+      },
+      {
+        "generation": 4,
+        "feasible": 12,
+        "feasible_ratio": 1.0,
+        "final_front_size": 12,
+        "distinct_architectural_signatures": 12,
+        "mean_residents": 8.0
+      },
+      {
+        "generation": 5,
+        "feasible": 12,
+        "feasible_ratio": 1.0,
+        "final_front_size": 12,
+        "distinct_architectural_signatures": 12,
+        "mean_residents": 8.0
+      }
+    ],
+    "runtime_s": 1.85,
+    "archive_count": 84,
+    "final_feasible": 12
+  },
+  "final_population_ids": [
+    "v41-062d68acd25e6534",
+    "v41-841a72cf156a8319",
+    "v41-f9743e7334b915e2",
+    "v41-0996f8fe190eda5f",
+    "v41-d03e3a0e16c82f2b",
+    "v41-9efcbca922e7f514",
+    "v41-0da9df6eed49d221",
+    "v41-4eb076268e03bb5a",
+    "v41-b29d8e2715d39e9d",
+    "v41-87365994a0243831",
+    "v41-cc2c66b5c3aa5355",
+    "v41-75ec3ed4f884755c"
+  ],
+  "final_candidate_ids": [
+    "v41-062d68acd25e6534",
+    "v41-0996f8fe190eda5f",
+    "v41-0da9df6eed49d221",
+    "v41-4eb076268e03bb5a",
+    "v41-75ec3ed4f884755c",
+    "v41-841a72cf156a8319",
+    "v41-87365994a0243831",
+    "v41-9efcbca922e7f514",
+    "v41-b29d8e2715d39e9d",
+    "v41-cc2c66b5c3aa5355",
+    "v41-d03e3a0e16c82f2b",
+    "v41-f9743e7334b915e2"
+  ],
+  "selection": {
+    "all_population_pareto_ids": [
+      "v41-c937d3497746007e",
+      "v41-062d68acd25e6534",
+      "v41-fa75df4536f25499",
+      "v41-841a72cf156a8319",
+      "v41-1ced77a3295f5013",
+      "v41-db0629f8810fd714",
+      "v41-3992083f6a450049",
+      "v41-a90d38c7051eb993",
+      "v41-f9743e7334b915e2",
+      "v41-fef8f58612e78c0d",
+      "v41-89e79cb32aa278fe",
+      "v41-4a899726f094f3e6",
+      "v41-abc7803ac0e2b4d7",
+      "v41-82ac5097180d2e27",
+      "v41-0996f8fe190eda5f",
+      "v41-847dc5b07107da02",
+      "v41-ccfe3f3dcdc7f5e7",
+      "v41-d03e3a0e16c82f2b",
+      "v41-91dac2d12b09fb23",
+      "v41-5fec25e107666f67",
+      "v41-44d9696680bcd929",
+      "v41-9efcbca922e7f514",
+      "v41-7c718614bd3090c8",
+      "v41-5dadf78b754c750a",
+      "v41-45723877a3348811",
+      "v41-fb2e963a6c3d6971",
+      "v41-882e959c4c0de040",
+      "v41-64473f430d89db26",
+      "v41-75ec3ed4f884755c",
+      "v41-bbb3b6e0c58cc76f",
+      "v41-31e13c2b456c4ea2",
+      "v41-a5171ed111e90aa2",
+      "v41-d0083e55bb2880d3",
+      "v41-0da9df6eed49d221",
+      "v41-9d95ba815fee1654",
+      "v41-e44860d61149a670",
+      "v41-a6fb0bae1745fe42",
+      "v41-af3e799050e949fa",
+      "v41-cc2c66b5c3aa5355",
+      "v41-070fe722a6669207",
+      "v41-4c8a42109fc54648",
+      "v41-ca8bca6828293f89",
+      "v41-e71b06a55e38062d",
+      "v41-54913b56d07d2f7a",
+      "v41-baa95675a57626f7",
+      "v41-b29d8e2715d39e9d",
+      "v41-87365994a0243831",
+      "v41-08b75f9545e6434c"
+    ],
+    "final_generation_pareto_ids": [
+      "v41-062d68acd25e6534",
+      "v41-841a72cf156a8319",
+      "v41-f9743e7334b915e2",
+      "v41-0996f8fe190eda5f",
+      "v41-d03e3a0e16c82f2b",
+      "v41-9efcbca922e7f514",
+      "v41-0da9df6eed49d221",
+      "v41-4eb076268e03bb5a",
+      "v41-b29d8e2715d39e9d",
+      "v41-87365994a0243831",
+      "v41-cc2c66b5c3aa5355",
+      "v41-75ec3ed4f884755c"
+    ],
+    "selected": {
+      "fittest_care_safeguarding": "v41-f9743e7334b915e2",
+      "fittest_privacy_domesticity": "v41-0da9df6eed49d221",
+      "fittest_everyday_community": "v41-062d68acd25e6534",
+      "fittest_access_service": "v41-d03e3a0e16c82f2b",
+      "fittest_site_environment": "v41-841a72cf156a8319",
+      "fittest_adaptability_phasing": "v41-9efcbca922e7f514",
+      "relative_difference": "v41-db0629f8810fd714",
+      "average_fitness_rank": "v41-fb2e963a6c3d6971",
+      "architectural_balanced": "v41-4c8a42109fc54648",
+      "all_population_pareto_representative": "v41-c937d3497746007e",
+      "final_generation_pareto_representative": "v41-062d68acd25e6534"
+    },
+    "rank_details": {
+      "relative_difference": {
+        "relative_rank_difference": 0.1595744680851064,
+        "normalized_fitness_ranks": {
+          "care_safeguarding": 0.5957446808510638,
+          "privacy_domesticity": 0.3404255319148936,
+          "everyday_community": 0.6382978723404256,
+          "access_service": 0.46808510638297873,
+          "site_environment": 0.46808510638297873,
+          "adaptability_phasing": 0.7872340425531915
+        }
+      },
+      "average_fitness_rank": {
+        "average_normalized_fitness_rank": 0.34042553191489366,
+        "normalized_fitness_ranks": {
+          "care_safeguarding": 0.23404255319148937,
+          "privacy_domesticity": 0.2765957446808511,
+          "everyday_community": 0.1702127659574468,
+          "access_service": 0.2127659574468085,
+          "site_environment": 0.2127659574468085,
+          "adaptability_phasing": 0.9361702127659575
+        }
+      }
+    },
+    "fitness_ranks": {
+      "v41-33b9fa88dfa9eb3f": {
+        "care_safeguarding": 0.4647887323943662,
+        "privacy_domesticity": 0.4647887323943662,
+        "everyday_community": 0.9014084507042254,
+        "access_service": 0.5492957746478874,
+        "site_environment": 0.8028169014084507,
+        "adaptability_phasing": 0.31690140845070425
+      },
+      "v41-c937d3497746007e": {
+        "care_safeguarding": 0.971830985915493,
+        "privacy_domesticity": 0.4507042253521127,
+        "everyday_community": 0.4225352112676056,
+        "access_service": 0.5211267605633803,
+        "site_environment": 0.2112676056338028,
+        "adaptability_phasing": 0.20422535211267606
+      },
+      "v41-362acccefaf1d884": {
+        "care_safeguarding": 0.9014084507042254,
+        "privacy_domesticity": 0.9014084507042254,
+        "everyday_community": 1.0,
+        "access_service": 0.8732394366197183,
+        "site_environment": 0.38028169014084506,
+        "adaptability_phasing": 0.9859154929577465
+      },
+      "v41-ec704e8471e008c2": {
+        "care_safeguarding": 0.4084507042253521,
+        "privacy_domesticity": 0.8309859154929577,
+        "everyday_community": 0.7464788732394366,
+        "access_service": 1.0,
+        "site_environment": 0.647887323943662,
+        "adaptability_phasing": 0.647887323943662
+      },
+      "v41-062d68acd25e6534": {
+        "care_safeguarding": 0.056338028169014086,
+        "privacy_domesticity": 0.352112676056338,
+        "everyday_community": 0.0,
+        "access_service": 0.09859154929577464,
+        "site_environment": 0.8732394366197183,
+        "adaptability_phasing": 0.4647887323943662
+      },
+      "v41-fa75df4536f25499": {
+        "care_safeguarding": 0.5211267605633803,
+        "privacy_domesticity": 0.14084507042253522,
+        "everyday_community": 0.6197183098591549,
+        "access_service": 0.4507042253521127,
+        "site_environment": 0.18309859154929578,
+        "adaptability_phasing": 0.6901408450704225
+      },
+      "v41-841a72cf156a8319": {
+        "care_safeguarding": 0.9859154929577465,
+        "privacy_domesticity": 0.16901408450704225,
+        "everyday_community": 0.6338028169014085,
+        "access_service": 0.2112676056338028,
+        "site_environment": 0.0,
+        "adaptability_phasing": 0.8450704225352113
+      },
+      "v41-1ced77a3295f5013": {
+        "care_safeguarding": 0.7605633802816901,
+        "privacy_domesticity": 0.5211267605633803,
+        "everyday_community": 0.2535211267605634,
+        "access_service": 0.5070422535211268,
+        "site_environment": 0.5774647887323944,
+        "adaptability_phasing": 0.36619718309859156
+      },
+      "v41-db0629f8810fd714": {
+        "care_safeguarding": 0.5352112676056338,
+        "privacy_domesticity": 0.2535211267605634,
+        "everyday_community": 0.5633802816901409,
+        "access_service": 0.36619718309859156,
+        "site_environment": 0.36619718309859156,
+        "adaptability_phasing": 0.7183098591549296
+      },
+      "v41-c5375a9dd5122578": {
+        "care_safeguarding": 0.07042253521126761,
+        "privacy_domesticity": 0.5774647887323944,
+        "everyday_community": 0.014084507042253521,
+        "access_service": 0.16901408450704225,
+        "site_environment": 0.971830985915493,
+        "adaptability_phasing": 0.8169014084507042
+      },
+      "v41-9339fa60feb4e005": {
+        "care_safeguarding": 0.4225352112676056,
+        "privacy_domesticity": 0.2676056338028169,
+        "everyday_community": 0.49295774647887325,
+        "access_service": 0.8028169014084507,
+        "site_environment": 0.5633802816901409,
+        "adaptability_phasing": 0.676056338028169
+      },
+      "v41-3992083f6a450049": {
+        "care_safeguarding": 0.1267605633802817,
+        "privacy_domesticity": 0.5633802816901409,
+        "everyday_community": 0.5915492957746479,
+        "access_service": 0.11267605633802817,
+        "site_environment": 0.28169014084507044,
+        "adaptability_phasing": 0.4507042253521127
+      },
+      "v41-a90d38c7051eb993": {
+        "care_safeguarding": 0.38028169014084506,
+        "privacy_domesticity": 0.30985915492957744,
+        "everyday_community": 0.4507042253521127,
+        "access_service": 0.5774647887323944,
+        "site_environment": 0.8873239436619719,
+        "adaptability_phasing": 0.352112676056338
+      },
+      "v41-f9743e7334b915e2": {
+        "care_safeguarding": 0.0,
+        "privacy_domesticity": 0.7887323943661971,
+        "everyday_community": 0.8309859154929577,
+        "access_service": 0.7323943661971831,
+        "site_environment": 0.8591549295774648,
+        "adaptability_phasing": 0.5915492957746479
+      },
+      "v41-543c0546a0069a14": {
+        "care_safeguarding": 0.8732394366197183,
+        "privacy_domesticity": 0.704225352112676,
+        "everyday_community": 0.6901408450704225,
+        "access_service": 0.8309859154929577,
+        "site_environment": 0.4084507042253521,
+        "adaptability_phasing": 0.2676056338028169
+      },
+      "v41-fef8f58612e78c0d": {
+        "care_safeguarding": 0.323943661971831,
+        "privacy_domesticity": 0.8169014084507042,
+        "everyday_community": 0.7605633802816901,
+        "access_service": 0.49295774647887325,
+        "site_environment": 0.9295774647887324,
+        "adaptability_phasing": 0.1619718309859155
+      },
+      "v41-102ddb9bb7fd73b7": {
+        "care_safeguarding": 0.8450704225352113,
+        "privacy_domesticity": 0.28169014084507044,
+        "everyday_community": 0.5774647887323944,
+        "access_service": 0.8169014084507042,
+        "site_environment": 0.2535211267605634,
+        "adaptability_phasing": 0.6338028169014085
+      },
+      "v41-b041c26fbd61d6d1": {
+        "care_safeguarding": 1.0,
+        "privacy_domesticity": 0.676056338028169,
+        "everyday_community": 0.9295774647887324,
+        "access_service": 0.352112676056338,
+        "site_environment": 0.5070422535211268,
+        "adaptability_phasing": 0.6056338028169014
+      },
+      "v41-89e79cb32aa278fe": {
+        "care_safeguarding": 0.6901408450704225,
+        "privacy_domesticity": 0.08450704225352113,
+        "everyday_community": 0.38028169014084506,
+        "access_service": 0.22535211267605634,
+        "site_environment": 0.09859154929577464,
+        "adaptability_phasing": 0.4788732394366197
+      },
+      "v41-4a899726f094f3e6": {
+        "care_safeguarding": 0.6619718309859155,
+        "privacy_domesticity": 0.056338028169014086,
+        "everyday_community": 0.8169014084507042,
+        "access_service": 0.2676056338028169,
+        "site_environment": 0.4788732394366197,
+        "adaptability_phasing": 0.704225352112676
+      },
+      "v41-117300ad0d2ffbb8": {
+        "care_safeguarding": 0.676056338028169,
+        "privacy_domesticity": 0.5352112676056338,
+        "everyday_community": 0.028169014084507043,
+        "access_service": 0.7605633802816901,
+        "site_environment": 0.9014084507042254,
+        "adaptability_phasing": 0.6197183098591549
+      },
+      "v41-abc7803ac0e2b4d7": {
+        "care_safeguarding": 0.29577464788732394,
+        "privacy_domesticity": 0.9436619718309859,
+        "everyday_community": 0.2676056338028169,
+        "access_service": 0.5915492957746479,
+        "site_environment": 0.7746478873239436,
+        "adaptability_phasing": 0.31690140845070425
+      },
+      "v41-82ac5097180d2e27": {
+        "care_safeguarding": 0.7183098591549296,
+        "privacy_domesticity": 0.1267605633802817,
+        "everyday_community": 0.8732394366197183,
+        "access_service": 0.4225352112676056,
+        "site_environment": 0.7464788732394366,
+        "adaptability_phasing": 0.035211267605633804
+      },
+      "v41-0996f8fe190eda5f": {
+        "care_safeguarding": 0.11267605633802817,
+        "privacy_domesticity": 0.8732394366197183,
+        "everyday_community": 0.23943661971830985,
+        "access_service": 0.5633802816901409,
+        "site_environment": 1.0,
+        "adaptability_phasing": 0.1619718309859155
+      },
+      "v41-070e6e487ffe024e": {
+        "care_safeguarding": 0.4507042253521127,
+        "privacy_domesticity": 0.7183098591549296,
+        "everyday_community": 0.5070422535211268,
+        "access_service": 0.9436619718309859,
+        "site_environment": 0.5915492957746479,
+        "adaptability_phasing": 0.23943661971830985
+      },
+      "v41-00c2aff317cc4554": {
+        "care_safeguarding": 0.8028169014084507,
+        "privacy_domesticity": 0.11267605633802817,
+        "everyday_community": 0.6056338028169014,
+        "access_service": 0.6056338028169014,
+        "site_environment": 0.22535211267605634,
+        "adaptability_phasing": 0.5774647887323944
+      },
+      "v41-847dc5b07107da02": {
+        "care_safeguarding": 0.15492957746478872,
+        "privacy_domesticity": 0.8028169014084507,
+        "everyday_community": 0.971830985915493,
+        "access_service": 0.6338028169014085,
+        "site_environment": 0.16901408450704225,
+        "adaptability_phasing": 0.7605633802816901
+      },
+      "v41-ccfe3f3dcdc7f5e7": {
+        "care_safeguarding": 0.49295774647887325,
+        "privacy_domesticity": 0.43661971830985913,
+        "everyday_community": 0.8591549295774648,
+        "access_service": 0.4647887323943662,
+        "site_environment": 0.704225352112676,
+        "adaptability_phasing": 0.31690140845070425
+      },
+      "v41-d03e3a0e16c82f2b": {
+        "care_safeguarding": 0.5070422535211268,
+        "privacy_domesticity": 0.49295774647887325,
+        "everyday_community": 0.056338028169014086,
+        "access_service": 0.0,
+        "site_environment": 0.5352112676056338,
+        "adaptability_phasing": 0.4084507042253521
+      },
+      "v41-91dac2d12b09fb23": {
+        "care_safeguarding": 0.3380281690140845,
+        "privacy_domesticity": 0.6056338028169014,
+        "everyday_community": 0.704225352112676,
+        "access_service": 0.056338028169014086,
+        "site_environment": 0.6338028169014085,
+        "adaptability_phasing": 0.31690140845070425
+      },
+      "v41-9033200e829f71e5": {
+        "care_safeguarding": 0.5915492957746479,
+        "privacy_domesticity": 0.6901408450704225,
+        "everyday_community": 0.6619718309859155,
+        "access_service": 0.8450704225352113,
+        "site_environment": 0.8169014084507042,
+        "adaptability_phasing": 0.08450704225352113
+      },
+      "v41-0e2605407371e99c": {
+        "care_safeguarding": 0.23943661971830985,
+        "privacy_domesticity": 0.7323943661971831,
+        "everyday_community": 0.28169014084507044,
+        "access_service": 0.9014084507042254,
+        "site_environment": 0.676056338028169,
+        "adaptability_phasing": 0.18309859154929578
+      },
+      "v41-5fec25e107666f67": {
+        "care_safeguarding": 0.2112676056338028,
+        "privacy_domesticity": 0.6197183098591549,
+        "everyday_community": 0.1267605633802817,
+        "access_service": 0.6901408450704225,
+        "site_environment": 0.6901408450704225,
+        "adaptability_phasing": 0.22535211267605634
+      },
+      "v41-44d9696680bcd929": {
+        "care_safeguarding": 0.14084507042253522,
+        "privacy_domesticity": 0.4225352112676056,
+        "everyday_community": 0.5352112676056338,
+        "access_service": 0.4788732394366197,
+        "site_environment": 0.9577464788732394,
+        "adaptability_phasing": 0.08450704225352113
+      },
+      "v41-9efcbca922e7f514": {
+        "care_safeguarding": 0.7887323943661971,
+        "privacy_domesticity": 0.6619718309859155,
+        "everyday_community": 0.9859154929577465,
+        "access_service": 0.04225352112676056,
+        "site_environment": 0.6197183098591549,
+        "adaptability_phasing": 0.007042253521126761
+      },
+      "v41-7c718614bd3090c8": {
+        "care_safeguarding": 0.9154929577464789,
+        "privacy_domesticity": 0.29577464788732394,
+        "everyday_community": 0.352112676056338,
+        "access_service": 0.9154929577464789,
+        "site_environment": 0.028169014084507043,
+        "adaptability_phasing": 0.8732394366197183
+      },
+      "v41-5dadf78b754c750a": {
+        "care_safeguarding": 0.2535211267605634,
+        "privacy_domesticity": 0.4084507042253521,
+        "everyday_community": 0.8873239436619719,
+        "access_service": 0.07042253521126761,
+        "site_environment": 0.4647887323943662,
+        "adaptability_phasing": 0.08450704225352113
+      },
+      "v41-45723877a3348811": {
+        "care_safeguarding": 0.704225352112676,
+        "privacy_domesticity": 0.18309859154929578,
+        "everyday_community": 0.39436619718309857,
+        "access_service": 0.23943661971830985,
+        "site_environment": 0.39436619718309857,
+        "adaptability_phasing": 0.14084507042253522
+      },
+      "v41-82b4e3a273ec6812": {
+        "care_safeguarding": 0.8591549295774648,
+        "privacy_domesticity": 0.4788732394366197,
+        "everyday_community": 0.9577464788732394,
+        "access_service": 0.676056338028169,
+        "site_environment": 0.49295774647887325,
+        "adaptability_phasing": 0.9154929577464789
+      },
+      "v41-fb2e963a6c3d6971": {
+        "care_safeguarding": 0.18309859154929578,
+        "privacy_domesticity": 0.2112676056338028,
+        "everyday_community": 0.14084507042253522,
+        "access_service": 0.14084507042253522,
+        "site_environment": 0.14084507042253522,
+        "adaptability_phasing": 0.8591549295774648
+      },
+      "v41-882e959c4c0de040": {
+        "care_safeguarding": 0.5633802816901409,
+        "privacy_domesticity": 0.38028169014084506,
+        "everyday_community": 0.04225352112676056,
+        "access_service": 0.4084507042253521,
+        "site_environment": 0.014084507042253521,
+        "adaptability_phasing": 0.5070422535211268
+      },
+      "v41-64473f430d89db26": {
+        "care_safeguarding": 0.7746478873239436,
+        "privacy_domesticity": 0.028169014084507043,
+        "everyday_community": 0.7887323943661971,
+        "access_service": 0.7183098591549296,
+        "site_environment": 0.19718309859154928,
+        "adaptability_phasing": 0.7323943661971831
+      },
+      "v41-75ec3ed4f884755c": {
+        "care_safeguarding": 0.014084507042253521,
+        "privacy_domesticity": 0.9859154929577465,
+        "everyday_community": 0.29577464788732394,
+        "access_service": 0.014084507042253521,
+        "site_environment": 0.9859154929577465,
+        "adaptability_phasing": 0.2676056338028169
+      },
+      "v41-cc871a779c4965be": {
+        "care_safeguarding": 0.5774647887323944,
+        "privacy_domesticity": 0.39436619718309857,
+        "everyday_community": 0.4788732394366197,
+        "access_service": 0.647887323943662,
+        "site_environment": 0.5492957746478874,
+        "adaptability_phasing": 0.7887323943661971
+      },
+      "v41-bbb3b6e0c58cc76f": {
+        "care_safeguarding": 0.6338028169014085,
+        "privacy_domesticity": 0.3380281690140845,
+        "everyday_community": 0.36619718309859156,
+        "access_service": 0.704225352112676,
+        "site_environment": 0.6056338028169014,
+        "adaptability_phasing": 0.1267605633802817
+      },
+      "v41-31e13c2b456c4ea2": {
+        "care_safeguarding": 0.04225352112676056,
+        "privacy_domesticity": 0.9295774647887324,
+        "everyday_community": 0.43661971830985913,
+        "access_service": 0.3380281690140845,
+        "site_environment": 0.11267605633802817,
+        "adaptability_phasing": 0.4225352112676056
+      },
+      "v41-a5171ed111e90aa2": {
+        "care_safeguarding": 0.39436619718309857,
+        "privacy_domesticity": 0.15492957746478872,
+        "everyday_community": 0.4084507042253521,
+        "access_service": 0.38028169014084506,
+        "site_environment": 0.1267605633802817,
+        "adaptability_phasing": 0.7464788732394366
+      },
+      "v41-d0083e55bb2880d3": {
+        "care_safeguarding": 0.30985915492957744,
+        "privacy_domesticity": 0.22535211267605634,
+        "everyday_community": 0.4647887323943662,
+        "access_service": 0.43661971830985913,
+        "site_environment": 0.352112676056338,
+        "adaptability_phasing": 0.6619718309859155
+      },
+      "v41-3f9544ba0085ca4e": {
+        "care_safeguarding": 0.22535211267605634,
+        "privacy_domesticity": 0.8591549295774648,
+        "everyday_community": 0.9436619718309859,
+        "access_service": 0.9295774647887324,
+        "site_environment": 0.5211267605633803,
+        "adaptability_phasing": 0.7746478873239436
+      },
+      "v41-0da9df6eed49d221": {
+        "care_safeguarding": 0.9366197183098591,
+        "privacy_domesticity": 0.007042253521126761,
+        "everyday_community": 0.176056338028169,
+        "access_service": 0.19014084507042253,
+        "site_environment": 0.3028169014084507,
+        "adaptability_phasing": 0.528169014084507
+      },
+      "v41-9d95ba815fee1654": {
+        "care_safeguarding": 0.19718309859154928,
+        "privacy_domesticity": 0.5492957746478874,
+        "everyday_community": 0.07042253521126761,
+        "access_service": 0.7464788732394366,
+        "site_environment": 0.08450704225352113,
+        "adaptability_phasing": 0.007042253521126761
+      },
+      "v41-e3c80abff0570a73": {
+        "care_safeguarding": 0.8873239436619719,
+        "privacy_domesticity": 0.7746478873239436,
+        "everyday_community": 0.8028169014084507,
+        "access_service": 0.9859154929577465,
+        "site_environment": 0.7605633802816901,
+        "adaptability_phasing": 1.0
+      },
+      "v41-e44860d61149a670": {
+        "care_safeguarding": 0.9577464788732394,
+        "privacy_domesticity": 0.09859154929577464,
+        "everyday_community": 0.19718309859154928,
+        "access_service": 0.15492957746478872,
+        "site_environment": 0.323943661971831,
+        "adaptability_phasing": 0.49295774647887325
+      },
+      "v41-a6fb0bae1745fe42": {
+        "care_safeguarding": 0.9366197183098591,
+        "privacy_domesticity": 0.007042253521126761,
+        "everyday_community": 0.176056338028169,
+        "access_service": 0.19014084507042253,
+        "site_environment": 0.3028169014084507,
+        "adaptability_phasing": 0.528169014084507
+      },
+      "v41-81ab4bfeacdcc032": {
+        "care_safeguarding": 0.7464788732394366,
+        "privacy_domesticity": 0.5915492957746479,
+        "everyday_community": 0.5211267605633803,
+        "access_service": 0.8591549295774648,
+        "site_environment": 0.4225352112676056,
+        "adaptability_phasing": 0.056338028169014086
+      },
+      "v41-af3e799050e949fa": {
+        "care_safeguarding": 0.43661971830985913,
+        "privacy_domesticity": 0.7605633802816901,
+        "everyday_community": 0.15492957746478872,
+        "access_service": 0.08450704225352113,
+        "site_environment": 0.7887323943661971,
+        "adaptability_phasing": 0.2676056338028169
+      },
+      "v41-cc2c66b5c3aa5355": {
+        "care_safeguarding": 0.08450704225352113,
+        "privacy_domesticity": 0.971830985915493,
+        "everyday_community": 0.8450704225352113,
+        "access_service": 0.5352112676056338,
+        "site_environment": 0.8450704225352113,
+        "adaptability_phasing": 0.20422535211267606
+      },
+      "v41-070fe722a6669207": {
+        "care_safeguarding": 0.028169014084507043,
+        "privacy_domesticity": 0.9577464788732394,
+        "everyday_community": 0.7323943661971831,
+        "access_service": 0.6619718309859155,
+        "site_environment": 0.7323943661971831,
+        "adaptability_phasing": 0.38028169014084506
+      },
+      "v41-4c8a42109fc54648": {
+        "care_safeguarding": 0.5492957746478874,
+        "privacy_domesticity": 0.5070422535211268,
+        "everyday_community": 0.11267605633802817,
+        "access_service": 0.028169014084507043,
+        "site_environment": 0.6619718309859155,
+        "adaptability_phasing": 0.035211267605633804
+      },
+      "v41-d9a1144e4c211c38": {
+        "care_safeguarding": 0.647887323943662,
+        "privacy_domesticity": 0.647887323943662,
+        "everyday_community": 0.5492957746478874,
+        "access_service": 0.7887323943661971,
+        "site_environment": 0.4507042253521127,
+        "adaptability_phasing": 0.11267605633802817
+      },
+      "v41-4d4e171a81f58f10": {
+        "care_safeguarding": 0.36619718309859156,
+        "privacy_domesticity": 0.19718309859154928,
+        "everyday_community": 0.3380281690140845,
+        "access_service": 0.323943661971831,
+        "site_environment": 0.8309859154929577,
+        "adaptability_phasing": 0.9014084507042254
+      },
+      "v41-ca8bca6828293f89": {
+        "care_safeguarding": 0.6197183098591549,
+        "privacy_domesticity": 0.04225352112676056,
+        "everyday_community": 0.647887323943662,
+        "access_service": 0.39436619718309857,
+        "site_environment": 0.9154929577464789,
+        "adaptability_phasing": 0.39436619718309857
+      },
+      "v41-4eb076268e03bb5a": {
+        "care_safeguarding": 0.2676056338028169,
+        "privacy_domesticity": 0.8450704225352113,
+        "everyday_community": 0.323943661971831,
+        "access_service": 0.6197183098591549,
+        "site_environment": 0.15492957746478872,
+        "adaptability_phasing": 0.9577464788732394
+      },
+      "v41-40e5a7946c07629a": {
+        "care_safeguarding": 0.8169014084507042,
+        "privacy_domesticity": 0.7464788732394366,
+        "everyday_community": 0.7746478873239436,
+        "access_service": 0.971830985915493,
+        "site_environment": 0.7183098591549296,
+        "adaptability_phasing": 0.9436619718309859
+      },
+      "v41-e71b06a55e38062d": {
+        "care_safeguarding": 0.4788732394366197,
+        "privacy_domesticity": 0.36619718309859156,
+        "everyday_community": 0.08450704225352113,
+        "access_service": 0.1267605633802817,
+        "site_environment": 0.43661971830985913,
+        "adaptability_phasing": 0.8873239436619719
+      },
+      "v41-54913b56d07d2f7a": {
+        "care_safeguarding": 0.352112676056338,
+        "privacy_domesticity": 0.07042253521126761,
+        "everyday_community": 0.30985915492957744,
+        "access_service": 0.29577464788732394,
+        "site_environment": 0.23943661971830985,
+        "adaptability_phasing": 0.8028169014084507
+      },
+      "v41-de57cb669c77513b": {
+        "care_safeguarding": 0.16901408450704225,
+        "privacy_domesticity": 0.8873239436619719,
+        "everyday_community": 0.9154929577464789,
+        "access_service": 0.30985915492957744,
+        "site_environment": 0.9436619718309859,
+        "adaptability_phasing": 0.5633802816901409
+      },
+      "v41-baa95675a57626f7": {
+        "care_safeguarding": 0.8309859154929577,
+        "privacy_domesticity": 0.23943661971830985,
+        "everyday_community": 0.22535211267605634,
+        "access_service": 0.8873239436619719,
+        "site_environment": 0.04225352112676056,
+        "adaptability_phasing": 0.8309859154929577
+      },
+      "v41-b29d8e2715d39e9d": {
+        "care_safeguarding": 0.7323943661971831,
+        "privacy_domesticity": 1.0,
+        "everyday_community": 0.2112676056338028,
+        "access_service": 0.2535211267605634,
+        "site_environment": 0.07042253521126761,
+        "adaptability_phasing": 0.9295774647887324
+      },
+      "v41-87365994a0243831": {
+        "care_safeguarding": 0.09859154929577464,
+        "privacy_domesticity": 0.323943661971831,
+        "everyday_community": 0.7183098591549296,
+        "access_service": 0.9577464788732394,
+        "site_environment": 0.056338028169014086,
+        "adaptability_phasing": 0.5492957746478874
+      },
+      "v41-08b75f9545e6434c": {
+        "care_safeguarding": 0.28169014084507044,
+        "privacy_domesticity": 0.6338028169014085,
+        "everyday_community": 0.09859154929577464,
+        "access_service": 0.28169014084507044,
+        "site_environment": 0.3380281690140845,
+        "adaptability_phasing": 0.43661971830985913
+      },
+      "v41-1bdb7b0e0c8b3f2e": {
+        "care_safeguarding": 0.6056338028169014,
+        "privacy_domesticity": 0.9154929577464789,
+        "everyday_community": 0.676056338028169,
+        "access_service": 0.7746478873239436,
+        "site_environment": 0.2676056338028169,
+        "adaptability_phasing": 0.971830985915493
+      }
+    },
+    "clustering": {
+      "method": "hierarchical_average_linkage",
+      "k": 7,
+      "clusters": [
+        {
+          "label": 1,
+          "size": 5,
+          "representative": "v41-64473f430d89db26"
+        },
+        {
+          "label": 2,
+          "size": 18,
+          "representative": "v41-db0629f8810fd714"
+        },
+        {
+          "label": 3,
+          "size": 1,
+          "representative": "v41-062d68acd25e6534"
+        },
+        {
+          "label": 4,
+          "size": 21,
+          "representative": "v41-ccfe3f3dcdc7f5e7"
+        },
+        {
+          "label": 5,
+          "size": 1,
+          "representative": "v41-9d95ba815fee1654"
+        },
+        {
+          "label": 6,
+          "size": 1,
+          "representative": "v41-75ec3ed4f884755c"
+        },
+        {
+          "label": 7,
+          "size": 1,
+          "representative": "v41-b29d8e2715d39e9d"
+        }
+      ],
+      "comparison_to_v3_kmeans": {
+        "method": "V3 K-means secondary diagnostic",
+        "note": "K-means partitions around centroids; it is not equivalent to paper average-linkage clustering.",
+        "adjusted_rand_index": 0.4179686215176134,
+        "representative_overlap": 2,
+        "kmeans_representatives": [
+          "v41-a5171ed111e90aa2",
+          "v41-abc7803ac0e2b4d7",
+          "v41-ccfe3f3dcdc7f5e7",
+          "v41-af3e799050e949fa",
+          "v41-31e13c2b456c4ea2",
+          "v41-64473f430d89db26",
+          "v41-0da9df6eed49d221"
+        ]
+      }
+    },
+    "eligible_count": 72,
+    "distinct_architectural_signatures": 70,
+    "search_space_collapse": false,
+    "definition": "A signature combines function populations, grouping pattern and zone type; selected candidates must be feasible with >=8 residents and zero illegal overlap."
+  }
+}

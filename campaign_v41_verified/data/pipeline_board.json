@@ -1,0 +1,138 @@
+{
+  "identity": {
+    "code_sha": "7f4e58df45552ed13206f17d29fb7325fc0229a031af76a25cff62ed9eb1baae",
+    "config_hash": "a0f171f84ed0fc1d95becbaba68b34c4b5254a79c25e818a3a56d1c25ab8abd1",
+    "site_data_hash": "c0176a8e7d07b6edd9ca666c81afedf635494e6a8a5c5a045a7ee9fb44eb82d9",
+    "module_library_hash": "61b9c8d3f724f630b2359ef156950c9013ad0008e3fa3b427ebb4cfae2f89748",
+    "campaign_id": "v41-463e8d1eca6867a9"
+  },
+  "schema": "pipeline-board/v4.1",
+  "nodes": [
+    {
+      "stage": "function_size_modularity",
+      "code": "arsitrad_evo/program_v41.py:catalogue",
+      "dataset": "stages/function_size_modularity.jsonl",
+      "records": 29
+    },
+    {
+      "stage": "module_unit",
+      "code": "arsitrad_evo/program_v41.py:module_record",
+      "dataset": "stages/module_unit.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "initial_unit_population",
+      "code": "arsitrad_evo/pipeline_v41.py:decode_v41",
+      "dataset": "stages/initial_unit_population.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "population_seed",
+      "code": "arsitrad_evo/pipeline_v41.py:decode_v41",
+      "dataset": "stages/population_seed.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "modularity_ratios",
+      "code": "arsitrad_evo/program_v41.py:population_summary",
+      "dataset": "stages/modularity_ratios.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "architectural_packing_grouping",
+      "code": "arsitrad_evo/pipeline_v41.py:_place",
+      "dataset": "stages/architectural_packing_grouping.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "dynamic_zoning",
+      "code": "arsitrad_evo/context_v41.py:zoning_state",
+      "dataset": "stages/dynamic_zoning.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "object_collision",
+      "code": "arsitrad_evo/pipeline_v41.py:collision_gate",
+      "dataset": "stages/object_collision.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "unit_filtration",
+      "code": "arsitrad_evo/pipeline_v41.py:decode_v41",
+      "dataset": "stages/unit_filtration.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "site_external_references",
+      "code": "arsitrad_evo/context_v41.py:SiteContext",
+      "dataset": "stages/site_external_references.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "architectural_phenotype",
+      "code": "arsitrad_evo/pipeline_v41.py:decode_v41",
+      "dataset": "stages/architectural_phenotype.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "fitness_evaluation",
+      "code": "arsitrad_evo/objectives_v41.py:evaluate_objectives_v41",
+      "dataset": "stages/fitness_evaluation.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "constraint_evaluation",
+      "code": "arsitrad_evo/constraints_v41.py:evaluate_constraints_v41",
+      "dataset": "stages/constraint_evaluation.jsonl",
+      "records": 4736
+    },
+    {
+      "stage": "nsga2_reproduction",
+      "code": "arsitrad_evo/nsga2_v41.py:run_v41",
+      "dataset": "stages/nsga2_reproduction.jsonl",
+      "records": 29
+    },
+    {
+      "stage": "all_generation_archive",
+      "code": "arsitrad_evo/archive_v41.py:phenotype_record",
+      "dataset": "stages/all_generation_archive.jsonl",
+      "records": 29
+    },
+    {
+      "stage": "pareto_front_selection",
+      "code": "arsitrad_evo/selections_v41.py:pareto_set",
+      "dataset": "stages/pareto_front_selection.jsonl",
+      "records": 5
+    },
+    {
+      "stage": "fittest_selection",
+      "code": "arsitrad_evo/selections_v41.py:select_v41",
+      "dataset": "stages/fittest_selection.jsonl",
+      "records": 5
+    },
+    {
+      "stage": "relative_difference_selection",
+      "code": "arsitrad_evo/selections_v41.py:relative_difference",
+      "dataset": "stages/relative_difference_selection.jsonl",
+      "records": 5
+    },
+    {
+      "stage": "average_fitness_selection",
+      "code": "arsitrad_evo/selections_v41.py:average_fitness_rank",
+      "dataset": "stages/average_fitness_selection.jsonl",
+      "records": 5
+    },
+    {
+      "stage": "store_distribution",
+      "code": "arsitrad_evo/campaign_v41.py:build_campaign",
+      "dataset": "stages/store_distribution.jsonl",
+      "records": 1
+    },
+    {
+      "stage": "post_analysis_comparison",
+      "code": "arsitrad_evo/campaign_v41.py:_report",
+      "dataset": "stages/post_analysis_comparison.jsonl",
+      "records": 1
+    }
+  ]
+}

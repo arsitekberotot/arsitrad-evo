@@ -1,0 +1,1133 @@
+{
+  "identity": {
+    "code_sha": "7f4e58df45552ed13206f17d29fb7325fc0229a031af76a25cff62ed9eb1baae",
+    "config_hash": "a0f171f84ed0fc1d95becbaba68b34c4b5254a79c25e818a3a56d1c25ab8abd1",
+    "site_data_hash": "c0176a8e7d07b6edd9ca666c81afedf635494e6a8a5c5a045a7ee9fb44eb82d9",
+    "module_library_hash": "61b9c8d3f724f630b2359ef156950c9013ad0008e3fa3b427ebb4cfae2f89748",
+    "campaign_id": "v41-463e8d1eca6867a9"
+  },
+  "schema": "module-library/v4.1",
+  "modules": {
+    "R4-S": {
+      "code": "R4-S",
+      "function": "R4",
+      "size": "S",
+      "modularity_category": "developmental",
+      "repeatable": true,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "personal_territory",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "wash",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "shared_domestic",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "porch",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 0,
+      "resident_capacity": 4,
+      "nominal_staff_capacity": 0,
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "zone": "domestic",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS / DESIGN HYPOTHESIS]"
+    },
+    "R4-M": {
+      "code": "R4-M",
+      "function": "R4",
+      "size": "M",
+      "modularity_category": "developmental",
+      "repeatable": true,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "personal_territory",
+          "count": 2,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "wash",
+          "count": 2,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "shared_domestic",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "retreat_edge",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "porch",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 0,
+      "resident_capacity": 4,
+      "nominal_staff_capacity": 0,
+      "width_m": 10.0,
+      "depth_m": 8.8,
+      "area_m2": 88.0,
+      "zone": "domestic",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "R4-L": {
+      "code": "R4-L",
+      "function": "R4",
+      "size": "L",
+      "modularity_category": "developmental",
+      "repeatable": true,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "personal_territory",
+          "count": 3,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "wash",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "shared_domestic",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "retreat_edge",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "porch",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 0,
+      "resident_capacity": 6,
+      "nominal_staff_capacity": 0,
+      "width_m": 12.0,
+      "depth_m": 10.0,
+      "area_m2": 120.0,
+      "zone": "domestic",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "A0-S": {
+      "code": "A0-S",
+      "function": "A0",
+      "size": "S",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "screened_reception",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "waiting_bay",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "orientation_point",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 12,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 1,
+      "width_m": 5.0,
+      "depth_m": 6.0,
+      "area_m2": 30.0,
+      "zone": "public_civic",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "A0": {
+      "code": "A0",
+      "function": "A0",
+      "size": "M",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "screened_reception",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "waiting_bay",
+          "count": 2,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "orientation_point",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "private_pause",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 20,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 2,
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "zone": "public_civic",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "B0-S": {
+      "code": "B0-S",
+      "function": "B0",
+      "size": "S",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": true,
+      "program_composition": [
+        {
+          "component": "intake",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "counselling",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 4,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 2,
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "zone": "controlled_care",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "B0": {
+      "code": "B0",
+      "function": "B0",
+      "size": "M",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": true,
+      "program_composition": [
+        {
+          "component": "intake",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "counselling",
+          "count": 2,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "safeguarding",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "staff_response",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 8,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 4,
+      "width_m": 8.0,
+      "depth_m": 10.0,
+      "area_m2": 80.0,
+      "zone": "controlled_care",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "B0-L": {
+      "code": "B0-L",
+      "function": "B0",
+      "size": "L",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": true,
+      "program_composition": [
+        {
+          "component": "intake",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "counselling",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "safeguarding",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "staff_response",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "quiet_room",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 14,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 6,
+      "width_m": 10.0,
+      "depth_m": 12.0,
+      "area_m2": 120.0,
+      "zone": "controlled_care",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "C0-S": {
+      "code": "C0-S",
+      "function": "C0",
+      "size": "S",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "domestic_dining",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "shared_everyday",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "kitchen_interface",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 16,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 2,
+      "width_m": 8.0,
+      "depth_m": 10.0,
+      "area_m2": 80.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "C0": {
+      "code": "C0",
+      "function": "C0",
+      "size": "M",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "shared_dining",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "shared_everyday",
+          "count": 2,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "kitchen_interface",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "outdoor_commons",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 32,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 3,
+      "width_m": 12.0,
+      "depth_m": 10.0,
+      "area_m2": 120.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "C0-L": {
+      "code": "C0-L",
+      "function": "C0",
+      "size": "L",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "shared_dining",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "shared_everyday",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "kitchen_interface",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "outdoor_commons",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 48,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 5,
+      "width_m": 14.0,
+      "depth_m": 12.0,
+      "area_m2": 168.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "H0-S": {
+      "code": "H0-S",
+      "function": "H0",
+      "size": "S",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "tutorial_room",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "quiet_study",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 8,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 1,
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "H0": {
+      "code": "H0",
+      "function": "H0",
+      "size": "M",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "learning_room",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "quiet_study",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "resource_store",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 16,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 2,
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "H0-L": {
+      "code": "H0-L",
+      "function": "H0",
+      "size": "L",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "learning_room",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "quiet_study",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "resource_store",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 24,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 3,
+      "width_m": 10.0,
+      "depth_m": 10.0,
+      "area_m2": 100.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "J0-S": {
+      "code": "J0-S",
+      "function": "J0",
+      "size": "S",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "craft_workshop",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "tool_store",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 6,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 1,
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "J0": {
+      "code": "J0",
+      "function": "J0",
+      "size": "M",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "workshop",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "production_bay",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "market_interface",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 12,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 2,
+      "width_m": 10.0,
+      "depth_m": 10.0,
+      "area_m2": 100.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "J0-L": {
+      "code": "J0-L",
+      "function": "J0",
+      "size": "L",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "workshop",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "production_bay",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "dedicated_store",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "market_interface",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 20,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 3,
+      "width_m": 12.0,
+      "depth_m": 12.0,
+      "area_m2": 144.0,
+      "zone": "shared_everyday",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "K0-S": {
+      "code": "K0-S",
+      "function": "K0",
+      "size": "S",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "neighbourhood_room",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "flexible_event_edge",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 16,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 1,
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "zone": "public_civic",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "K0": {
+      "code": "K0",
+      "function": "K0",
+      "size": "M",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "gathering_hall",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "event_support",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "community_edge",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 40,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 2,
+      "width_m": 12.0,
+      "depth_m": 12.0,
+      "area_m2": 144.0,
+      "zone": "public_civic",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "K0-L": {
+      "code": "K0-L",
+      "function": "K0",
+      "size": "L",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "gathering_hall",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "event_support",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "community_edge",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 56,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 3,
+      "width_m": 14.0,
+      "depth_m": 14.0,
+      "area_m2": 196.0,
+      "zone": "public_civic",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "I0-S": {
+      "code": "I0-S",
+      "function": "I0",
+      "size": "S",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": true,
+      "program_composition": [
+        {
+          "component": "individual_reflection",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "quiet_edge",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 4,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 0,
+      "width_m": 4.0,
+      "depth_m": 4.0,
+      "area_m2": 16.0,
+      "zone": "personal",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "I0": {
+      "code": "I0",
+      "function": "I0",
+      "size": "M",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": true,
+      "program_composition": [
+        {
+          "component": "reflection_room",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "quiet_edge",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "nature_interface",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 8,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 0,
+      "width_m": 6.0,
+      "depth_m": 6.0,
+      "area_m2": 36.0,
+      "zone": "personal",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "I0-L": {
+      "code": "I0-L",
+      "function": "I0",
+      "size": "L",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": true,
+      "program_composition": [
+        {
+          "component": "communal_prayer",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "individual_reflection",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "nature_interface",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 16,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 0,
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "zone": "personal",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "L0": {
+      "code": "L0",
+      "function": "L0",
+      "size": "S",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "decompression_threshold",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "orientation_point",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 6,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 0,
+      "width_m": 4.0,
+      "depth_m": 6.0,
+      "area_m2": 24.0,
+      "zone": "controlled_care",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "L0-L": {
+      "code": "L0-L",
+      "function": "L0",
+      "size": "M",
+      "modularity_category": "variational",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "decompression_threshold",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "orientation_gallery",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "screened_wait",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 12,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 0,
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "zone": "controlled_care",
+      "site_relation": "[DESIGN HYPOTHESIS]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "F0": {
+      "code": "F0",
+      "function": "F0",
+      "size": "M",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "kitchen",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "food_store",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "service_interface",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 0,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 4,
+      "width_m": 8.0,
+      "depth_m": 10.0,
+      "area_m2": 80.0,
+      "zone": "service",
+      "site_relation": "[TO VERIFY]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "F0-L": {
+      "code": "F0-L",
+      "function": "F0",
+      "size": "L",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "kitchen",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "food_store",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "service_interface",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "staff_prep",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 0,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 6,
+      "width_m": 10.0,
+      "depth_m": 12.0,
+      "area_m2": 120.0,
+      "zone": "service",
+      "site_relation": "[TO VERIFY]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    "M0": {
+      "code": "M0",
+      "function": "M0",
+      "size": "M",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "maintenance",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "waste_hold",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "utility",
+          "count": 1,
+          "function_provenance": "[PA5 CORPUS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 0,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 2,
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "zone": "service",
+      "site_relation": "[TO VERIFY]",
+      "provenance": "[PA5 CORPUS]"
+    },
+    "M0-L": {
+      "code": "M0-L",
+      "function": "M0",
+      "size": "L",
+      "modularity_category": "developmental",
+      "repeatable": false,
+      "specialized_function": false,
+      "program_composition": [
+        {
+          "component": "maintenance",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "waste_hold",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "utility",
+          "count": 2,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        },
+        {
+          "component": "service_yard",
+          "count": 1,
+          "function_provenance": "[DESIGN HYPOTHESIS]",
+          "count_provenance": "[DESIGN HYPOTHESIS]"
+        }
+      ],
+      "nominal_room_capacity": 0,
+      "resident_capacity": 0,
+      "nominal_staff_capacity": 3,
+      "width_m": 8.0,
+      "depth_m": 10.0,
+      "area_m2": 80.0,
+      "zone": "service",
+      "site_relation": "[TO VERIFY]",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  }
+}

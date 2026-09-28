@@ -50,7 +50,7 @@ def _draw_site(ax, site: Site, show_buildable: bool = True):
             e = site.edges[ei]
             ax.plot([e.start[0], e.end[0]], [e.start[1], e.end[1]],
                     color="#16a34a", linewidth=3.5, zorder=2, solid_capstyle="round")
-    # public entry anchor
+    # An exact public gate appears only if a coordinate has been verified.
     pe = anchor_point(site, "public_entry")
     if pe:
         ax.plot([pe[0]], [pe[1]], marker="*", markersize=18, color="#16a34a",
@@ -84,9 +84,10 @@ def plot_layout_real(ph: PhenotypeV4, site: Site, path, title: str = ""):
     handles = [Line2D([0], [0], marker="s", color="w", markerfacecolor=c,
                       markersize=10, label=fam)
                for fam, c in _FAMILY_COLOR.items()]
-    handles.append(Line2D([0], [0], color="#16a34a", linewidth=3, label="frontage"))
-    handles.append(Line2D([0], [0], marker="*", color="w", markerfacecolor="#16a34a",
-                          markersize=14, label="public entry"))
+    handles.append(Line2D([0], [0], color="#16a34a", linewidth=3, label="arrival zone"))
+    if anchor_point(site, "public_entry") is not None:
+        handles.append(Line2D([0], [0], marker="*", color="w", markerfacecolor="#16a34a",
+                              markersize=14, label="verified public gate"))
     ax.legend(handles=handles, loc="upper right", fontsize=7, framealpha=0.9)
     cap = (f"{title}\nGFA {ph.gfa:.0f} m² · residents {ph.residents} · "
            f"day-users {ph.day_users} · feasible={ph.feasible}")

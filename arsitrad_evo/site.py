@@ -627,8 +627,8 @@ def load_canonical_site(geojson_path: str | Path,
 
     # --- frontage edges ----------------------------------------------------
     fr = meta.get("frontage", {}) if isinstance(meta.get("frontage"), dict) else {}
-    prim = fr.get("primary_street", {}) if isinstance(fr.get("primary_street"), dict) else {}
-    idxs = prim.get("edge_indices") or []
+    arrival = fr.get("public_arrival", {}) if isinstance(fr.get("public_arrival"), dict) else {}
+    idxs = arrival.get("edge_indices") if arrival.get("present") is True else []
     site.frontage_edges = [int(i) for i in idxs if isinstance(i, (int, float))]
 
     # --- preferred expansion direction -------------------------------------
@@ -658,23 +658,36 @@ def anchor_point(site: Site, kind: str) -> tuple[float, float] | None:
     """Resolve a site access anchor to a local (x, y) point.
 
     kind in {"public_entry", "service_entry", "emergency_access"}.
-    Uses the midpoint of the frontage edge when a coordinate is not yet
-    evidenced [DESIGN HYPOTHESIS]; returns None when no anchor is declared.
+    An edge is an arrival zone, not an exact gate. No midpoint is fabricated.
+    Returns None until an explicit gate coordinate is evidenced.
     """
-    if kind == "public_entry":
-        if site.frontage_edges and site.edges:
-            ei = site.frontage_edges[0]
-            if 0 <= ei < len(site.edges):
-                return site.edges[ei].midpoint
-        # fallback: centroid of front-most edge
-        return site.centroid if site.centroid else None
-    # service / emergency: prefer explicit metadata, else None (never fabricate)
     acc = site.metadata.get("access", {}) if isinstance(site.metadata.get("access"), dict) else {}
     node = acc.get(kind, {})
     if isinstance(node, dict):
-        idxs = node.get("edge_indices") or []
-        if idxs and site.edges:
-            ei = int(idxs[0])
-            if 0 <= ei < len(site.edges):
-                return site.edges[ei].midpoint
+        point = node.get("point_local_m")
+        if node.get("present") is True and isinstance(point, (list, tuple)) and len(point) == 2:
+            return float(point[0]), float(point[1])
     return None
+
+
+def arrival_segments(site: Site) -> list[tuple[tuple[float, float], tuple[float, float]]]:
+    """Return every verified public-arrival boundary segment in local metres."""
+    return [(site.edges[i].start, site.edges[i].end)
+            for i in site.frontage_edges if 0 <= i < len(site.edges)]
+
+
+def distance_to_segment(point: tuple[float, float],
+                        segment: tuple[tuple[float, float], tuple[float, float]]) -> float:
+    """Euclidean distance from a point to a finite line segment."""
+    (ax, ay), (bx, by) = segment
+    px, py = point
+    dx, dy = bx - ax, by - ay
+    denominator = dx * dx + dy * dy
+    t = max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / denominator)) if denominator else 0.0
+    return math.hypot(px - ax - t * dx, py - ay - t * dy)
+
+
+def distance_to_arrival(site: Site, point: tuple[float, float]) -> float | None:
+    """Distance to the full verified arrival zone, or None if unknown."""
+    segments = arrival_segments(site)
+    return min((distance_to_segment(point, segment) for segment in segments), default=None)

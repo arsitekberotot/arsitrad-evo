@@ -127,6 +127,15 @@ class InstanceV4:
     capacity_residents: int = 0
     capacity_day_users: int = 0
     capacity_staff: int = 0
+    # V4.1 relationship state. Defaults keep the original V4 decoder usable.
+    instance_id: str = ""
+    group_id: int = -1
+    attachment_mode: str = "detached"
+    shared_edge: str = ""
+    connection_type: str = ""
+    zone: str = ""
+    target_zone: str = ""
+    nominal_room_capacity: int = 0
 
 
 @dataclass
@@ -135,7 +144,7 @@ class PhenotypeV4:
     # Identity
     genotype_id: str = ""
     birth_generation: int = 0
-    selected_generation: int = 0
+    selected_generation: int | None = None
     
     # Site
     site: Optional[Site] = None
@@ -145,6 +154,9 @@ class PhenotypeV4:
     residents: int = 0
     day_users: int = 0
     staff: int = 0
+    nominal_day_capacity: int = 0
+    nominal_staff_capacity: int = 0
+    occupancy_allocation: dict = field(default_factory=dict)
     
     # Instances
     instances: list[InstanceV4] = field(default_factory=list)
@@ -154,6 +166,7 @@ class PhenotypeV4:
     footprint: float = 0.0
     landscape_area: float = 0.0
     landscape_frac: float = 0.0
+    reserve_area: float = 0.0
     
     # Stacking
     floor_count: int = 1
@@ -182,6 +195,20 @@ class PhenotypeV4:
     crowding: float = 0.0                 # crowding distance (NSGA-II)
     constraint_report: object = None      # constraints_v4.ConstraintReport
     objective_vector: object = None       # objectives_v4.ObjectiveVector
+    # V4.1 construction and analytical state.
+    population_seed: int = 0
+    requested_unit_population: dict = field(default_factory=dict)
+    unit_population: dict = field(default_factory=dict)
+    zone_state: dict = field(default_factory=dict)
+    zone_population: dict = field(default_factory=dict)
+    generated_units: int = 0
+    retained_units: int = 0
+    filtered_units: list[dict] = field(default_factory=list)
+    collision_report: dict = field(default_factory=dict)
+    packing_pattern: str = ""
+    packing_utilization: float = 0.0
+    objective_submetrics: dict = field(default_factory=dict)
+    stage_records: list[dict] = field(default_factory=list)
     
     def get_modules_by_family(self, family: str) -> list[InstanceV4]:
         return [i for i in self.instances if i.family == family]

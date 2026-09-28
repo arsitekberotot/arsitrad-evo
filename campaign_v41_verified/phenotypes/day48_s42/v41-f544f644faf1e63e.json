@@ -1,0 +1,1510 @@
+{
+  "schema": "architectural-phenotype/v4.1",
+  "identity": {
+    "code_sha": "7f4e58df45552ed13206f17d29fb7325fc0229a031af76a25cff62ed9eb1baae",
+    "config_hash": "a0f171f84ed0fc1d95becbaba68b34c4b5254a79c25e818a3a56d1c25ab8abd1",
+    "site_data_hash": "c0176a8e7d07b6edd9ca666c81afedf635494e6a8a5c5a045a7ee9fb44eb82d9",
+    "module_library_hash": "61b9c8d3f724f630b2359ef156950c9013ad0008e3fa3b427ebb4cfae2f89748",
+    "campaign_id": "v41-463e8d1eca6867a9"
+  },
+  "run_id": "day48_s42",
+  "archive_index": 446,
+  "phenotype_id": "v41-f544f644faf1e63e",
+  "genotype": [
+    2.0,
+    2.0,
+    1.0,
+    1.0,
+    2.0,
+    1.0,
+    1.0,
+    5.0,
+    1.0,
+    2.0,
+    1.0,
+    1.839340441048285,
+    3.9125349409534653,
+    0.7167199144905962,
+    0.38469085845094503,
+    2.503310510741209,
+    54823.0,
+    3.0,
+    0.020598873162415283,
+    3.0,
+    1.0,
+    17.03499726673919,
+    74.10468574935003,
+    0.0,
+    0.0,
+    3.0,
+    3.0,
+    0.0,
+    0.0,
+    0.0235136392866179,
+    1.0,
+    11.156473875075832,
+    36.25333883359633,
+    2.0,
+    0.0,
+    3.0,
+    1.0,
+    0.0,
+    1.0,
+    -0.023966066227290722,
+    0.0,
+    78.49625855965628,
+    87.37259586790178,
+    1.0,
+    0.0,
+    3.0,
+    2.0,
+    3.0,
+    0.0,
+    0.35724851264997654,
+    1.0,
+    5.617335490665731,
+    12.293293996321538,
+    3.0,
+    0.0,
+    3.0,
+    0.0,
+    3.0,
+    0.0,
+    0.291367270226026,
+    0.0,
+    54.06494699114319,
+    87.01276319697328,
+    0.0,
+    0.0,
+    3.0,
+    1.0,
+    2.0,
+    0.0,
+    0.3963567422591493,
+    1.0,
+    47.96018738673385,
+    35.67521383270325,
+    2.0,
+    0.0,
+    3.0,
+    0.0,
+    0.0,
+    1.0,
+    0.024235386508991437,
+    1.0,
+    34.17458968718545,
+    63.17910303585899,
+    3.0,
+    6.0,
+    3.0,
+    3.0,
+    0.0,
+    1.0,
+    0.28215557343500564,
+    0.0,
+    25.45648936116952,
+    13.776396369678256,
+    2.0,
+    0.0,
+    4.0,
+    1.0,
+    0.0,
+    1.0,
+    -0.24772670527930912,
+    0.0,
+    56.878232058218614,
+    58.96157250315677,
+    3.0,
+    0.0,
+    3.0,
+    3.0,
+    0.0,
+    1.0,
+    0.43486843248757145,
+    1.0,
+    13.8737832372274,
+    63.19866779754531,
+    3.0,
+    2.0,
+    3.0,
+    2.0,
+    3.0,
+    0.0,
+    -0.09845825932925305,
+    1.0,
+    9.475703690566139,
+    26.775792187426383,
+    0.0,
+    2.0,
+    3.0,
+    2.0,
+    3.0,
+    0.0,
+    -0.2517649303290603,
+    2.0,
+    86.0471273867862,
+    44.76020299954587,
+    1.0,
+    2.0,
+    3.0,
+    0.0,
+    3.0,
+    0.0,
+    0.14817474222798638,
+    1.0,
+    22.853823331913407,
+    77.89639871341798,
+    0.0,
+    2.0,
+    3.0,
+    1.0,
+    3.0,
+    0.0,
+    -0.23802292530352162,
+    0.0,
+    78.90229694642503,
+    82.43320105549276,
+    1.0,
+    3.0,
+    1.0,
+    3.0,
+    3.0,
+    0.0,
+    -0.26889667400178346,
+    0.0,
+    26.569852561399937,
+    30.753600644648866,
+    2.0,
+    2.0,
+    3.0,
+    1.0,
+    3.0,
+    1.0,
+    0.0748589323786166,
+    1.0,
+    8.332925612551875,
+    76.77626962213053,
+    0.0,
+    1.0,
+    3.0,
+    2.0,
+    2.0,
+    1.0,
+    -0.17808752571529643,
+    0.0,
+    74.32456084324707,
+    54.07067753917192,
+    2.0,
+    1.0,
+    3.0,
+    2.0,
+    2.0,
+    0.0,
+    0.4083159776548462,
+    1.0,
+    31.504685003721036,
+    21.986421231596182,
+    3.0,
+    1.0,
+    1.0,
+    3.0,
+    2.0,
+    0.0,
+    0.2974866114142608,
+    0.0,
+    64.28271692456352,
+    82.04159602449184,
+    1.0,
+    4.0,
+    3.0,
+    2.0,
+    2.0,
+    1.0,
+    0.11367964009401096,
+    2.0,
+    61.466846328043374,
+    60.2976790429674,
+    2.0,
+    1.0,
+    0.0,
+    2.0,
+    2.0,
+    0.0,
+    -0.027645616618447777,
+    2.0,
+    22.21975262897273,
+    76.12129227040742,
+    2.0,
+    1.0,
+    3.0,
+    1.0,
+    2.0,
+    1.0,
+    -0.007233823519618265,
+    1.0,
+    15.068938466348222,
+    65.30732000933968,
+    0.0,
+    1.0,
+    3.0,
+    3.0,
+    2.0,
+    0.0,
+    -0.3756168704410972,
+    1.0,
+    45.539819945801966,
+    57.44859939549446,
+    2.0,
+    7.0,
+    3.0,
+    2.0,
+    3.0,
+    0.0,
+    0.05313548405141262,
+    0.0,
+    77.846465485501,
+    14.122296839002848,
+    1.0,
+    1.0,
+    0.0,
+    1.0,
+    4.0,
+    0.0,
+    -0.3352114699988117,
+    1.0,
+    56.75085685762474,
+    13.002311818594041,
+    0.0,
+    1.0,
+    3.0,
+    1.0,
+    4.0,
+    1.0,
+    0.4491684292583322,
+    1.0,
+    21.769796194185844,
+    68.33417569034734,
+    1.0,
+    2.0,
+    3.0,
+    2.0,
+    1.0,
+    0.0,
+    0.44680956269845046,
+    1.0,
+    18.151224194777463,
+    68.0907962487139,
+    1.0,
+    3.0,
+    3.0,
+    2.0,
+    1.0,
+    0.0,
+    -0.2767764507517794,
+    0.0,
+    33.591949308988276,
+    3.3080785618307242,
+    1.0,
+    3.0,
+    3.0,
+    3.0,
+    1.0,
+    0.0,
+    0.22632814157504333,
+    1.0,
+    87.91938532381272,
+    29.104111116430225,
+    1.0,
+    3.0,
+    1.0,
+    3.0,
+    1.0,
+    0.0,
+    -0.016447532812532584
+  ],
+  "seed": 42,
+  "population_seed": 54823,
+  "birth_generation": 13,
+  "selected_generation": 16,
+  "rank": 0,
+  "crowding": null,
+  "feasible": true,
+  "constraint_violation": 0,
+  "residents": 8,
+  "concurrent_day_users": 48,
+  "nominal_room_capacity": 122,
+  "staff": 6,
+  "nominal_staff_capacity": 27,
+  "occupancy_allocation": {
+    "requested_concurrent_day_users": 48,
+    "allocated_concurrent_day_users": 48,
+    "unmet_day_users": 0,
+    "nominal_room_capacity_sum": 122,
+    "by_function": {
+      "A0": 16,
+      "B0": 2,
+      "L0": 5,
+      "C0": 13,
+      "H0": 9,
+      "J0": 2,
+      "I0": 1
+    },
+    "method": "single simultaneous snapshot allocated among enabled functions by capacity share",
+    "provenance": "[DESIGN HYPOTHESIS]"
+  },
+  "gfa_m2": 932.0,
+  "footprint_m2": 932.0,
+  "landscape_area_m2": 4586.110701459107,
+  "reserve_area_m2": 116.05751649739737,
+  "landscape_fraction": 0.8139818557143605,
+  "floor_count": 1,
+  "stacked_pairs": 0,
+  "packing_pattern": "wings",
+  "packing_utilization": 0.16541927112322422,
+  "requested_unit_population": {
+    "by_function": {
+      "A0": 2,
+      "K0": 2,
+      "B0": 1,
+      "L0": 1,
+      "C0": 2,
+      "H0": 1,
+      "J0": 1,
+      "R4": 5,
+      "I0": 1,
+      "F0": 2,
+      "M0": 1
+    },
+    "bounds": {
+      "A0": [
+        1,
+        2
+      ],
+      "K0": [
+        0,
+        2
+      ],
+      "B0": [
+        1,
+        2
+      ],
+      "L0": [
+        1,
+        3
+      ],
+      "C0": [
+        1,
+        2
+      ],
+      "H0": [
+        0,
+        2
+      ],
+      "J0": [
+        0,
+        2
+      ],
+      "R4": [
+        2,
+        8
+      ],
+      "I0": [
+        0,
+        2
+      ],
+      "F0": [
+        1,
+        2
+      ],
+      "M0": [
+        1,
+        2
+      ]
+    },
+    "population_seed": 54823,
+    "by_variant": {
+      "A0": 2,
+      "B0-S": 1,
+      "C0": 2,
+      "F0-L": 2,
+      "H0-L": 1,
+      "I0-S": 1,
+      "J0-S": 1,
+      "K0": 1,
+      "K0-S": 1,
+      "L0-L": 1,
+      "M0": 1,
+      "R4-L": 1,
+      "R4-M": 2,
+      "R4-S": 2
+    },
+    "by_modularity": {
+      "developmental": 13,
+      "variational": 6
+    },
+    "specialized_function_population": 2,
+    "specialized_function_ratio": 0.10526315789473684,
+    "modularity_ratios": {
+      "developmental": 0.6842105263157895,
+      "variational": 0.3157894736842105
+    }
+  },
+  "unit_population": {
+    "total": 13,
+    "by_function": {
+      "A0": 2,
+      "B0": 1,
+      "C0": 1,
+      "F0": 2,
+      "H0": 1,
+      "I0": 1,
+      "J0": 1,
+      "L0": 1,
+      "M0": 1,
+      "R4": 2
+    },
+    "by_variant": {
+      "A0": 2,
+      "B0-S": 1,
+      "C0": 1,
+      "F0-L": 2,
+      "H0-L": 1,
+      "I0-S": 1,
+      "J0-S": 1,
+      "L0-L": 1,
+      "M0": 1,
+      "R4-M": 1,
+      "R4-S": 1
+    },
+    "developmental_population": 9,
+    "variational_population": 4,
+    "developmental_ratio": 0.6923076923076923,
+    "variational_ratio": 0.3076923076923077,
+    "specialized_function_population": 2,
+    "specialized_function_ratio": 0.15384615384615385,
+    "definition": "Specialized = care/safeguarding B0 plus reflection I0; modularity ratios count units, not area."
+  },
+  "zone_state": {
+    "order": [
+      "public_civic",
+      "controlled_care",
+      "shared_everyday",
+      "domestic",
+      "personal"
+    ],
+    "service_network": "parallel_controlled",
+    "boundaries_fraction": [
+      0.0,
+      0.1965822089771275,
+      0.6147401226662751,
+      0.6913406153560135,
+      0.7324550154093797,
+      1.0
+    ],
+    "area_m2": {
+      "public_civic": 718.52418969761,
+      "controlled_care": 2439.1206392469785,
+      "shared_everyday": 515.4075794227113,
+      "domestic": 277.0507073896007,
+      "personal": 1684.0651021996039
+    },
+    "type": "dominated_zone",
+    "definition": "Balanced: largest zone <40% of parcel; dominated: 40-65%; total: >=65%. Service is a parallel controlled network.",
+    "provenance": "[DESIGN HYPOTHESIS]"
+  },
+  "zone_population": {
+    "public_civic": 2,
+    "controlled_care": 2,
+    "shared_everyday": 3,
+    "domestic": 2,
+    "personal": 1,
+    "service": 3
+  },
+  "generated_units": 19,
+  "retained_units": 13,
+  "filtered_units": [
+    {
+      "instance_id": "u02-K0-S",
+      "code": "K0-S",
+      "reason": "packing_failed_within_zone_and_parcel"
+    },
+    {
+      "instance_id": "u03-K0",
+      "code": "K0",
+      "reason": "packing_failed_within_zone_and_parcel"
+    },
+    {
+      "instance_id": "u10-C0",
+      "code": "C0",
+      "reason": "packing_failed_within_zone_and_parcel"
+    },
+    {
+      "instance_id": "u15-R4-M",
+      "code": "R4-M",
+      "reason": "packing_failed_within_zone_and_parcel"
+    },
+    {
+      "instance_id": "u16-R4-S",
+      "code": "R4-S",
+      "reason": "packing_failed_within_zone_and_parcel"
+    },
+    {
+      "instance_id": "u19-R4-L",
+      "code": "R4-L",
+      "reason": "packing_failed_within_zone_and_parcel"
+    }
+  ],
+  "collision_report": {
+    "illegal_overlap_count": 0,
+    "illegal_overlap_area_m2": 0,
+    "unpermitted_shared_edge_count": 0,
+    "illegal_pairs": [],
+    "stacked_footprint_pairs": [],
+    "shared_edges": [],
+    "passed": true,
+    "provenance": "[DESIGN HYPOTHESIS]"
+  },
+  "instances": [
+    {
+      "code": "A0",
+      "family": "A0",
+      "x": 6.988394908208853,
+      "y": 11.38539504242872,
+      "w": 6.0,
+      "d": 8.0,
+      "rotation": 0,
+      "access_face": "S",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 1,
+      "distance_to_boundary": 2.1923223851938127,
+      "nearest_edge_orientation": "",
+      "setback_compliant": false,
+      "within_buildable": true,
+      "area": 48.0,
+      "privacy_level": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 20,
+      "capacity_staff": 2,
+      "instance_id": "u00-A0",
+      "group_id": 0,
+      "attachment_mode": "courtyard",
+      "shared_edge": "W",
+      "connection_type": "threshold",
+      "zone": "public_civic",
+      "target_zone": "public_civic",
+      "nominal_room_capacity": 20
+    },
+    {
+      "code": "A0",
+      "family": "A0",
+      "x": 15.108614788044934,
+      "y": 9.59388212331547,
+      "w": 6.0,
+      "d": 8.0,
+      "rotation": 180,
+      "access_face": "W",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 1,
+      "distance_to_boundary": 2.2976421344494016,
+      "nearest_edge_orientation": "",
+      "setback_compliant": false,
+      "within_buildable": true,
+      "area": 48.0,
+      "privacy_level": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 20,
+      "capacity_staff": 2,
+      "instance_id": "u01-A0",
+      "group_id": 0,
+      "attachment_mode": "courtyard",
+      "shared_edge": "E",
+      "connection_type": "threshold",
+      "zone": "public_civic",
+      "target_zone": "public_civic",
+      "nominal_room_capacity": 20
+    },
+    {
+      "code": "B0-S",
+      "family": "B0",
+      "x": 44.613032354510985,
+      "y": 46.61028859210833,
+      "w": 6.0,
+      "d": 8.0,
+      "rotation": 0,
+      "access_face": "S",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 1,
+      "distance_to_boundary": 29.556180477487608,
+      "nearest_edge_orientation": "",
+      "setback_compliant": true,
+      "within_buildable": true,
+      "area": 48.0,
+      "privacy_level": 3,
+      "capacity_residents": 0,
+      "capacity_day_users": 4,
+      "capacity_staff": 2,
+      "instance_id": "u04-B0-S",
+      "group_id": 0,
+      "attachment_mode": "courtyard",
+      "shared_edge": "E",
+      "connection_type": "porch",
+      "zone": "controlled_care",
+      "target_zone": "controlled_care",
+      "nominal_room_capacity": 4
+    },
+    {
+      "code": "L0-L",
+      "family": "L0",
+      "x": 30.09617483582878,
+      "y": 45.7458041969738,
+      "w": 8.0,
+      "d": 6.0,
+      "rotation": 90,
+      "access_face": "S",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 3,
+      "distance_to_boundary": 18.8009227215463,
+      "nearest_edge_orientation": "",
+      "setback_compliant": true,
+      "within_buildable": true,
+      "area": 48.0,
+      "privacy_level": 2,
+      "capacity_residents": 0,
+      "capacity_day_users": 12,
+      "capacity_staff": 0,
+      "instance_id": "u06-L0-L",
+      "group_id": 6,
+      "attachment_mode": "courtyard",
+      "shared_edge": "W",
+      "connection_type": "threshold",
+      "zone": "controlled_care",
+      "target_zone": "controlled_care",
+      "nominal_room_capacity": 12
+    },
+    {
+      "code": "C0",
+      "family": "C0",
+      "x": 17.97838861634981,
+      "y": 62.19940525461566,
+      "w": 10.0,
+      "d": 12.0,
+      "rotation": 90,
+      "access_face": "S",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 2,
+      "distance_to_boundary": 2.6914664729390765,
+      "nearest_edge_orientation": "",
+      "setback_compliant": false,
+      "within_buildable": true,
+      "area": 120.0,
+      "privacy_level": 2,
+      "capacity_residents": 0,
+      "capacity_day_users": 32,
+      "capacity_staff": 3,
+      "instance_id": "u09-C0",
+      "group_id": 2,
+      "attachment_mode": "courtyard",
+      "shared_edge": "S",
+      "connection_type": "circulation",
+      "zone": "shared_everyday",
+      "target_zone": "shared_everyday",
+      "nominal_room_capacity": 32
+    },
+    {
+      "code": "H0-L",
+      "family": "H0",
+      "x": 76.16134942389321,
+      "y": 45.71263135359361,
+      "w": 10.0,
+      "d": 10.0,
+      "rotation": 90,
+      "access_face": "S",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 3,
+      "distance_to_boundary": 1.4930866350253256,
+      "nearest_edge_orientation": "",
+      "setback_compliant": false,
+      "within_buildable": true,
+      "area": 100.0,
+      "privacy_level": 2,
+      "capacity_residents": 0,
+      "capacity_day_users": 24,
+      "capacity_staff": 3,
+      "instance_id": "u11-H0-L",
+      "group_id": 2,
+      "attachment_mode": "courtyard",
+      "shared_edge": "N",
+      "connection_type": "circulation",
+      "zone": "shared_everyday",
+      "target_zone": "shared_everyday",
+      "nominal_room_capacity": 24
+    },
+    {
+      "code": "J0-S",
+      "family": "J0",
+      "x": 65.45847037320169,
+      "y": 45.69608833294372,
+      "w": 8.0,
+      "d": 8.0,
+      "rotation": 90,
+      "access_face": "E",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 2,
+      "distance_to_boundary": 12.13908280907827,
+      "nearest_edge_orientation": "",
+      "setback_compliant": true,
+      "within_buildable": true,
+      "area": 64.0,
+      "privacy_level": 2,
+      "capacity_residents": 0,
+      "capacity_day_users": 6,
+      "capacity_staff": 1,
+      "instance_id": "u13-J0-S",
+      "group_id": 3,
+      "attachment_mode": "shared_edge",
+      "shared_edge": "W",
+      "connection_type": "circulation",
+      "zone": "shared_everyday",
+      "target_zone": "shared_everyday",
+      "nominal_room_capacity": 6
+    },
+    {
+      "code": "R4-M",
+      "family": "R4",
+      "x": 40.437936508600075,
+      "y": 60.17185571128672,
+      "w": 8.8,
+      "d": 10.0,
+      "rotation": 90,
+      "access_face": "E",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 1,
+      "distance_to_boundary": 17.620268505019492,
+      "nearest_edge_orientation": "",
+      "setback_compliant": true,
+      "within_buildable": true,
+      "area": 88.0,
+      "privacy_level": 3,
+      "capacity_residents": 4,
+      "capacity_day_users": 0,
+      "capacity_staff": 0,
+      "instance_id": "u17-R4-M",
+      "group_id": 1,
+      "attachment_mode": "shared_edge",
+      "shared_edge": "W",
+      "connection_type": "porch",
+      "zone": "domestic",
+      "target_zone": "domestic",
+      "nominal_room_capacity": 0
+    },
+    {
+      "code": "R4-S",
+      "family": "R4",
+      "x": 58.1946049752247,
+      "y": 56.01779049080377,
+      "w": 8.0,
+      "d": 8.0,
+      "rotation": 90,
+      "access_face": "E",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 1,
+      "distance_to_boundary": 19.341581842054325,
+      "nearest_edge_orientation": "",
+      "setback_compliant": true,
+      "within_buildable": true,
+      "area": 64.0,
+      "privacy_level": 3,
+      "capacity_residents": 4,
+      "capacity_day_users": 0,
+      "capacity_staff": 0,
+      "instance_id": "u18-R4-S",
+      "group_id": 4,
+      "attachment_mode": "courtyard",
+      "shared_edge": "S",
+      "connection_type": "porch",
+      "zone": "domestic",
+      "target_zone": "domestic",
+      "nominal_room_capacity": 0
+    },
+    {
+      "code": "I0-S",
+      "family": "I0",
+      "x": 82.41526423600594,
+      "y": 55.43129938295938,
+      "w": 4.0,
+      "d": 4.0,
+      "rotation": 90,
+      "access_face": "S",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 3,
+      "distance_to_boundary": 1.6719663012412735,
+      "nearest_edge_orientation": "",
+      "setback_compliant": false,
+      "within_buildable": true,
+      "area": 16.0,
+      "privacy_level": 4,
+      "capacity_residents": 0,
+      "capacity_day_users": 4,
+      "capacity_staff": 0,
+      "instance_id": "u23-I0-S",
+      "group_id": 1,
+      "attachment_mode": "detached",
+      "shared_edge": "E",
+      "connection_type": "court",
+      "zone": "personal",
+      "target_zone": "personal",
+      "nominal_room_capacity": 4
+    },
+    {
+      "code": "F0-L",
+      "family": "F0",
+      "x": 17.97838861634981,
+      "y": 47.19940525461566,
+      "w": 12.0,
+      "d": 10.0,
+      "rotation": 90,
+      "access_face": "W",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 2,
+      "distance_to_boundary": 4.309258621423712,
+      "nearest_edge_orientation": "",
+      "setback_compliant": true,
+      "within_buildable": true,
+      "area": 120.0,
+      "privacy_level": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 0,
+      "capacity_staff": 6,
+      "instance_id": "u25-F0-L",
+      "group_id": 2,
+      "attachment_mode": "courtyard",
+      "shared_edge": "S",
+      "connection_type": "service",
+      "zone": "controlled_care",
+      "target_zone": "service",
+      "nominal_room_capacity": 0
+    },
+    {
+      "code": "F0-L",
+      "family": "F0",
+      "x": 65.45847037320169,
+      "y": 32.69608833294372,
+      "w": 12.0,
+      "d": 10.0,
+      "rotation": 90,
+      "access_face": "W",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 3,
+      "distance_to_boundary": 1.9798955680723798,
+      "nearest_edge_orientation": "",
+      "setback_compliant": false,
+      "within_buildable": true,
+      "area": 120.0,
+      "privacy_level": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 0,
+      "capacity_staff": 6,
+      "instance_id": "u26-F0-L",
+      "group_id": 3,
+      "attachment_mode": "courtyard",
+      "shared_edge": "S",
+      "connection_type": "service",
+      "zone": "controlled_care",
+      "target_zone": "service",
+      "nominal_room_capacity": 0
+    },
+    {
+      "code": "M0",
+      "family": "M0",
+      "x": 51.45847037320169,
+      "y": 32.69608833294372,
+      "w": 8.0,
+      "d": 6.0,
+      "rotation": 90,
+      "access_face": "W",
+      "stack_pair_id": -1,
+      "floor": 0,
+      "phase": 2,
+      "distance_to_boundary": 14.939225297694492,
+      "nearest_edge_orientation": "",
+      "setback_compliant": true,
+      "within_buildable": true,
+      "area": 48.0,
+      "privacy_level": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 0,
+      "capacity_staff": 2,
+      "instance_id": "u27-M0",
+      "group_id": 3,
+      "attachment_mode": "courtyard",
+      "shared_edge": "W",
+      "connection_type": "service",
+      "zone": "controlled_care",
+      "target_zone": "service",
+      "nominal_room_capacity": 0
+    }
+  ],
+  "phases": [
+    {
+      "phase": 1,
+      "modules": 5,
+      "gfa": 296.0,
+      "residents": 8,
+      "day_users": 0
+    },
+    {
+      "phase": 2,
+      "modules": 9,
+      "gfa": 648.0,
+      "residents": 8,
+      "day_users": 0
+    },
+    {
+      "phase": 3,
+      "modules": 13,
+      "gfa": 932.0,
+      "residents": 8,
+      "day_users": 48
+    }
+  ],
+  "objective_vector": {
+    "care_safeguarding": 0.8557806499688162,
+    "privacy_domesticity": 0.8657167748098984,
+    "everyday_community": 0.7131357682583442,
+    "access_service": 0.8827923474081583,
+    "site_environment": 0.7236149536919126,
+    "adaptability_phasing": 0.4398941818803806
+  },
+  "objective_submetrics": {
+    "care_response_distance_m": 15.355602678305353,
+    "controlled_access_integrity": 1,
+    "sensitive_sightline_exposure_count": 0,
+    "sensitive_sightline_exposure_ratio": 0.0,
+    "privacy_transition_violations": 0,
+    "domestic_protection_depth": 0.7314335496197968,
+    "domestic_cluster_count": 2,
+    "amenity_access_distance_m": 31.61970533074178,
+    "visitor_route_length_m": 49.438317580751956,
+    "resident_route_length_m": 31.61970533074178,
+    "service_route_length_m": 14.0,
+    "route_conflict_count": 0,
+    "entry_relationship_distance_m": 6.823200503754093,
+    "frontage_use_score": 0.9214588476135317,
+    "service_access_attraction": null,
+    "environmental_exposure": null,
+    "landscape_continuity": 1.0,
+    "courtyard_open_space_quality": 0.25,
+    "orientation_daylight_proxy": 0.48936170212765956,
+    "stacking_efficiency": 0.0,
+    "reserve_capacity_fraction": 0.020598873162415283,
+    "phase_viability": 1.0,
+    "nominal_room_capacity": 122,
+    "concurrent_day_users": 48,
+    "method_note": "Distances and sightlines are schematic plan proxies; contextual nuisance and service layers are excluded when unverified."
+  },
+  "constraint_report": {
+    "feasible": true,
+    "hard_violations": 0,
+    "soft_violations": 1,
+    "advisory_flags": 0,
+    "results": [
+      {
+        "name": "object_collision",
+        "category": "collision",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "0 generated and 0 retained illegal same-floor overlaps"
+      },
+      {
+        "name": "attachment_grammar",
+        "category": "collision",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "0 shared-edge contacts without a permitted group connection"
+      },
+      {
+        "name": "parcel_containment",
+        "category": "site",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "0 retained footprints outside parcel"
+      },
+      {
+        "name": "essential_program",
+        "category": "program",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "missing unit counts: {'A0': 0, 'B0': 0, 'C0': 0, 'F0': 0, 'M0': 0, 'R4': 0}"
+      },
+      {
+        "name": "resident_minimum",
+        "category": "occupancy",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "8 residents; minimum experimental stratum 8"
+      },
+      {
+        "name": "resident_maximum",
+        "category": "occupancy",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "8 residents; maximum experimental stratum 32"
+      },
+      {
+        "name": "concurrent_occupancy",
+        "category": "occupancy",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "48 concurrent day users allocated of 48 requested; nominal room-capacity sum 122"
+      },
+      {
+        "name": "dynamic_zone_compatibility",
+        "category": "zoning",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "0 retained units outside required ordered zone"
+      },
+      {
+        "name": "stacking_support",
+        "category": "stacking",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "0 unsupported stacked units"
+      },
+      {
+        "name": "unit_filtration_accounting",
+        "category": "filtration",
+        "passed": true,
+        "value": 0.0,
+        "threshold": 0.0,
+        "severity": "hard",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "generated = retained + filtered"
+      },
+      {
+        "name": "schematic_setback",
+        "category": "site",
+        "passed": false,
+        "value": 6.0,
+        "threshold": 0.0,
+        "severity": "soft",
+        "provenance": "[DESIGN HYPOTHESIS]",
+        "description": "6 modules within schematic setback band"
+      }
+    ],
+    "total_shortfall": 0,
+    "provenance": "[DESIGN HYPOTHESIS]",
+    "target_day_users": 48
+  },
+  "stage_records": [
+    {
+      "stage": "module_unit",
+      "inputs": [
+        "function",
+        "size",
+        "modularity_category"
+      ],
+      "outputs": [
+        "module_units"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "catalogue_codes": 29
+      }
+    },
+    {
+      "stage": "initial_unit_population",
+      "inputs": [
+        "count_genes",
+        "module_library"
+      ],
+      "outputs": [
+        "requested_units"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "by_function": {
+          "A0": 2,
+          "K0": 2,
+          "B0": 1,
+          "L0": 1,
+          "C0": 2,
+          "H0": 1,
+          "J0": 1,
+          "R4": 5,
+          "I0": 1,
+          "F0": 2,
+          "M0": 1
+        },
+        "bounds": {
+          "A0": [
+            1,
+            2
+          ],
+          "K0": [
+            0,
+            2
+          ],
+          "B0": [
+            1,
+            2
+          ],
+          "L0": [
+            1,
+            3
+          ],
+          "C0": [
+            1,
+            2
+          ],
+          "H0": [
+            0,
+            2
+          ],
+          "J0": [
+            0,
+            2
+          ],
+          "R4": [
+            2,
+            8
+          ],
+          "I0": [
+            0,
+            2
+          ],
+          "F0": [
+            1,
+            2
+          ],
+          "M0": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "stage": "population_seed",
+      "inputs": [
+        "seed_gene"
+      ],
+      "outputs": [
+        "packing_rng"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "value": 54823
+      }
+    },
+    {
+      "stage": "modularity_ratios",
+      "inputs": [
+        "requested_units",
+        "module_library"
+      ],
+      "outputs": [
+        "requested_modularity_population"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "by_modularity": {
+          "developmental": 13,
+          "variational": 6
+        },
+        "modularity_ratios": {
+          "developmental": 0.6842105263157895,
+          "variational": 0.3157894736842105
+        },
+        "specialized_function_ratio": 0.10526315789473684
+      }
+    },
+    {
+      "stage": "architectural_packing_grouping",
+      "inputs": [
+        "requested_units",
+        "relationship_genes",
+        "population_seed",
+        "site_geometry",
+        "zone_genes"
+      ],
+      "outputs": [
+        "placed_units",
+        "packing_pattern"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "placed": 13,
+        "pattern": "wings"
+      }
+    },
+    {
+      "stage": "dynamic_zoning",
+      "inputs": [
+        "zone_scale_genes",
+        "site_geometry",
+        "placed_units"
+      ],
+      "outputs": [
+        "zone_boundaries",
+        "zone_type",
+        "zone_areas"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "order": [
+          "public_civic",
+          "controlled_care",
+          "shared_everyday",
+          "domestic",
+          "personal"
+        ],
+        "service_network": "parallel_controlled",
+        "boundaries_fraction": [
+          0.0,
+          0.1965822089771275,
+          0.6147401226662751,
+          0.6913406153560135,
+          0.7324550154093797,
+          1.0
+        ],
+        "area_m2": {
+          "public_civic": 718.52418969761,
+          "controlled_care": 2439.1206392469785,
+          "shared_everyday": 515.4075794227113,
+          "domestic": 277.0507073896007,
+          "personal": 1684.0651021996039
+        },
+        "type": "dominated_zone",
+        "definition": "Balanced: largest zone <40% of parcel; dominated: 40-65%; total: >=65%. Service is a parallel controlled network.",
+        "provenance": "[DESIGN HYPOTHESIS]"
+      }
+    },
+    {
+      "stage": "object_collision",
+      "inputs": [
+        "placed_footprints",
+        "floor",
+        "attachment_grammar"
+      ],
+      "outputs": [
+        "illegal_overlap_count",
+        "collision_area"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "illegal_overlap_count": 0,
+        "illegal_overlap_area_m2": 0,
+        "unpermitted_shared_edge_count": 0,
+        "illegal_pairs": [],
+        "stacked_footprint_pairs": [],
+        "shared_edges": [],
+        "passed": true,
+        "provenance": "[DESIGN HYPOTHESIS]"
+      }
+    },
+    {
+      "stage": "unit_filtration",
+      "inputs": [
+        "placed_units",
+        "collision_state",
+        "zone_state"
+      ],
+      "outputs": [
+        "retained_units",
+        "filtered_units"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "generated": 19,
+        "retained": 13,
+        "filtered": [
+          {
+            "instance_id": "u02-K0-S",
+            "code": "K0-S",
+            "reason": "packing_failed_within_zone_and_parcel"
+          },
+          {
+            "instance_id": "u03-K0",
+            "code": "K0",
+            "reason": "packing_failed_within_zone_and_parcel"
+          },
+          {
+            "instance_id": "u10-C0",
+            "code": "C0",
+            "reason": "packing_failed_within_zone_and_parcel"
+          },
+          {
+            "instance_id": "u15-R4-M",
+            "code": "R4-M",
+            "reason": "packing_failed_within_zone_and_parcel"
+          },
+          {
+            "instance_id": "u16-R4-S",
+            "code": "R4-S",
+            "reason": "packing_failed_within_zone_and_parcel"
+          },
+          {
+            "instance_id": "u19-R4-L",
+            "code": "R4-L",
+            "reason": "packing_failed_within_zone_and_parcel"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "site_external_references",
+      "inputs": [
+        "site_context_layers",
+        "retained_units"
+      ],
+      "outputs": [
+        "active_spatial_fields"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "public_access_attraction": {
+          "enabled": true,
+          "source": "public_arrival",
+          "provenance": "[VERIFIED]"
+        },
+        "domestic_protection_depth": {
+          "enabled": true,
+          "source": "public_arrival",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        "community_interface_suitability": {
+          "enabled": true,
+          "source": "public_arrival",
+          "provenance": "[DESIGN HYPOTHESIS]"
+        },
+        "service_access_attraction": {
+          "enabled": false,
+          "source": "possible_service_access",
+          "provenance": "[TO VERIFY]"
+        },
+        "environmental_exposure": {
+          "enabled": false,
+          "source": "tpst_facing_edges",
+          "provenance": "[TO VERIFY]"
+        },
+        "landscape_suitability": {
+          "enabled": false,
+          "source": "landscape_opportunity",
+          "provenance": "[TO VERIFY]"
+        },
+        "expansion_potential": {
+          "enabled": false,
+          "source": "future_expansion",
+          "provenance": "[TO VERIFY]"
+        }
+      }
+    },
+    {
+      "stage": "architectural_phenotype",
+      "inputs": [
+        "retained_units",
+        "occupancy_scenario",
+        "site_fields"
+      ],
+      "outputs": [
+        "phenotype",
+        "program_metrics",
+        "spatial_metrics"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "id": "v41-f544f644faf1e63e",
+        "residents": 8,
+        "concurrent_day_users": 48,
+        "nominal_room_capacity": 122,
+        "gfa_m2": 932.0
+      }
+    },
+    {
+      "stage": "fitness_evaluation",
+      "inputs": [
+        "phenotype",
+        "site_fields",
+        "occupancy_allocation"
+      ],
+      "outputs": [
+        "objective_vector",
+        "objective_submetrics"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "care_safeguarding": 0.8557806499688162,
+        "privacy_domesticity": 0.8657167748098984,
+        "everyday_community": 0.7131357682583442,
+        "access_service": 0.8827923474081583,
+        "site_environment": 0.7236149536919126,
+        "adaptability_phasing": 0.4398941818803806
+      }
+    },
+    {
+      "stage": "constraint_evaluation",
+      "inputs": [
+        "phenotype",
+        "collision_state",
+        "occupancy_scenario"
+      ],
+      "outputs": [
+        "feasible",
+        "constraint_report"
+      ],
+      "provenance": "[DESIGN HYPOTHESIS]",
+      "data": {
+        "feasible": true,
+        "hard_violations": 0
+      }
+    }
+  ],
+  "fitness_ranks": {
+    "care_safeguarding": 0.0,
+    "privacy_domesticity": 0.4482758620689655,
+    "everyday_community": 0.4202586206896552,
+    "access_service": 0.07974137931034483,
+    "site_environment": 0.4870689655172414,
+    "adaptability_phasing": 0.9224137931034483
+  }
+}

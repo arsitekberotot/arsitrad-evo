@@ -25,21 +25,24 @@ site:
 
 # --- Orientation -----------------------------------------------------------
 orientation:
-  # Long north-facing edge of the parcel (edge index 0, ~84 m) runs ENE–WSW.
-  # Building orientation + daylight/open-space logic reference this.
-  north_reference: "edge0_long_frontage"
-  provenance: "[DESIGN HYPOTHESIS]"
-  notes: "Approximate true-north derived from GeoJSON coordinates; confirm on survey."
+  north_reference: "WGS84_geographic_north"
+  provenance: "[SECONDARY]"
+  notes: "Coordinate north follows the supplied GeoJSON; solar performance needs climate and section studies."
 
 # --- Frontage / access anchors ---------------------------------------------
 # Geometry for anchors lives in site.geojson-derived local coords (metres).
 # Here we record EXISTENCE + provenance. Coordinates are filled only when known.
 frontage:
-  primary_street:
+  public_arrival:
     present: true
-    edge_indices: [0]            # long ~84 m edge, assumed public street frontage
-    provenance: "[DESIGN HYPOTHESIS]"
-    notes: "Long NE edge is the most plausible public frontage; confirm street side."
+    edge_indices: [7]
+    provenance: "[VERIFIED]"
+    notes: "User-specified southern segment (107.0082724,-6.3505665) to (107.008038,-6.350512); entire segment is the arrival zone. No gate point is known."
+  primary_street:
+    present: null
+    edge_indices: []
+    provenance: "[TO VERIFY]"
+    notes: "Road hierarchy and exact road-side condition need site verification."
   secondary_street:
     present: null
     edge_indices: []
@@ -48,9 +51,9 @@ frontage:
 access:
   public_entry:
     present: null
-    edge_indices: [0]
+    edge_indices: [7]
     provenance: "[TO VERIFY]"
-    notes: "Preferred public/arrival anchor; coordinate pending survey."
+    notes: "Exact gate point unknown; use the full edge-7 arrival segment as a zone."
   service_entry:
     present: null
     edge_indices: []
@@ -74,9 +77,27 @@ context:
     provenance: "[TO VERIFY]"
     notes: "Edge abutting existing settlement / kampung fabric."
   preferred_expansion_direction:
-    direction: "S"               # toward staggered/chamfered south boundary
-    provenance: "[DESIGN HYPOTHESIS]"
-    notes: "Growth reserve biased to quieter southern edges; confirm with operator."
+    direction: null
+    provenance: "[TO VERIFY]"
+    notes: "No preferred direction until full contextual evidence is available; south is the primary arrival edge."
+
+context_layers:
+  public_frontage: { present: true, edge_indices: [7], provenance: "[VERIFIED]" }
+  public_arrival: { present: true, edge_indices: [7], provenance: "[VERIFIED]" }
+  possible_service_access: { present: null, edge_indices: [], provenance: "[TO VERIFY]" }
+  settlement_facing_edges: { present: null, edge_indices: [], provenance: "[TO VERIFY]" }
+  tpst_facing_edges: { present: null, edge_indices: [], provenance: "[TO VERIFY]" }
+  road_hierarchy: { present: null, provenance: "[TO VERIFY]" }
+  solar_orientation: { present: true, provenance: "[SECONDARY]", notes: "Coordinate north only; no measured insolation." }
+  prevailing_wind: { present: null, provenance: "[TO VERIFY]" }
+  noise: { present: null, edge_indices: [], provenance: "[TO VERIFY]" }
+  odour: { present: null, edge_indices: [], provenance: "[TO VERIFY]" }
+  dust: { present: null, edge_indices: [], provenance: "[TO VERIFY]" }
+  drainage_flooding: { present: null, provenance: "[TO VERIFY]" }
+  vegetation: { present: null, provenance: "[TO VERIFY]" }
+  existing_obstacles: { present: null, provenance: "[TO VERIFY]" }
+  landscape_opportunity: { present: null, provenance: "[TO VERIFY]" }
+  future_expansion: { present: null, provenance: "[TO VERIFY]" }
 
 # --- Existing site features -------------------------------------------------
 existing_features:

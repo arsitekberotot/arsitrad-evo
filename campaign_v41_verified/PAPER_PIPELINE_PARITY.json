@@ -1,0 +1,419 @@
+{
+  "schema": "PAPER_PIPELINE_PARITY/v4.1",
+  "identity": {
+    "code_sha": "7f4e58df45552ed13206f17d29fb7325fc0229a031af76a25cff62ed9eb1baae",
+    "config_hash": "a0f171f84ed0fc1d95becbaba68b34c4b5254a79c25e818a3a56d1c25ab8abd1",
+    "site_data_hash": "c0176a8e7d07b6edd9ca666c81afedf635494e6a8a5c5a045a7ee9fb44eb82d9",
+    "module_library_hash": "61b9c8d3f724f630b2359ef156950c9013ad0008e3fa3b427ebb4cfae2f89748",
+    "campaign_id": "v41-463e8d1eca6867a9"
+  },
+  "paper": "Riskiyanto et al. (2025), Figures 1 and 4; Methods 3.2-3.4",
+  "stages": [
+    {
+      "stage": "function_size_modularity",
+      "paper_mechanism": "Figure 1 module-library axes",
+      "architectural_equivalent": "function size modularity",
+      "status": "present",
+      "inputs": [
+        "PA5_program",
+        "module_size",
+        "modularity_role"
+      ],
+      "outputs": [
+        "module_library_record"
+      ],
+      "code": "arsitrad_evo/program_v41.py:catalogue",
+      "dataset": "stages/function_size_modularity.jsonl",
+      "records": 29,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "module_unit",
+      "paper_mechanism": "Figure 1 furniture module unit",
+      "architectural_equivalent": "module unit",
+      "status": "present",
+      "inputs": [
+        "function",
+        "size",
+        "modularity_category"
+      ],
+      "outputs": [
+        "module_units"
+      ],
+      "code": "arsitrad_evo/program_v41.py:module_record",
+      "dataset": "stages/module_unit.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "initial_unit_population",
+      "paper_mechanism": "Figure 4 initial population / Method 3.3",
+      "architectural_equivalent": "initial unit population",
+      "status": "present",
+      "inputs": [
+        "count_genes",
+        "module_library"
+      ],
+      "outputs": [
+        "requested_units"
+      ],
+      "code": "arsitrad_evo/pipeline_v41.py:decode_v41",
+      "dataset": "stages/initial_unit_population.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "population_seed",
+      "paper_mechanism": "Figure 4 population seed / Method 3.3",
+      "architectural_equivalent": "population seed",
+      "status": "present",
+      "inputs": [
+        "seed_gene"
+      ],
+      "outputs": [
+        "packing_rng"
+      ],
+      "code": "arsitrad_evo/pipeline_v41.py:decode_v41",
+      "dataset": "stages/population_seed.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "modularity_ratios",
+      "paper_mechanism": "Figure 4 specialized and general modularity ratios",
+      "architectural_equivalent": "modularity ratios",
+      "status": "present",
+      "inputs": [
+        "requested_units",
+        "module_library"
+      ],
+      "outputs": [
+        "requested_modularity_population"
+      ],
+      "code": "arsitrad_evo/program_v41.py:population_summary",
+      "dataset": "stages/modularity_ratios.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "architectural_packing_grouping",
+      "paper_mechanism": "Figure 4 circle packing, architecturally adapted",
+      "architectural_equivalent": "architectural packing grouping",
+      "status": "adapted_present",
+      "inputs": [
+        "requested_units",
+        "relationship_genes",
+        "population_seed",
+        "site_geometry",
+        "zone_genes"
+      ],
+      "outputs": [
+        "placed_units",
+        "packing_pattern"
+      ],
+      "code": "arsitrad_evo/pipeline_v41.py:_place",
+      "dataset": "stages/architectural_packing_grouping.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "dynamic_zoning",
+      "paper_mechanism": "Figure 4 dynamic scaling and zoning",
+      "architectural_equivalent": "dynamic zoning",
+      "status": "adapted_present",
+      "inputs": [
+        "zone_scale_genes",
+        "site_geometry",
+        "placed_units"
+      ],
+      "outputs": [
+        "zone_boundaries",
+        "zone_type",
+        "zone_areas"
+      ],
+      "code": "arsitrad_evo/context_v41.py:zoning_state",
+      "dataset": "stages/dynamic_zoning.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "object_collision",
+      "paper_mechanism": "Figure 4 object collision",
+      "architectural_equivalent": "object collision",
+      "status": "present",
+      "inputs": [
+        "placed_footprints",
+        "floor",
+        "attachment_grammar"
+      ],
+      "outputs": [
+        "illegal_overlap_count",
+        "collision_area"
+      ],
+      "code": "arsitrad_evo/pipeline_v41.py:collision_gate",
+      "dataset": "stages/object_collision.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "unit_filtration",
+      "paper_mechanism": "Figure 4 unit filtration",
+      "architectural_equivalent": "unit filtration",
+      "status": "present",
+      "inputs": [
+        "placed_units",
+        "collision_state",
+        "zone_state"
+      ],
+      "outputs": [
+        "retained_units",
+        "filtered_units"
+      ],
+      "code": "arsitrad_evo/pipeline_v41.py:decode_v41",
+      "dataset": "stages/unit_filtration.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "site_external_references",
+      "paper_mechanism": "Figure 4 external references",
+      "architectural_equivalent": "site external references",
+      "status": "adapted_present",
+      "inputs": [
+        "site_context_layers",
+        "retained_units"
+      ],
+      "outputs": [
+        "active_spatial_fields"
+      ],
+      "code": "arsitrad_evo/context_v41.py:SiteContext",
+      "dataset": "stages/site_external_references.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "architectural_phenotype",
+      "paper_mechanism": "Figure 4 phenotype",
+      "architectural_equivalent": "architectural phenotype",
+      "status": "adapted_present",
+      "inputs": [
+        "retained_units",
+        "occupancy_scenario",
+        "site_fields"
+      ],
+      "outputs": [
+        "phenotype",
+        "program_metrics",
+        "spatial_metrics"
+      ],
+      "code": "arsitrad_evo/pipeline_v41.py:decode_v41",
+      "dataset": "stages/architectural_phenotype.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "fitness_evaluation",
+      "paper_mechanism": "Figure 4 evaluation and fitness assignment",
+      "architectural_equivalent": "fitness evaluation",
+      "status": "present",
+      "inputs": [
+        "phenotype",
+        "site_fields",
+        "occupancy_allocation"
+      ],
+      "outputs": [
+        "objective_vector",
+        "objective_submetrics"
+      ],
+      "code": "arsitrad_evo/objectives_v41.py:evaluate_objectives_v41",
+      "dataset": "stages/fitness_evaluation.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "constraint_evaluation",
+      "paper_mechanism": "Architectural extension: model-feasibility gate",
+      "architectural_equivalent": "constraint evaluation",
+      "status": "present",
+      "inputs": [
+        "phenotype",
+        "collision_state",
+        "occupancy_scenario"
+      ],
+      "outputs": [
+        "feasible",
+        "constraint_report"
+      ],
+      "code": "arsitrad_evo/constraints_v41.py:evaluate_constraints_v41",
+      "dataset": "stages/constraint_evaluation.jsonl",
+      "records": 4736,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "nsga2_reproduction",
+      "paper_mechanism": "Figure 4 Wallacei reproduction, Python NSGA-II equivalent",
+      "architectural_equivalent": "nsga2 reproduction",
+      "status": "adapted_present",
+      "inputs": [
+        "evaluated_population",
+        "fitness",
+        "seed"
+      ],
+      "outputs": [
+        "offspring",
+        "final_population"
+      ],
+      "code": "arsitrad_evo/nsga2_v41.py:run_v41",
+      "dataset": "stages/nsga2_reproduction.jsonl",
+      "records": 29,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "all_generation_archive",
+      "paper_mechanism": "Figure 4 Archive X",
+      "architectural_equivalent": "all generation archive",
+      "status": "present",
+      "inputs": [
+        "every_genotype",
+        "every_phenotype"
+      ],
+      "outputs": [
+        "data/archive.jsonl"
+      ],
+      "code": "arsitrad_evo/archive_v41.py:phenotype_record",
+      "dataset": "stages/all_generation_archive.jsonl",
+      "records": 29,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "pareto_front_selection",
+      "paper_mechanism": "Figure 4 Pareto front selection",
+      "architectural_equivalent": "pareto front selection",
+      "status": "present",
+      "inputs": [
+        "all_generation_archive",
+        "final_population"
+      ],
+      "outputs": [
+        "all_population_pareto_ids",
+        "final_generation_pareto_ids"
+      ],
+      "code": "arsitrad_evo/selections_v41.py:pareto_set",
+      "dataset": "stages/pareto_front_selection.jsonl",
+      "records": 5,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "fittest_selection",
+      "paper_mechanism": "Figure 4 fittest solution selection",
+      "architectural_equivalent": "fittest selection",
+      "status": "present",
+      "inputs": [
+        "all_population_pareto_ids",
+        "objective_rankings"
+      ],
+      "outputs": [
+        "selected_phenotype_ids"
+      ],
+      "code": "arsitrad_evo/selections_v41.py:select_v41",
+      "dataset": "stages/fittest_selection.jsonl",
+      "records": 5,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "relative_difference_selection",
+      "paper_mechanism": "Figure 4 relative-difference selection",
+      "architectural_equivalent": "relative difference selection",
+      "status": "present",
+      "inputs": [
+        "all_population_pareto_ids",
+        "objective_rankings"
+      ],
+      "outputs": [
+        "selected_phenotype_ids"
+      ],
+      "code": "arsitrad_evo/selections_v41.py:relative_difference",
+      "dataset": "stages/relative_difference_selection.jsonl",
+      "records": 5,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "average_fitness_selection",
+      "paper_mechanism": "Figure 4 average-fitness selection",
+      "architectural_equivalent": "average fitness selection",
+      "status": "present",
+      "inputs": [
+        "all_population_pareto_ids",
+        "objective_rankings"
+      ],
+      "outputs": [
+        "selected_phenotype_ids"
+      ],
+      "code": "arsitrad_evo/selections_v41.py:average_fitness_rank",
+      "dataset": "stages/average_fitness_selection.jsonl",
+      "records": 5,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "store_distribution",
+      "paper_mechanism": "Figure 4 store and distribution",
+      "architectural_equivalent": "store distribution",
+      "status": "present",
+      "inputs": [
+        "selected_phenotypes",
+        "archive"
+      ],
+      "outputs": [
+        "phenotypes/",
+        "boards/",
+        "data/selection_manifest.json"
+      ],
+      "code": "arsitrad_evo/campaign_v41.py:build_campaign",
+      "dataset": "stages/store_distribution.jsonl",
+      "records": 1,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    },
+    {
+      "stage": "post_analysis_comparison",
+      "paper_mechanism": "Figure 4 post-analysis and comparison",
+      "architectural_equivalent": "post analysis comparison",
+      "status": "present",
+      "inputs": [
+        "capacity_scenarios",
+        "selection_manifest",
+        "objective_submetrics"
+      ],
+      "outputs": [
+        "report_v41.json",
+        "report_v41.md"
+      ],
+      "code": "arsitrad_evo/campaign_v41.py:_report",
+      "dataset": "stages/post_analysis_comparison.jsonl",
+      "records": 1,
+      "test": "tests/test_v41_pipeline.py",
+      "provenance": "[DESIGN HYPOTHESIS]"
+    }
+  ],
+  "passed": true,
+  "adaptation_note": "Furniture circle packing becomes architectural grouping; dynamic office zoning becomes ordered care-campus depth with parallel service; Wallacei reproduction becomes constrained Python NSGA-II."
+}

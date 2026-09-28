@@ -2,7 +2,18 @@
 
 Evolutionary spatial programming for **The Threshold Community**, an exploratory safe-house and care campus on a **5,533.85 m²** reference site. The code adapts the modular spatial-programming inquiry of [Riskiyanto, Wibisono and Harani (2025)](https://mla.vilniustech.lt/index.php/JAU/article/view/22138) and uses constrained NSGA-II as described by Deb et al. (2002). It is an architectural research model, not a reproduction of the paper's office-interior experiment.
 
-The current deliverable is the **v3 validated campaign and architectural publication package**. Earlier `campaign/` and `campaign_v2/` outputs remain as historical evidence; their shortlists are superseded.
+The current experimental deliverable is **V4.1**, which adapts the paper's module population, packing, zoning, collision, filtration and selection stages to the real Bantargebang parcel. The **V3 validated campaign** remains the evolutionary baseline and regression reference. Earlier V4 artifacts in `results_v4/`, `results_capacity_v4/`, `selections_v4_day48/`, `module_catalogue_v4/` and `report_v4/` predate the corrected southern arrival edge and occupancy model. The preliminary `campaign_v41/` output predates the strict attachment-grammar gate. Use `campaign_v41_verified/` for current findings.
+
+## Reproduce V4.1
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests -q
+.\.venv\Scripts\python.exe run_campaign_v41.py --out campaign_v41_verified
+```
+
+The command reruns the real-site base campaign (three seeds), the 48-concurrent-day-user selection campaign (two seeds), and controlled capacity scenarios for 8–48 concurrent day users and 8–32 residents. It writes every evaluated genotype/phenotype to `campaign_v41_verified/data/archive.jsonl`, records each Figure 1/Figure 4 stage under `campaign_v41_verified/stages/`, renders four publication layers, and refuses publication if hashes, selections, resident candidacy, PNG IDs, report facts or exact-genotype replay disagree. `campaign_v41_verified/PAPER_PIPELINE_PARITY.md` maps the paper to the running implementation; `docs/PAPER_PIPELINE_PARITY_BASELINE.md` preserves the pre-change audit. A quick reduced test is available with `--smoke --out campaign_v41_smoke`.
+
+The user-specified public arrival zone is the **complete southern GeoJSON edge 7**. An exact gate, service entrance, nuisance edge and preferred expansion direction remain unverified. `campaign_v41_verified/data/site_context.json` shows which continuous fields are enabled. Nominal room capacity is separate from a scenario's actual concurrent day-user population. See `docs/V41_METHOD_AND_LIMITS.md` for the architectural interpretation, `docs/V41_CAMPAIGN_REVIEW.md` for findings and limits, and `docs/LEGACY_V4_ARTIFACT_STATUS.md` before using older outputs.
 
 ## Reproduce v3
 

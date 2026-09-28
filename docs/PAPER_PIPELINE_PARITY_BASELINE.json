@@ -1,0 +1,32 @@
+{
+  "schema": "paper-pipeline-parity/v4-baseline/1",
+  "source": "Riskiyanto et al. (2025), Figures 1 and 4, Methods 3.2-3.4 and Results 4.3-4.5",
+  "status": "baseline_before_v4.1",
+  "stages": [
+    {"stage":"function","status":"partial","code":"arsitrad_evo/modules_v4.py"},
+    {"stage":"size","status":"partial","code":"arsitrad_evo/modules_v4.py"},
+    {"stage":"modularity_category","status":"partial","code":"arsitrad_evo/modules_v4.py"},
+    {"stage":"module_unit","status":"partial","code":"arsitrad_evo/modules_v4.py"},
+    {"stage":"initial_unit_population","status":"partial","code":"arsitrad_evo/genotype_v4.py"},
+    {"stage":"population_seed","status":"partial","code":"arsitrad_evo/nsga2_v4.py"},
+    {"stage":"specialized_modularity_ratio","status":"missing","code":null},
+    {"stage":"modularity_ratio","status":"missing","code":null},
+    {"stage":"architectural_packing_grouping","status":"missing","code":null,"paper_mechanism":"circle packing"},
+    {"stage":"dynamic_zoning","status":"missing","code":null,"paper_mechanism":"dynamic scaling"},
+    {"stage":"zone_order","status":"missing","code":null},
+    {"stage":"object_collision","status":"missing_critical","code":"arsitrad_evo/constraints_v4.py"},
+    {"stage":"unit_filtration","status":"missing","code":null},
+    {"stage":"site_external_references","status":"partial","code":"arsitrad_evo/site.py"},
+    {"stage":"architectural_phenotype","status":"partial","code":"arsitrad_evo/genotype_v4.py"},
+    {"stage":"fitness_evaluation","status":"partial","code":"arsitrad_evo/objectives_v4.py"},
+    {"stage":"nsga2_reproduction","status":"adapted_present","code":"arsitrad_evo/nsga2_v4.py"},
+    {"stage":"all_generation_archive","status":"missing","code":null},
+    {"stage":"pareto_front_selection","status":"partial","code":"arsitrad_evo/selections_v4.py"},
+    {"stage":"fittest_selection","status":"partial","code":"arsitrad_evo/selections_v4.py"},
+    {"stage":"relative_difference_selection","status":"incorrect","code":"arsitrad_evo/selections_v4.py"},
+    {"stage":"average_fitness_selection","status":"missing","code":null},
+    {"stage":"hierarchical_pareto_clustering","status":"missing","code":null},
+    {"stage":"store_distribution","status":"partial","code":"arsitrad_evo/report_v4.py"},
+    {"stage":"post_analysis_comparison","status":"partial","code":"arsitrad_evo/interpret_v4.py"}
+  ]
+}

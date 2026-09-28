@@ -280,7 +280,7 @@ def _register(mt: ModuleTypeV4) -> None:
 _register(ModuleTypeV4(
     code="R4-S", name="Domestic Cluster S", family="R4", size_class=SizeClass.SMALL,
     w=8.0, d=8.0, area=64.0, max_floors=1,
-    capacity_residents=4, modularity=ModularityCategory.REPEATABLE, repeatable=True,
+    capacity_residents=4, modularity=ModularityCategory.DEVELOPMENTAL, repeatable=True,
     min_count=0, max_count=4, privacy_level=3,
     ground_required=True, stackable_above=False, stackable_below=False,
     rotation_policy=RotationPolicy.ORTHOGONAL, allowed_rotations=(0, 90),
@@ -293,7 +293,7 @@ _register(ModuleTypeV4(
 _register(ModuleTypeV4(
     code="R4-M", name="Domestic Cluster M", family="R4", size_class=SizeClass.MEDIUM,
     w=10.0, d=8.8, area=88.0, max_floors=1,
-    capacity_residents=4, modularity=ModularityCategory.REPEATABLE, repeatable=True,
+    capacity_residents=4, modularity=ModularityCategory.DEVELOPMENTAL, repeatable=True,
     min_count=0, max_count=4, privacy_level=3,
     ground_required=True, stackable_above=False, stackable_below=False,
     rotation_policy=RotationPolicy.ORTHOGONAL, allowed_rotations=(0, 90),
@@ -306,7 +306,7 @@ _register(ModuleTypeV4(
 _register(ModuleTypeV4(
     code="R4-L", name="Domestic Cluster L", family="R4", size_class=SizeClass.LARGE,
     w=12.0, d=10.0, area=120.0, max_floors=1,
-    capacity_residents=6, modularity=ModularityCategory.REPEATABLE, repeatable=True,
+    capacity_residents=6, modularity=ModularityCategory.DEVELOPMENTAL, repeatable=True,
     min_count=0, max_count=3, privacy_level=3,
     ground_required=True, stackable_above=False, stackable_below=False,
     rotation_policy=RotationPolicy.ORTHOGONAL, allowed_rotations=(0, 90),
@@ -404,7 +404,7 @@ _register(ModuleTypeV4(
 ))
 
 _register(ModuleTypeV4(
-    code="C0", name="Commons / Dining", family="C0", size_class=SizeClass.LARGE,
+    code="C0", name="Commons / Dining", family="C0", size_class=SizeClass.MEDIUM,
     w=12.0, d=10.0, area=120.0, max_floors=1,
     capacity_day_users=32, capacity_staff=3,
     modularity=ModularityCategory.DEVELOPMENTAL, repeatable=False,
@@ -490,7 +490,7 @@ _register(ModuleTypeV4(
 ))
 
 _register(ModuleTypeV4(
-    code="J0", name="Livelihood / Workshop", family="J0", size_class=SizeClass.LARGE,
+    code="J0", name="Livelihood / Workshop", family="J0", size_class=SizeClass.MEDIUM,
     w=10.0, d=10.0, area=100.0, max_floors=1,
     capacity_day_users=12, capacity_staff=2,
     modularity=ModularityCategory.VARIATIONAL, repeatable=False,
@@ -533,7 +533,7 @@ _register(ModuleTypeV4(
 ))
 
 _register(ModuleTypeV4(
-    code="K0", name="Community / Gathering", family="K0", size_class=SizeClass.LARGE,
+    code="K0", name="Community / Gathering", family="K0", size_class=SizeClass.MEDIUM,
     w=12.0, d=12.0, area=144.0, max_floors=1,
     capacity_day_users=40, capacity_staff=2,
     modularity=ModularityCategory.VARIATIONAL, repeatable=False,
@@ -576,7 +576,7 @@ _register(ModuleTypeV4(
 ))
 
 _register(ModuleTypeV4(
-    code="I0", name="Reflection / Prayer", family="I0", size_class=SizeClass.SMALL,
+    code="I0", name="Reflection / Prayer", family="I0", size_class=SizeClass.MEDIUM,
     w=6.0, d=6.0, area=36.0, max_floors=1,
     capacity_day_users=8, capacity_staff=0,
     modularity=ModularityCategory.VARIATIONAL, repeatable=False,
@@ -590,7 +590,7 @@ _register(ModuleTypeV4(
 ))
 
 _register(ModuleTypeV4(
-    code="I0-L", name="Reflection / Prayer L", family="I0", size_class=SizeClass.MEDIUM,
+    code="I0-L", name="Reflection / Prayer L", family="I0", size_class=SizeClass.LARGE,
     w=8.0, d=8.0, area=64.0, max_floors=1,
     capacity_day_users=16, capacity_staff=0,
     modularity=ModularityCategory.VARIATIONAL, repeatable=False,
