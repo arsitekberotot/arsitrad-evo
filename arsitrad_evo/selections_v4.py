@@ -30,6 +30,7 @@ import numpy as np
 
 from .site import load_canonical_site
 from .nsga2_v4 import run_v4, GAConfigV4
+from .constraints_v4 import MIN_RESIDENTS
 from . import visualize_v4 as viz
 
 
@@ -37,15 +38,29 @@ def _feasible(pop):
     return [p for p in pop if p.feasible]
 
 
+def _candidates(pop, min_residents=MIN_RESIDENTS):
+    """Feasible solutions eligible to be SELECTED as representative.
+
+    Hard constraints alone admit degenerate layouts with residents below the
+    R4x2 lower stratum (the resident minimum is ADVISORY by design, so the GA
+    can still explore and expose trade-offs). But The Threshold is a
+    residential care facility: a zero-/near-zero-resident solution that meets
+    a day-user cap is architecturally meaningless and must never be crowned
+    'fittest'/'best'. Such solutions stay in the reported trade-off space; they
+    are simply excluded from selection candidacy. [DESIGN HYPOTHESIS]
+    """
+    return [p for p in _feasible(pop) if p.residents >= min_residents]
+
+
 def select_pareto(pop):
-    return [p for p in _feasible(pop) if p.rank == 0]
+    return [p for p in _candidates(pop) if p.rank == 0]
 
 
 def select_fittest(pop):
-    feas = _feasible(pop)
-    if not feas:
+    cand = _candidates(pop)
+    if not cand:
         return None
-    return max(feas, key=lambda p: p.objective_vector.weighted_sum)
+    return max(cand, key=lambda p: p.objective_vector.weighted_sum)
 
 
 def select_relative_difference(pop):
@@ -55,23 +70,23 @@ def select_relative_difference(pop):
     trades objectives off evenly rather than excelling at one and failing
     another. [DESIGN HYPOTHESIS]
     """
-    feas = _feasible(pop)
-    if not feas:
+    cand = _candidates(pop)
+    if not cand:
         return None
-    X = np.array([p.objectives for p in feas], dtype=float)
+    X = np.array([p.objectives for p in cand], dtype=float)
     spread = X.std(axis=1)
-    return feas[int(np.argmin(spread))]
+    return cand[int(np.argmin(spread))]
 
 
 def select_specialized(pop, obj_names):
     """Best feasible per objective (most-negative value in min-form)."""
-    feas = _feasible(pop)
+    cand = _candidates(pop)
     out = {}
-    if not feas:
+    if not cand:
         return out
-    X = np.array([p.objectives for p in feas], dtype=float)
+    X = np.array([p.objectives for p in cand], dtype=float)
     for k, name in enumerate(obj_names):
-        out[name] = feas[int(np.argmin(X[:, k]))]
+        out[name] = cand[int(np.argmin(X[:, k]))]
     return out
 
 
@@ -86,6 +101,7 @@ def run_selections(site, seeds, pop_size, generations, day_users, out_dir):
                          seed_feasible=True)
         pop, fronts, history = run_v4(site, cfg, verbose=False)
         feas = _feasible(pop)
+        cand = _candidates(pop)
         pareto = select_pareto(pop)
         if obj_names is None and feas and feas[0].objective_vector is not None:
             obj_names = [str(r.name)
@@ -126,7 +142,10 @@ def run_selections(site, seeds, pop_size, generations, day_users, out_dir):
 
         rec = {
             "seed": seed,
-            "feasible": len(feas), "pop": len(pop),
+            "feasible": len(feas),
+            "candidates": len(cand),
+            "min_residents_for_selection": MIN_RESIDENTS,
+            "pop": len(pop),
             "pareto_size": len(pareto),
             "selections": {t: {
                 "residents": p.residents, "day_users": p.day_users,
@@ -137,7 +156,8 @@ def run_selections(site, seeds, pop_size, generations, day_users, out_dir):
         }
         manifest.append(rec)
         print(f"  [seed {seed}] feasible {len(feas)}/{len(pop)} "
-              f"pareto {len(pareto)} selections {len(selections)}")
+              f"candidates {len(cand)} pareto {len(pareto)} "
+              f"selections {len(selections)}")
 
     with open(os.path.join(out_dir, "selection_manifest.json"), "w") as f:
         json.dump({"day_user_stratum": day_users,

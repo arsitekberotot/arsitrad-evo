@@ -1,0 +1,198 @@
+{
+  "day_user_stratum": 48,
+  "objective_names": [
+    "site_response",
+    "access_clarity",
+    "landscape_quality",
+    "stacking_efficiency",
+    "exposure_gradient",
+    "phaseability",
+    "service_efficiency",
+    "climate_daylight"
+  ],
+  "runs": [
+    {
+      "seed": 42,
+      "feasible": 1,
+      "pop": 52,
+      "pareto_size": 1,
+      "selections": {
+        "fittest": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "relative_difference": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "specialized_site_response": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "specialized_access_clarity": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "specialized_landscape_quality": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "specialized_stacking_efficiency": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "specialized_exposure_gradient": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "specialized_phaseability": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "specialized_service_efficiency": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        },
+        "specialized_climate_daylight": {
+          "residents": 20,
+          "day_users": 44,
+          "gfa": 726.0,
+          "floors": 1,
+          "landscape_frac": 0.72,
+          "weighted_sum": 0.611
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "feasible": 1,
+      "pop": 80,
+      "pareto_size": 1,
+      "selections": {
+        "fittest": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "relative_difference": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "specialized_site_response": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "specialized_access_clarity": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "specialized_landscape_quality": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "specialized_stacking_efficiency": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "specialized_exposure_gradient": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "specialized_phaseability": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "specialized_service_efficiency": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        },
+        "specialized_climate_daylight": {
+          "residents": 0,
+          "day_users": 48,
+          "gfa": 366.0,
+          "floors": 1,
+          "landscape_frac": 0.909,
+          "weighted_sum": 0.3772
+        }
+      }
+    },
+    {
+      "seed": 123,
+      "feasible": 0,
+      "pop": 54,
+      "pareto_size": 0,
+      "selections": {}
+    }
+  ]
+}
