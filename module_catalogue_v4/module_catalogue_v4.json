@@ -1,0 +1,1174 @@
+{
+  "schema": "module-library-catalogue/v4",
+  "methodology": "FUNCTION + SIZE + MODULARITY + CAPACITY + PRIVACY -> MODULE LIBRARY (Riskiyanto et al. adapted to building/campus scale)",
+  "axes": {
+    "function_families": [
+      "R4",
+      "A0",
+      "B0",
+      "C0",
+      "H0",
+      "J0",
+      "K0",
+      "I0",
+      "L0",
+      "F0",
+      "M0"
+    ],
+    "size_classes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "modularity_categories": [
+      "developmental",
+      "variational",
+      "repeatable"
+    ]
+  },
+  "family_labels": {
+    "R4": "Domestic",
+    "A0": "Arrival",
+    "B0": "Care",
+    "C0": "Commons",
+    "H0": "Learning",
+    "J0": "Livelihood",
+    "K0": "Community",
+    "I0": "Reflection",
+    "L0": "Transition",
+    "F0": "Service",
+    "M0": "Maintenance"
+  },
+  "family_variants": {
+    "R4": [
+      "R4-S",
+      "R4-M",
+      "R4-L"
+    ],
+    "A0": [
+      "A0-S",
+      "A0"
+    ],
+    "B0": [
+      "B0-S",
+      "B0",
+      "B0-L"
+    ],
+    "C0": [
+      "C0-S",
+      "C0",
+      "C0-L"
+    ],
+    "H0": [
+      "H0-S",
+      "H0",
+      "H0-L"
+    ],
+    "J0": [
+      "J0-S",
+      "J0",
+      "J0-L"
+    ],
+    "K0": [
+      "K0-S",
+      "K0",
+      "K0-L"
+    ],
+    "I0": [
+      "I0-S",
+      "I0",
+      "I0-L"
+    ],
+    "L0": [
+      "L0",
+      "L0-L"
+    ],
+    "F0": [
+      "F0",
+      "F0-L"
+    ],
+    "M0": [
+      "M0",
+      "M0-L"
+    ]
+  },
+  "modules": {
+    "R4-S": {
+      "code": "R4-S",
+      "name": "Domestic Cluster S",
+      "function_family": "R4",
+      "function_label": "Domestic",
+      "size_class": "S",
+      "modularity_category": "repeatable",
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "max_floors": 1,
+      "capacity_residents": 4,
+      "capacity_day_users": 0,
+      "capacity_staff": 0,
+      "privacy_level": 3,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": true,
+      "min_count": 0,
+      "max_count": 4,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS / DESIGN HYPOTHESIS]",
+      "description": "Small domestic cluster for 4 residents"
+    },
+    "R4-M": {
+      "code": "R4-M",
+      "name": "Domestic Cluster M",
+      "function_family": "R4",
+      "function_label": "Domestic",
+      "size_class": "M",
+      "modularity_category": "repeatable",
+      "width_m": 10.0,
+      "depth_m": 8.8,
+      "area_m2": 88.0,
+      "max_floors": 1,
+      "capacity_residents": 4,
+      "capacity_day_users": 0,
+      "capacity_staff": 0,
+      "privacy_level": 3,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": true,
+      "min_count": 0,
+      "max_count": 4,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Medium domestic cluster for 4 residents (v3 baseline)"
+    },
+    "R4-L": {
+      "code": "R4-L",
+      "name": "Domestic Cluster L",
+      "function_family": "R4",
+      "function_label": "Domestic",
+      "size_class": "L",
+      "modularity_category": "repeatable",
+      "width_m": 12.0,
+      "depth_m": 10.0,
+      "area_m2": 120.0,
+      "max_floors": 1,
+      "capacity_residents": 6,
+      "capacity_day_users": 0,
+      "capacity_staff": 0,
+      "privacy_level": 3,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": true,
+      "min_count": 0,
+      "max_count": 3,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Large domestic cluster for 6 residents"
+    },
+    "A0-S": {
+      "code": "A0-S",
+      "name": "Arrival / Reception S",
+      "function_family": "A0",
+      "function_label": "Arrival",
+      "size_class": "S",
+      "modularity_category": "developmental",
+      "width_m": 5.0,
+      "depth_m": 6.0,
+      "area_m2": 30.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 12,
+      "capacity_staff": 1,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "full",
+      "allowed_rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Compact public arrival, screening, orientation for low-throughput thresholds"
+    },
+    "A0": {
+      "code": "A0",
+      "name": "Arrival / Reception",
+      "function_family": "A0",
+      "function_label": "Arrival",
+      "size_class": "M",
+      "modularity_category": "developmental",
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 20,
+      "capacity_staff": 2,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 1,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "full",
+      "allowed_rotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Public arrival, screening, orientation (baseline)"
+    },
+    "B0-S": {
+      "code": "B0-S",
+      "name": "Care / Safeguarding S",
+      "function_family": "B0",
+      "function_label": "Care",
+      "size_class": "S",
+      "modularity_category": "developmental",
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 4,
+      "capacity_staff": 2,
+      "privacy_level": 3,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N",
+        "W"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Single-room intake + counselling pod; higher privacy, low throughput"
+    },
+    "B0": {
+      "code": "B0",
+      "name": "Care / Safeguarding",
+      "function_family": "B0",
+      "function_label": "Care",
+      "size_class": "M",
+      "modularity_category": "developmental",
+      "width_m": 8.0,
+      "depth_m": 10.0,
+      "area_m2": 80.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 8,
+      "capacity_staff": 4,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N",
+        "W"
+      ],
+      "repeatable": false,
+      "min_count": 1,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Intake, counselling, safeguarding, response (baseline)"
+    },
+    "B0-L": {
+      "code": "B0-L",
+      "name": "Care / Safeguarding L",
+      "function_family": "B0",
+      "function_label": "Care",
+      "size_class": "L",
+      "modularity_category": "developmental",
+      "width_m": 10.0,
+      "depth_m": 12.0,
+      "area_m2": 120.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 14,
+      "capacity_staff": 6,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N",
+        "W"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Full care suite: intake, counselling, safeguarding, quiet response rooms"
+    },
+    "C0-S": {
+      "code": "C0-S",
+      "name": "Commons / Dining S",
+      "function_family": "C0",
+      "function_label": "Commons",
+      "size_class": "S",
+      "modularity_category": "variational",
+      "width_m": 8.0,
+      "depth_m": 10.0,
+      "area_m2": 80.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 16,
+      "capacity_staff": 2,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Domestic-scale dining/everyday commons preserving household intimacy"
+    },
+    "C0": {
+      "code": "C0",
+      "name": "Commons / Dining",
+      "function_family": "C0",
+      "function_label": "Commons",
+      "size_class": "L",
+      "modularity_category": "developmental",
+      "width_m": 12.0,
+      "depth_m": 10.0,
+      "area_m2": 120.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 32,
+      "capacity_staff": 3,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 1,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Shared dining, everyday activity, kitchen interface (baseline)"
+    },
+    "C0-L": {
+      "code": "C0-L",
+      "name": "Commons / Dining L",
+      "function_family": "C0",
+      "function_label": "Commons",
+      "size_class": "L",
+      "modularity_category": "developmental",
+      "width_m": 14.0,
+      "depth_m": 12.0,
+      "area_m2": 168.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 48,
+      "capacity_staff": 5,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Campus-scale commons for high day-user strata; risks institutional scale"
+    },
+    "H0-S": {
+      "code": "H0-S",
+      "name": "Learning / Education S",
+      "function_family": "H0",
+      "function_label": "Learning",
+      "size_class": "S",
+      "modularity_category": "variational",
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 8,
+      "capacity_staff": 1,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": false,
+      "stackable_above": true,
+      "stackable_below": true,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Small tutorial / quiet-study room; stackable over compatible bases"
+    },
+    "H0": {
+      "code": "H0",
+      "name": "Learning / Education",
+      "function_family": "H0",
+      "function_label": "Learning",
+      "size_class": "M",
+      "modularity_category": "variational",
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 16,
+      "capacity_staff": 2,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": false,
+      "stackable_above": true,
+      "stackable_below": true,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Learning, quiet study, group activity (baseline)"
+    },
+    "H0-L": {
+      "code": "H0-L",
+      "name": "Learning / Education L",
+      "function_family": "H0",
+      "function_label": "Learning",
+      "size_class": "L",
+      "modularity_category": "variational",
+      "width_m": 10.0,
+      "depth_m": 10.0,
+      "area_m2": 100.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 24,
+      "capacity_staff": 3,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": false,
+      "stackable_above": true,
+      "stackable_below": true,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Multi-room learning cluster: group activity + quiet study + storage"
+    },
+    "J0-S": {
+      "code": "J0-S",
+      "name": "Livelihood / Workshop S",
+      "function_family": "J0",
+      "function_label": "Livelihood",
+      "size_class": "S",
+      "modularity_category": "variational",
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 6,
+      "capacity_staff": 1,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N",
+        "W"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Compact craft / livelihood workshop with small market interface"
+    },
+    "J0": {
+      "code": "J0",
+      "name": "Livelihood / Workshop",
+      "function_family": "J0",
+      "function_label": "Livelihood",
+      "size_class": "L",
+      "modularity_category": "variational",
+      "width_m": 10.0,
+      "depth_m": 10.0,
+      "area_m2": 100.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 12,
+      "capacity_staff": 2,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N",
+        "W"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Workshop, production, market interface (baseline)"
+    },
+    "J0-L": {
+      "code": "J0-L",
+      "name": "Livelihood / Workshop L",
+      "function_family": "J0",
+      "function_label": "Livelihood",
+      "size_class": "L",
+      "modularity_category": "variational",
+      "width_m": 12.0,
+      "depth_m": 12.0,
+      "area_m2": 144.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 20,
+      "capacity_staff": 3,
+      "privacy_level": 2,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N",
+        "W"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Production-scale livelihood workshop with dedicated storage + market front"
+    },
+    "K0-S": {
+      "code": "K0-S",
+      "name": "Community / Gathering S",
+      "function_family": "K0",
+      "function_label": "Community",
+      "size_class": "S",
+      "modularity_category": "variational",
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 16,
+      "capacity_staff": 1,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Neighbourhood-scale gathering room for smaller community events"
+    },
+    "K0": {
+      "code": "K0",
+      "name": "Community / Gathering",
+      "function_family": "K0",
+      "function_label": "Community",
+      "size_class": "L",
+      "modularity_category": "variational",
+      "width_m": 12.0,
+      "depth_m": 12.0,
+      "area_m2": 144.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 40,
+      "capacity_staff": 2,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Gathering, event, flexible community use (baseline)"
+    },
+    "K0-L": {
+      "code": "K0-L",
+      "name": "Community / Gathering L",
+      "function_family": "K0",
+      "function_label": "Community",
+      "size_class": "L",
+      "modularity_category": "variational",
+      "width_m": 14.0,
+      "depth_m": 14.0,
+      "area_m2": 196.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 56,
+      "capacity_staff": 3,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "S",
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Campus-hall community space for the largest public strata"
+    },
+    "I0-S": {
+      "code": "I0-S",
+      "name": "Reflection / Prayer S",
+      "function_family": "I0",
+      "function_label": "Reflection",
+      "size_class": "S",
+      "modularity_category": "variational",
+      "width_m": 4.0,
+      "depth_m": 4.0,
+      "area_m2": 16.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 4,
+      "capacity_staff": 0,
+      "privacy_level": 4,
+      "access_type": "public",
+      "access_faces": [
+        "S"
+      ],
+      "service_faces": [],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": false,
+      "stackable_above": true,
+      "stackable_below": true,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Single-person reflection niche; highest privacy, minimal footprint"
+    },
+    "I0": {
+      "code": "I0",
+      "name": "Reflection / Prayer",
+      "function_family": "I0",
+      "function_label": "Reflection",
+      "size_class": "S",
+      "modularity_category": "variational",
+      "width_m": 6.0,
+      "depth_m": 6.0,
+      "area_m2": 36.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 8,
+      "capacity_staff": 0,
+      "privacy_level": 3,
+      "access_type": "public",
+      "access_faces": [
+        "S"
+      ],
+      "service_faces": [],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": false,
+      "stackable_above": true,
+      "stackable_below": true,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Reflection, prayer, quiet, nature connection (baseline)"
+    },
+    "I0-L": {
+      "code": "I0-L",
+      "name": "Reflection / Prayer L",
+      "function_family": "I0",
+      "function_label": "Reflection",
+      "size_class": "M",
+      "modularity_category": "variational",
+      "width_m": 8.0,
+      "depth_m": 8.0,
+      "area_m2": 64.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 16,
+      "capacity_staff": 0,
+      "privacy_level": 3,
+      "access_type": "public",
+      "access_faces": [
+        "S"
+      ],
+      "service_faces": [],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": false,
+      "stackable_above": true,
+      "stackable_below": true,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Communal prayer / reflection hall for larger resident groups"
+    },
+    "L0": {
+      "code": "L0",
+      "name": "Transition / Threshold",
+      "function_family": "L0",
+      "function_label": "Transition",
+      "size_class": "S",
+      "modularity_category": "variational",
+      "width_m": 4.0,
+      "depth_m": 6.0,
+      "area_m2": 24.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 6,
+      "capacity_staff": 0,
+      "privacy_level": 2,
+      "access_type": "public",
+      "access_faces": [
+        "N",
+        "S"
+      ],
+      "service_faces": [],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 2,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Transition, decompression, threshold, orientation (baseline)"
+    },
+    "L0-L": {
+      "code": "L0-L",
+      "name": "Transition / Threshold L",
+      "function_family": "L0",
+      "function_label": "Transition",
+      "size_class": "M",
+      "modularity_category": "variational",
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 12,
+      "capacity_staff": 0,
+      "privacy_level": 2,
+      "access_type": "public",
+      "access_faces": [
+        "N",
+        "S"
+      ],
+      "service_faces": [],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 2,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Generous threshold / decompression gallery between public and domestic realms"
+    },
+    "F0": {
+      "code": "F0",
+      "name": "Service / Kitchen",
+      "function_family": "F0",
+      "function_label": "Service",
+      "size_class": "M",
+      "modularity_category": "developmental",
+      "width_m": 8.0,
+      "depth_m": 10.0,
+      "area_m2": 80.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 0,
+      "capacity_staff": 4,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N",
+        "S"
+      ],
+      "repeatable": false,
+      "min_count": 1,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Kitchen, storage, utility, service access (baseline)"
+    },
+    "F0-L": {
+      "code": "F0-L",
+      "name": "Service / Kitchen L",
+      "function_family": "F0",
+      "function_label": "Service",
+      "size_class": "L",
+      "modularity_category": "developmental",
+      "width_m": 10.0,
+      "depth_m": 12.0,
+      "area_m2": 120.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 0,
+      "capacity_staff": 6,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N",
+        "S"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Central kitchen + storage for high-resident and high day-user strata"
+    },
+    "M0": {
+      "code": "M0",
+      "name": "Maintenance / Utility",
+      "function_family": "M0",
+      "function_label": "Maintenance",
+      "size_class": "M",
+      "modularity_category": "developmental",
+      "width_m": 6.0,
+      "depth_m": 8.0,
+      "area_m2": 48.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 0,
+      "capacity_staff": 2,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N",
+        "S"
+      ],
+      "repeatable": false,
+      "min_count": 1,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[PA5 CORPUS]",
+      "description": "Maintenance, waste, environmental control, service yard (baseline)"
+    },
+    "M0-L": {
+      "code": "M0-L",
+      "name": "Maintenance / Utility L",
+      "function_family": "M0",
+      "function_label": "Maintenance",
+      "size_class": "L",
+      "modularity_category": "developmental",
+      "width_m": 8.0,
+      "depth_m": 10.0,
+      "area_m2": 80.0,
+      "max_floors": 1,
+      "capacity_residents": 0,
+      "capacity_day_users": 0,
+      "capacity_staff": 3,
+      "privacy_level": 1,
+      "access_type": "public+service",
+      "access_faces": [
+        "E",
+        "W"
+      ],
+      "service_faces": [
+        "N",
+        "S"
+      ],
+      "repeatable": false,
+      "min_count": 0,
+      "max_count": 1,
+      "ground_required": true,
+      "stackable_above": false,
+      "stackable_below": false,
+      "rotation_policy": "orthogonal",
+      "allowed_rotations": [
+        0,
+        90
+      ],
+      "evidence_status": "[DESIGN HYPOTHESIS]",
+      "description": "Larger service yard + plant for expanded campuses"
+    }
+  }
+}
